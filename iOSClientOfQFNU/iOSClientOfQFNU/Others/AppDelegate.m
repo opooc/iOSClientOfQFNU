@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LGSideMenuController.h"
 #import "UIViewController+LGSideMenuController.h"
-#import "QFNUCourseController.h"
+#import "MainController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    QFNUCourseController *rootViewController = [[QFNUCourseController alloc]init];
+    MainController *rootViewController = [[MainController alloc]init];
     UITableViewController *leftViewController = [UITableViewController new];
     UITableViewController *rightViewController = [UITableViewController new];
     
@@ -43,7 +43,7 @@
     [_window makeKeyAndVisible];
     
     
-    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];  
     return YES;
 }
 
