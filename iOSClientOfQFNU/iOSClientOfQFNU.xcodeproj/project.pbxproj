@@ -97,6 +97,9 @@
 		CB57140B1EEBCAE5004EA94A /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5713FE1EEBCAE5004EA94A /* NSObject+MJKeyValue.m */; };
 		CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5714001EEBCAE5004EA94A /* NSObject+MJProperty.m */; };
 		CB57140D1EEBCAE5004EA94A /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5714021EEBCAE5004EA94A /* NSString+MJExtension.m */; };
+		EB2D9A631EECFD6000FFDD52 /* HyLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2D9A5E1EECFD6000FFDD52 /* HyLoginButton.m */; };
+		EB2D9A641EECFD6000FFDD52 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2D9A601EECFD6000FFDD52 /* HySpinerLayer.m */; };
+		EB2D9A651EECFD6000FFDD52 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2D9A621EECFD6000FFDD52 /* HyTransitions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +258,12 @@
 		CB5714001EEBCAE5004EA94A /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		CB5714011EEBCAE5004EA94A /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		CB5714021EEBCAE5004EA94A /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		EB2D9A5D1EECFD6000FFDD52 /* HyLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoginButton.h; sourceTree = "<group>"; };
+		EB2D9A5E1EECFD6000FFDD52 /* HyLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoginButton.m; sourceTree = "<group>"; };
+		EB2D9A5F1EECFD6000FFDD52 /* HySpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HySpinerLayer.h; sourceTree = "<group>"; };
+		EB2D9A601EECFD6000FFDD52 /* HySpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HySpinerLayer.m; sourceTree = "<group>"; };
+		EB2D9A611EECFD6000FFDD52 /* HyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTransitions.h; sourceTree = "<group>"; };
+		EB2D9A621EECFD6000FFDD52 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -799,6 +808,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				EB2D9A5C1EECFD6000FFDD52 /* HYLogin */,
 				CB5713EC1EEBCAE5004EA94A /* MJExtension */,
 				CB1060B11EE909630099E371 /* GWPCourseListView */,
 				CB1060B41EE909630099E371 /* LGPlusButtonsView */,
@@ -994,6 +1004,19 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		EB2D9A5C1EECFD6000FFDD52 /* HYLogin */ = {
+			isa = PBXGroup;
+			children = (
+				EB2D9A5D1EECFD6000FFDD52 /* HyLoginButton.h */,
+				EB2D9A5E1EECFD6000FFDD52 /* HyLoginButton.m */,
+				EB2D9A5F1EECFD6000FFDD52 /* HySpinerLayer.h */,
+				EB2D9A601EECFD6000FFDD52 /* HySpinerLayer.m */,
+				EB2D9A611EECFD6000FFDD52 /* HyTransitions.h */,
+				EB2D9A621EECFD6000FFDD52 /* HyTransitions.m */,
+			);
+			path = HYLogin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1187,6 +1210,8 @@
 				CB1060FB1EE909630099E371 /* LGSideMenuGesturesHandler.m in Sources */,
 				CB1061161EEB88F90099E371 /* MainController.m in Sources */,
 				CB1060CC1EE909630099E371 /* QFNUAboutUsController.m in Sources */,
+				EB2D9A651EECFD6000FFDD52 /* HyTransitions.m in Sources */,
+				EB2D9A641EECFD6000FFDD52 /* HySpinerLayer.m in Sources */,
 				CB1060F11EE909630099E371 /* QFNUSettingController.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
@@ -1204,6 +1229,7 @@
 				CB1060FF1EE909630099E371 /* UIViewController+LGSideMenuController.m in Sources */,
 				CB5714091EEBCAE5004EA94A /* NSObject+MJClass.m in Sources */,
 				CB10610F1EEB88120099E371 /* QFNULibraryController.m in Sources */,
+				EB2D9A631EECFD6000FFDD52 /* HyLoginButton.m in Sources */,
 				CB1060F31EE909630099E371 /* QFNUToolController.m in Sources */,
 				CB1060F81EE909630099E371 /* LGPlusButtonsViewShared.m in Sources */,
 				CB1060CE1EE909630099E371 /* QFNUBackController.m in Sources */,

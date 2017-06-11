@@ -10,7 +10,7 @@
 #import "LGSideMenuController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "MainController.h"
-
+#import "QFNULoginController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    MainController *rootViewController = [[MainController alloc]init];
+    QFNULoginController *rootViewController = [[QFNULoginController alloc]init];
     UITableViewController *leftViewController = [UITableViewController new];
     UITableViewController *rightViewController = [UITableViewController new];
     
