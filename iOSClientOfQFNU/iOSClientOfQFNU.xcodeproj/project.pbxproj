@@ -825,6 +825,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				EB2D9A5C1EECFD6000FFDD52 /* HYLogin */,
 				CB5713EC1EEBCAE5004EA94A /* MJExtension */,
 				CB1060B11EE909630099E371 /* GWPCourseListView */,
 				CB1060B41EE909630099E371 /* LGPlusButtonsView */,
@@ -1307,6 +1308,8 @@
 				CB1060FB1EE909630099E371 /* LGSideMenuGesturesHandler.m in Sources */,
 				CB1061161EEB88F90099E371 /* MainController.m in Sources */,
 				CB1060CC1EE909630099E371 /* QFNUAboutUsController.m in Sources */,
+				EB2D9A651EECFD6000FFDD52 /* HyTransitions.m in Sources */,
+				EB2D9A641EECFD6000FFDD52 /* HySpinerLayer.m in Sources */,
 				CB1060F11EE909630099E371 /* QFNUSettingController.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
@@ -1325,6 +1328,7 @@
 				CB1060FF1EE909630099E371 /* UIViewController+LGSideMenuController.m in Sources */,
 				CB5714091EEBCAE5004EA94A /* NSObject+MJClass.m in Sources */,
 				CB10610F1EEB88120099E371 /* QFNULibraryController.m in Sources */,
+				EB2D9A631EECFD6000FFDD52 /* HyLoginButton.m in Sources */,
 				CB1060F31EE909630099E371 /* QFNUToolController.m in Sources */,
 				CB1060F81EE909630099E371 /* LGPlusButtonsViewShared.m in Sources */,
 				CB1060CE1EE909630099E371 /* QFNUBackController.m in Sources */,
