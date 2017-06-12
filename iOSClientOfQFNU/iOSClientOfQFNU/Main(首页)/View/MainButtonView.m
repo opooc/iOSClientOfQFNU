@@ -11,7 +11,7 @@
 
 @interface MainButtonView()
 
-@property(nonatomic,weak)UIButton*  btn;
+
 @property(nonatomic,weak)UILabel* label;
 
 @end
@@ -51,8 +51,11 @@
 
 -(void)setUp{
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = [UIColor greenColor];
+   // btn.backgroundColor = [UIColor greenColor];
     btn.imageView.backgroundColor = [UIColor whiteColor];
+    btn.layer.cornerRadius = 25;
+    btn.layer.masksToBounds = true;
+    
 
     [self addSubview:btn];
     _btn = btn;
@@ -74,10 +77,10 @@
     CGFloat height = self.frame.size.height;
     
     self.btn.frame = CGRectMake(0, 0, width, width);
-    self.btn.imageView.frame = self.btn.bounds;
+    self.btn.imageView.frame = self.btn.frame;
 
     
-    self.label.frame = CGRectMake(0, width, width, height - width+20);
+    self.label.frame = CGRectMake(0, width, width, 20);
 
 
 }
@@ -86,7 +89,8 @@
 
     _btnmodel = btnmodel;
     NSLog(@"%@-------",_btnmodel.icon);
-    self.btn.imageView.image = [UIImage imageNamed:@"icon-calendar"];
+    
+    [self.btn setImage:[UIImage imageNamed:_btnmodel.icon] forState:UIControlStateNormal];
     self.label.text = _btnmodel.name;
 
 }

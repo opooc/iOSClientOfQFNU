@@ -12,6 +12,8 @@
 @interface MainButtonView : UIView
 
 @property(nonatomic,strong)MainButtonModel* btnmodel;
+@property(nonatomic,weak)UIButton*  btn;
+
 
 -(instancetype)initWithModel:(MainButtonModel*)btnmodel;
 +(instancetype)modelWithModel:(MainButtonModel*)btnmodel;

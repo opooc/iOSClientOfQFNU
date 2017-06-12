@@ -13,6 +13,7 @@
 #import "QFNUNewController.h"
 #import "QFNULookController.h"
 #import "QFNUToolController.h"
+#import "MeController.h"
 
 #import "MainController.h"
 #import "MainHeadScrollView.h"
@@ -97,6 +98,9 @@
     
     /***********************2.创建一个商品*****************************/
         MainButtonView *btnView = [[MainButtonView alloc] initWithModel:self.dataArr[index]];
+        if (index== 1) {
+            [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
+        }
         
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
@@ -106,8 +110,12 @@
     }
     
     [self.view addSubview:_allMainBtnView];
-    
- 
+
+}
+-(void)meVc{
+
+    MeController* me = [[MeController alloc]init];
+    [self.navigationController pushViewController:me animated:YES];
 
 
 }

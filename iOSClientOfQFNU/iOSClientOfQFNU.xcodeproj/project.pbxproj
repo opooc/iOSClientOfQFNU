@@ -97,6 +97,16 @@
 		CB57140B1EEBCAE5004EA94A /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5713FE1EEBCAE5004EA94A /* NSObject+MJKeyValue.m */; };
 		CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5714001EEBCAE5004EA94A /* NSObject+MJProperty.m */; };
 		CB57140D1EEBCAE5004EA94A /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5714021EEBCAE5004EA94A /* NSString+MJExtension.m */; };
+		CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F96F1EEE16CF00C9F53F /* MeController.m */; };
+		CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9761EEE184900C9F53F /* backImage.png */; };
+		CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9771EEE184900C9F53F /* Clock@2x.png */; };
+		CBA8F97E1EEE184900C9F53F /* Clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9781EEE184900C9F53F /* Clock@3x.png */; };
+		CBA8F97F1EEE184900C9F53F /* Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9791EEE184900C9F53F /* Portrait.png */; };
+		CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F97A1EEE184900C9F53F /* Share@2x.png */; };
+		CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F97B1EEE184900C9F53F /* Share@3x.png */; };
+		CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F9831EEE19BB00C9F53F /* meTableHeadView.m */; };
+		CBA8F9891EEE2B1200C9F53F /* headBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F9881EEE2B1200C9F53F /* headBtn.m */; };
+		CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +265,21 @@
 		CB5714001EEBCAE5004EA94A /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		CB5714011EEBCAE5004EA94A /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		CB5714021EEBCAE5004EA94A /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		CBA8F96E1EEE16CF00C9F53F /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
+		CBA8F96F1EEE16CF00C9F53F /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
+		CBA8F9761EEE184900C9F53F /* backImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImage.png; sourceTree = "<group>"; };
+		CBA8F9771EEE184900C9F53F /* Clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock@2x.png"; sourceTree = "<group>"; };
+		CBA8F9781EEE184900C9F53F /* Clock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock@3x.png"; sourceTree = "<group>"; };
+		CBA8F9791EEE184900C9F53F /* Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Portrait.png; sourceTree = "<group>"; };
+		CBA8F97A1EEE184900C9F53F /* Share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share@2x.png"; sourceTree = "<group>"; };
+		CBA8F97B1EEE184900C9F53F /* Share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share@3x.png"; sourceTree = "<group>"; };
+		CBA8F9821EEE19BB00C9F53F /* meTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meTableHeadView.h; sourceTree = "<group>"; };
+		CBA8F9831EEE19BB00C9F53F /* meTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = meTableHeadView.m; sourceTree = "<group>"; };
+		CBA8F9861EEE1BF400C9F53F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CBA8F9871EEE2B1200C9F53F /* headBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headBtn.h; sourceTree = "<group>"; };
+		CBA8F9881EEE2B1200C9F53F /* headBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headBtn.m; sourceTree = "<group>"; };
+		CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meTableViewCell.h; sourceTree = "<group>"; };
+		CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = meTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				CB1061101EEB887C0099E371 /* Main(首页) */,
-				CB1061001EE909950099E371 /* Others */,
+				CBA8F9671EEE126A00C9F53F /* Me(我) */,
 				CB1060421EE909630099E371 /* AboutUs(关于我们) */,
 				CB1060491EE909630099E371 /* Back(软件反馈) */,
 				CB1060561EE909630099E371 /* CConsult(校园资讯) */,
@@ -321,6 +346,7 @@
 				CB1060A41EE909630099E371 /* Share(软件分享) */,
 				CB1060AA1EE909630099E371 /* Tool(工具箱) */,
 				CB1060B01EE909630099E371 /* Vendors(第三方) */,
+				CB1061001EE909950099E371 /* Others */,
 				CB1060511EE909630099E371 /* Base.lproj */,
 				CB1060181EE908E30099E371 /* Main.storyboard */,
 				CB10601D1EE908E30099E371 /* LaunchScreen.storyboard */,
@@ -859,6 +885,7 @@
 				CB1061021EE909950099E371 /* AppDelegate.m */,
 				CB1061031EE909950099E371 /* Info.plist */,
 				CB1061041EE909950099E371 /* main.m */,
+				CBA8F9861EEE1BF400C9F53F /* PrefixHeader.pch */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -876,10 +903,8 @@
 		CB1061111EEB887C0099E371 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CB1061141EEB88F90099E371 /* MainController.h */,
-				CB1061151EEB88F90099E371 /* MainController.m */,
-				CB10611A1EEB8F570099E371 /* LeftSortsController.h */,
-				CB10611B1EEB8F570099E371 /* LeftSortsController.m */,
+				CBA8F9721EEE16FD00C9F53F /* Main */,
+				CBA8F9711EEE16E800C9F53F /* Left */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -910,6 +935,7 @@
 			children = (
 				CB5713981EEB9AAD004EA94A /* icon */,
 				CB5713B01EEB9AAD004EA94A /* Main */,
+				CBA8F9751EEE184900C9F53F /* Me */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -992,6 +1018,92 @@
 				CB5714021EEBCAE5004EA94A /* NSString+MJExtension.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		CBA8F9671EEE126A00C9F53F /* Me(我) */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F9681EEE126A00C9F53F /* Controller */,
+				CBA8F9691EEE126A00C9F53F /* Model */,
+				CBA8F96A1EEE126A00C9F53F /* View */,
+			);
+			path = "Me(我)";
+			sourceTree = "<group>";
+		};
+		CBA8F9681EEE126A00C9F53F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F96E1EEE16CF00C9F53F /* MeController.h */,
+				CBA8F96F1EEE16CF00C9F53F /* MeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CBA8F9691EEE126A00C9F53F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBA8F96A1EEE126A00C9F53F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F9741EEE173F00C9F53F /* Cell */,
+				CBA8F9731EEE172E00C9F53F /* TableHeadView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBA8F9711EEE16E800C9F53F /* Left */ = {
+			isa = PBXGroup;
+			children = (
+				CB10611A1EEB8F570099E371 /* LeftSortsController.h */,
+				CB10611B1EEB8F570099E371 /* LeftSortsController.m */,
+			);
+			name = Left;
+			sourceTree = "<group>";
+		};
+		CBA8F9721EEE16FD00C9F53F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CB1061141EEB88F90099E371 /* MainController.h */,
+				CB1061151EEB88F90099E371 /* MainController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		CBA8F9731EEE172E00C9F53F /* TableHeadView */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F9821EEE19BB00C9F53F /* meTableHeadView.h */,
+				CBA8F9831EEE19BB00C9F53F /* meTableHeadView.m */,
+				CBA8F9871EEE2B1200C9F53F /* headBtn.h */,
+				CBA8F9881EEE2B1200C9F53F /* headBtn.m */,
+			);
+			name = TableHeadView;
+			sourceTree = "<group>";
+		};
+		CBA8F9741EEE173F00C9F53F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */,
+				CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		CBA8F9751EEE184900C9F53F /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8F9761EEE184900C9F53F /* backImage.png */,
+				CBA8F9771EEE184900C9F53F /* Clock@2x.png */,
+				CBA8F9781EEE184900C9F53F /* Clock@3x.png */,
+				CBA8F9791EEE184900C9F53F /* Portrait.png */,
+				CBA8F97A1EEE184900C9F53F /* Share@2x.png */,
+				CBA8F97B1EEE184900C9F53F /* Share@3x.png */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1107,6 +1219,7 @@
 				CB5713C01EEB9AAD004EA94A /* icon-20@2x.png in Resources */,
 				CB5713DB1EEB9AAD004EA94A /* icon-info.png in Resources */,
 				CB5713DF1EEB9AAD004EA94A /* icon-score.png in Resources */,
+				CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */,
 				CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */,
 				CB5713CB1EEB9AAD004EA94A /* icon-50@2x.png in Resources */,
 				CB5713E31EEB9B82004EA94A /* MainButtonData.plist in Resources */,
@@ -1117,8 +1230,10 @@
 				CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */,
 				CB5713DC1EEB9AAD004EA94A /* icon-lab.png in Resources */,
 				CB5713D91EEB9AAD004EA94A /* icon-exam.png in Resources */,
+				CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */,
 				CB5713DE1EEB9AAD004EA94A /* icon-lost.png in Resources */,
 				CB5713DD1EEB9AAD004EA94A /* icon-library.png in Resources */,
+				CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */,
 				CB5713BE1EEB9AAD004EA94A /* icon-20-ipad.png in Resources */,
 				CB5713D21EEB9AAD004EA94A /* icon-76.png in Resources */,
 				CB5713CA1EEB9AAD004EA94A /* icon-50.png in Resources */,
@@ -1135,13 +1250,16 @@
 				CB5713D01EEB9AAD004EA94A /* icon-72.png in Resources */,
 				CB5713CC1EEB9AAD004EA94A /* icon-57.png in Resources */,
 				CB5713D41EEB9AAD004EA94A /* icon-83.5@2x.png in Resources */,
+				CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */,
 				CB5713CF1EEB9AAD004EA94A /* icon-60@3x.png in Resources */,
 				CB5713C91EEB9AAD004EA94A /* icon-40@3x.png in Resources */,
 				CB5713CE1EEB9AAD004EA94A /* icon-60@2x.png in Resources */,
 				CB10601A1EE908E30099E371 /* Main.storyboard in Resources */,
+				CBA8F97E1EEE184900C9F53F /* Clock@3x.png in Resources */,
 				CB1061091EE90CD30099E371 /* Images.xcassets in Resources */,
 				CB5713C31EEB9AAD004EA94A /* icon-29.png in Resources */,
 				CB5714031EEBCAE5004EA94A /* Info.plist in Resources */,
+				CBA8F97F1EEE184900C9F53F /* Portrait.png in Resources */,
 				CB5713DA1EEB9AAD004EA94A /* icon-homework-inline.png in Resources */,
 				CB5713C61EEB9AAD004EA94A /* icon-29@3x.png in Resources */,
 				CB5713D31EEB9AAD004EA94A /* icon-76@2x.png in Resources */,
@@ -1181,7 +1299,9 @@
 				CB5714071EEBCAE5004EA94A /* MJPropertyKey.m in Sources */,
 				CB1060EF1EE909630099E371 /* QFNULookController.m in Sources */,
 				CB1060F71EE909630099E371 /* LGPlusButtonsView.m in Sources */,
+				CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */,
 				CB1060D41EE909630099E371 /* CourseModel.m in Sources */,
+				CBA8F9891EEE2B1200C9F53F /* headBtn.m in Sources */,
 				CB1060F61EE909630099E371 /* LGPlusButtonDescription.m in Sources */,
 				CB5714051EEBCAE5004EA94A /* MJFoundation.m in Sources */,
 				CB1060FB1EE909630099E371 /* LGSideMenuGesturesHandler.m in Sources */,
@@ -1199,6 +1319,7 @@
 				CB1060FD1EE909630099E371 /* LGSideMenuSegue.m in Sources */,
 				CB1060F01EE909630099E371 /* QFNUNewController.m in Sources */,
 				CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */,
+				CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */,
 				CB57140D1EEBCAE5004EA94A /* NSString+MJExtension.m in Sources */,
 				CB1060F91EE909630099E371 /* LGSideMenuBorderView.m in Sources */,
 				CB1060FF1EE909630099E371 /* UIViewController+LGSideMenuController.m in Sources */,
@@ -1213,6 +1334,7 @@
 				CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */,
 				CB5713EB1EEBC657004EA94A /* MainButtonView.m in Sources */,
 				CB1060EE1EE909630099E371 /* QFNULoginController.m in Sources */,
+				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
 				CB5713E81EEBC4C0004EA94A /* MainButtonModel.m in Sources */,
 				CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */,
 			);
@@ -1379,6 +1501,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1393,6 +1517,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

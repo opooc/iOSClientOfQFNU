@@ -35,11 +35,18 @@
             self.imageView = [[UIImageView alloc] init];
             UITapGestureRecognizer *TapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewTap:)];
             self.imageView.userInteractionEnabled = YES;
+            
+          
+            
             self.imageView.tag = 100+i;
             [self.imageView addGestureRecognizer:TapGesture];
+            
+            
+            
+            
             CGFloat imageViewX = imageViewW * i;
             self.imageView.frame = CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH);
-            
+
             // 3.设置图片
             // 拼接图片的名称
             NSString *imageName = [NSString stringWithFormat:@"img_%02zd", (i + 1)];
@@ -47,6 +54,8 @@
             [self.scrollView addSubview:self.imageView];
             
         }
+       
+       
         
         self.scrollView.contentSize = CGSizeMake(imageViewW * ImageCount, 0);
         self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -104,7 +113,7 @@
 #pragma mark - 懒加载来创建定时器
 - (NSTimer *)timer {
     if (_timer == nil) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return _timer;
