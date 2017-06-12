@@ -96,11 +96,13 @@
     CGFloat x = (hMargin + width) * (index % allCols);
     CGFloat y = (vMargin + height) * (index / allCols);
     
-    /***********************2.创建一个商品*****************************/
+    /***********************.创建一个按钮*****************************/
         MainButtonView *btnView = [[MainButtonView alloc] initWithModel:self.dataArr[index]];
-        if (index== 1) {
-            [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
-        }
+        
+        /*****   根据按钮的编号 添加弹出控制器*/
+//        if (index== 1) {
+//            [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
+//        }
         
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
