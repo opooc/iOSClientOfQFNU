@@ -67,6 +67,7 @@
         self.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
         self.scrollView.delegate = self;
         self.scrollView.bounces = NO;
+        
         [self timer];
         
         

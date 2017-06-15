@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "WZXLaunchViewController.h"
+#import "HomeWebViewController.h"
+
 #import "LGSideMenuController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "MainController.h"
@@ -21,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    QFNULoginController *rootViewController = [[QFNULoginController alloc]init];
+    MainController *rootViewController = [[MainController alloc]init];
     UITableViewController *leftViewController = [UITableViewController new];
     UITableViewController *rightViewController = [UITableViewController new];
     
@@ -36,14 +39,41 @@
     
     sideMenuController.rightViewWidth = 100.0;
     sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
-    _window.rootViewController = sideMenuController;
     
     
     _window.backgroundColor = [UIColor whiteColor];
-    [_window makeKeyAndVisible];
-    
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];  
+
+    //隐藏电池
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+
+    ///设置启动页
+    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-150) ImageURL:@"http://c.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a6a943c180b3b5bb5c8eab8e7.jpg" advertisingURL:@"http://www.jianshu.com/p/7205047eadf7" timeSecond:10 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
+        /// 广告加载结束
+        NSLog(@"%@ %@",image,imageURL);
+        
+    } clickImage:^(UIViewController *WZXlaunchVC){
+        
+        /// 点击广告
+        
+        //2.在webview中打开
+        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
+        VC.urlStr = @"http://www.jianshu.com/p/7205047eadf7";
+        VC.AppDelegateSele= -1;
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
+        
+        
+    } theAdEnds:^{
+        
+        
+        //广告展示完成回调,设置window根控制器
+        
+        _window.rootViewController = sideMenuController;
+
+        
+        
+    }];
+        [_window makeKeyAndVisible];
     return YES;
 }
 

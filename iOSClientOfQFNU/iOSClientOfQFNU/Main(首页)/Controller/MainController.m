@@ -51,9 +51,9 @@
     for (MainButtonModel* btnView in self.dataArr) {
         NSLog(@"%@",btnView.name);
     }
-
     [self setMainHeadScrollView];
     [self setButtonView];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 
@@ -100,15 +100,19 @@
         MainButtonView *btnView = [[MainButtonView alloc] initWithModel:self.dataArr[index]];
         
         /*****   根据按钮的编号 添加弹出控制器*/
-//        if (index== 1) {
-//            [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
+        if (index== 1) {
+            [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
+        }
+//       ／／else if (index ==2) {
+//           [btnView.btn addTarget:self action:@selector(loginVc) forControlEvents:UIControlEventTouchUpInside];
 //        }
-        
+    
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
         
        // btnView.backgroundColor = [UIColor blueColor];
         [self.allMainBtnView addSubview:btnView];
+    
     }
     
     [self.view addSubview:_allMainBtnView];
@@ -118,8 +122,10 @@
 
     MeController* me = [[MeController alloc]init];
     [self.navigationController pushViewController:me animated:YES];
-
-
+}
+-(void)loginVc{
+    QFNULoginController* loginVc = [[QFNULoginController alloc]init];
+    [self.navigationController pushViewController:loginVc animated:YES];
 }
 
 
