@@ -119,6 +119,7 @@
 		CB658C561EF2078D00AE5327 /* WZXLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C511EF2078D00AE5327 /* WZXLaunchViewController.m */; };
 		CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C551EF2078D00AE5327 /* WZXLaunchAd.m */; };
 		CB658C5A1EF2096200AE5327 /* HomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C591EF2096200AE5327 /* HomeWebViewController.m */; };
+		CB658C5C1EF2547F00AE5327 /* meTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB658C5B1EF2547F00AE5327 /* meTableViewCell.xib */; };
 		CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F96F1EEE16CF00C9F53F /* MeController.m */; };
 		CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9761EEE184900C9F53F /* backImage.png */; };
 		CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9771EEE184900C9F53F /* Clock@2x.png */; };
@@ -330,6 +331,7 @@
 		CB658C551EF2078D00AE5327 /* WZXLaunchAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZXLaunchAd.m; sourceTree = "<group>"; };
 		CB658C581EF2096200AE5327 /* HomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWebViewController.h; sourceTree = "<group>"; };
 		CB658C591EF2096200AE5327 /* HomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWebViewController.m; sourceTree = "<group>"; };
+		CB658C5B1EF2547F00AE5327 /* meTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = meTableViewCell.xib; sourceTree = "<group>"; };
 		CBA8F96E1EEE16CF00C9F53F /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		CBA8F96F1EEE16CF00C9F53F /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		CBA8F9761EEE184900C9F53F /* backImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImage.png; sourceTree = "<group>"; };
@@ -1253,6 +1255,7 @@
 			children = (
 				CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */,
 				CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */,
+				CB658C5B1EF2547F00AE5327 /* meTableViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1379,6 +1382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB658C5C1EF2547F00AE5327 /* meTableViewCell.xib in Resources */,
 				CB5713D11EEB9AAD004EA94A /* icon-72@2x.png in Resources */,
 				CB5713C01EEB9AAD004EA94A /* icon-20@2x.png in Resources */,
 				CB658C3E1EF2076D00AE5327 /* LICENSE in Resources */,

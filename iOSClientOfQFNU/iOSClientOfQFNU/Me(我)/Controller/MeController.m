@@ -38,7 +38,7 @@
     
     
     self.view.backgroundColor = [UIColor whiteColor];
-    dataSource = @[@{@"title":@"下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我",@"date":@"6-12"}];
+    dataSource = @[@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"}];
     
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
@@ -46,15 +46,20 @@
     _tableView.dataSource = self;
     _tableView.layer.masksToBounds = false;
     
+    _tableView.estimatedRowHeight = 80;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
+    
+         //表示tableViewCell 动态返回
+    
     //    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
     //    footView.backgroundColor = [UIColor blueColor];
     //    _tableView.tableFooterView = footView;      //去除多余的横线
     
-    _tableView.tableFooterView = [UIView new];
+    _tableView.tableFooterView = [[UIView alloc]init];
+
     
-    //    [UIView new] = [[UIView alloc]init];
     [self.view addSubview:_tableView];
-    [_tableView registerClass:[meTableViewCell class] forCellReuseIdentifier:@"mainCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"meTableViewCell" bundle:nil] forCellReuseIdentifier:@"mainCell"];
     
     
     head = [[meTableHeadView alloc]init];
@@ -85,6 +90,25 @@
     
     
 }
+
+
+/**
+ *  分割线顶头
+ */
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    [_tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    [_tableView setLayoutMargins:UIEdgeInsetsZero];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+    
+}
+
 
 
 @end

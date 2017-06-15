@@ -103,9 +103,10 @@
         if (index== 1) {
             [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
         }
-//       ／／else if (index ==2) {
-//           [btnView.btn addTarget:self action:@selector(loginVc) forControlEvents:UIControlEventTouchUpInside];
-//        }
+        
+      else if (index ==2) {
+           [btnView.btn addTarget:self action:@selector(loginVc) forControlEvents:UIControlEventTouchUpInside];
+        }
     
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
@@ -118,6 +119,7 @@
     [self.view addSubview:_allMainBtnView];
 
 }
+
 -(void)meVc{
 
     MeController* me = [[MeController alloc]init];

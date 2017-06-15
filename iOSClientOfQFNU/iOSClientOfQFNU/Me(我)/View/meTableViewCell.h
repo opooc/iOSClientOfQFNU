@@ -12,9 +12,13 @@
 
 @property (nonatomic, strong) UILabel *contenLabel;
 
-@property (nonatomic, strong) UILabel *dateLabel;
+//@property (nonatomic, strong) UILabel *dateLabel;
 
 
 @property (nonatomic, strong) NSDictionary *dataSource;
+@property (weak, nonatomic) IBOutlet UILabel *DataLable;
+@property (weak, nonatomic) IBOutlet UILabel *TimeLable;
 
 @end
+
+
