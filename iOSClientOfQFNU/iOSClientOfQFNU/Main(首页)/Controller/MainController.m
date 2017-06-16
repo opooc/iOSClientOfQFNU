@@ -100,14 +100,17 @@
         MainButtonView *btnView = [[MainButtonView alloc] initWithModel:self.dataArr[index]];
         
         /*****   根据按钮的编号 添加弹出控制器*/
-        if (index== 1) {
+        if (index== 0) {
             [btnView.btn addTarget:self action:@selector(meVc) forControlEvents:UIControlEventTouchUpInside];
         }
         
-      else if (index ==2) {
+      else if (index ==1) {
            [btnView.btn addTarget:self action:@selector(loginVc) forControlEvents:UIControlEventTouchUpInside];
         }
-    
+      else if (index ==2) {
+          [btnView.btn addTarget:self action:@selector(aboutUs) forControlEvents:UIControlEventTouchUpInside];
+      }
+        
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
         
@@ -128,6 +131,10 @@
 -(void)loginVc{
     QFNULoginController* loginVc = [[QFNULoginController alloc]init];
     [self.navigationController pushViewController:loginVc animated:YES];
+}
+-(void)aboutUs{
+    QFNUAboutUsController* aboutUs = [[QFNUAboutUsController alloc]init];
+    [self.navigationController pushViewController:aboutUs animated:YES];
 }
 
 

@@ -120,6 +120,12 @@
 		CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C551EF2078D00AE5327 /* WZXLaunchAd.m */; };
 		CB658C5A1EF2096200AE5327 /* HomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C591EF2096200AE5327 /* HomeWebViewController.m */; };
 		CB658C5C1EF2547F00AE5327 /* meTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB658C5B1EF2547F00AE5327 /* meTableViewCell.xib */; };
+		CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C5F1EF2AA6E00AE5327 /* AppDelegate+Guaid.m */; };
+		CB658C661EF2AA6E00AE5327 /* KSGuaidProperty.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB658C601EF2AA6E00AE5327 /* KSGuaidProperty.plist */; };
+		CB658C671EF2AA6E00AE5327 /* KSGuaidViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C621EF2AA6E00AE5327 /* KSGuaidViewCell.m */; };
+		CB658C681EF2AA6E00AE5327 /* KSGuaidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C641EF2AA6E00AE5327 /* KSGuaidViewController.m */; };
+		CB658C6A1EF2AED400AE5327 /* AboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB658C691EF2AED400AE5327 /* AboutUsView.xib */; };
+		CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB658C6C1EF2B0FC00AE5327 /* AboutUsView.m */; };
 		CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F96F1EEE16CF00C9F53F /* MeController.m */; };
 		CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9761EEE184900C9F53F /* backImage.png */; };
 		CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9771EEE184900C9F53F /* Clock@2x.png */; };
@@ -332,6 +338,16 @@
 		CB658C581EF2096200AE5327 /* HomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWebViewController.h; sourceTree = "<group>"; };
 		CB658C591EF2096200AE5327 /* HomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWebViewController.m; sourceTree = "<group>"; };
 		CB658C5B1EF2547F00AE5327 /* meTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = meTableViewCell.xib; sourceTree = "<group>"; };
+		CB658C5E1EF2AA6E00AE5327 /* AppDelegate+Guaid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Guaid.h"; sourceTree = "<group>"; };
+		CB658C5F1EF2AA6E00AE5327 /* AppDelegate+Guaid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Guaid.m"; sourceTree = "<group>"; };
+		CB658C601EF2AA6E00AE5327 /* KSGuaidProperty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KSGuaidProperty.plist; sourceTree = "<group>"; };
+		CB658C611EF2AA6E00AE5327 /* KSGuaidViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewCell.h; sourceTree = "<group>"; };
+		CB658C621EF2AA6E00AE5327 /* KSGuaidViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewCell.m; sourceTree = "<group>"; };
+		CB658C631EF2AA6E00AE5327 /* KSGuaidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuaidViewController.h; sourceTree = "<group>"; };
+		CB658C641EF2AA6E00AE5327 /* KSGuaidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuaidViewController.m; sourceTree = "<group>"; };
+		CB658C691EF2AED400AE5327 /* AboutUsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsView.xib; sourceTree = "<group>"; };
+		CB658C6B1EF2B0FC00AE5327 /* AboutUsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsView.h; sourceTree = "<group>"; };
+		CB658C6C1EF2B0FC00AE5327 /* AboutUsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsView.m; sourceTree = "<group>"; };
 		CBA8F96E1EEE16CF00C9F53F /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		CBA8F96F1EEE16CF00C9F53F /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		CBA8F9761EEE184900C9F53F /* backImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImage.png; sourceTree = "<group>"; };
@@ -492,6 +508,9 @@
 		CB1060471EE909630099E371 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB658C691EF2AED400AE5327 /* AboutUsView.xib */,
+				CB658C6B1EF2B0FC00AE5327 /* AboutUsView.h */,
+				CB658C6C1EF2B0FC00AE5327 /* AboutUsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -906,6 +925,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				CB658C5D1EF2AA6E00AE5327 /* KSGuaidView */,
 				CB658C1D1EF2076D00AE5327 /* SDWebImage */,
 				CB01AB6C1EEEBC3A00E04D64 /* HYLogin */,
 				CB5713EC1EEBCAE5004EA94A /* MJExtension */,
@@ -1186,6 +1206,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CB658C5D1EF2AA6E00AE5327 /* KSGuaidView */ = {
+			isa = PBXGroup;
+			children = (
+				CB658C5E1EF2AA6E00AE5327 /* AppDelegate+Guaid.h */,
+				CB658C5F1EF2AA6E00AE5327 /* AppDelegate+Guaid.m */,
+				CB658C601EF2AA6E00AE5327 /* KSGuaidProperty.plist */,
+				CB658C611EF2AA6E00AE5327 /* KSGuaidViewCell.h */,
+				CB658C621EF2AA6E00AE5327 /* KSGuaidViewCell.m */,
+				CB658C631EF2AA6E00AE5327 /* KSGuaidViewController.h */,
+				CB658C641EF2AA6E00AE5327 /* KSGuaidViewController.m */,
+			);
+			path = KSGuaidView;
+			sourceTree = "<group>";
+		};
 		CBA8F9671EEE126A00C9F53F /* Me(我) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1410,6 +1444,7 @@
 				CB5713E01EEB9AAD004EA94A /* icon-second-hand.png in Resources */,
 				CB5713BF1EEB9AAD004EA94A /* icon-20@2x-ipad.png in Resources */,
 				CB5713E51EEB9F74004EA94A /* icon-video.png in Resources */,
+				CB658C6A1EF2AED400AE5327 /* AboutUsView.xib in Resources */,
 				CB1060D11EE909630099E371 /* Main.storyboard in Resources */,
 				CB5713C71EEB9AAD004EA94A /* icon-40.png in Resources */,
 				CB5713D61EEB9AAD004EA94A /* icon-calendar.png in Resources */,
@@ -1418,6 +1453,7 @@
 				CB5713C81EEB9AAD004EA94A /* icon-40@2x.png in Resources */,
 				CB5713D01EEB9AAD004EA94A /* icon-72.png in Resources */,
 				CB5713CC1EEB9AAD004EA94A /* icon-57.png in Resources */,
+				CB658C661EF2AA6E00AE5327 /* KSGuaidProperty.plist in Resources */,
 				CB5713D41EEB9AAD004EA94A /* icon-83.5@2x.png in Resources */,
 				CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */,
 				CB5713CF1EEB9AAD004EA94A /* icon-60@3x.png in Resources */,
@@ -1481,8 +1517,10 @@
 				CB1060CC1EE909630099E371 /* QFNUAboutUsController.m in Sources */,
 				CB1060F11EE909630099E371 /* QFNUSettingController.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
+				CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */,
 				CB658C461EF2076D00AE5327 /* SDWebImageManager.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
+				CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */,
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
@@ -1521,8 +1559,10 @@
 				CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */,
 				CB5713EB1EEBC657004EA94A /* MainButtonView.m in Sources */,
 				CB658C3F1EF2076D00AE5327 /* README.md in Sources */,
+				CB658C681EF2AA6E00AE5327 /* KSGuaidViewController.m in Sources */,
 				CB1060EE1EE909630099E371 /* QFNULoginController.m in Sources */,
 				CB658C561EF2078D00AE5327 /* WZXLaunchViewController.m in Sources */,
+				CB658C671EF2AA6E00AE5327 /* KSGuaidViewCell.m in Sources */,
 				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
 				CB5713E81EEBC4C0004EA94A /* MainButtonModel.m in Sources */,
 				CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */,
