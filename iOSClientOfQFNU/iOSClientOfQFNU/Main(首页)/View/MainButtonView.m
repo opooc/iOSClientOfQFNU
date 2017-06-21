@@ -52,7 +52,7 @@
 -(void)setUp{
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
    // btn.backgroundColor = [UIColor greenColor];
-    btn.imageView.backgroundColor = [UIColor whiteColor];
+   // btn.imageView.backgroundColor = [UIColor whiteColor];
     btn.layer.cornerRadius = 25;
     btn.layer.masksToBounds = true;
     
@@ -61,8 +61,8 @@
     _btn = btn;
     
     UILabel* lable = [[UILabel alloc]init];
-    lable.backgroundColor = [UIColor yellowColor];
-    lable.textColor = [UIColor greenColor];
+   // lable.backgroundColor = [UIColor yellowColor];
+   // lable.textColor = [UIColor greenColor];
     [self addSubview:lable];
     _label = lable;
 
@@ -81,6 +81,7 @@
 
     
     self.label.frame = CGRectMake(0, width, width, 20);
+    self.label.textAlignment = NSTextAlignmentCenter;
 
 
 }
@@ -92,6 +93,8 @@
     
     [self.btn setImage:[UIImage imageNamed:_btnmodel.icon] forState:UIControlStateNormal];
     self.label.text = _btnmodel.name;
+    self.label.font = [UIFont systemFontOfSize:12];
+    
 
 }
 

@@ -77,7 +77,7 @@
     UIView* allMainBtnView = [[UIView alloc]initWithFrame:CGRectMake(0,Bheight*0.5,Bwidth,Bheight*0.5)];
     
     _allMainBtnView = allMainBtnView;
-    _allMainBtnView.backgroundColor = [UIColor brownColor];
+ //_allMainBtnView.backgroundColor = [UIColor brownColor];
     NSInteger allCols = 4;
     
     // 2.商品的宽度 和 高度

@@ -45,5 +45,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许曲园教务使用你的相机？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许曲园教务访问你的相册？</string>
 </dict>
 </plist>

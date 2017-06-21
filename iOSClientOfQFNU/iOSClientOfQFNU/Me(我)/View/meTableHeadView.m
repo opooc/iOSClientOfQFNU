@@ -8,6 +8,7 @@
 
 #import "meTableHeadView.h"
 #import "headBtn.h"
+#import "DSYPhotoHelper.h"
 
 @implementation meTableHeadView
 
@@ -18,6 +19,7 @@
     }
     return self;
 }
+
 
 -(void)initUI{
     self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH/4*3-64);
@@ -38,6 +40,9 @@
     _portrait.layer.masksToBounds = true;
     _portrait.layer.borderColor = [[UIColor whiteColor] CGColor];
     _portrait.layer.borderWidth = 2;
+    _portrait.userInteractionEnabled = YES;
+    UITapGestureRecognizer* gas = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gas)];
+    [_portrait addGestureRecognizer:gas];
     [self addSubview:_portrait];
     
     _name = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_portrait.frame)+offset, SCREEN_WIDTH, 20)];
@@ -61,4 +66,10 @@
 
 }
 
+-(void)gas{
+    [[DSYPhotoHelper shareHelper]showImageViewSelcteWithResultBlock:^(id data) {
+        _portrait.image = (UIImage*) data;
+    }];
+
+}
 @end

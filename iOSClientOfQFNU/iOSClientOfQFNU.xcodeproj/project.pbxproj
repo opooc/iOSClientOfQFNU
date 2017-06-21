@@ -10,6 +10,7 @@
 		CB01AB731EEEBC3A00E04D64 /* HyLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB6E1EEEBC3A00E04D64 /* HyLoginButton.m */; };
 		CB01AB741EEEBC3A00E04D64 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB701EEEBC3A00E04D64 /* HySpinerLayer.m */; };
 		CB01AB751EEEBC3A00E04D64 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB721EEEBC3A00E04D64 /* HyTransitions.m */; };
+		CB089A971EFA575A00624DF6 /* DSYPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB089A961EFA575A00624DF6 /* DSYPhotoHelper.m */; };
 		CB10601A1EE908E30099E371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1060181EE908E30099E371 /* Main.storyboard */; };
 		CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB10601D1EE908E30099E371 /* LaunchScreen.storyboard */; };
 		CB10602A1EE908E30099E371 /* iOSClientOfQFNUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1060291EE908E30099E371 /* iOSClientOfQFNUTests.m */; };
@@ -162,6 +163,8 @@
 		CB01AB701EEEBC3A00E04D64 /* HySpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HySpinerLayer.m; sourceTree = "<group>"; };
 		CB01AB711EEEBC3A00E04D64 /* HyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTransitions.h; sourceTree = "<group>"; };
 		CB01AB721EEEBC3A00E04D64 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
+		CB089A951EFA575A00624DF6 /* DSYPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSYPhotoHelper.h; sourceTree = "<group>"; };
+		CB089A961EFA575A00624DF6 /* DSYPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSYPhotoHelper.m; sourceTree = "<group>"; };
 		CB10600C1EE908E30099E371 /* iOSClientOfQFNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSClientOfQFNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1060191EE908E30099E371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB10601E1EE908E30099E371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -401,6 +404,15 @@
 				CB01AB721EEEBC3A00E04D64 /* HyTransitions.m */,
 			);
 			path = HYLogin;
+			sourceTree = "<group>";
+		};
+		CB089A941EFA574500624DF6 /* avaterImage */ = {
+			isa = PBXGroup;
+			children = (
+				CB089A951EFA575A00624DF6 /* DSYPhotoHelper.h */,
+				CB089A961EFA575A00624DF6 /* DSYPhotoHelper.m */,
+			);
+			name = avaterImage;
 			sourceTree = "<group>";
 		};
 		CB1060031EE908E30099E371 = {
@@ -1249,6 +1261,7 @@
 		CBA8F96A1EEE126A00C9F53F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB089A941EFA574500624DF6 /* avaterImage */,
 				CBA8F9741EEE173F00C9F53F /* Cell */,
 				CBA8F9731EEE172E00C9F53F /* TableHeadView */,
 			);
@@ -1529,6 +1542,7 @@
 				CB658C4D1EF2076D00AE5327 /* UIView+WebCacheOperation.m in Sources */,
 				CB1060FC1EE909630099E371 /* LGSideMenuHelper.m in Sources */,
 				CB1060F41EE909630099E371 /* GWPCourseListView.m in Sources */,
+				CB089A971EFA575A00624DF6 /* DSYPhotoHelper.m in Sources */,
 				CB1060F51EE909630099E371 /* LGPlusButton.m in Sources */,
 				CB10610C1EE90F0F0099E371 /* QFNUCConsultController.m in Sources */,
 				CB658C431EF2076D00AE5327 /* SDWebImageDecoder.m in Sources */,
