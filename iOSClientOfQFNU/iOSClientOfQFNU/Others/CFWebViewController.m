@@ -324,7 +324,7 @@
 
 -(UIWebView*)webView{
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         _webView.delegate = (id)self;
         _webView.scalesPageToFit = YES;
         _webView.backgroundColor = [UIColor whiteColor];
