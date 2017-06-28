@@ -51,6 +51,7 @@
     for (MainButtonModel* btnView in self.dataArr) {
         NSLog(@"%@",btnView.name);
     }
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setMainHeadScrollView];
     [self setButtonView];
     self.automaticallyAdjustsScrollViewInsets = NO;
