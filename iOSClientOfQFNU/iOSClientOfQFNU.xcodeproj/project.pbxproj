@@ -15,6 +15,8 @@
 		262D1C3A1F038E95004A4787 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C331F038E95004A4787 /* AFURLResponseSerialization.m */; };
 		262D1C3B1F038E95004A4787 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C351F038E95004A4787 /* AFURLSessionManager.m */; };
 		262D1C411F039BBC004A4787 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C401F039BBC004A4787 /* BaseRequest.m */; };
+		263A77141F04CC9400D9173B /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263A77121F04CC9400D9173B /* LeftViewController.m */; };
+		263A77151F04CC9400D9173B /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A77131F04CC9400D9173B /* LeftViewController.xib */; };
 		26A3304B1EFB903600783128 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A330481EFB903600783128 /* NJKWebViewProgress.m */; };
 		26A3304C1EFB903600783128 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304A1EFB903600783128 /* NJKWebViewProgressView.m */; };
 		26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304E1EFB909300783128 /* CFWebViewController.m */; };
@@ -186,6 +188,9 @@
 		262D1C351F038E95004A4787 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		262D1C3F1F039BBC004A4787 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		262D1C401F039BBC004A4787 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		263A77111F04CC9400D9173B /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.h"; sourceTree = SOURCE_ROOT; };
+		263A77121F04CC9400D9173B /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.m"; sourceTree = SOURCE_ROOT; };
+		263A77131F04CC9400D9173B /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftViewController.xib; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.xib"; sourceTree = SOURCE_ROOT; };
 		26A330471EFB903600783128 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		26A330481EFB903600783128 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		26A330491EFB903600783128 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
@@ -1360,6 +1365,9 @@
 			children = (
 				CB10611A1EEB8F570099E371 /* LeftSortsController.h */,
 				CB10611B1EEB8F570099E371 /* LeftSortsController.m */,
+				263A77111F04CC9400D9173B /* LeftViewController.h */,
+				263A77121F04CC9400D9173B /* LeftViewController.m */,
+				263A77131F04CC9400D9173B /* LeftViewController.xib */,
 			);
 			name = Left;
 			sourceTree = "<group>";
@@ -1517,6 +1525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB658C5C1EF2547F00AE5327 /* meTableViewCell.xib in Resources */,
+				263A77151F04CC9400D9173B /* LeftViewController.xib in Resources */,
 				CB5713D11EEB9AAD004EA94A /* icon-72@2x.png in Resources */,
 				CB5713C01EEB9AAD004EA94A /* icon-20@2x.png in Resources */,
 				CB658C3E1EF2076D00AE5327 /* LICENSE in Resources */,
@@ -1634,6 +1643,7 @@
 				CB658C4D1EF2076D00AE5327 /* UIView+WebCacheOperation.m in Sources */,
 				262D1C411F039BBC004A4787 /* BaseRequest.m in Sources */,
 				CB1060FC1EE909630099E371 /* LGSideMenuHelper.m in Sources */,
+				263A77141F04CC9400D9173B /* LeftViewController.m in Sources */,
 				CB1060F41EE909630099E371 /* GWPCourseListView.m in Sources */,
 				CB089A971EFA575A00624DF6 /* DSYPhotoHelper.m in Sources */,
 				CB1060F51EE909630099E371 /* LGPlusButton.m in Sources */,

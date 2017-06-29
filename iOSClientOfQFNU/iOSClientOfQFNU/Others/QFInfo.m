@@ -12,6 +12,11 @@
 @synthesize Username;
 @synthesize password;
 @synthesize token;
+
+/**
+ 单例方法
+ 可以调用全程，整个程序生命周期调用一个QFInfo的任何东西
+ */
 + (QFInfo *)sharedInstance
 {
     static QFInfo *sharedManagerInstance = nil;
@@ -21,6 +26,7 @@
     });
     return sharedManagerInstance;
 }
+//保存用户名密码
 - (void)save:(NSString *)user password:(NSString *)passWord{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 
@@ -28,6 +34,7 @@
     [ud setObject:passWord forKey:@"password"];
         [ud synchronize];
 }
+//调用用户名，没有就是空
 -(NSString *)getUser{
        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *us=@"";
@@ -36,6 +43,7 @@
     }
     return us;
 }
+//调用密码，没有就是空
 -(NSString *)getPassword{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *ps=@"";
