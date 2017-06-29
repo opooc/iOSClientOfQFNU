@@ -20,7 +20,7 @@
 #import "MainButtonModel.h"
 #import "MainButtonView.h"
 #import "MJExtension.h"
-
+#import "QFInfo.h"
 @interface MainController ()
 
 @property (nonatomic,strong) MainHeadScrollView* scrollView;
@@ -47,7 +47,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSString *us=[[QFInfo sharedInstance]getUser];
+    NSLog(@"us:%@",us);
+    if([QFInfo sharedInstance].token){
+        NSString *str=[QFInfo sharedInstance].token;
+        NSLog(@"str:%@",str);
+    }
     for (MainButtonModel* btnView in self.dataArr) {
         NSLog(@"%@",btnView.name);
     }

@@ -82,10 +82,10 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"dic %@",dic);
         if([[dic objectForKey:@"status"]integerValue]==1){
+            [[QFInfo sharedInstance]save:_UserName.text password:_password.text];
+            [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
             [button succeedAnimationWithCompletion:^{
-
                     [weak didPresentControllerButtonTouch];
-                
             }];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
