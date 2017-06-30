@@ -1482,7 +1482,6 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DTQ7WEE79D;
 						ProvisioningStyle = Automatic;
 					};
 					CB1060241EE908E30099E371 = {
@@ -1853,7 +1852,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
@@ -1869,7 +1869,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
