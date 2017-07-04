@@ -17,6 +17,10 @@
 		262D1C411F039BBC004A4787 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C401F039BBC004A4787 /* BaseRequest.m */; };
 		263A77141F04CC9400D9173B /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263A77121F04CC9400D9173B /* LeftViewController.m */; };
 		263A77151F04CC9400D9173B /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A77131F04CC9400D9173B /* LeftViewController.xib */; };
+		267938831F0B913B00D960C7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679387E1F0B913B00D960C7 /* TFHpple.m */; };
+		267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 267938801F0B913B00D960C7 /* TFHppleElement.m */; };
+		267938851F0B913B00D960C7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 267938821F0B913B00D960C7 /* XPathQuery.m */; };
+		267938881F0B93FC00D960C7 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 267938871F0B93FC00D960C7 /* libxml2.tbd */; };
 		26A3304B1EFB903600783128 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A330481EFB903600783128 /* NJKWebViewProgress.m */; };
 		26A3304C1EFB903600783128 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304A1EFB903600783128 /* NJKWebViewProgressView.m */; };
 		26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304E1EFB909300783128 /* CFWebViewController.m */; };
@@ -191,6 +195,13 @@
 		263A77111F04CC9400D9173B /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.h"; sourceTree = SOURCE_ROOT; };
 		263A77121F04CC9400D9173B /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.m"; sourceTree = SOURCE_ROOT; };
 		263A77131F04CC9400D9173B /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftViewController.xib; path = "iOSClientOfQFNU/Main(首页)/LeftViewController.xib"; sourceTree = SOURCE_ROOT; };
+		2679387D1F0B913B00D960C7 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		2679387E1F0B913B00D960C7 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		2679387F1F0B913B00D960C7 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		267938801F0B913B00D960C7 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		267938811F0B913B00D960C7 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		267938821F0B913B00D960C7 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		267938871F0B93FC00D960C7 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		26A330471EFB903600783128 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		26A330481EFB903600783128 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		26A330491EFB903600783128 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
@@ -415,6 +426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267938881F0B93FC00D960C7 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +467,27 @@
 				262D1C351F038E95004A4787 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		2679387C1F0B913B00D960C7 /* TPHpple */ = {
+			isa = PBXGroup;
+			children = (
+				2679387D1F0B913B00D960C7 /* TFHpple.h */,
+				2679387E1F0B913B00D960C7 /* TFHpple.m */,
+				2679387F1F0B913B00D960C7 /* TFHppleElement.h */,
+				267938801F0B913B00D960C7 /* TFHppleElement.m */,
+				267938811F0B913B00D960C7 /* XPathQuery.h */,
+				267938821F0B913B00D960C7 /* XPathQuery.m */,
+			);
+			path = TPHpple;
+			sourceTree = "<group>";
+		};
+		267938861F0B93FB00D960C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				267938871F0B93FC00D960C7 /* libxml2.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		26A330451EFB8FCB00783128 /* 网页封装 */ = {
@@ -510,6 +543,7 @@
 				CB1060281EE908E30099E371 /* iOSClientOfQFNUTests */,
 				CB1060331EE908E30099E371 /* iOSClientOfQFNUUITests */,
 				CB10600D1EE908E30099E371 /* Products */,
+				267938861F0B93FB00D960C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1027,6 +1061,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				2679387C1F0B913B00D960C7 /* TPHpple */,
 				262D1C281F038E95004A4787 /* AFNetworking */,
 				CB658C5D1EF2AA6E00AE5327 /* KSGuaidView */,
 				CB658C1D1EF2076D00AE5327 /* SDWebImage */,
@@ -1635,6 +1670,7 @@
 				CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */,
 				262D1C361F038E95004A4787 /* AFHTTPSessionManager.m in Sources */,
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
+				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,
@@ -1650,6 +1686,7 @@
 				CB658C431EF2076D00AE5327 /* SDWebImageDecoder.m in Sources */,
 				CB1060FD1EE909630099E371 /* LGSideMenuSegue.m in Sources */,
 				CB1060F01EE909630099E371 /* QFNUNewController.m in Sources */,
+				267938851F0B913B00D960C7 /* XPathQuery.m in Sources */,
 				262D1C3B1F038E95004A4787 /* AFURLSessionManager.m in Sources */,
 				CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */,
 				CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */,
@@ -1685,6 +1722,7 @@
 				CB658C561EF2078D00AE5327 /* WZXLaunchViewController.m in Sources */,
 				26A3304B1EFB903600783128 /* NJKWebViewProgress.m in Sources */,
 				CB658C671EF2AA6E00AE5327 /* KSGuaidViewCell.m in Sources */,
+				267938831F0B913B00D960C7 /* TFHpple.m in Sources */,
 				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
 				CB5713E81EEBC4C0004EA94A /* MainButtonModel.m in Sources */,
 				CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */,
@@ -1854,13 +1892,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Debug;
 		};
@@ -1870,14 +1912,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Release;
 		};

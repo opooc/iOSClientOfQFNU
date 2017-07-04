@@ -7,12 +7,15 @@
 //
 
 #import "QFInfo.h"
-
+#import "TFHpple.h"
+#import "AFNetworking.h"
+#import "BaseRequest.h"
 @implementation QFInfo
 @synthesize Username;
 @synthesize password;
 @synthesize token;
 
+;
 /**
  单例方法
  可以调用全程，整个程序生命周期调用一个QFInfo的任何东西
@@ -51,5 +54,33 @@
         ps=[ud objectForKey:@"password"];
     }
     return ps;
+}
++(void)loginqfnu:(NSString *)username password:(NSString *)password{
+    NSString *Lt=[[NSString alloc]init];
+    NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
+    NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+    TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
+    NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
+    for (TFHppleElement *hppleElement in dataArray){
+        if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
+            NSLog(@"%@",[hppleElement objectForKey:@"value"]);
+            Lt=[[NSString alloc]init];
+            Lt=[hppleElement objectForKey:@"value"];
+        }
+        
+    }
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSHTTPCookie *cookie = [[cookieJar cookiesForURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/login"]]firstObject];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@=%@", [cookie name], [cookie value]] forHTTPHeaderField:@"Cookie"];
+    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
+    [BaseRequest postLoginWithURL:domainStr lt:Lt user:@"2013412546" password:@"221716" callBack:^(NSData *data, NSError *error) {
+        NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"true:%@",str);
+    }];
 }
 @end

@@ -13,7 +13,7 @@
 //GET请求方法
 +(void)getWithURL:(NSString *)url para:(NSDictionary *)para callBack:(void(^)(NSData *data,NSError *error))callBack;
 //post请求方式
-+(void)postWithURL:(NSString *)url para:(NSDictionary *)para callBack:(void(^)(NSData *data,NSError *error))callBack;
++(void)postLoginWithURL:(NSString *)url lt:(NSString *)para user:(NSString *)user password:(NSString *)password  callBack:(void(^)(NSData *data,NSError *error))callBack;
 
 
 @end

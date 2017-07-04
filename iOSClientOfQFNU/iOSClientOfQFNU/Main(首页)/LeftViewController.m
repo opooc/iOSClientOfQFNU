@@ -68,7 +68,6 @@
     
     return cell;
 }
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 20)];
     label.backgroundColor = [UIColor whiteColor];
@@ -77,6 +76,12 @@
     NSArray *titleArray = @[@"| 学习工具  >",@"| 校园生活  >",@"| 其他功能  >"];
     label.text = titleArray[section];
     return label;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"你点击的是%@组%@行",indexPath.section,indexPath.row);
+    //http://m.5read.com/4581 图书馆
+    //www.qfnu.edu.cn  校园资讯
+    
 }
 /*
 #pragma mark - Navigation

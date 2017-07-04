@@ -71,6 +71,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
+
     NSDictionary* dic = @{@"user_id":_UserName.text,
                           @"password":_password.text
                           };

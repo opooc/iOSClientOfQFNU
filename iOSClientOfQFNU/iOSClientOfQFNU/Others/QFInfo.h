@@ -12,6 +12,7 @@
 @property (nonatomic, copy) NSString *Username;  //用户名
 @property (nonatomic, copy) NSString *password;  //密码
 @property (nonatomic, copy) NSString *token;  //每次登陆获取的秘钥
+@property (nonatomic, strong) NSString *Lt;
 + (QFInfo *)sharedInstance;//单例方法
 -(void)save:(NSString *)user password:(NSString *)passWord;
 -(NSString *)getUser;

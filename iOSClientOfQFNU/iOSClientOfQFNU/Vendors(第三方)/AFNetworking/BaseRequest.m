@@ -35,19 +35,22 @@
     [task resume];
 }
 
-+(void)postWithURL:(NSString *)url para:(NSDictionary *)para callBack:(void (^)(NSData *, NSError *))callBack
++(void)postLoginWithURL:(NSString *)url lt:(NSString *)para user:(NSString *)user password:(NSString *)password callBack:(void (^)(NSData *, NSError *))callBack
 {
     //处理 url 和 para的拼接
     NSMutableString * urlStr = [[NSMutableString alloc]initWithString:url];
     //拼接资源参数部分
-    [urlStr appendString:[self paraToString:para]];
-    NSLog(@"usr:%@",urlStr);
-    NSURL * URL = [NSURL URLWithString:urlStr];
+//    [urlStr appendString:[self paraToString:para]];
+//    NSLog(@"usr:%@",urlStr);
+    NSURL * URL = [NSURL URLWithString:url];
     //创建请求对象
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = @"POST";
     [request setTimeoutInterval:20];
-    
+    NSString *postString = [NSString stringWithFormat:@"username=%@&password=%@&lt=%@&execution=e1s1&_eventId=submit&submit=%%E7%%99%%BB%%E5%%BD%%95",user,password,para];
+    NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:data];
+    [request setValue:[NSString stringWithFormat:@"%u", [data length]] forHTTPHeaderField:@"Content-Length"];
     //创建session
     NSURLSession * session = [NSURLSession sharedSession];
     //创建task
