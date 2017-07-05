@@ -14,10 +14,11 @@
 #import "AFNetworking.h"
 #import "AFURLSessionManager.h"
 #import "QFInfo.h"
+#import "YJJTextField.h"
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
 @property (strong,nonatomic)UISwitch *switchButton;
-@property (strong,nonatomic)UITextField *UserName;
-@property (strong,nonatomic)UITextField *password;
+@property (strong,nonatomic)YJJTextField *userNameField;
+@property (strong,nonatomic)YJJTextField *passwordField;
 #define kSCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 #define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kSCREEN_SIZE [UIScreen mainScreen].bounds.size
@@ -32,12 +33,28 @@
     
 }
 -(void)createTextField{
-    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];
-    _UserName.borderStyle=UITextBorderStyleLine;
-    [self.view addSubview:_UserName];
-    _password=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (100+ 170), kSCREEN_WIDTH - 100, 40)];
-    _password.borderStyle=UITextBorderStyleLine;
-    [self.view addSubview:_password];
+//    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];
+//    _UserName.borderStyle=UITextBorderStyleLine;
+//    [self.view addSubview:_UserName];
+//    _password=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (100+ 170), kSCREEN_WIDTH - 100, 40)];
+//    _password.borderStyle=UITextBorderStyleLine;
+//    [self.view addSubview:_password];
+     _userNameField = [YJJTextField yjj_textField];
+    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (170 + 170), self.view.frame.size.width, 80);
+    _userNameField.maxLength = 10;
+    _userNameField.errorStr = @"学籍号长度不超过10位";
+    _userNameField.placeholder = @"请输入用户名";
+    _userNameField.historyContentKey = @"userName";
+    [self.view addSubview:_userNameField];
+    _passwordField = [YJJTextField yjj_textField];
+    _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (100+ 170), self.view.frame.size.width, 80);
+    _passwordField.maxLength = 6;
+    _passwordField.errorStr = @"密码长度不得超过6位，默认为身份证后六位";
+    _passwordField.placeholder = @"请输入密码";
+    _passwordField.historyContentKey = @"password";
+    _passwordField.leftImageName = @"password_login";
+    _passwordField.showHistoryList = NO;
+    [self.view addSubview:_passwordField];
 }
 - (void)createButton{
     HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + 130), kSCREEN_WIDTH - 40, 40)];
@@ -55,25 +72,35 @@
 }
 - (void)FirstViewController:(HyLoginButton *)button {
     typeof(self) __weak weak = self;
-    if ([self isBlankString:_UserName.text]) {
+    if ([self isBlankString:_userNameField.textField.text]) {
         UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名不能为空!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
+        [button failedAnimationWithCompletion:^{
+            
+            [weak didPresentControllerButtonTouch];
+            
+        }];
         return;
     }
-    if ([self isBlankString:_password.text]) {
+    if ([self isBlankString:_passwordField.textField.text]) {
         UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"密码不能为空!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
+        [button failedAnimationWithCompletion:^{
+            
+            [weak didPresentControllerButtonTouch];
+            
+        }];
         return;
     }
-    [_UserName resignFirstResponder];
-    [_password resignFirstResponder];
+    [_userNameField resignFirstResponder];
+    [_passwordField resignFirstResponder];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
 
-    NSDictionary* dic = @{@"user_id":_UserName.text,
-                          @"password":_password.text
+    NSDictionary* dic = @{@"user_id":_userNameField.textField.text,
+                          @"password":_passwordField.textField.text
                           };
     NSString *domainStr = @"https://zsqy.illidan.me/login";
     [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -83,7 +110,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"dic %@",dic);
         if([[dic objectForKey:@"status"]integerValue]==1){
-            [[QFInfo sharedInstance]save:_UserName.text password:_password.text];
+            [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text];
             [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
             [button succeedAnimationWithCompletion:^{
                     [weak didPresentControllerButtonTouch];

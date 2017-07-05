@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262CEE5C1F0CC52D000CB505 /* HistoryContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 262CEE571F0CC52D000CB505 /* HistoryContentCell.m */; };
+		262CEE5D1F0CC52D000CB505 /* HistoryContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262CEE581F0CC52D000CB505 /* HistoryContentCell.xib */; };
+		262CEE5E1F0CC52D000CB505 /* YJJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 262CEE5A1F0CC52D000CB505 /* YJJTextField.m */; };
+		262CEE5F1F0CC52D000CB505 /* YJJTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262CEE5B1F0CC52D000CB505 /* YJJTextField.xib */; };
 		262D1C271F037F04004A4787 /* QFInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C261F037F04004A4787 /* QFInfo.m */; };
 		262D1C361F038E95004A4787 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C2A1F038E95004A4787 /* AFHTTPSessionManager.m */; };
 		262D1C371F038E95004A4787 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D1C2D1F038E95004A4787 /* AFNetworkReachabilityManager.m */; };
@@ -175,6 +179,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		262CEE561F0CC52D000CB505 /* HistoryContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentCell.h; sourceTree = "<group>"; };
+		262CEE571F0CC52D000CB505 /* HistoryContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryContentCell.m; sourceTree = "<group>"; };
+		262CEE581F0CC52D000CB505 /* HistoryContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryContentCell.xib; sourceTree = "<group>"; };
+		262CEE591F0CC52D000CB505 /* YJJTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJJTextField.h; sourceTree = "<group>"; };
+		262CEE5A1F0CC52D000CB505 /* YJJTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJJTextField.m; sourceTree = "<group>"; };
+		262CEE5B1F0CC52D000CB505 /* YJJTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJJTextField.xib; sourceTree = "<group>"; };
 		262D1C251F037F04004A4787 /* QFInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QFInfo.h; path = iOSClientOfQFNU/Others/QFInfo.h; sourceTree = SOURCE_ROOT; };
 		262D1C261F037F04004A4787 /* QFInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QFInfo.m; path = iOSClientOfQFNU/Others/QFInfo.m; sourceTree = SOURCE_ROOT; };
 		262D1C291F038E95004A4787 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -447,6 +457,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262CEE551F0CC52D000CB505 /* YJJTextField */ = {
+			isa = PBXGroup;
+			children = (
+				262CEE561F0CC52D000CB505 /* HistoryContentCell.h */,
+				262CEE571F0CC52D000CB505 /* HistoryContentCell.m */,
+				262CEE581F0CC52D000CB505 /* HistoryContentCell.xib */,
+				262CEE591F0CC52D000CB505 /* YJJTextField.h */,
+				262CEE5A1F0CC52D000CB505 /* YJJTextField.m */,
+				262CEE5B1F0CC52D000CB505 /* YJJTextField.xib */,
+			);
+			path = YJJTextField;
+			sourceTree = "<group>";
+		};
 		262D1C281F038E95004A4787 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1084,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				262CEE551F0CC52D000CB505 /* YJJTextField */,
 				2679387C1F0B913B00D960C7 /* TPHpple */,
 				262D1C281F038E95004A4787 /* AFNetworking */,
 				CB658C5D1EF2AA6E00AE5327 /* KSGuaidView */,
@@ -1517,7 +1541,8 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = PYN3J5Y54V;
+						ProvisioningStyle = Manual;
 					};
 					CB1060241EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1611,9 +1636,11 @@
 				CB5713DA1EEB9AAD004EA94A /* icon-homework-inline.png in Resources */,
 				CB5713C61EEB9AAD004EA94A /* icon-29@3x.png in Resources */,
 				CB5713D31EEB9AAD004EA94A /* icon-76@2x.png in Resources */,
+				262CEE5F1F0CC52D000CB505 /* YJJTextField.xib in Resources */,
 				CB5713E11EEB9AAD004EA94A /* icon-social.png in Resources */,
 				CB5713C41EEB9AAD004EA94A /* icon-29@2x-ipad.png in Resources */,
 				CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */,
+				262CEE5D1F0CC52D000CB505 /* HistoryContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1676,6 +1703,7 @@
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,
 				CB1061051EE909950099E371 /* AppDelegate.m in Sources */,
 				CB658C4D1EF2076D00AE5327 /* UIView+WebCacheOperation.m in Sources */,
+				262CEE5C1F0CC52D000CB505 /* HistoryContentCell.m in Sources */,
 				262D1C411F039BBC004A4787 /* BaseRequest.m in Sources */,
 				CB1060FC1EE909630099E371 /* LGSideMenuHelper.m in Sources */,
 				263A77141F04CC9400D9173B /* LeftViewController.m in Sources */,
@@ -1726,6 +1754,7 @@
 				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
 				CB5713E81EEBC4C0004EA94A /* MainButtonModel.m in Sources */,
 				CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */,
+				262CEE5E1F0CC52D000CB505 /* YJJTextField.m in Sources */,
 				CB01AB751EEEBC3A00E04D64 /* HyTransitions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1891,7 +1920,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PYN3J5Y54V;
 				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
@@ -1902,6 +1931,8 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
+				PROVISIONING_PROFILE_SPECIFIER = developer_yi;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Debug;
@@ -1913,7 +1944,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PYN3J5Y54V;
 				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSClientOfQFNU/Others/PrefixHeader.pch";
@@ -1924,6 +1955,8 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
+				PROVISIONING_PROFILE_SPECIFIER = developer_yi;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Release;
