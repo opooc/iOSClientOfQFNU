@@ -15,6 +15,7 @@
 #import "AFURLSessionManager.h"
 #import "QFInfo.h"
 #import "YJJTextField.h"
+#import "YGGravityImageView.h"
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
@@ -30,7 +31,11 @@
     [super viewDidLoad];
     [self createButton];
     [self createTextField];
-    
+    YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    imageView.image = [UIImage imageNamed:@"login_bg6.png"];
+    [self.view addSubview:imageView];
+    [self.view sendSubviewToBack:imageView];
+    [imageView startAnimate];
 }
 -(void)createTextField{
 //    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];

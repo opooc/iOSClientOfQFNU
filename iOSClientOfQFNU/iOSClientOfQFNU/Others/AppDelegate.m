@@ -48,34 +48,36 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
     ///设置启动页
-    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-120) ImageURL:@"http://c.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a6a943c180b3b5bb5c8eab8e7.jpg" advertisingURL:@"http://www.opooc.com" timeSecond:10 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
-        /// 广告加载结束
-        NSLog(@"%@ %@",image,imageURL);
-        
-    } clickImage:^(UIViewController *WZXlaunchVC){
-        
-        /// 点击广告
-        
-        //2.在webview中打开
-//        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
-//        VC.urlStr = @"http://www.opooc.com";
-//        VC.AppDelegateSele= -1;
-//        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
-//        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
-        _window.rootViewController = sideMenuController;
-        
-        
-    } theAdEnds:^{
-        
-        
-        //广告展示完成回调,设置window根控制器
-        
-        _window.rootViewController = sideMenuController;
-
-        
-        
-    }];
+//    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-120) ImageURL:@"http://c.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a6a943c180b3b5bb5c8eab8e7.jpg" advertisingURL:@"http://www.opooc.com" timeSecond:10 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
+//        /// 广告加载结束
+//        NSLog(@"%@ %@",image,imageURL);
+//        
+//    } clickImage:^(UIViewController *WZXlaunchVC){
+//        
+//        /// 点击广告
+//        
+//        //2.在webview中打开
+////        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
+////        VC.urlStr = @"http://www.opooc.com";
+////        VC.AppDelegateSele= -1;
+////        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+////        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
+//        _window.rootViewController = sideMenuController;
+//        
+//        
+//    } theAdEnds:^{
+//        
+//        
+//        //广告展示完成回调,设置window根控制器
+//        
+//        _window.rootViewController = sideMenuController;
+//
+//        
+//        
+//    }];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
+    _window.rootViewController = sideMenuController;
         [_window makeKeyAndVisible];
     return YES;
 }

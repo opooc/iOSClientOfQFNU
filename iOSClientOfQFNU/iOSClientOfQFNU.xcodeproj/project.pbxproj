@@ -29,6 +29,9 @@
 		26A3304C1EFB903600783128 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304A1EFB903600783128 /* NJKWebViewProgressView.m */; };
 		26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A3304E1EFB909300783128 /* CFWebViewController.m */; };
 		26A330521EFB90C000783128 /* CFNavaigationViewWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A330511EFB90C000783128 /* CFNavaigationViewWeb.m */; };
+		26B28B861F1EFC2B00FAF61F /* login_bg6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B28B811F1EFC2B00FAF61F /* login_bg6@2x.png */; };
+		26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B28B831F1EFC2B00FAF61F /* YGGravity.m */; };
+		26B28B881F1EFC2B00FAF61F /* YGGravityImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */; };
 		CB01AB731EEEBC3A00E04D64 /* HyLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB6E1EEEBC3A00E04D64 /* HyLoginButton.m */; };
 		CB01AB741EEEBC3A00E04D64 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB701EEEBC3A00E04D64 /* HySpinerLayer.m */; };
 		CB01AB751EEEBC3A00E04D64 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB721EEEBC3A00E04D64 /* HyTransitions.m */; };
@@ -220,6 +223,11 @@
 		26A3304E1EFB909300783128 /* CFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFWebViewController.m; sourceTree = "<group>"; };
 		26A330501EFB90C000783128 /* CFNavaigationViewWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNavaigationViewWeb.h; sourceTree = "<group>"; };
 		26A330511EFB90C000783128 /* CFNavaigationViewWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNavaigationViewWeb.m; sourceTree = "<group>"; };
+		26B28B811F1EFC2B00FAF61F /* login_bg6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bg6@2x.png"; sourceTree = "<group>"; };
+		26B28B821F1EFC2B00FAF61F /* YGGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGGravity.h; sourceTree = "<group>"; };
+		26B28B831F1EFC2B00FAF61F /* YGGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravity.m; sourceTree = "<group>"; };
+		26B28B841F1EFC2B00FAF61F /* YGGravityImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGGravityImageView.h; sourceTree = "<group>"; };
+		26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravityImageView.m; sourceTree = "<group>"; };
 		CB01AB6D1EEEBC3A00E04D64 /* HyLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoginButton.h; sourceTree = "<group>"; };
 		CB01AB6E1EEEBC3A00E04D64 /* HyLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoginButton.m; sourceTree = "<group>"; };
 		CB01AB6F1EEEBC3A00E04D64 /* HySpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HySpinerLayer.h; sourceTree = "<group>"; };
@@ -535,6 +543,18 @@
 			);
 			name = NJKWebViewProgress;
 			path = "网页封装/NJKWebViewProgress";
+			sourceTree = "<group>";
+		};
+		26B28B801F1EFC2B00FAF61F /* YGGravityImageView */ = {
+			isa = PBXGroup;
+			children = (
+				26B28B811F1EFC2B00FAF61F /* login_bg6@2x.png */,
+				26B28B821F1EFC2B00FAF61F /* YGGravity.h */,
+				26B28B831F1EFC2B00FAF61F /* YGGravity.m */,
+				26B28B841F1EFC2B00FAF61F /* YGGravityImageView.h */,
+				26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */,
+			);
+			path = YGGravityImageView;
 			sourceTree = "<group>";
 		};
 		CB01AB6C1EEEBC3A00E04D64 /* HYLogin */ = {
@@ -1084,6 +1104,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				26B28B801F1EFC2B00FAF61F /* YGGravityImageView */,
 				262CEE551F0CC52D000CB505 /* YJJTextField */,
 				2679387C1F0B913B00D960C7 /* TPHpple */,
 				262D1C281F038E95004A4787 /* AFNetworking */,
@@ -1593,6 +1614,7 @@
 				CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */,
 				CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */,
 				CB5713CB1EEB9AAD004EA94A /* icon-50@2x.png in Resources */,
+				26B28B861F1EFC2B00FAF61F /* login_bg6@2x.png in Resources */,
 				CB5713E31EEB9B82004EA94A /* MainButtonData.plist in Resources */,
 				CB5713CD1EEB9AAD004EA94A /* icon-57@2x.png in Resources */,
 				CB5713C11EEB9AAD004EA94A /* icon-20@3x.png in Resources */,
@@ -1697,6 +1719,7 @@
 				CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */,
 				262D1C361F038E95004A4787 /* AFHTTPSessionManager.m in Sources */,
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
+				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
 				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
@@ -1740,6 +1763,7 @@
 				262D1C381F038E95004A4787 /* AFSecurityPolicy.m in Sources */,
 				CB5714061EEBCAE5004EA94A /* MJProperty.m in Sources */,
 				CB658C491EF2076D00AE5327 /* UIImage+GIF.m in Sources */,
+				26B28B881F1EFC2B00FAF61F /* YGGravityImageView.m in Sources */,
 				CB658C4B1EF2076D00AE5327 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */,
 				CB5713EB1EEBC657004EA94A /* MainButtonView.m in Sources */,
@@ -1928,7 +1952,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
@@ -1952,7 +1981,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOSClientOfQFNU/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
