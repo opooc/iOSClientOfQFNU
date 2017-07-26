@@ -48,7 +48,7 @@
      _userNameField = [YJJTextField yjj_textField];
     _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (170 + 170), self.view.frame.size.width, 80);
     _userNameField.maxLength = 10;
-    _userNameField.backgroundColor=[UIColor ]
+    _userNameField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _userNameField.errorStr = @"学籍号长度不超过10位";
     _userNameField.placeholder = @"请输入用户名";
     _userNameField.historyContentKey = @"userName";
