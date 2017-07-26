@@ -17,4 +17,5 @@
 -(void)save:(NSString *)user password:(NSString *)passWord;
 -(NSString *)getUser;
 -(NSString *)getPassword;
+-(void)loginqfnu:(NSString *)username password:(NSString *)password;
 @end

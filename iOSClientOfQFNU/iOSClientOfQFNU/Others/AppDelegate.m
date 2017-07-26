@@ -45,7 +45,7 @@
     _window.backgroundColor = [UIColor whiteColor];
 
     //隐藏电池
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
     ///设置启动页
 //    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-120) ImageURL:@"http://c.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a6a943c180b3b5bb5c8eab8e7.jpg" advertisingURL:@"http://www.opooc.com" timeSecond:10 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {

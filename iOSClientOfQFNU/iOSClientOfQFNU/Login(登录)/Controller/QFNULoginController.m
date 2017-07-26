@@ -36,6 +36,7 @@
     [self.view addSubview:imageView];
     [self.view sendSubviewToBack:imageView];
     [imageView startAnimate];
+    [self addNoticeForKeyboard];
 }
 -(void)createTextField{
 //    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];
@@ -47,6 +48,7 @@
      _userNameField = [YJJTextField yjj_textField];
     _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (170 + 170), self.view.frame.size.width, 80);
     _userNameField.maxLength = 10;
+    _userNameField.backgroundColor=[UIColor ]
     _userNameField.errorStr = @"学籍号长度不超过10位";
     _userNameField.placeholder = @"请输入用户名";
     _userNameField.historyContentKey = @"userName";
@@ -115,6 +117,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"dic %@",dic);
         if([[dic objectForKey:@"status"]integerValue]==1){
+            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
             [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text];
             [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
             [button succeedAnimationWithCompletion:^{
@@ -143,6 +146,9 @@
 //        }
 //    });
 }
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 - (void)didPresentControllerButtonTouch {
     UIViewController *controller = [MainController new];
     controller.transitioningDelegate = self;
@@ -150,6 +156,47 @@
     navigationController.transitioningDelegate = self;
     
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+#pragma mark - 键盘通知
+- (void)addNoticeForKeyboard {
+    
+    //注册键盘出现的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    //注册键盘消失的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+///键盘显示事件
+- (void) keyboardWillShow:(NSNotification *)notification {
+    //获取键盘高度，在不同设备上，以及中英文下是不同的
+    CGFloat kbHeight = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    
+    //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)
+    CGFloat offset = (_passwordField.frame.origin.y+_passwordField.frame.size.height+10) - (self.view.frame.size.height - kbHeight);
+    
+    // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
+    double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    //将视图上移计算好的偏移
+    if(offset > 0) {
+        [UIView animateWithDuration:duration animations:^{
+            self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+        }];
+    }
+}
+
+///键盘消失事件
+- (void) keyboardWillHide:(NSNotification *)notify {
+    // 键盘动画时间
+    double duration = [[notify.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    //视图下沉恢复原状
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

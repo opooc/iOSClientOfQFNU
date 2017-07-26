@@ -55,7 +55,7 @@
     }
     return ps;
 }
-+(void)loginqfnu:(NSString *)username password:(NSString *)password{
+-(void)loginqfnu:(NSString *)username password:(NSString *)password{
     NSString *Lt=[[NSString alloc]init];
     NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
     NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];

@@ -7,7 +7,10 @@
 //
 
 #import "LeftViewController.h"
-
+#import "QFNUAboutUsController.h"
+#import "MainController.h"
+#import "CFWebViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tb;
 @property (weak, nonatomic) IBOutlet UILabel *namelb;
@@ -78,10 +81,82 @@
     return label;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"你点击的是%@组%@行",indexPath.section,indexPath.row);
+    NSLog(@"你点击的是%d组%d行",indexPath.section,indexPath.row);
+
+    switch (indexPath.section) {
+        case 0:
+            
+            break;
+            case 1:
+            switch (indexPath.row) {
+                case 0:
+                    [self webviewtext:@"http://m.5read.com/4581"];
+                    break;
+                case 1:
+                    [self webviewtext:@"http://www.qfnu.edu.cn"];
+                    break;
+                case 2:
+                     [self webviewtext:@"http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0"];
+                  
+                    break;
+                case 3:
+
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+            break;
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    [self aboutus];
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
+    }
     //http://m.5read.com/4581 图书馆
     //www.qfnu.edu.cn  校园资讯
     
+}
+-(void)webviewtext:(NSString *)urlstring{
+    MainController *mainViewController = (MainController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    NSLog(@"你正在打开的网站是：%@",urlstring);
+    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
+    [navigationController pushViewController:webview animated:YES];
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+}
+-(void)aboutus{
+//    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
+//    MainController *mainViewController=[[MainController alloc]init];
+//    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+//    [navigationController pushViewController:about animated:YES];
+//                    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+        MainController *mainViewController = (MainController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
+
+    [navigationController pushViewController:about animated:YES];
+    
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
 /*
 #pragma mark - Navigation
