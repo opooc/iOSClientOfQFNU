@@ -47,6 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       self.automaticallyAdjustsScrollViewInsets = NO;
     NSString *us=[[QFInfo sharedInstance]getUser];
     NSLog(@"us:%@",us);
     if([QFInfo sharedInstance].token){
@@ -59,15 +60,15 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setMainHeadScrollView];
     [self setButtonView];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-        self.navigationController.navigationBar.translucent=NO;
+
+//        self.navigationController.navigationBar.translucent=NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
 }
 
 
 
 -(void)setMainHeadScrollView{
-    self.scrollView = [[MainHeadScrollView alloc]initWithFrame:CGRectMake(10, 100-32, self.view.bounds.size.width-20, 200) ImagesCount:5];
+    self.scrollView = [[MainHeadScrollView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 200) ImagesCount:5];
     //点击图片的回调＃＃＃＃＃＃＃＃＃＃
     [self.scrollView tapImageViewBlock:^(NSInteger tag) {
         NSLog(@"点击图片Block回调  %zd",tag);
@@ -79,9 +80,9 @@
 
 -(void)setButtonView{
     CGFloat Bwidth = self.view.frame.size.width;
-    CGFloat Bheight = self.view.frame.size.height;
+    CGFloat Bheight = self.view.frame.size.height+64+32;
     NSLog(@"%f,%f",Bheight,Bwidth);
-    UIView* allMainBtnView = [[UIView alloc]initWithFrame:CGRectMake(0,Bheight*0.5-32,Bwidth,Bheight*0.5)];
+    UIView* allMainBtnView = [[UIView alloc]initWithFrame:CGRectMake(0,Bheight*0.5-64-32-20,Bwidth,Bheight*0.5)];
     
     _allMainBtnView = allMainBtnView;
  //_allMainBtnView.backgroundColor = [UIColor brownColor];

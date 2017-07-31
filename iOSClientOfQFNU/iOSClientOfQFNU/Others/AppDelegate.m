@@ -40,7 +40,7 @@
     
     sideMenuController.rightViewWidth = 100.0;
     sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
-    
+    QFNULoginController *loginview=[[QFNULoginController alloc]init];
     
     _window.backgroundColor = [UIColor whiteColor];
 
@@ -77,7 +77,7 @@
 //        
 //    }];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
-    _window.rootViewController = sideMenuController;
+    _window.rootViewController = loginview;
         [_window makeKeyAndVisible];
     return YES;
 }

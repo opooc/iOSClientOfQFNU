@@ -16,6 +16,8 @@
 #import "QFInfo.h"
 #import "YJJTextField.h"
 #import "YGGravityImageView.h"
+#import "AppDelegate.h"
+#import "LeftViewController.h"
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
@@ -46,7 +48,7 @@
 //    _password.borderStyle=UITextBorderStyleLine;
 //    [self.view addSubview:_password];
      _userNameField = [YJJTextField yjj_textField];
-    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (170 + 170), self.view.frame.size.width, 80);
+    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (180 + 170), self.view.frame.size.width, 80);
     _userNameField.maxLength = 10;
     _userNameField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _userNameField.errorStr = @"学籍号长度不超过10位";
@@ -56,6 +58,7 @@
     _passwordField = [YJJTextField yjj_textField];
     _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (100+ 170), self.view.frame.size.width, 80);
     _passwordField.maxLength = 6;
+    _passwordField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _passwordField.errorStr = @"密码长度不得超过6位，默认为身份证后六位";
     _passwordField.placeholder = @"请输入密码";
     _passwordField.historyContentKey = @"password";
@@ -71,6 +74,7 @@
     [self.view addSubview:loginButton];
     _switchButton=[[UISwitch alloc]initWithFrame:CGRectMake(kSCREEN_WIDTH-50,kSCREENH_HEIGHT-50,50,100)];
     _switchButton.frame=CGRectMake(50, 50, [UIScreen mainScreen].bounds.size.width - 40, kSCREEN_WIDTH-75);
+    [_switchButton setOn:YES];
     [self.view addSubview:self.switchButton];
     UILabel *lb=[[UILabel alloc]init];
     lb.frame=CGRectMake(kSCREEN_WIDTH-250, kSCREENH_HEIGHT-114, 200, 50);
@@ -78,7 +82,19 @@
     [self.view addSubview:lb];
 }
 - (void)FirstViewController:(HyLoginButton *)button {
+    
     typeof(self) __weak weak = self;
+            if (_switchButton.on) {
+                //网络正常 或者是密码账号正确跳转动画,目前用switch来模拟
+                        if (weak.switchButton.on) {
+        [weak didPresentControllerButtonTouch];
+                        }
+            } else {
+                //网络错误 或者是密码不正确还原动画
+                            if (weak.switchButton.on) {
+                [weak didPresentControllerButtonTouch];
+                            }
+            
     if ([self isBlankString:_userNameField.textField.text]) {
         UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名不能为空!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
@@ -132,6 +148,7 @@
 
         }];
     }];
+            }
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        if (_switchButton.on) {
 //            //网络正常 或者是密码账号正确跳转动画,目前用switch来模拟
@@ -152,10 +169,33 @@
 - (void)didPresentControllerButtonTouch {
     UIViewController *controller = [MainController new];
     controller.transitioningDelegate = self;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    navigationController.transitioningDelegate = self;
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    navigationController.transitioningDelegate = self;
+
+    MainController *rootViewController = [[MainController alloc]init];
+    LeftViewController *leftViewController = [LeftViewController new];
+    UITableViewController *rightViewController = [UITableViewController new];
     
-    [self presentViewController:navigationController animated:YES completion:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    LGSideMenuController *sideMenuController = [LGSideMenuController sideMenuControllerWithRootViewController:navigationController
+                                                                                           leftViewController:leftViewController
+                                                                                          rightViewController:rightViewController];
+    
+    sideMenuController.leftViewWidth = 250.0;
+    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
+    navigationController.transitioningDelegate = self;
+    sideMenuController.rightViewWidth = 100.0;
+    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+    
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    window.rootViewController = sideMenuController;
+    
+    [UIView transitionWithView:window
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:nil
+                    completion:nil];
 }
 #pragma mark - 键盘通知
 - (void)addNoticeForKeyboard {
