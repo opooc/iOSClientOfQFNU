@@ -133,7 +133,7 @@
 
 }
 -(void)webviewtext{
-    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0"]];
+    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://202.194.188.19/gradeLnAllAction?type=In&oper=qb"]];
     [self.navigationController pushViewController:webview animated:YES];
 }
 -(void)meVc{

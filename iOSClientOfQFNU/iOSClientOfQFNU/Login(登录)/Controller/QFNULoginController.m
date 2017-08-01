@@ -187,7 +187,7 @@
     navigationController.transitioningDelegate = self;
     sideMenuController.rightViewWidth = 100.0;
     sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
-    
+    sideMenuController.automaticallyAdjustsScrollViewInsets=NO;
     UIWindow *window = UIApplication.sharedApplication.delegate.window;
     window.rootViewController = sideMenuController;
     
