@@ -21,6 +21,7 @@
 #import "MainButtonView.h"
 #import "MJExtension.h"
 #import "QFInfo.h"
+#import <UShareUI/UShareUI.h>
 @interface MainController ()
 @property (assign, nonatomic) NSUInteger type;
 @property (nonatomic,strong) MainHeadScrollView* scrollView;
@@ -63,6 +64,11 @@
 
 //        self.navigationController.navigationBar.translucent=NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
+}
+-(void)viewWillAppear:(BOOL)animated{
+
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
 }
 
 
@@ -121,6 +127,9 @@
       else if (index ==3) {
           [btnView.btn addTarget:self action:@selector(webviewtext) forControlEvents:UIControlEventTouchUpInside];
       }
+      else if (index ==4) {
+          [btnView.btn addTarget:self action:@selector(UshareUI) forControlEvents:UIControlEventTouchUpInside];
+      }
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
         
@@ -130,6 +139,13 @@
     }
     
     [self.view addSubview:_allMainBtnView];
+
+}
+-(void)UshareUI{
+[UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+    NSLog(@"Success");
+}];
+
 
 }
 -(void)webviewtext{
