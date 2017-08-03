@@ -10,6 +10,7 @@
 #import "QFNUAboutUsController.h"
 #import "MainController.h"
 #import "CFWebViewController.h"
+#import "LGSideMainViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tb;
@@ -137,8 +138,9 @@
     
 }
 -(void)webviewtext:(NSString *)urlstring{
-    MainController *mainViewController = (MainController *)self.sideMenuController;
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+
     NSLog(@"你正在打开的网站是：%@",urlstring);
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
     [navigationController pushViewController:webview animated:YES];
@@ -150,7 +152,7 @@
 //    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
 //    [navigationController pushViewController:about animated:YES];
 //                    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
-        MainController *mainViewController = (MainController *)self.sideMenuController;
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
 

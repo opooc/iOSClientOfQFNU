@@ -32,6 +32,8 @@
 		26B28B861F1EFC2B00FAF61F /* login_bg6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B28B811F1EFC2B00FAF61F /* login_bg6@2x.png */; };
 		26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B28B831F1EFC2B00FAF61F /* YGGravity.m */; };
 		26B28B881F1EFC2B00FAF61F /* YGGravityImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */; };
+		26D7029B1F330DEC00BBFD82 /* LGSideMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D7029A1F330DEC00BBFD82 /* LGSideMainViewController.m */; };
+		26EAD1F91F32C331002B1700 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26EAD1F81F32C331002B1700 /* menu@2x.png */; };
 		CB01AB731EEEBC3A00E04D64 /* HyLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB6E1EEEBC3A00E04D64 /* HyLoginButton.m */; };
 		CB01AB741EEEBC3A00E04D64 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB701EEEBC3A00E04D64 /* HySpinerLayer.m */; };
 		CB01AB751EEEBC3A00E04D64 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB01AB721EEEBC3A00E04D64 /* HyTransitions.m */; };
@@ -228,6 +230,9 @@
 		26B28B831F1EFC2B00FAF61F /* YGGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravity.m; sourceTree = "<group>"; };
 		26B28B841F1EFC2B00FAF61F /* YGGravityImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGGravityImageView.h; sourceTree = "<group>"; };
 		26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravityImageView.m; sourceTree = "<group>"; };
+		26D702991F330DEC00BBFD82 /* LGSideMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMainViewController.h; sourceTree = "<group>"; };
+		26D7029A1F330DEC00BBFD82 /* LGSideMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMainViewController.m; sourceTree = "<group>"; };
+		26EAD1F81F32C331002B1700 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		CB01AB6D1EEEBC3A00E04D64 /* HyLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoginButton.h; sourceTree = "<group>"; };
 		CB01AB6E1EEEBC3A00E04D64 /* HyLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoginButton.m; sourceTree = "<group>"; };
 		CB01AB6F1EEEBC3A00E04D64 /* HySpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HySpinerLayer.h; sourceTree = "<group>"; };
@@ -1220,6 +1225,7 @@
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				26EAD1F81F32C331002B1700 /* menu@2x.png */,
 				CB5713981EEB9AAD004EA94A /* icon */,
 				CB5713B01EEB9AAD004EA94A /* Main */,
 				CBA8F9751EEE184900C9F53F /* Me */,
@@ -1457,6 +1463,8 @@
 			children = (
 				CB1061141EEB88F90099E371 /* MainController.h */,
 				CB1061151EEB88F90099E371 /* MainController.m */,
+				26D702991F330DEC00BBFD82 /* LGSideMainViewController.h */,
+				26D7029A1F330DEC00BBFD82 /* LGSideMainViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1660,6 +1668,7 @@
 				CB5713D31EEB9AAD004EA94A /* icon-76@2x.png in Resources */,
 				262CEE5F1F0CC52D000CB505 /* YJJTextField.xib in Resources */,
 				CB5713E11EEB9AAD004EA94A /* icon-social.png in Resources */,
+				26EAD1F91F32C331002B1700 /* menu@2x.png in Resources */,
 				CB5713C41EEB9AAD004EA94A /* icon-29@2x-ipad.png in Resources */,
 				CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */,
 				262CEE5D1F0CC52D000CB505 /* HistoryContentCell.xib in Resources */,
@@ -1716,6 +1725,7 @@
 				CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */,
 				CB658C461EF2076D00AE5327 /* SDWebImageManager.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
+				26D7029B1F330DEC00BBFD82 /* LGSideMainViewController.m in Sources */,
 				CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */,
 				262D1C361F038E95004A4787 /* AFHTTPSessionManager.m in Sources */,
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,

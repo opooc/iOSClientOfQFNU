@@ -20,6 +20,7 @@
 #import "MainButtonModel.h"
 #import "MainButtonView.h"
 #import "MJExtension.h"
+#import "UIViewController+LGSideMenuController.h"
 #import "QFInfo.h"
 @interface MainController ()
 @property (assign, nonatomic) NSUInteger type;
@@ -63,9 +64,18 @@
 
 //        self.navigationController.navigationBar.translucent=NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
+    UIImage *menu=[UIImage imageNamed:@"menu"];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(showLeftView)];
+
 }
 
-
+- (void)showLeftView {
+      [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
+}
 
 -(void)setMainHeadScrollView{
     self.scrollView = [[MainHeadScrollView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 200) ImagesCount:5];
@@ -151,40 +161,6 @@
 }
 
 
-- (void)leftViewWillLayoutSubviewsWithSize:(CGSize)size {
-    [super leftViewWillLayoutSubviewsWithSize:size];
-    
-    if (!self.isLeftViewStatusBarHidden) {
-        self.leftView.frame = CGRectMake(0.0, 20.0, size.width, size.height-20.0);
-    }
-}
-
-- (void)rightViewWillLayoutSubviewsWithSize:(CGSize)size {
-    [super rightViewWillLayoutSubviewsWithSize:size];
-    
-    if (!self.isRightViewStatusBarHidden ||
-        (self.rightViewAlwaysVisibleOptions & LGSideMenuAlwaysVisibleOnPadLandscape &&
-         UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad &&
-         UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))) {
-            self.rightView.frame = CGRectMake(0.0, 20.0, size.width, size.height-20.0);
-        }
-}
-
-- (BOOL)isLeftViewStatusBarHidden {
-    if (self.type == 8) {
-        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
-    }
-    
-    return super.isLeftViewStatusBarHidden;
-}
-
-- (BOOL)isRightViewStatusBarHidden {
-    if (self.type == 8) {
-        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
-    }
-    
-    return super.isRightViewStatusBarHidden;
-}
 
 - (void)dealloc {
     NSLog(@"MainViewController deallocated");
