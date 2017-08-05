@@ -9,6 +9,7 @@
 #import "QFNUBackController.h"
 #import "QFNUCConsultController.h"
 #import "QFNUCommunityController.h"
+#import "QFNUCourseController.h"
 #import "QFNULoginController.h"
 #import "QFNUNewController.h"
 #import "QFNULookController.h"
@@ -130,6 +131,14 @@
       else if (index ==4) {
           [btnView.btn addTarget:self action:@selector(UshareUI) forControlEvents:UIControlEventTouchUpInside];
       }
+        
+      else if (index ==5) {
+          [btnView.btn addTarget:self action:@selector(course) forControlEvents:UIControlEventTouchUpInside];
+      }
+      else if (index ==7) {
+          [btnView.btn addTarget:self action:@selector(feedback) forControlEvents:UIControlEventTouchUpInside];
+      }
+        
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
         
@@ -141,13 +150,30 @@
     [self.view addSubview:_allMainBtnView];
 
 }
--(void)UshareUI{
-[UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-    NSLog(@"Success");
-}];
+-(void)feedback{
 
+    QFNUBackController* back = [[QFNUBackController alloc]init];
+    [self.navigationController pushViewController:back animated:YES];
 
 }
+-(void)UshareUI{
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_Sms)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+       
+        if(platformType == UMSocialPlatformType_Sina){
+            
+            [self shareTextToPlatformType:platformType];
+        }
+        else{
+            
+        [self shareWebPageToPlatformType:platformType];}
+        
+    }];
+
+}
+
+
+
 -(void)webviewtext{
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0"]];
     [self.navigationController pushViewController:webview animated:YES];
@@ -165,8 +191,11 @@
     QFNUAboutUsController* aboutUs = [[QFNUAboutUsController alloc]init];
     [self.navigationController pushViewController:aboutUs animated:YES];
 }
+-(void)course{
+    QFNUCourseController* course =[[QFNUCourseController alloc]init];
+    [self.navigationController pushViewController:course animated:YES];
 
-
+}
 - (void)leftViewWillLayoutSubviewsWithSize:(CGSize)size {
     [super leftViewWillLayoutSubviewsWithSize:size];
     
@@ -204,6 +233,47 @@
 
 - (void)dealloc {
     NSLog(@"MainViewController deallocated");
+}
+
+
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = @"曲园教务";
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"曲园教务" descr:@"曲园教务App是由曲园团队开发，为曲师大学生开发的产品，志于帮助同学们更加便捷的体验校园生活。。" thumImage:[UIImage imageNamed:@"icon-72"]];
+    //设置网页地址
+    shareObject.webpageUrl =@"http://qfnu.opooc.com";
+    //分享消息对象设置分享内容对象
+    
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
