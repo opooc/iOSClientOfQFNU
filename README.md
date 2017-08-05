@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/pod-1.1.1-red.svg)
 ![](https://img.shields.io/badge/license-apache-green.svg)
 
-> 为以后的小程序、微信、react-native提供接口
+> 曲园教务App是由曲园团队开发，为曲师大学生开发的产品，志于帮助同学们更加便捷的体验校园生活
 
 ## 设计功能:
 ### 学习工具
