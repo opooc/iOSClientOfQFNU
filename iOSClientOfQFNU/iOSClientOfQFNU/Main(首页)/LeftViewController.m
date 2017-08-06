@@ -134,7 +134,8 @@
     }
     //http://m.5read.com/4581 图书馆
     //www.qfnu.edu.cn  校园资讯
-    
+    //http://jwc.qfnu.edu.cn/gg.htm 公告 /wx新闻 /tz 通知 、wj 文件  教务资讯
+    //http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0 信息门户 get
 }
 -(void)webviewtext:(NSString *)urlstring{
     MainController *mainViewController = (MainController *)self.sideMenuController;
