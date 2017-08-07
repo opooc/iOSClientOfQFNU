@@ -9,6 +9,7 @@
 #import "QFNUBackController.h"
 #import "QFNUCConsultController.h"
 #import "QFNUCommunityController.h"
+#import "QFNUCourseController.h"
 #import "QFNULoginController.h"
 #import "QFNUNewController.h"
 #import "QFNULookController.h"
@@ -22,6 +23,7 @@
 #import "MJExtension.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "QFInfo.h"
+#import <UShareUI/UShareUI.h>
 @interface MainController ()
 @property (assign, nonatomic) NSUInteger type;
 @property (nonatomic,strong) MainHeadScrollView* scrollView;
@@ -64,12 +66,14 @@
 
 //        self.navigationController.navigationBar.translucent=NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
+
     UIImage *menu=[UIImage imageNamed:@"menu"];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(showLeftView)];
+
 
 }
 
@@ -131,6 +135,17 @@
       else if (index ==3) {
           [btnView.btn addTarget:self action:@selector(webviewtext) forControlEvents:UIControlEventTouchUpInside];
       }
+      else if (index ==4) {
+          [btnView.btn addTarget:self action:@selector(UshareUI) forControlEvents:UIControlEventTouchUpInside];
+      }
+        
+      else if (index ==5) {
+          [btnView.btn addTarget:self action:@selector(course) forControlEvents:UIControlEventTouchUpInside];
+      }
+      else if (index ==7) {
+          [btnView.btn addTarget:self action:@selector(feedback) forControlEvents:UIControlEventTouchUpInside];
+      }
+        
         btnView.frame = CGRectMake(x, y, width, height);
         NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
         
@@ -142,6 +157,30 @@
     [self.view addSubview:_allMainBtnView];
 
 }
+-(void)feedback{
+
+    QFNUBackController* back = [[QFNUBackController alloc]init];
+    [self.navigationController pushViewController:back animated:YES];
+
+}
+-(void)UshareUI{
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_Sms)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+       
+        if(platformType == UMSocialPlatformType_Sina){
+            
+            [self shareTextToPlatformType:platformType];
+        }
+        else{
+            
+        [self shareWebPageToPlatformType:platformType];}
+        
+    }];
+
+}
+
+
+
 -(void)webviewtext{
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://202.194.188.19/gradeLnAllAction?type=In&oper=qb"]];
     [self.navigationController pushViewController:webview animated:YES];
@@ -159,11 +198,91 @@
     QFNUAboutUsController* aboutUs = [[QFNUAboutUsController alloc]init];
     [self.navigationController pushViewController:aboutUs animated:YES];
 }
+-(void)course{
+    QFNUCourseController* course =[[QFNUCourseController alloc]init];
+    [self.navigationController pushViewController:course animated:YES];
 
+
+}
+- (void)leftViewWillLayoutSubviewsWithSize:(CGSize)size {
+    [super leftViewWillLayoutSubviewsWithSize:size];
+    
+    if (!self.isLeftViewStatusBarHidden) {
+        self.leftView.frame = CGRectMake(0.0, 20.0, size.width, size.height-20.0);
+    }
+}
+
+- (void)rightViewWillLayoutSubviewsWithSize:(CGSize)size {
+    [super rightViewWillLayoutSubviewsWithSize:size];
+    
+    if (!self.isRightViewStatusBarHidden ||
+        (self.rightViewAlwaysVisibleOptions & LGSideMenuAlwaysVisibleOnPadLandscape &&
+         UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad &&
+         UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))) {
+            self.rightView.frame = CGRectMake(0.0, 20.0, size.width, size.height-20.0);
+        }
+}
+
+- (BOOL)isLeftViewStatusBarHidden {
+    if (self.type == 8) {
+        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+    }
+    
+    return super.isLeftViewStatusBarHidden;
+}
+
+- (BOOL)isRightViewStatusBarHidden {
+    if (self.type == 8) {
+        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation) && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+    }
+    
+    return super.isRightViewStatusBarHidden;
+}
 
 
 - (void)dealloc {
     NSLog(@"MainViewController deallocated");
+}
+
+
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = @"曲园教务";
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"曲园教务" descr:@"曲园教务App是由曲园团队开发，为曲师大学生开发的产品，志于帮助同学们更加便捷的体验校园生活。。" thumImage:[UIImage imageNamed:@"icon-72"]];
+    //设置网页地址
+    shareObject.webpageUrl =@"http://qfnu.opooc.com";
+    //分享消息对象设置分享内容对象
+    
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

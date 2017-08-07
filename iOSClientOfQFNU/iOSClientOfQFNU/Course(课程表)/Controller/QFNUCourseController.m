@@ -9,6 +9,7 @@
 #import "QFNUCourseController.h"
 #import "GWPCourseListView.h"
 #import "CourseModel.h"
+#import "QFInfo.h"
 
 
 @interface QFNUCourseController ()<GWPCourseListViewDataSource, GWPCourseListViewDelegate>
@@ -52,7 +53,7 @@
    
     [self.view addSubview: _courseListView];
     
-    NSLog(@"66");
+    NSLog(@"-------%@",[QFInfo sharedInstance].token);
 }
 
 - (void)addCourse{
