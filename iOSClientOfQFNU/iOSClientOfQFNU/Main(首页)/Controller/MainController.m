@@ -21,6 +21,7 @@
 #import "MainButtonModel.h"
 #import "MainButtonView.h"
 #import "MJExtension.h"
+#import "UIViewController+LGSideMenuController.h"
 #import "QFInfo.h"
 #import <UShareUI/UShareUI.h>
 @interface MainController ()
@@ -65,14 +66,20 @@
 
 //        self.navigationController.navigationBar.translucent=NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
-}
--(void)viewWillAppear:(BOOL)animated{
 
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    UIImage *menu=[UIImage imageNamed:@"menu"];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(showLeftView)];
+
+
 }
 
-
+- (void)showLeftView {
+      [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
+}
 
 -(void)setMainHeadScrollView{
     self.scrollView = [[MainHeadScrollView alloc]initWithFrame:CGRectMake(10, 10, self.view.bounds.size.width-20, 200) ImagesCount:5];
@@ -102,7 +109,7 @@
     CGFloat allMainBtnviewWidth = self.allMainBtnView.frame.size.width;
     CGFloat allMainBtnviewHeight = self.allMainBtnView.frame.size.height;
     CGFloat hMargin = (allMainBtnviewWidth - allCols * width) / (allCols -1);
-    CGFloat vMargin = (allMainBtnviewHeight - 4*height) / 1;
+    CGFloat vMargin = (allMainBtnviewHeight-32 - 4*height) / 1;
     for (int i=0;i<12;i++) {
     // 4. 设置索引
     NSInteger index = self.allMainBtnView.subviews.count;
@@ -175,7 +182,7 @@
 
 
 -(void)webviewtext{
-    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0"]];
+    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://202.194.188.19/gradeLnAllAction?type=In&oper=qb"]];
     [self.navigationController pushViewController:webview animated:YES];
 }
 -(void)meVc{
@@ -194,6 +201,7 @@
 -(void)course{
     QFNUCourseController* course =[[QFNUCourseController alloc]init];
     [self.navigationController pushViewController:course animated:YES];
+
 
 }
 - (void)leftViewWillLayoutSubviewsWithSize:(CGSize)size {
@@ -230,6 +238,7 @@
     
     return super.isRightViewStatusBarHidden;
 }
+
 
 - (void)dealloc {
     NSLog(@"MainViewController deallocated");

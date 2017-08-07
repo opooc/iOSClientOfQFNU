@@ -10,6 +10,7 @@
 #import "QFNUAboutUsController.h"
 #import "MainController.h"
 #import "CFWebViewController.h"
+#import "LGSideMainViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tb;
@@ -82,10 +83,26 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"你点击的是%d组%d行",indexPath.section,indexPath.row);
-
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     switch (indexPath.section) {
         case 0:
-            
+            switch (indexPath.row) {
+                case 0:
+                    [mainViewController hideLeftViewAnimated];
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                 
+                    break;
+                    
+                default:
+                    break;
+            }
             break;
             case 1:
             switch (indexPath.row) {
@@ -138,8 +155,9 @@
     //http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0 信息门户 get
 }
 -(void)webviewtext:(NSString *)urlstring{
-    MainController *mainViewController = (MainController *)self.sideMenuController;
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+
     NSLog(@"你正在打开的网站是：%@",urlstring);
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
     [navigationController pushViewController:webview animated:YES];
@@ -151,7 +169,7 @@
 //    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
 //    [navigationController pushViewController:about animated:YES];
 //                    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
-        MainController *mainViewController = (MainController *)self.sideMenuController;
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
 
@@ -159,6 +177,15 @@
     
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
+//- (UIStatusBarStyle)preferredStatusBarStyle {
+//    return UIStatusBarStyleDefault;
+//}
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+//- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+//    return UIStatusBarAnimationFade;
+//}
 /*
 #pragma mark - Navigation
 

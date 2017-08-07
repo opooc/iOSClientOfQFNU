@@ -18,6 +18,7 @@
 #import "YGGravityImageView.h"
 #import "AppDelegate.h"
 #import "LeftViewController.h"
+#import "LGSideMainViewController.h"
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
@@ -173,23 +174,13 @@
 //    navigationController.transitioningDelegate = self;
 
     MainController *rootViewController = [[MainController alloc]init];
-    LeftViewController *leftViewController = [LeftViewController new];
-    UITableViewController *rightViewController = [UITableViewController new];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-    LGSideMenuController *sideMenuController = [LGSideMenuController sideMenuControllerWithRootViewController:navigationController
-                                                                                           leftViewController:leftViewController
-                                                                                          rightViewController:rightViewController];
-    
-    sideMenuController.leftViewWidth = 250.0;
-    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
-    navigationController.transitioningDelegate = self;
-    sideMenuController.rightViewWidth = 100.0;
-    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
-    
+    LGSideMainViewController *mainViewController = [LGSideMainViewController new];
+    mainViewController.rootViewController = navigationController;
+    [mainViewController setupWithType:1];
     UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    window.rootViewController = sideMenuController;
+    window.rootViewController = mainViewController;
     
     [UIView transitionWithView:window
                       duration:0.3
