@@ -31,4 +31,8 @@
 
 
 -(void)reloadWebView;
+
+//图书馆菜单
+-(void)loadLibraryMenu;
+
 @end

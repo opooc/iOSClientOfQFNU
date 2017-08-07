@@ -160,6 +160,9 @@
 
     NSLog(@"你正在打开的网站是：%@",urlstring);
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
+    if ([urlstring  isEqual: @"http://m.5read.com/4581"]) {
+        [webview loadLibraryMenu];
+    }
     [navigationController pushViewController:webview animated:YES];
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }

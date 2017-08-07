@@ -77,6 +77,12 @@
 		CB1061161EEB88F90099E371 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061151EEB88F90099E371 /* MainController.m */; };
 		CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061181EEB89300099E371 /* MainHeadScrollView.m */; };
 		CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB10611B1EEB8F570099E371 /* LeftSortsController.m */; };
+		CB266E361F38894000C17241 /* menu22.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E321F38894000C17241 /* menu22.png */; };
+		CB266E371F38894000C17241 /* new_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E331F38894000C17241 /* new_menu.png */; };
+		CB266E381F38894000C17241 /* Q.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E341F38894000C17241 /* Q.png */; };
+		CB266E391F38894000C17241 /* R.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E351F38894000C17241 /* R.png */; };
+		CB266E3F1F38899C00C17241 /* YCXMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3C1F38899C00C17241 /* YCXMenu.m */; };
+		CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3E1F38899C00C17241 /* YCXMenuItem.m */; };
 		CB5713BE1EEB9AAD004EA94A /* icon-20-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713991EEB9AAD004EA94A /* icon-20-ipad.png */; };
 		CB5713BF1EEB9AAD004EA94A /* icon-20@2x-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CB57139A1EEB9AAD004EA94A /* icon-20@2x-ipad.png */; };
 		CB5713C01EEB9AAD004EA94A /* icon-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB57139B1EEB9AAD004EA94A /* icon-20@2x.png */; };
@@ -328,6 +334,14 @@
 		CB1061181EEB89300099E371 /* MainHeadScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeadScrollView.m; sourceTree = "<group>"; };
 		CB10611A1EEB8F570099E371 /* LeftSortsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSortsController.h; sourceTree = "<group>"; };
 		CB10611B1EEB8F570099E371 /* LeftSortsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSortsController.m; sourceTree = "<group>"; };
+		CB266E321F38894000C17241 /* menu22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu22.png; sourceTree = "<group>"; };
+		CB266E331F38894000C17241 /* new_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_menu.png; sourceTree = "<group>"; };
+		CB266E341F38894000C17241 /* Q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Q.png; sourceTree = "<group>"; };
+		CB266E351F38894000C17241 /* R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = R.png; sourceTree = "<group>"; };
+		CB266E3B1F38899C00C17241 /* YCXMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCXMenu.h; sourceTree = "<group>"; };
+		CB266E3C1F38899C00C17241 /* YCXMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCXMenu.m; sourceTree = "<group>"; };
+		CB266E3D1F38899C00C17241 /* YCXMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCXMenuItem.h; sourceTree = "<group>"; };
+		CB266E3E1F38899C00C17241 /* YCXMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCXMenuItem.m; sourceTree = "<group>"; };
 		CB5713991EEB9AAD004EA94A /* icon-20-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-20-ipad.png"; sourceTree = "<group>"; };
 		CB57139A1EEB9AAD004EA94A /* icon-20@2x-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-20@2x-ipad.png"; sourceTree = "<group>"; };
 		CB57139B1EEB9AAD004EA94A /* icon-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-20@2x.png"; sourceTree = "<group>"; };
@@ -1153,6 +1167,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				CB266E3A1F38899C00C17241 /* YCXMenu */,
 				CB6BA4D21F315DD300335BF4 /* UMSocial */,
 				26B28B801F1EFC2B00FAF61F /* YGGravityImageView */,
 				262CEE551F0CC52D000CB505 /* YJJTextField */,
@@ -1267,9 +1282,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CB266E311F38894000C17241 /* Librarymenu */ = {
+			isa = PBXGroup;
+			children = (
+				CB266E321F38894000C17241 /* menu22.png */,
+				CB266E331F38894000C17241 /* new_menu.png */,
+				CB266E341F38894000C17241 /* Q.png */,
+				CB266E351F38894000C17241 /* R.png */,
+			);
+			path = Librarymenu;
+			sourceTree = "<group>";
+		};
+		CB266E3A1F38899C00C17241 /* YCXMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CB266E3B1F38899C00C17241 /* YCXMenu.h */,
+				CB266E3C1F38899C00C17241 /* YCXMenu.m */,
+				CB266E3D1F38899C00C17241 /* YCXMenuItem.h */,
+				CB266E3E1F38899C00C17241 /* YCXMenuItem.m */,
+			);
+			path = YCXMenu;
+			sourceTree = "<group>";
+		};
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				CB266E311F38894000C17241 /* Librarymenu */,
 				26EAD1F81F32C331002B1700 /* menu@2x.png */,
 				CB5713981EEB9AAD004EA94A /* icon */,
 				CB5713B01EEB9AAD004EA94A /* Main */,
@@ -1742,6 +1780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB266E391F38894000C17241 /* R.png in Resources */,
 				CB658C5C1EF2547F00AE5327 /* meTableViewCell.xib in Resources */,
 				263A77151F04CC9400D9173B /* LeftViewController.xib in Resources */,
 				CB5713D11EEB9AAD004EA94A /* icon-72@2x.png in Resources */,
@@ -1763,6 +1802,7 @@
 				CB5713D91EEB9AAD004EA94A /* icon-exam.png in Resources */,
 				CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */,
 				CB5713DE1EEB9AAD004EA94A /* icon-lost.png in Resources */,
+				CB266E361F38894000C17241 /* menu22.png in Resources */,
 				CB5713DD1EEB9AAD004EA94A /* icon-library.png in Resources */,
 				CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */,
 				CB5713BE1EEB9AAD004EA94A /* icon-20-ipad.png in Resources */,
@@ -1770,6 +1810,7 @@
 				CB5713CA1EEB9AAD004EA94A /* icon-50.png in Resources */,
 				CB1061061EE909950099E371 /* Info.plist in Resources */,
 				CB5713E01EEB9AAD004EA94A /* icon-second-hand.png in Resources */,
+				CB266E371F38894000C17241 /* new_menu.png in Resources */,
 				CB5713BF1EEB9AAD004EA94A /* icon-20@2x-ipad.png in Resources */,
 				CB5713E51EEB9F74004EA94A /* icon-video.png in Resources */,
 				CB658C6A1EF2AED400AE5327 /* AboutUsView.xib in Resources */,
@@ -1780,6 +1821,7 @@
 				CB1060D01EE909630099E371 /* LaunchScreen.storyboard in Resources */,
 				CB5713C81EEB9AAD004EA94A /* icon-40@2x.png in Resources */,
 				CB5713D01EEB9AAD004EA94A /* icon-72.png in Resources */,
+				CB266E381F38894000C17241 /* Q.png in Resources */,
 				CB5713CC1EEB9AAD004EA94A /* icon-57.png in Resources */,
 				CB658C661EF2AA6E00AE5327 /* KSGuaidProperty.plist in Resources */,
 				CB6BA4F11F315DD400335BF4 /* UMSocialSDKResources.bundle in Resources */,
@@ -1892,6 +1934,7 @@
 				CB5714091EEBCAE5004EA94A /* NSObject+MJClass.m in Sources */,
 				CB658C4C1EF2076D00AE5327 /* UIImageView+WebCache.m in Sources */,
 				CB01AB741EEEBC3A00E04D64 /* HySpinerLayer.m in Sources */,
+				CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */,
 				CB10610F1EEB88120099E371 /* QFNULibraryController.m in Sources */,
 				CB1060F31EE909630099E371 /* QFNUToolController.m in Sources */,
 				CB658C441EF2076D00AE5327 /* SDWebImageDownloader.m in Sources */,
@@ -1919,6 +1962,7 @@
 				267938831F0B913B00D960C7 /* TFHpple.m in Sources */,
 				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
 				CB5713E81EEBC4C0004EA94A /* MainButtonModel.m in Sources */,
+				CB266E3F1F38899C00C17241 /* YCXMenu.m in Sources */,
 				CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */,
 				262CEE5E1F0CC52D000CB505 /* YJJTextField.m in Sources */,
 				CB01AB751EEEBC3A00E04D64 /* HyTransitions.m in Sources */,

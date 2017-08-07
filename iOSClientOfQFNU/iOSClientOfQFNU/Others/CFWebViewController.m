@@ -9,6 +9,7 @@
 #import "CFWebViewController.h"
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
+#import "YCXMenu.h"
 
 #define boundsWidth self.view.bounds.size.width
 #define boundsHeight self.view.bounds.size.height
@@ -39,6 +40,11 @@
  *  if is swiping now
  */
 @property (nonatomic)BOOL isSwipingBack;
+
+/**
+*  图书馆菜单
+*/
+@property (nonatomic , strong) NSMutableArray *items;
 @end
 
 @implementation CFWebViewController
@@ -410,6 +416,63 @@
     }
     return _progressView;
 }
+#pragma mark - 菜单
+-(void)loadLibraryMenu{
 
+    UIView *rightButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 24)];
+    UIButton *mainAndSearchBtn = [[UIButton alloc] initWithFrame:CGRectMake(70, 0, 25, 25)];
+    [rightButtonView addSubview:mainAndSearchBtn];
+    [mainAndSearchBtn setImage:[UIImage imageNamed:@"new_menu"] forState:UIControlStateNormal];
+    [mainAndSearchBtn setImage:[UIImage imageNamed:@"menu22"] forState:UIControlStateHighlighted];
+    [mainAndSearchBtn addTarget:self action:@selector(loadLibraryMenuList) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightCunstomButtonView = [[UIBarButtonItem alloc] initWithCustomView:rightButtonView];
+    self.navigationItem.rightBarButtonItem = rightCunstomButtonView;
 
+}
+
+-(void)loadLibraryMenuList{
+    [YCXMenu setTintColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]];
+    [YCXMenu setSeparatorColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]];
+    //    [YCXMenu setTitleFont:[UIFont systemFontOfSize:19.0]];
+    //    [YCXMenu setSelectedColor:[UIColor redColor]];
+    if ([YCXMenu isShow]){
+        [YCXMenu dismissMenu];
+    } else {
+        [YCXMenu showMenuInView:self.view fromRect:CGRectMake(self.view.frame.size.width - 50, 70, 50, 0) menuItems:self.items selected:^(NSInteger index, YCXMenuItem *item) {
+            
+        }];
+    }
+    
+}
+
+- (NSMutableArray *)items {
+    if (!_items) {
+        
+        //        // set title
+        //        YCXMenuItem *menuTitle = [YCXMenuItem menuTitle:@"添加失物" WithIcon:nil];
+        //        menuTitle.foreColor = [UIColor whiteColor];
+        //        menuTitle.titleFont = [UIFont boldSystemFontOfSize:20.0f];
+        YCXMenuItem *menuTitle = [YCXMenuItem menuItem:@"曲阜校区" image:[UIImage imageNamed:@"Q"] target:self action:@selector(reloadQufu)];
+        menuTitle.foreColor = [UIColor blackColor];
+        menuTitle.alignment = NSTextAlignmentCenter;
+        //set logout button
+        YCXMenuItem *logoutItem = [YCXMenuItem menuItem:@"日照校区" image:[UIImage imageNamed:@"R"] target:self action:@selector(reloadRiZhao)];
+        logoutItem.foreColor = [UIColor blackColor];
+        logoutItem.alignment = NSTextAlignmentCenter;
+        
+        //        //set item
+        _items = [@[menuTitle,
+                    logoutItem
+                    ] mutableCopy];
+    }
+    return _items;
+}
+-(void)reloadQufu{
+    NSURL* riZhaoUrl = [NSURL URLWithString:@"http://m.5read.com/157"];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:riZhaoUrl]];
+}
+-(void)reloadRiZhao{
+    NSURL* riZhaoUrl = [NSURL URLWithString:@"http://m.5read.com/4581"];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:riZhaoUrl]];
+}
 @end
