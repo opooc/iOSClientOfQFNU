@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "523440627.825895"
+            timestampString = "523520366.805263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-aboutus"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "523440627.825895"
+            timestampString = "523520366.805263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-webviewtext:"
             landmarkType = "7">
          </BreakpointContent>

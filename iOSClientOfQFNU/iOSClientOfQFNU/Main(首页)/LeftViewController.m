@@ -83,10 +83,26 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"你点击的是%d组%d行",indexPath.section,indexPath.row);
-
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     switch (indexPath.section) {
         case 0:
-            
+            switch (indexPath.row) {
+                case 0:
+                    [mainViewController hideLeftViewAnimated];
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                 
+                    break;
+                    
+                default:
+                    break;
+            }
             break;
             case 1:
             switch (indexPath.row) {
@@ -160,6 +176,15 @@
     
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
+//- (UIStatusBarStyle)preferredStatusBarStyle {
+//    return UIStatusBarStyleDefault;
+//}
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+//- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+//    return UIStatusBarAnimationFade;
+//}
 /*
 #pragma mark - Navigation
 

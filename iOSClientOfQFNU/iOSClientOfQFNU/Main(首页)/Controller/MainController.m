@@ -105,7 +105,7 @@
     CGFloat allMainBtnviewWidth = self.allMainBtnView.frame.size.width;
     CGFloat allMainBtnviewHeight = self.allMainBtnView.frame.size.height;
     CGFloat hMargin = (allMainBtnviewWidth - allCols * width) / (allCols -1);
-    CGFloat vMargin = (allMainBtnviewHeight - 4*height) / 1;
+    CGFloat vMargin = (allMainBtnviewHeight-32 - 4*height) / 1;
     for (int i=0;i<12;i++) {
     // 4. 设置索引
     NSInteger index = self.allMainBtnView.subviews.count;
