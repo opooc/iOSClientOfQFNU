@@ -130,11 +130,11 @@
     [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"dic %@",dic);
         if([[dic objectForKey:@"status"]integerValue]==1){
-            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
+//            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
             [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text];
             [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
             [button succeedAnimationWithCompletion:^{

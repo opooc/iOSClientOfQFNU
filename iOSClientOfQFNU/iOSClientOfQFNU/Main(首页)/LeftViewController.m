@@ -31,7 +31,7 @@
 }
 -(void)createdata{
     _dataArray=[[NSArray alloc]init];
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一览",@"我的课表",@"周课表",@"信息门户",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"软件设置",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一览",@"我的课表",@"周课表",@"学籍信息",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"软件设置",nil],nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -97,9 +97,8 @@
                     
                     break;
                 case 3:
-                 
+                 [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx#"];
                     break;
-                    
                 default:
                     break;
             }
