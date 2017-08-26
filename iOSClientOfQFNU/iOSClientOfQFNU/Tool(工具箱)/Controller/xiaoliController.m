@@ -1,30 +1,35 @@
 //
-//  QFNUShareController.m
-//  QFNU for opooc
+//  xiaoliController.m
+//  iOSClientOfQFNU
 //
-//  Created by doushuyao on 17/6/5.
-//  Copyright © 2017年 opooc. All rights reserved.
+//  Created by doushuyao on 2017/8/26.
+//  Copyright © 2017年 iOSClientOfQFNU. All rights reserved.
 //
 
-#import "QFNUShareController.h"
+#import "xiaoliController.h"
 
-
-@interface QFNUShareController ()
+@interface xiaoliController ()
 
 @end
 
-@implementation QFNUShareController
+@implementation xiaoliController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+}
+-(void)load:(NSString*)urlstr{
+    UIWebView* xiaoli = [[UIWebView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H)];
+  
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlstr]];
+    [xiaoli loadRequest:request];
+    [self.view addSubview:xiaoli];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 /*
 #pragma mark - Navigation

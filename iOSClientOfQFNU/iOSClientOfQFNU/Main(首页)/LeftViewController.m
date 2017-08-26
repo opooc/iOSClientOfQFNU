@@ -12,6 +12,9 @@
 #import "CFWebViewController.h"
 #import "LGSideMainViewController.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "QFNUShareController.h"
+#import <UShareUI/UShareUI.h>
+#import "QFNUToolController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tb;
 @property (weak, nonatomic) IBOutlet UILabel *namelb;
@@ -128,13 +131,13 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
-                    
+                    [self tool];
                     break;
                 case 1:
-                    
                     break;
                 case 2:
-                    
+                    [mainViewController hideLeftViewAnimated];
+                    [self UshareUI];
                     break;
                 case 3:
                     [self aboutus];
@@ -165,6 +168,8 @@
     [navigationController pushViewController:webview animated:YES];
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
+
+
 -(void)aboutus{
 //    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
 //    MainController *mainViewController=[[MainController alloc]init];
@@ -182,6 +187,76 @@
 //- (UIStatusBarStyle)preferredStatusBarStyle {
 //    return UIStatusBarStyleDefault;
 //}
+
+-(void)UshareUI{
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_Sms)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        
+        if(platformType == UMSocialPlatformType_Sina){
+            
+            [self shareTextToPlatformType:platformType];
+        }
+        else{
+            
+            [self shareWebPageToPlatformType:platformType];}
+        
+    }];
+    
+}
+-(void)tool{
+
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    QFNUToolController *tool=[[QFNUToolController alloc]init];
+    
+    [navigationController pushViewController:tool animated:YES];
+    
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+
+
+}
+
+//友盟分享
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = @"曲园教务";
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+{
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    
+    //创建网页内容对象
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"曲园教务" descr:@"曲园教务App是由曲园团队开发，为曲师大学生开发的产品，志于帮助同学们更加便捷的体验校园生活。。" thumImage:[UIImage imageNamed:@"icon-72"]];
+    //设置网页地址
+    shareObject.webpageUrl =@"http://qfnu.opooc.com";
+    //分享消息对象设置分享内容对象
+    
+    messageObject.shareObject = shareObject;
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            NSLog(@"************Share fail with error %@*********",error);
+        }else{
+            NSLog(@"response data is %@",data);
+        }
+    }];
+}
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }

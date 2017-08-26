@@ -339,6 +339,7 @@
     return _webView;
 }
 
+
 -(UIBarButtonItem*)customBackBarItem{
     if (!_customBackBarItem) {
         UIImage* backItemImage = [[UIImage imageNamed:@"backItemImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -357,6 +358,7 @@
         _customBackBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     }
     return _customBackBarItem;
+    
 }
 
 -(UIBarButtonItem*)closeButtonItem{

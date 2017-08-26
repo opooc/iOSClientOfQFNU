@@ -1,22 +1,21 @@
 //
-//  MainButtonView.m
+//  ToolButtonView.m
 //  iOSClientOfQFNU
 //
-//  Created by doushuyao on 17/6/10.
+//  Created by doushuyao on 2017/8/22.
 //  Copyright © 2017年 iOSClientOfQFNU. All rights reserved.
 //
 
-#import "MainButtonView.h"
-#import "MainButtonModel.h"
+#import "ToolButtonView.h"
+#import "ToolModel.h"
 
-@interface MainButtonView()
-
-
-@property(nonatomic,weak)UILabel* label;
+@interface ToolButtonView()
 
 @end
 
-@implementation MainButtonView
+
+@implementation ToolButtonView
+
 
 - (instancetype)init{
     if (self = [super init]) {
@@ -34,8 +33,8 @@
 }
 
 
--(instancetype)initWithModel:(MainButtonModel*)btnmodel{
-
+-(instancetype)initWithModel:(ToolModel*)btnmodel{
+    
     if (self = [super init]) {
         
         [self setUp];
@@ -44,29 +43,29 @@
     }
     return self;
 }
-+(instancetype)modelWithModel:(MainButtonModel *)btnmodel{
-
++(instancetype)modelWithModel:(ToolModel *)btnmodel{
+    
     return [[self alloc]initWithModel:btnmodel];
 }
 
 -(void)setUp{
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-   // btn.backgroundColor = [UIColor greenColor];
-   // btn.imageView.backgroundColor = [UIColor whiteColor];
-    btn.layer.cornerRadius = 25;
-    btn.layer.masksToBounds = true;
     
-
+    
+    btn.layer.cornerRadius =30;
+    //btn.layer.masksToBounds = true;
+    
+    
     [self addSubview:btn];
     _btn = btn;
     
-    UILabel* lable = [[UILabel alloc]init];
-   // lable.backgroundColor = [UIColor yellowColor];
-   // lable.textColor = [UIColor greenColor];
+    UILabel* lable = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, 20, 20)];
+    // lable.backgroundColor = [UIColor yellowColor];
+    // lable.textColor = [UIColor greenColor];
     [self addSubview:lable];
     _label = lable;
-
-
+    
+    
 }
 
 
@@ -74,28 +73,26 @@
     [super layoutSubviews];
     
     CGFloat width = self.frame.size.width;
-   // CGFloat height = self.frame.size.height;
+    //CGFloat height = self.frame.size.height;
     
     self.btn.frame = CGRectMake(0, 0, width, width);
     self.btn.imageView.frame = self.btn.frame;
-
+    
     
     self.label.frame = CGRectMake(0, width, width, 20);
     self.label.textAlignment = NSTextAlignmentCenter;
-
-
+    
+    
 }
 
--(void)setBtnmodel:(MainButtonModel *)btnmodel{
-
+-(void)setBtnmodel:(ToolModel *)btnmodel{
+    
     _btnmodel = btnmodel;
-    NSLog(@"%@-------",_btnmodel.icon);
+   // NSLog(@"%@-------",_btnmodel.icon);
     
     [self.btn setImage:[UIImage imageNamed:_btnmodel.icon] forState:UIControlStateNormal];
-    self.label.text = _btnmodel.name;
-    self.label.font = [UIFont systemFontOfSize:12];
+    _label.text = _btnmodel.name;
     
-
 }
 
 

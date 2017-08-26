@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainButtonModel.h"
+#import "MainButtonView.h"
 
 @interface QFNUToolController : UIViewController
 
