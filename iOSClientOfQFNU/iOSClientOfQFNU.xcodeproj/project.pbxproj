@@ -198,6 +198,8 @@
 		CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */; };
 		CBE08F481F5168620009447C /* cet.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F471F5168620009447C /* cet.png */; };
 		CBE08F4C1F517AC20009447C /* xiaoliController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE08F4B1F517AC20009447C /* xiaoliController.m */; };
+		CBE08F4F1F52A3EE0009447C /* weather_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F4E1F52A3EE0009447C /* weather_bg.jpg */; };
+		CBE08F521F52A9480009447C /* UILabel+LeftTopAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE08F511F52A9480009447C /* UILabel+LeftTopAlign.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -524,9 +526,12 @@
 		CBA8F9881EEE2B1200C9F53F /* headBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headBtn.m; sourceTree = "<group>"; };
 		CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meTableViewCell.h; sourceTree = "<group>"; };
 		CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = meTableViewCell.m; sourceTree = "<group>"; };
-		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cet.png; path = Tool/cet.png; sourceTree = "<group>"; };
+		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cet.png; sourceTree = "<group>"; };
 		CBE08F4A1F517AC20009447C /* xiaoliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoliController.h; sourceTree = "<group>"; };
 		CBE08F4B1F517AC20009447C /* xiaoliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoliController.m; sourceTree = "<group>"; };
+		CBE08F4E1F52A3EE0009447C /* weather_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weather_bg.jpg; sourceTree = "<group>"; };
+		CBE08F501F52A9480009447C /* UILabel+LeftTopAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LeftTopAlign.h"; sourceTree = "<group>"; };
+		CBE08F511F52A9480009447C /* UILabel+LeftTopAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LeftTopAlign.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1356,8 +1361,8 @@
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				CBE08F4D1F52A3EE0009447C /* weather */,
 				CB7BA82E1F4D287A00BBC838 /* Tool */,
-				CBE08F471F5168620009447C /* cet.png */,
 				CB266E311F38894000C17241 /* Librarymenu */,
 				26EAD1F81F32C331002B1700 /* menu@2x.png */,
 				CB5713981EEB9AAD004EA94A /* icon */,
@@ -1632,6 +1637,7 @@
 		CB7BA82E1F4D287A00BBC838 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				CBE08F471F5168620009447C /* cet.png */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1688,6 +1694,8 @@
 			children = (
 				CB7BA84F1F4D2D2E00BBC838 /* WeatherViewController.h */,
 				CB7BA8501F4D2D2E00BBC838 /* WeatherViewController.m */,
+				CBE08F501F52A9480009447C /* UILabel+LeftTopAlign.h */,
+				CBE08F511F52A9480009447C /* UILabel+LeftTopAlign.m */,
 			);
 			name = weather;
 			sourceTree = "<group>";
@@ -1792,6 +1800,15 @@
 				CBE08F4B1F517AC20009447C /* xiaoliController.m */,
 			);
 			name = xiaoli;
+			sourceTree = "<group>";
+		};
+		CBE08F4D1F52A3EE0009447C /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				CBE08F4E1F52A3EE0009447C /* weather_bg.jpg */,
+			);
+			name = weather;
+			path = Tool/weather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1954,6 +1971,7 @@
 				CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */,
 				CB5713CF1EEB9AAD004EA94A /* icon-60@3x.png in Resources */,
 				CB5713C91EEB9AAD004EA94A /* icon-40@3x.png in Resources */,
+				CBE08F4F1F52A3EE0009447C /* weather_bg.jpg in Resources */,
 				CB5713CE1EEB9AAD004EA94A /* icon-60@2x.png in Resources */,
 				CB10601A1EE908E30099E371 /* Main.storyboard in Resources */,
 				CBA8F97E1EEE184900C9F53F /* Clock@3x.png in Resources */,
@@ -2036,6 +2054,7 @@
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
 				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
+				CBE08F521F52A9480009447C /* UILabel+LeftTopAlign.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,
