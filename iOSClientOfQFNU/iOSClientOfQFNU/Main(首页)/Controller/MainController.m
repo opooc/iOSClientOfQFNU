@@ -163,7 +163,7 @@
 
 
 -(void)webviewtext{
-    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://202.194.188.19/gradeLnAllAction?type=In&oper=qb"]];
+    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
     [self.navigationController pushViewController:webview animated:YES];
 }
 -(void)meVc{

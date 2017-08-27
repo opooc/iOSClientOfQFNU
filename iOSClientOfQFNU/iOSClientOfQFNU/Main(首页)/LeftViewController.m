@@ -16,6 +16,7 @@
 #import <UShareUI/UShareUI.h>
 #import "QFNUToolController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UITableView *tb;
 @property (weak, nonatomic) IBOutlet UILabel *namelb;
 @property (strong,nonatomic)NSArray *dataArray;

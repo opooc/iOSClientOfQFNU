@@ -198,6 +198,7 @@
 		CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */; };
 		CBE08F481F5168620009447C /* cet.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F471F5168620009447C /* cet.png */; };
 		CBE08F4C1F517AC20009447C /* xiaoliController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE08F4B1F517AC20009447C /* xiaoliController.m */; };
+		EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB3F4AA21F530A6F0052134E /* logo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -527,6 +528,7 @@
 		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cet.png; path = Tool/cet.png; sourceTree = "<group>"; };
 		CBE08F4A1F517AC20009447C /* xiaoliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoliController.h; sourceTree = "<group>"; };
 		CBE08F4B1F517AC20009447C /* xiaoliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoliController.m; sourceTree = "<group>"; };
+		EB3F4AA21F530A6F0052134E /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = iOSClientOfQFNU/logo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -686,6 +688,7 @@
 		CB1060031EE908E30099E371 = {
 			isa = PBXGroup;
 			children = (
+				EB3F4AA21F530A6F0052134E /* logo.jpg */,
 				CB10600E1EE908E30099E371 /* iOSClientOfQFNU */,
 				CB1060281EE908E30099E371 /* iOSClientOfQFNUTests */,
 				CB1060331EE908E30099E371 /* iOSClientOfQFNUUITests */,
@@ -1956,6 +1959,7 @@
 				CB5713C91EEB9AAD004EA94A /* icon-40@3x.png in Resources */,
 				CB5713CE1EEB9AAD004EA94A /* icon-60@2x.png in Resources */,
 				CB10601A1EE908E30099E371 /* Main.storyboard in Resources */,
+				EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */,
 				CBA8F97E1EEE184900C9F53F /* Clock@3x.png in Resources */,
 				CB1061091EE90CD30099E371 /* Images.xcassets in Resources */,
 				CB5713C31EEB9AAD004EA94A /* icon-29.png in Resources */,

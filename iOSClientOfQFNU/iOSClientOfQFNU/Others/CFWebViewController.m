@@ -10,18 +10,18 @@
 #import "NJKWebViewProgress.h"
 #import "NJKWebViewProgressView.h"
 #import "YCXMenu.h"
-
+#import "UIViewController+LGSideMenuController.h"
 #define boundsWidth self.view.bounds.size.width
 #define boundsHeight self.view.bounds.size.height
 
 @interface CFWebViewController ()<UIWebViewDelegate,UINavigationControllerDelegate,UINavigationBarDelegate,NJKWebViewProgressDelegate>
 @property (nonatomic)UIBarButtonItem* customBackBarItem;
 @property (nonatomic)UIBarButtonItem* closeButtonItem;
-
+@property (nonatomic)UIBarButtonItem* MainButtonItem;
 @property (nonatomic)NJKWebViewProgress* progressProxy;
 @property (nonatomic)NJKWebViewProgressView* progressView;
 @property (nonatomic)NSMutableArray* snapShotsArray;
-
+@property (nonatomic)BOOL* isMain;
 
 @property (nonatomic)UIView* currentSnapShotView;
 
@@ -58,6 +58,11 @@
     self = [super init];
     if (self) {
         self.url = url;
+        if ([[url absoluteString]isEqualToString:@"http://www.opooc.com/"]) {
+            self.isMain=YES;
+        }else{
+            self.isMain=false;
+        }
         _progressViewColor = [UIColor colorWithRed:119.0/255 green:228.0/255 blue:115.0/255 alpha:1];
     }
     return self;
@@ -75,7 +80,11 @@
     self.webView.delegate = self.progressProxy;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
-    
+    UIImage *menu=[UIImage imageNamed:@"menu"];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(showLeftView)];
     [self.navigationController.navigationBar addSubview:self.progressView];
     // Do any additional setup after loading the view.
 }
@@ -223,8 +232,13 @@
         spaceButtonItem.width = -6.5;
         
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-        [self.navigationItem setLeftBarButtonItems:@[self.closeButtonItem] animated:NO];
         
+        if (_isMain) {
+                    [self.navigationItem setRightBarButtonItems:@[self.MainButtonItem] animated:NO];
+            
+        }else{
+                    [self.navigationItem setLeftBarButtonItems:@[self.closeButtonItem] animated:NO];
+        }
         //弃用customBackBarItem，使用原生backButtonItem
         //        [self.navigationItem setLeftBarButtonItems:@[spaceButtonItem,self.customBackBarItem,self.closeButtonItem] animated:NO];
     }else{
@@ -257,7 +271,10 @@
 -(void)closeItemClicked{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+-(void)MainItemClicked{
+    self.url=[NSURL URLWithString:@"http://www.opooc.com/"];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
+}
 #pragma mark - webView delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -363,10 +380,20 @@
 
 -(UIBarButtonItem*)closeButtonItem{
     if (!_closeButtonItem) {
-        _closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeItemClicked)];
+        _closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(MainItemClicked)];
     }
     return _closeButtonItem;
 }
+-(UIBarButtonItem*)MainButtonItem{
+    if (!_MainButtonItem) {
+        _MainButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回首页" style:UIBarButtonItemStylePlain target:self action:@selector(MainItemClicked)];
+    }
+    return _MainButtonItem;
+}
+- (void)showLeftView {
+    [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
+}
+
 
 -(UIView*)swipingBackgoundView{
     if (!_swipingBackgoundView) {

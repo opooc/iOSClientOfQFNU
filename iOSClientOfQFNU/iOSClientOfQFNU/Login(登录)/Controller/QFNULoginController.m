@@ -15,6 +15,7 @@
 #import "AFURLSessionManager.h"
 #import "QFInfo.h"
 #import "YJJTextField.h"
+#import "CFWebViewController.h"
 #import "YGGravityImageView.h"
 #import "AppDelegate.h"
 #import "LeftViewController.h"
@@ -36,6 +37,9 @@
     [self createTextField];
     YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     imageView.image = [UIImage imageNamed:@"login_bg6.png"];
+    UIImageView* logo =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo.jpg"]];
+    logo.frame=CGRectMake(kSCREEN_WIDTH/2-75, 100, 150, 150);
+    [self.view addSubview:logo];
     [self.view addSubview:imageView];
     [self.view sendSubviewToBack:imageView];
     [imageView startAnimate];
@@ -172,9 +176,9 @@
     controller.transitioningDelegate = self;
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
 //    navigationController.transitioningDelegate = self;
-
+  CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
     MainController *rootViewController = [[MainController alloc]init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:webview];
     
     LGSideMainViewController *mainViewController = [LGSideMainViewController new];
     mainViewController.rootViewController = navigationController;
