@@ -11,6 +11,7 @@
 #import "WeatherViewController.h"
 #import "ToolButtonView.h"
 #import "xiaoliController.h"
+#import "rebotController.h"
 
 @interface QFNUToolController ()
 @property (nonatomic, strong) NSArray* dataArr;
@@ -58,7 +59,7 @@
     CGFloat allMainBtnviewHeight = self.allMainBtnView.frame.size.height;
     CGFloat hMargin = (allMainBtnviewWidth - allCols * width) / (allCols -1);
     CGFloat vMargin = (allMainBtnviewHeight-32 - 4*height) / 1;
-    for (int i=0;i<12;i++) {
+    for (int i=0;i<4;i++) {
         // 4. 设置索引
         NSInteger index = self.allMainBtnView.subviews.count;
         // 5.求出x值
@@ -80,10 +81,11 @@
       else if (index== 2) {
           [btnView.btn addTarget:self action:@selector(weather) forControlEvents:UIControlEventTouchUpInside];
       }
+      else if (index== 3) {
+          [btnView.btn addTarget:self action:@selector(rebot) forControlEvents:UIControlEventTouchUpInside];
+      }
         
         btnView.frame = CGRectMake(x, y, width, height);
-        NSLog(@"dataArrrrrrr:%@",_dataArr[index]);
-        
         // btnView.backgroundColor = [UIColor blueColor];
         [self.allMainBtnView addSubview:btnView];
         
@@ -108,6 +110,11 @@
     WeatherViewController* weather = [[WeatherViewController alloc]init];
     
     [self.navigationController pushViewController:weather animated:YES];
+
+}
+-(void)rebot{
+    rebotController* rebot =[[rebotController alloc]init];
+    [self.navigationController pushViewController:rebot animated:YES];
 
 }
 

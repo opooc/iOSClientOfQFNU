@@ -16,63 +16,15 @@
 	</dict>
 	<dict>
 		<key>icon</key>
-		<string>icon-exam.png</string>
+		<string>weather.png</string>
 		<key>name</key>
-		<string>课程计划</string>
+		<string>天气</string>
 	</dict>
 	<dict>
 		<key>icon</key>
-		<string>icon-score.png</string>
+		<string>rebot.png</string>
 		<key>name</key>
-		<string>成绩查询</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-homework-inline.png</string>
-		<key>name</key>
-		<string>网上作业</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-second-hand.png</string>
-		<key>name</key>
-		<string>二手市场</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-social.png</string>
-		<key>name</key>
-		<string>校园说说</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-elec.png</string>
-		<key>name</key>
-		<string>电费查询</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-lab.png</string>
-		<key>name</key>
-		<string>实验课表</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-calendar.png</string>
-		<key>name</key>
-		<string>校历</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-lost.png</string>
-		<key>name</key>
-		<string>失物招领</string>
-	</dict>
-	<dict>
-		<key>icon</key>
-		<string>icon-video</string>
-		<key>name</key>
-		<string>视频专栏</string>
+		<string>智能回答</string>
 	</dict>
 </array>
 </plist>

@@ -96,7 +96,7 @@
     [self.view addSubview:_temp];
     
     _sport = [[UILabel alloc]init];
-    _sport.frame = CGRectMake(23, 500, 100, 30);
+    _sport.frame = CGRectMake(23, 550, 100, 30);
     _sport.text = @"运动建议:";
     _sport.textColor = TEXT_GRAYCOLOR;
     _sport.font = [UIFont systemFontOfSize:20];
@@ -145,7 +145,7 @@
     
     
     _sportn = [[UILabel alloc]init];
-    _sportn.frame = CGRectMake(120, 500, SCREEN_W-120, SCREEN_H-500);
+    _sportn.frame = CGRectMake(120, 470, SCREEN_W-120, SCREEN_H-500);
     _sportn.textColor = TEXT_GRAYCOLOR;
     _sportn.font = [UIFont systemFontOfSize:19];
     //[_sportn textLeftTopAlign];
