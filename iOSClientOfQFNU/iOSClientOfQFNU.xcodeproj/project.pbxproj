@@ -525,7 +525,7 @@
 		CBA8F9881EEE2B1200C9F53F /* headBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headBtn.m; sourceTree = "<group>"; };
 		CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meTableViewCell.h; sourceTree = "<group>"; };
 		CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = meTableViewCell.m; sourceTree = "<group>"; };
-		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cet.png; path = Tool/cet.png; sourceTree = "<group>"; };
+		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cet.png; sourceTree = "<group>"; };
 		CBE08F4A1F517AC20009447C /* xiaoliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoliController.h; sourceTree = "<group>"; };
 		CBE08F4B1F517AC20009447C /* xiaoliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoliController.m; sourceTree = "<group>"; };
 		EB3F4AA21F530A6F0052134E /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = iOSClientOfQFNU/logo.jpg; sourceTree = "<group>"; };
@@ -1188,6 +1188,7 @@
 		CB1060AB1EE909630099E371 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CBE08F581F52BE0C0009447C /* rebot */,
 				CBE08F491F517AA60009447C /* xiaoli */,
 				CB7BA84E1F4D2CF800BBC838 /* weather */,
 				CB1060AC1EE909630099E371 /* QFNUToolController.h */,
@@ -1359,8 +1360,9 @@
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				CBE08F551F52BA770009447C /* rebot */,
+				CBE08F4D1F52A3EE0009447C /* weather */,
 				CB7BA82E1F4D287A00BBC838 /* Tool */,
-				CBE08F471F5168620009447C /* cet.png */,
 				CB266E311F38894000C17241 /* Librarymenu */,
 				26EAD1F81F32C331002B1700 /* menu@2x.png */,
 				CB5713981EEB9AAD004EA94A /* icon */,
@@ -1635,6 +1637,7 @@
 		CB7BA82E1F4D287A00BBC838 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				CBE08F471F5168620009447C /* cet.png */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1691,6 +1694,8 @@
 			children = (
 				CB7BA84F1F4D2D2E00BBC838 /* WeatherViewController.h */,
 				CB7BA8501F4D2D2E00BBC838 /* WeatherViewController.m */,
+				CBE08F501F52A9480009447C /* UILabel+LeftTopAlign.h */,
+				CBE08F511F52A9480009447C /* UILabel+LeftTopAlign.m */,
 			);
 			name = weather;
 			sourceTree = "<group>";
@@ -1795,6 +1800,34 @@
 				CBE08F4B1F517AC20009447C /* xiaoliController.m */,
 			);
 			name = xiaoli;
+			sourceTree = "<group>";
+		};
+		CBE08F4D1F52A3EE0009447C /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				CBE08F531F52B7940009447C /* weather.png */,
+				CBE08F4E1F52A3EE0009447C /* weather_bg.jpg */,
+			);
+			name = weather;
+			path = Tool/weather;
+			sourceTree = "<group>";
+		};
+		CBE08F551F52BA770009447C /* rebot */ = {
+			isa = PBXGroup;
+			children = (
+				CBE08F561F52BA770009447C /* rebot.png */,
+			);
+			name = rebot;
+			path = Tool/rebot;
+			sourceTree = "<group>";
+		};
+		CBE08F581F52BE0C0009447C /* rebot */ = {
+			isa = PBXGroup;
+			children = (
+				CBE08F591F52BE2B0009447C /* rebotController.h */,
+				CBE08F5A1F52BE2B0009447C /* rebotController.m */,
+			);
+			name = rebot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1928,6 +1961,7 @@
 				CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */,
 				CB5713DC1EEB9AAD004EA94A /* icon-lab.png in Resources */,
 				CB5713D91EEB9AAD004EA94A /* icon-exam.png in Resources */,
+				CBE08F541F52B7940009447C /* weather.png in Resources */,
 				CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */,
 				CB5713DE1EEB9AAD004EA94A /* icon-lost.png in Resources */,
 				CB266E361F38894000C17241 /* menu22.png in Resources */,
@@ -1957,6 +1991,7 @@
 				CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */,
 				CB5713CF1EEB9AAD004EA94A /* icon-60@3x.png in Resources */,
 				CB5713C91EEB9AAD004EA94A /* icon-40@3x.png in Resources */,
+				CBE08F4F1F52A3EE0009447C /* weather_bg.jpg in Resources */,
 				CB5713CE1EEB9AAD004EA94A /* icon-60@2x.png in Resources */,
 				CB10601A1EE908E30099E371 /* Main.storyboard in Resources */,
 				EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */,
@@ -1973,6 +2008,7 @@
 				262CEE5F1F0CC52D000CB505 /* YJJTextField.xib in Resources */,
 				CB6BA4EF1F315DD400335BF4 /* UMSocialSDKPromptResources.bundle in Resources */,
 				CB5713E11EEB9AAD004EA94A /* icon-social.png in Resources */,
+				CBE08F571F52BA770009447C /* rebot.png in Resources */,
 				26EAD1F91F32C331002B1700 /* menu@2x.png in Resources */,
 				CB5713C41EEB9AAD004EA94A /* icon-29@2x-ipad.png in Resources */,
 				CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */,
@@ -2031,6 +2067,7 @@
 				262D1C3A1F038E95004A4787 /* AFURLResponseSerialization.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
 				CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */,
+				CBE08F5B1F52BE2B0009447C /* rebotController.m in Sources */,
 				CB658C461EF2076D00AE5327 /* SDWebImageManager.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
 				26D7029B1F330DEC00BBFD82 /* LGSideMainViewController.m in Sources */,
@@ -2040,6 +2077,7 @@
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
 				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
+				CBE08F521F52A9480009447C /* UILabel+LeftTopAlign.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,

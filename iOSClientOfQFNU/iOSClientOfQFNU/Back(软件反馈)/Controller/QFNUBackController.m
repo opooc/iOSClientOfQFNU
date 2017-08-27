@@ -27,7 +27,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupView];
     
-    
 }
 -(void)setupView{
 
