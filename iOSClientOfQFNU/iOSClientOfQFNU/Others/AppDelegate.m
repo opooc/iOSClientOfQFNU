@@ -9,10 +9,13 @@
 #import "AppDelegate.h"
 #import "WZXLaunchViewController.h"
 //#import "HomeWebViewController.h"
-
+#import "AFNetworking.h"
+#import "QFInfo.h"
+#import "CFWebViewController.h"
 #import "LGSideMenuController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "MainController.h"
+#import "LGSideMainViewController.h"
 #import "LeftViewController.h"
 #import "QFNULoginController.h"
 #import <UMSocialCore/UMSocialCore.h>
@@ -25,23 +28,38 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
+    if ([[QFInfo sharedInstance] getUser]!=nil) {
+                                [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
+            _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//        QFNULoginController *loginview=[[QFNULoginController alloc]init];
+        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
+//        MainController *rootViewController = [[MainController alloc]init];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:webview];
+        
+        LGSideMainViewController *mainViewController = [LGSideMainViewController new];
+        mainViewController.rootViewController = navigationController;
+        [mainViewController setupWithType:1];
+        _window.backgroundColor = [UIColor whiteColor];
+        _window.rootViewController = mainViewController;
+        [_window makeKeyAndVisible];
+    }else{
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    MainController *rootViewController = [[MainController alloc]init];
-    LeftViewController *leftViewController = [LeftViewController new];      
-    UITableViewController *rightViewController = [UITableViewController new];
+//    MainController *rootViewController = [[MainController alloc]init];
+//    LeftViewController *leftViewController = [LeftViewController new];
+//    UITableViewController *rightViewController = [UITableViewController new];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-    LGSideMenuController *sideMenuController = [LGSideMenuController sideMenuControllerWithRootViewController:navigationController
-                                                                                           leftViewController:leftViewController
-                                                                                          rightViewController:rightViewController];
+//    LGSideMenuController *sideMenuController = [LGSideMenuController sideMenuControllerWithRootViewController:navigationController
+//                                                                                           leftViewController:leftViewController
+//                                                                                          rightViewController:rightViewController];
     
-    sideMenuController.leftViewWidth = 250.0;
-    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
-    
-    sideMenuController.rightViewWidth = 100.0;
-    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+//    sideMenuController.leftViewWidth = 250.0;
+//    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
+//    
+//    sideMenuController.rightViewWidth = 100.0;
+//    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
     QFNULoginController *loginview=[[QFNULoginController alloc]init];
     
     _window.backgroundColor = [UIColor whiteColor];
@@ -81,6 +99,7 @@
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
     _window.rootViewController = loginview;
         [_window makeKeyAndVisible];
+    }
 
 #pragma maeks Umeng
     

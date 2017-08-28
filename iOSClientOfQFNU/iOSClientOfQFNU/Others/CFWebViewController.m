@@ -80,11 +80,8 @@
     self.webView.delegate = self.progressProxy;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
-    UIImage *menu=[UIImage imageNamed:@"menu"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(showLeftView)];
+
+
     [self.navigationController.navigationBar addSubview:self.progressView];
     // Do any additional setup after loading the view.
 }
@@ -320,6 +317,14 @@
         theTitle = [[theTitle substringToIndex:9] stringByAppendingString:@"…"];
     }
     self.title = theTitle;
+    if (_isMain) {
+        UIImage *menu=[UIImage imageNamed:@"menu"];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(showLeftView)];
+    }
+
     //    [self.progressView setProgress:1 animated:NO];
 }
 

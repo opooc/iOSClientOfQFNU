@@ -196,9 +196,12 @@
 		CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F9831EEE19BB00C9F53F /* meTableHeadView.m */; };
 		CBA8F9891EEE2B1200C9F53F /* headBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F9881EEE2B1200C9F53F /* headBtn.m */; };
 		CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */; };
-		CBE08F481F5168620009447C /* cet.png in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F471F5168620009447C /* cet.png */; };
+		CBE08F481F5168620009447C /* cet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F471F5168620009447C /* cet.jpg */; };
 		CBE08F4C1F517AC20009447C /* xiaoliController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE08F4B1F517AC20009447C /* xiaoliController.m */; };
 		EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB3F4AA21F530A6F0052134E /* logo.jpg */; };
+		EB6031CE1F54487500C26A9A /* rebotController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6031CD1F54487500C26A9A /* rebotController.m */; };
+		EB716C6B1F545EDA0081509B /* qfnulogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB716C6A1F545EDA0081509B /* qfnulogo.png */; };
+		EB716C6D1F545F300081509B /* qfnulogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB716C6C1F545F300081509B /* qfnulogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -525,10 +528,14 @@
 		CBA8F9881EEE2B1200C9F53F /* headBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headBtn.m; sourceTree = "<group>"; };
 		CBA8F98A1EEE5DDB00C9F53F /* meTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meTableViewCell.h; sourceTree = "<group>"; };
 		CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = meTableViewCell.m; sourceTree = "<group>"; };
-		CBE08F471F5168620009447C /* cet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cet.png; sourceTree = "<group>"; };
+		CBE08F471F5168620009447C /* cet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cet.jpg; sourceTree = "<group>"; };
 		CBE08F4A1F517AC20009447C /* xiaoliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoliController.h; sourceTree = "<group>"; };
 		CBE08F4B1F517AC20009447C /* xiaoliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoliController.m; sourceTree = "<group>"; };
 		EB3F4AA21F530A6F0052134E /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = iOSClientOfQFNU/logo.jpg; sourceTree = "<group>"; };
+		EB6031CC1F54487500C26A9A /* rebotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rebotController.h; sourceTree = "<group>"; };
+		EB6031CD1F54487500C26A9A /* rebotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rebotController.m; sourceTree = "<group>"; };
+		EB716C6A1F545EDA0081509B /* qfnulogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qfnulogo.png; path = iOSClientOfQFNU/image/Librarymenu/qfnulogo.png; sourceTree = "<group>"; };
+		EB716C6C1F545F300081509B /* qfnulogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qfnulogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -688,6 +695,7 @@
 		CB1060031EE908E30099E371 = {
 			isa = PBXGroup;
 			children = (
+				EB716C6A1F545EDA0081509B /* qfnulogo.png */,
 				EB3F4AA21F530A6F0052134E /* logo.jpg */,
 				CB10600E1EE908E30099E371 /* iOSClientOfQFNU */,
 				CB1060281EE908E30099E371 /* iOSClientOfQFNUTests */,
@@ -1339,6 +1347,7 @@
 			isa = PBXGroup;
 			children = (
 				CB266E321F38894000C17241 /* menu22.png */,
+				EB716C6C1F545F300081509B /* qfnulogo.png */,
 				CB266E331F38894000C17241 /* new_menu.png */,
 				CB266E341F38894000C17241 /* Q.png */,
 				CB266E351F38894000C17241 /* R.png */,
@@ -1637,7 +1646,7 @@
 		CB7BA82E1F4D287A00BBC838 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				CBE08F471F5168620009447C /* cet.png */,
+				CBE08F471F5168620009447C /* cet.jpg */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1692,10 +1701,10 @@
 		CB7BA84E1F4D2CF800BBC838 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				EB6031CC1F54487500C26A9A /* rebotController.h */,
+				EB6031CD1F54487500C26A9A /* rebotController.m */,
 				CB7BA84F1F4D2D2E00BBC838 /* WeatherViewController.h */,
 				CB7BA8501F4D2D2E00BBC838 /* WeatherViewController.m */,
-				CBE08F501F52A9480009447C /* UILabel+LeftTopAlign.h */,
-				CBE08F511F52A9480009447C /* UILabel+LeftTopAlign.m */,
 			);
 			name = weather;
 			sourceTree = "<group>";
@@ -1805,8 +1814,6 @@
 		CBE08F4D1F52A3EE0009447C /* weather */ = {
 			isa = PBXGroup;
 			children = (
-				CBE08F531F52B7940009447C /* weather.png */,
-				CBE08F4E1F52A3EE0009447C /* weather_bg.jpg */,
 			);
 			name = weather;
 			path = Tool/weather;
@@ -1815,7 +1822,6 @@
 		CBE08F551F52BA770009447C /* rebot */ = {
 			isa = PBXGroup;
 			children = (
-				CBE08F561F52BA770009447C /* rebot.png */,
 			);
 			name = rebot;
 			path = Tool/rebot;
@@ -1824,8 +1830,6 @@
 		CBE08F581F52BE0C0009447C /* rebot */ = {
 			isa = PBXGroup;
 			children = (
-				CBE08F591F52BE2B0009447C /* rebotController.h */,
-				CBE08F5A1F52BE2B0009447C /* rebotController.m */,
 			);
 			name = rebot;
 			sourceTree = "<group>";
@@ -1947,8 +1951,10 @@
 				CB658C3E1EF2076D00AE5327 /* LICENSE in Resources */,
 				CB5713DB1EEB9AAD004EA94A /* icon-info.png in Resources */,
 				CB5713DF1EEB9AAD004EA94A /* icon-score.png in Resources */,
+				EB716C6D1F545F300081509B /* qfnulogo.png in Resources */,
 				CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */,
 				CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */,
+				EB716C6B1F545EDA0081509B /* qfnulogo.png in Resources */,
 				CB5713CB1EEB9AAD004EA94A /* icon-50@2x.png in Resources */,
 				CB7BA8461F4D2CD900BBC838 /* area.plist in Resources */,
 				26B28B861F1EFC2B00FAF61F /* login_bg6@2x.png in Resources */,
@@ -1961,7 +1967,6 @@
 				CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */,
 				CB5713DC1EEB9AAD004EA94A /* icon-lab.png in Resources */,
 				CB5713D91EEB9AAD004EA94A /* icon-exam.png in Resources */,
-				CBE08F541F52B7940009447C /* weather.png in Resources */,
 				CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */,
 				CB5713DE1EEB9AAD004EA94A /* icon-lost.png in Resources */,
 				CB266E361F38894000C17241 /* menu22.png in Resources */,
@@ -1991,7 +1996,6 @@
 				CBA8F9801EEE184900C9F53F /* Share@2x.png in Resources */,
 				CB5713CF1EEB9AAD004EA94A /* icon-60@3x.png in Resources */,
 				CB5713C91EEB9AAD004EA94A /* icon-40@3x.png in Resources */,
-				CBE08F4F1F52A3EE0009447C /* weather_bg.jpg in Resources */,
 				CB5713CE1EEB9AAD004EA94A /* icon-60@2x.png in Resources */,
 				CB10601A1EE908E30099E371 /* Main.storyboard in Resources */,
 				EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */,
@@ -1999,7 +2003,7 @@
 				CB1061091EE90CD30099E371 /* Images.xcassets in Resources */,
 				CB5713C31EEB9AAD004EA94A /* icon-29.png in Resources */,
 				CB5714031EEBCAE5004EA94A /* Info.plist in Resources */,
-				CBE08F481F5168620009447C /* cet.png in Resources */,
+				CBE08F481F5168620009447C /* cet.jpg in Resources */,
 				CB7BA8451F4D2CD900BBC838 /* Info.plist in Resources */,
 				CBA8F97F1EEE184900C9F53F /* Portrait.png in Resources */,
 				CB5713DA1EEB9AAD004EA94A /* icon-homework-inline.png in Resources */,
@@ -2008,7 +2012,6 @@
 				262CEE5F1F0CC52D000CB505 /* YJJTextField.xib in Resources */,
 				CB6BA4EF1F315DD400335BF4 /* UMSocialSDKPromptResources.bundle in Resources */,
 				CB5713E11EEB9AAD004EA94A /* icon-social.png in Resources */,
-				CBE08F571F52BA770009447C /* rebot.png in Resources */,
 				26EAD1F91F32C331002B1700 /* menu@2x.png in Resources */,
 				CB5713C41EEB9AAD004EA94A /* icon-29@2x-ipad.png in Resources */,
 				CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */,
@@ -2067,7 +2070,6 @@
 				262D1C3A1F038E95004A4787 /* AFURLResponseSerialization.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
 				CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */,
-				CBE08F5B1F52BE2B0009447C /* rebotController.m in Sources */,
 				CB658C461EF2076D00AE5327 /* SDWebImageManager.m in Sources */,
 				CB1060D51EE909630099E371 /* QFNUEConsultController.m in Sources */,
 				26D7029B1F330DEC00BBFD82 /* LGSideMainViewController.m in Sources */,
@@ -2077,7 +2079,6 @@
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
 				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
-				CBE08F521F52A9480009447C /* UILabel+LeftTopAlign.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,
@@ -2107,6 +2108,7 @@
 				CB1060FF1EE909630099E371 /* UIViewController+LGSideMenuController.m in Sources */,
 				CB7BA82D1F4BBD8400BBC838 /* ToolButtonView.m in Sources */,
 				CB5714091EEBCAE5004EA94A /* NSObject+MJClass.m in Sources */,
+				EB6031CE1F54487500C26A9A /* rebotController.m in Sources */,
 				CB658C4C1EF2076D00AE5327 /* UIImageView+WebCache.m in Sources */,
 				CB01AB741EEEBC3A00E04D64 /* HySpinerLayer.m in Sources */,
 				CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */,
