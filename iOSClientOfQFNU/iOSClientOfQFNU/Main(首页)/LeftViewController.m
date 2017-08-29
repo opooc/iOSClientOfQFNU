@@ -15,6 +15,7 @@
 #import "QFNUShareController.h"
 #import <UShareUI/UShareUI.h>
 #import "QFNUToolController.h"
+#import "MainController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UITableView *tb;
@@ -95,7 +96,6 @@
                     [mainViewController hideLeftViewAnimated];
                     break;
                 case 1:
-                    
                     break;
                 case 2:
                     

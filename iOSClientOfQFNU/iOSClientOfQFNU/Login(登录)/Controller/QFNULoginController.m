@@ -180,7 +180,7 @@
 //    navigationController.transitioningDelegate = self;
   CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
     MainController *rootViewController = [[MainController alloc]init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:webview];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
     LGSideMainViewController *mainViewController = [LGSideMainViewController new];
     mainViewController.rootViewController = navigationController;

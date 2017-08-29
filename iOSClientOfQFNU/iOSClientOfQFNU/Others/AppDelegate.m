@@ -33,9 +33,9 @@
                                 [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];
-        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
-//        MainController *rootViewController = [[MainController alloc]init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:webview];
+//        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
+        MainController *rootViewController = [[MainController alloc]init];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         
         LGSideMainViewController *mainViewController = [LGSideMainViewController new];
         mainViewController.rootViewController = navigationController;

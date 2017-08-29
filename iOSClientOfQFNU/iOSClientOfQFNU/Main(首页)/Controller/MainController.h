@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LGSideMenuController.h"
-@interface MainController :UIViewController
--(void)aboutUs;
+#import "TQMultistageTableView.h"
+@interface MainController :UIViewController <TQTableViewDataSource,TQTableViewDelegate>
+
+@property (nonatomic, strong) TQMultistageTableView *mTableView;
+
+
 @end

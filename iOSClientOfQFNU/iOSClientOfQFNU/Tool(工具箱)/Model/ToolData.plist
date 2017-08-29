@@ -22,7 +22,7 @@
 	</dict>
 	<dict>
 		<key>icon</key>
-		<string>rebot.png</string>
+		<string>robot.png</string>
 		<key>name</key>
 		<string>智能回答</string>
 	</dict>

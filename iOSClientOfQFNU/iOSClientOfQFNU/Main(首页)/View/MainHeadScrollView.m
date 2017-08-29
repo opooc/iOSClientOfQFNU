@@ -49,7 +49,7 @@
 
             // 3.设置图片
             // 拼接图片的名称
-            NSString *imageName = [NSString stringWithFormat:@"img_%02zd", (i + 1)];
+            NSString *imageName = [NSString stringWithFormat:@"qf%ld", (i + 1)];
             self.imageView.image = [UIImage imageNamed:imageName];
             [self.scrollView addSubview:self.imageView];
             
@@ -63,8 +63,8 @@
         self.scrollView.pagingEnabled = YES;
         self.pageControl.numberOfPages = ImageCount;
         self.pageControl.currentPage = 0;
-        self.pageControl.pageIndicatorTintColor = [UIColor purpleColor];
-        self.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+        self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
+        self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         self.scrollView.delegate = self;
         self.scrollView.bounces = NO;
         
