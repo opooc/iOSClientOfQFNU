@@ -18,4 +18,6 @@
 -(NSString *)getUser;
 -(NSString *)getPassword;
 -(void)loginqfnu:(NSString *)username password:(NSString *)password;
+-(void)saveCookies;
+-(void)loadCookies;
 @end

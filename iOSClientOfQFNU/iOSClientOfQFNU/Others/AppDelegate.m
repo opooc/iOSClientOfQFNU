@@ -34,6 +34,7 @@
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];
 //        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
+        [[QFInfo sharedInstance] loadCookies];
         MainController *rootViewController = [[MainController alloc]init];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         

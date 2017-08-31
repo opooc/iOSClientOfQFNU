@@ -13,7 +13,9 @@
 #import "LGSideMainViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "QFNUShareController.h"
+#import "QFNULoginController.h"
 #import <UShareUI/UShareUI.h>
+#import "QFInfo.h"
 #import "QFNUToolController.h"
 #import "MainController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -36,7 +38,7 @@
 }
 -(void)createdata{
     _dataArray=[[NSArray alloc]init];
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一览",@"我的课表",@"周课表",@"学籍信息",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"软件设置",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"我的课表",@"登陆重试",@"学籍信息",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -96,9 +98,10 @@
                     [mainViewController hideLeftViewAnimated];
                     break;
                 case 1:
+                    
                     break;
                 case 2:
-                    
+                    [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
                     break;
                 case 3:
                  [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx#"];
@@ -143,7 +146,9 @@
                 case 3:
                     [self aboutus];
                     break;
-
+                case 4:
+                    [self logout];
+                    break;
                 default:
                     break;
             }
@@ -170,7 +175,20 @@
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
 
-
+-(void)logout{
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    for (id obj in _tmpArray) {
+        [cookieJar deleteCookie:obj];
+    }
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    QFNULoginController *login=[[QFNULoginController alloc]init];
+    
+    [navigationController pushViewController:login animated:YES];
+    login.navigationController.navigationBarHidden=true;
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+}
 -(void)aboutus{
 //    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
 //    MainController *mainViewController=[[MainController alloc]init];
