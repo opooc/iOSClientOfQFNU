@@ -4,10 +4,10 @@
 <dict>
 	<key>kImageNamesArray</key>
 	<array>
-		<string>guid01</string>
-		<string>guid02</string>
-		<string>guid03</string>
-		<string>guid04</string>
+		<string>g1.jpg</string>
+		<string>g2.jpg</string>
+		<string>g3.jpg</string>
+		<string>g4.jpg</string>
 		<string>kLastNullImageName</string>
 	</array>
 	<key>kHiddenBtnImageName</key>

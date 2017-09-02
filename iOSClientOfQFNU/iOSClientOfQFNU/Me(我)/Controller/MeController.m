@@ -24,6 +24,7 @@
     meTableHeadView *head;
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
@@ -39,12 +40,31 @@
     
     
     self.view.backgroundColor = [UIColor whiteColor];
-    dataSource = @[@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"},@{@"title":@"下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我下午三点要开会，记得提醒我",@"date":@"6-12"}];
+    NSLog(@"%@",_user_id);
+    NSLog(@"%@",_name);
+    NSLog(@"%@",_campus);
+    NSLog(@"%@",_faculty);
+    NSLog(@"%@",_profession);
+    NSLog(@"%@",_clazz);
+    NSString* str = [NSString stringWithFormat:@"%@",_user_id];
+    
+    NSMutableArray* mutdataSource;
+    mutdataSource = [[NSMutableArray alloc]init];
+    [mutdataSource addObject:@{@"title":@"学号",@"date":str}];
+    [mutdataSource addObject:@{@"title":@"姓名",@"date":_name}];
+        [mutdataSource addObject:@{@"title":@"校区",@"date":_campus}];
+        [mutdataSource addObject:@{@"title":@"院系",@"date":_faculty}];
+        [mutdataSource addObject:@{@"title":@"专业",@"date":_profession}];
+        [mutdataSource addObject:@{@"title":@"班级",@"date":_clazz}];
+    dataSource = mutdataSource;
+    
+    
+    //,@{@"title":@"姓名",@"date":_name},@{@"title":@"校区",@"date":_campus},@{@"title":@"院系",@"date":_faculty},@{@"title":@"专业",@"date":_profession},@{@"title":@"班级",@"date":_clazz}
     
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     _tableView.delegate = self;
-    _tableView.dataSource = self;
+    _tableView.dataSource = self; 
     _tableView.layer.masksToBounds = false;
     
     _tableView.estimatedRowHeight = 80;
@@ -64,6 +84,7 @@
     
     
     head = [[meTableHeadView alloc]init];
+    head.ava = _image;
     _tableView.tableHeaderView = head;
     
     

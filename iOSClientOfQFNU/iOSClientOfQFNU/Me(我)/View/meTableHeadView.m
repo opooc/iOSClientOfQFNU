@@ -25,7 +25,7 @@
     self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH/4*3-64);
     
     _bg = [[UIImageView alloc]initWithFrame:CGRectMake(0, -64, SCREEN_WIDTH, SCREEN_WIDTH/4*3)];
-    _bg.image = [UIImage imageNamed:@"backImage"];
+    _bg.image = [UIImage imageNamed:_ava];
     _bg.contentMode = UIViewContentModeScaleAspectFill;
     _bg.layer.masksToBounds = true;
     [self addSubview:_bg];
