@@ -81,6 +81,7 @@
     [BaseRequest postLoginWithURL:domainStr lt:Lt user:@"2013412546" password:@"221716" callBack:^(NSData *data, NSError *error) {
         NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"true:%@",str);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
         [self saveCookies];
 
     }];

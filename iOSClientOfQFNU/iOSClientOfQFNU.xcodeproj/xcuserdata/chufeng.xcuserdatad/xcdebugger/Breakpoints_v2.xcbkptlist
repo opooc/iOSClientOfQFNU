@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/Controller/MainController.m"
-            timestampString = "518840680.551718"
+            timestampString = "526057224.655634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-dataArr"
-            landmarkType = "7">
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "@implementation MainController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/Controller/MainController.m"
-            timestampString = "518840723.758114"
+            timestampString = "526057224.655634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-dataArr"
-            landmarkType = "7">
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "@implementation MainController"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/Controller/MainController.m"
-            timestampString = "518840767.288965"
+            timestampString = "526057224.655634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-dataArr"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/Controller/MainController.m"
-            timestampString = "518840961.25484"
+            timestampString = "526057438.707601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-setButtonView"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-setbar"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -107,6 +107,22 @@
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSClientOfQFNU/Vendors(&#x7b2c;&#x4e09;&#x65b9;)/PQFCustomLoaders/PQFBarsInCircle.m"
+            timestampString = "526055397.65518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-remove"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

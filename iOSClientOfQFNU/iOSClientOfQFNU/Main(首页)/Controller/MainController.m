@@ -24,7 +24,9 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "LGSideMainViewController.h"
 #import "QFInfo.h"
+#import "MBProgressHUD+NHAdd.h"
 
+#import "UIColor+FlatColors.h"
 
 @interface MainController ()
 @property (assign, nonatomic) NSUInteger type;
@@ -52,6 +54,7 @@ CGFloat barheight;
 
 //        self.navigationController.navigationBar.translucent=NO;
     
+
     UIImage *menu=[UIImage imageNamed:@"menu"];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu
@@ -61,8 +64,14 @@ CGFloat barheight;
     [self setbar];
     [self setlist];
     [self loadGIF];
+    [MBProgressHUD showLoadToView:self.view title:@"正在与服务器通讯"];
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stoploading) name:@"link_success" object:nil];
 }
-
+-(void)stoploading{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [MBProgressHUD hideHUDForView:self.view];
+    });
+}
 
 - (void)showLeftView {
       [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
@@ -531,7 +540,10 @@ CGFloat barheight;
     [self.navigationController pushViewController:back animated:YES];
 
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"link_success" object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

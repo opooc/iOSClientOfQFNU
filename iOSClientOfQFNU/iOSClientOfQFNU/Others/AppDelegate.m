@@ -30,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
     if ([[QFInfo sharedInstance] getUser]!=nil) {
-                                [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
+        
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];
 //        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
@@ -44,6 +44,7 @@
         _window.backgroundColor = [UIColor whiteColor];
         _window.rootViewController = mainViewController;
         [_window makeKeyAndVisible];
+        [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
     }else{
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //    MainController *rootViewController = [[MainController alloc]init];

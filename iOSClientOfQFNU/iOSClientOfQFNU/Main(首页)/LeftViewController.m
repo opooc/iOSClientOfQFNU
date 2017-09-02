@@ -181,6 +181,9 @@
     for (id obj in _tmpArray) {
         [cookieJar deleteCookie:obj];
     }
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     QFNULoginController *login=[[QFNULoginController alloc]init];
@@ -188,6 +191,7 @@
     [navigationController pushViewController:login animated:YES];
     login.navigationController.navigationBarHidden=true;
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+    
 }
 -(void)aboutus{
 //    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
