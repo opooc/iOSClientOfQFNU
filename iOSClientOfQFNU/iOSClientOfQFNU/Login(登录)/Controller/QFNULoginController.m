@@ -143,6 +143,7 @@
 //            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
             [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text];
             [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
+            
             [button succeedAnimationWithCompletion:^{
                     [weak didPresentControllerButtonTouch];
             }];

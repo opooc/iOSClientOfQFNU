@@ -11,6 +11,7 @@
 @interface meTableHeadView : UIView
 @property(nonatomic,strong)UIImageView* portrait;
 @property(nonatomic,strong)UIImageView* bg;
+@property(nonatomic,strong)UIImage* ava;
 @property(nonatomic,strong)UIButton* remindBtn;
 @property(nonatomic,strong)UIButton* share;
 @property(nonatomic,strong)UILabel* name;
