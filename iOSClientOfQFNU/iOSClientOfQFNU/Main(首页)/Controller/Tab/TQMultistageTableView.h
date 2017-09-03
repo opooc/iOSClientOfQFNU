@@ -1,9 +1,10 @@
 //
-//  ViewController.m
-//  TwotableView
+//  TQMultistageTableView.h
+//  TQMultistageTableView
 //
-//  Created by 赵斌 on 15/5/28.
-//  Copyright (c) 2015年 赵斌. All rights reserved.
+//  Created by fuqiang on 13-8-19.
+//
+//  Copyright (c) 2013 TinyQ (http://tinyq.me )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -91,6 +92,14 @@
  */
 - (void)reloadData;
 
+- (UITableViewHeaderFooterView *)headerViewForSection:(NSInteger)section;
+- (UITableViewHeaderFooterView *)footerViewForSection:(NSInteger)section;
+
+/**
+ *  判断当前 section 是否是展开状态
+ */
+- (BOOL)isOpenedSection:(NSInteger)section;
+
 @end
 
 /**
@@ -122,7 +131,7 @@
 - (CGFloat)mTableView:(TQMultistageTableView *)mTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)mTableView:(TQMultistageTableView *)mTableView heightForAtomAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIView *)mTableView:(TQMultistageTableView *)mTableView viewForHeaderInSection:(NSInteger)section;
+- (UITableViewHeaderFooterView *)mTableView:(TQMultistageTableView *)mTableView viewForHeaderInSection:(NSInteger)section;
 
 - (void)mTableView:(TQMultistageTableView *)mTableView willOpenHeaderAtSection:(NSInteger)section;
 - (void)mTableView:(TQMultistageTableView *)mTableView willCloseHeaderAtSection:(NSInteger)section;

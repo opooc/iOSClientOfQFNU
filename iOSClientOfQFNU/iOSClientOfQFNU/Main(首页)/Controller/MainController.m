@@ -223,25 +223,25 @@ CGFloat barheight;
 - (NSInteger)mTableView:(TQMultistageTableView *)mTableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 5;
+        return 10;
     }
     else if(section == 1){
-        return 7;
+        return 9;
     }
     else if(section == 2){
         return 3;
     }
     else if(section == 3){
-        return 4;
+        return 6;
     }
     else if(section == 4){
-        return 5;
+        return 9;
     }
     else if(section == 5){
         return 3;
     }
     else {
-        return 3;
+        return 7;
     }
 }
 
@@ -255,13 +255,13 @@ CGFloat barheight;
     }
     
     if (indexPath.section == 0) {
-        NSArray *array=[NSArray arrayWithObjects:@"个人信息",@"学籍信息",@"学籍异动",@"奖惩信息",@"辅修方案注册",nil];
-       // @"学籍异动申请",@"网上选题",@"论文提交",@"毕业设计成绩查询",@"优秀毕业设计名单查询"
+        NSArray *array=[NSArray arrayWithObjects:@"个人信息",@"学籍信息",@"学籍异动",@"奖惩信息",@"辅修方案注册",@"学籍异动申请",@"网上选题",@"论文提交",@"毕业设计成绩查询",@"优秀毕业设计名单查询",nil];
+       
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 1) {
-        NSArray *array=[NSArray arrayWithObjects:@"网上选课",@"选课结果",@"退课", @"无效选课结果",@"本学期课表",@"本学期综合课表",@"未选中、已删除课程",nil];
-        //@"历年课表",@"实验课选课"
+        NSArray *array=[NSArray arrayWithObjects:@"网上选课",@"选课结果",@"退课", @"无效选课结果",@"本学期课表",@"本学期综合课表",@"未选中、已删除课程",@"历年课表",@"实验课选课",nil];
+        
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 2) {
@@ -269,13 +269,13 @@ CGFloat barheight;
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 3) {
-        NSArray *array=[NSArray arrayWithObjects:@"教室课表",@"课程课表",@"自习教室（无课教室）",@"教室使用状况查询", nil];
-        //@"教师课表",@"班级课表",
+        NSArray *array=[NSArray arrayWithObjects:@"教室课表",@"课程课表",@"自习教室（无课教室）",@"教室使用状况查询",@"教师课表",@"班级课表" ,nil];
+        
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 4) {
-        NSArray *array=[NSArray arrayWithObjects:@"全部及格成绩",@"课程属性成绩",@"方案成绩",@"不及格成绩",@"本学期成绩",@"课程基本信息", nil];
-        //,@"方案完成情况",@"指导性教学计划",@"本学期课程安排"
+        NSArray *array=[NSArray arrayWithObjects:@"全部及格成绩",@"课程属性成绩",@"方案成绩",@"不及格成绩",@"本学期成绩",@"课程基本信息",@"方案完成情况",@"指导性教学计划",@"本学期课程安排", nil];
+        //
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 5) {
@@ -283,7 +283,7 @@ CGFloat barheight;
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
     if (indexPath.section == 6) {
-        NSArray *array=[NSArray arrayWithObjects:@"评估公告",@"教材查询",@"教材选定查询",nil];
+        NSArray *array=[NSArray arrayWithObjects:@"评估公告",@"教材查询",@"教材选定查询",@"教材领取查询",@"收费标准查询",@"审查体系",@"审查结论",nil];
         //@"教材领取查询",@"收费标准查询",@"审查体系",@"审查结论"
         cell.textLabel.text=[array objectAtIndex:indexPath.row];
     }
@@ -342,12 +342,22 @@ CGFloat barheight;
     return header;
 }
 
+-(void)webviewtext:(NSString *)urlstring{
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    
+    NSLog(@"你正在打开的网站是：%@",urlstring);
+    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
+    [navigationController pushViewController:webview animated:YES];
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+}
+
+
 - (void)mTableView:(TQMultistageTableView *)mTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"didSelectRow ----%ld,%ld",(long)indexPath.section,(long)indexPath.row);
     if (indexPath.section == 0 && indexPath.row== 0 ) {
-        
-        [self webviewtext:@"http://202.194.188.19/userInfo.jsp"];
+         [self webviewtext:@"http://202.194.188.19/userInfo.jsp"];
     }
    else if (indexPath.section == 0 && indexPath.row== 1 ) {
         [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx"];
@@ -363,34 +373,69 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/xsFabgsqAction.do?oper=faxdsq1"];
 
     }
+   else if (indexPath.section == 0 && indexPath.row== 5 ) {
+       [self webviewtext:@"http://202.194.188.19/xjydcxAction.do"];
+       
+   }
+   else if (indexPath.section == 0 && indexPath.row== 6 ) {
+       [self webviewtext:@"http://202.194.188.19/xtcxAction.do"];
+       
+   }
+   else if (indexPath.section == 0 && indexPath.row== 7 ) {
+       [self webviewtext:@"http://202.194.188.19/lwtjAction.do?type=showXtjg"];
+       
+   }
+   else if (indexPath.section == 0 && indexPath.row== 8 ) {
+       [self webviewtext:@"http://202.194.188.19/queryAction.do"];
+       
+   }
+   else if (indexPath.section == 0 && indexPath.row== 9 ) {
+       [self webviewtext:@"http://202.194.188.19/lwyxsjAction.do"];
+       
+   }
+    
+    //////////////////////////////11111111111111111
    else if (indexPath.section == 1 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/xkAction.do"];
-
-    }
+       
+   }
    else if (indexPath.section == 1 && indexPath.row== 1 ) {
        [self webviewtext:@"http://202.194.188.19/xkAction.do?actionType=6"];
-
-    }
+       
+   }
    else if (indexPath.section == 1 && indexPath.row== 2 ) {
        [self webviewtext:@"http://202.194.188.19/xkAction.do?actionType=7"];
-
-    }
+       
+   }
    else if (indexPath.section == 1 && indexPath.row== 3 ) {
        [self webviewtext:@"http://202.194.188.19/xkAction.do?actionType=16"];
-
-    }
+       
+   }
    else if (indexPath.section == 1 && indexPath.row== 4 ) {
        [self webviewtext:@"http://202.194.188.19/xkAction.do?actionType=6"];
-
-    }
+       
+   }
    else if (indexPath.section == 1 && indexPath.row== 5 ) {
        [self webviewtext:@"http://202.194.188.19/syglSyxkAction.do?&oper=xsxkKcbAll"];
+       
+   }
+   else if (indexPath.section == 1 && indexPath.row== 6) {
+       [self webviewtext:@"http://202.194.188.19/lnkbcxAction.do"];
+       
+   }
+    
+   else if (indexPath.section == 1 && indexPath.row== 7) {
+           [self webviewtext:@"http://202.194.188.19/lnkbcxAction.do"];
+           
+       }
+   else if (indexPath.section == 1 && indexPath.row== 8 ) {
+       [self webviewtext:@"http://202.194.188.19/syglSyxkAction.do?ejkch=&oper=goTosykcList"];
 
     }
-   else if (indexPath.section == 1 && indexPath.row== 6 ) {
-       [self webviewtext:@"http://202.194.188.19/syglSyxkAction.do?oper=syxkWcgAll"];
-
-    }
+    
+    
+    /////////////2222222222222222222222222222222222222222222222222
+    
    else if (indexPath.section == 2 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/ksApCxAction.do?oper=getKsapXx"];
 
@@ -399,10 +444,11 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/kwBmAction.do?oper=getKsList"];
 
    }
-   else if (indexPath.section == 2 && indexPath.row== 1 ) {
+   else if (indexPath.section == 2 && indexPath.row== 2 ) {
        [self webviewtext:@"http://202.194.188.19/cjSearchAction.do?oper=getKscjList"];
 
    }
+    ////////////333333333333333333333333333333333333333333333333
    else if (indexPath.section == 3 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/jskbcxAction.do?oper=jskb_lb"];
 
@@ -419,6 +465,17 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/jxlCxAction.do?oper=ori"];
 
    }
+   else if (indexPath.section == 3 && indexPath.row== 4 ) {
+       [self webviewtext:@"http://202.194.188.19/lskbcxAction.do?oper=lskb_lb"];
+       
+   }
+   else if (indexPath.section == 3 && indexPath.row== 5 ) {
+       [self webviewtext:@"http://202.194.188.19/bjkbcxAction.do?oper=bjkb_lb"];
+       
+   }
+    
+    
+    ////////////4444444444444444444444444444444444444444444444444444444
    else if (indexPath.section == 4 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/gradeLnAllAction.do?type=ln&oper=qb"];
 
@@ -439,6 +496,22 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/bxqcjcxAction.do"];
 
    }
+   else if (indexPath.section == 4 && indexPath.row== 5 ) {
+       [self webviewtext:@"http://202.194.188.19/gradeLnAllAction.do?type=ln&oper=lnfaqk&flag=zx"];
+       
+   }
+   else if (indexPath.section == 4 && indexPath.row== 6 ) {
+       [self webviewtext:@"http://202.194.188.19/gradeLnAllAction.do?type=ln&oper=lnjhqk"];
+       
+   }
+   else if (indexPath.section == 4 && indexPath.row== 7 ) {
+       [self webviewtext:@"http://202.194.188.19/courseSearchAction.do?temp=1"];
+       
+   }
+    
+    
+    ////////////55555555555555555555555555555555555555555555555555
+
    else if (indexPath.section == 5 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/ckgg.jsp?type=-1"];
 
@@ -451,6 +524,8 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/byspgXsAction.do?oper=listWj"];
 
    }
+    
+    ////////////666666666666666666666666666666666666666666666666666666
    else if (indexPath.section == 6 && indexPath.row== 0 ) {
        [self webviewtext:@"http://202.194.188.19/ckgg.jsp?type=-1"];
 
@@ -463,45 +538,57 @@ CGFloat barheight;
        [self webviewtext:@"http://202.194.188.19/jcxxAction.do?actionType=3&oper=xs"];
 
    }
+   else if (indexPath.section == 6 && indexPath.row== 3 ) {
+       [self webviewtext:@"http://202.194.188.19/jcxxAction.do?actionType=4&oper=xs"];
+       
+   }
+   else if (indexPath.section == 6 && indexPath.row== 4 ) {
+       [self webviewtext:@"http://202.194.188.19/sfCxAction.do?oper=current"];
+       
+   }
+   else if (indexPath.section == 6 && indexPath.row== 5 ) {
+       [self webviewtext:@"http://202.194.188.19/scTxQueryAction.do?oper=CurrentScTxQuery"];
+       
+   }
+   else if (indexPath.section == 6 && indexPath.row== 6 ) {
+       [self webviewtext:@"http://202.194.188.19/scJlQueryAction.do?oper=CurrentScJlQuery"];
+       
+   }
     
     
     
 }
-
 
 #pragma mark - Header Open Or Close
 
 - (void)mTableView:(TQMultistageTableView *)mTableView willOpenHeaderAtSection:(NSInteger)section
 {
-    NSLog(@"Open Header ----%ld",(long)section);
+    UITableViewHeaderFooterView *header = [mTableView headerViewForSection:section];
+    header.backgroundView.backgroundColor = [UIColor lightGrayColor];
+    NSLog(@"Open Header ----%ld",section);
 }
 
 - (void)mTableView:(TQMultistageTableView *)mTableView willCloseHeaderAtSection:(NSInteger)section
 {
-    NSLog(@"Close Header ---%ld",(long)section);
+    UITableViewHeaderFooterView *header = [mTableView headerViewForSection:section];
+    header.backgroundView.backgroundColor = [UIColor colorWithRed:218/255.0 green:249/255.0 blue:255/255.0 alpha:1];
+    NSLog(@"Close Header ---%ld",section);
 }
 
 #pragma mark - Row Open Or Close
 
 - (void)mTableView:(TQMultistageTableView *)mTableView willOpenRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Open Row ----%ld",(long)indexPath.row);
+    NSLog(@"Open Row ----%ld",indexPath.row);
 }
 
 - (void)mTableView:(TQMultistageTableView *)mTableView willCloseRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Close Row ----%ld",(long)indexPath.row);
+    NSLog(@"Close Row ----%ld",indexPath.row);
 }
 
--(void)webviewtext:(NSString *)urlstring{
-    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
-    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
-    
-    NSLog(@"你正在打开的网站是：%@",urlstring);
-    CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
-    [navigationController pushViewController:webview animated:YES];
-    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
-}
+
+
 
 -(void)loadGIF
 {   UIImageView* imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_W-50, SCREEN_H-50, 50, 50)];

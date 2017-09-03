@@ -77,6 +77,7 @@
 		CB1061161EEB88F90099E371 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061151EEB88F90099E371 /* MainController.m */; };
 		CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061181EEB89300099E371 /* MainHeadScrollView.m */; };
 		CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB10611B1EEB8F570099E371 /* LeftSortsController.m */; };
+		CB1DA8C51F5C67D900DED98B /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DA8C41F5C67D900DED98B /* TQMultistageTableView.m */; };
 		CB266E361F38894000C17241 /* menu22.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E321F38894000C17241 /* menu22.png */; };
 		CB266E371F38894000C17241 /* new_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E331F38894000C17241 /* new_menu.png */; };
 		CB266E381F38894000C17241 /* Q.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E341F38894000C17241 /* Q.png */; };
@@ -186,7 +187,6 @@
 		CB7BA84C1F4D2CD900BBC838 /* STPickerViewUI.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7BA8421F4D2CD900BBC838 /* STPickerViewUI.m */; };
 		CB7BA84D1F4D2CD900BBC838 /* UIView+STPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7BA8441F4D2CD900BBC838 /* UIView+STPicker.m */; };
 		CB7BA8511F4D2D2E00BBC838 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7BA8501F4D2D2E00BBC838 /* WeatherViewController.m */; };
-		CB89CD8E1F555CCE001DB25D /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB89CD8D1F555CCE001DB25D /* TQMultistageTableView.m */; };
 		CB89CDB41F559A01001DB25D /* fengche1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB89CDA91F559A01001DB25D /* fengche1.jpg */; };
 		CB89CDB51F559A01001DB25D /* fengche10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB89CDAA1F559A01001DB25D /* fengche10.jpg */; };
 		CB89CDB61F559A01001DB25D /* fengche11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB89CDAB1F559A01001DB25D /* fengche11.jpg */; };
@@ -368,6 +368,8 @@
 		CB1061181EEB89300099E371 /* MainHeadScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeadScrollView.m; sourceTree = "<group>"; };
 		CB10611A1EEB8F570099E371 /* LeftSortsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSortsController.h; sourceTree = "<group>"; };
 		CB10611B1EEB8F570099E371 /* LeftSortsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSortsController.m; sourceTree = "<group>"; };
+		CB1DA8C31F5C67D900DED98B /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
+		CB1DA8C41F5C67D900DED98B /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		CB266E321F38894000C17241 /* menu22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu22.png; sourceTree = "<group>"; };
 		CB266E331F38894000C17241 /* new_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_menu.png; sourceTree = "<group>"; };
 		CB266E341F38894000C17241 /* Q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Q.png; sourceTree = "<group>"; };
@@ -528,8 +530,6 @@
 		CB7BA8441F4D2CD900BBC838 /* UIView+STPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+STPicker.m"; sourceTree = "<group>"; };
 		CB7BA84F1F4D2D2E00BBC838 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		CB7BA8501F4D2D2E00BBC838 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
-		CB89CD8C1F555CCE001DB25D /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
-		CB89CD8D1F555CCE001DB25D /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		CB89CDA91F559A01001DB25D /* fengche1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengche1.jpg; sourceTree = "<group>"; };
 		CB89CDAA1F559A01001DB25D /* fengche10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengche10.jpg; sourceTree = "<group>"; };
 		CB89CDAB1F559A01001DB25D /* fengche11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengche11.jpg; sourceTree = "<group>"; };
@@ -1747,8 +1747,8 @@
 		CB89CD8B1F555CCE001DB25D /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				CB89CD8C1F555CCE001DB25D /* TQMultistageTableView.h */,
-				CB89CD8D1F555CCE001DB25D /* TQMultistageTableView.m */,
+				CB1DA8C31F5C67D900DED98B /* TQMultistageTableView.h */,
+				CB1DA8C41F5C67D900DED98B /* TQMultistageTableView.m */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
@@ -2177,6 +2177,7 @@
 				CB658C431EF2076D00AE5327 /* SDWebImageDecoder.m in Sources */,
 				CB1060FD1EE909630099E371 /* LGSideMenuSegue.m in Sources */,
 				CB1060F01EE909630099E371 /* QFNUNewController.m in Sources */,
+				CB1DA8C51F5C67D900DED98B /* TQMultistageTableView.m in Sources */,
 				267938851F0B913B00D960C7 /* XPathQuery.m in Sources */,
 				262D1C3B1F038E95004A4787 /* AFURLSessionManager.m in Sources */,
 				CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */,
@@ -2201,7 +2202,6 @@
 				CB7BA84D1F4D2CD900BBC838 /* UIView+STPicker.m in Sources */,
 				CB658C411EF2076D00AE5327 /* SDImageCache.m in Sources */,
 				CB1060CE1EE909630099E371 /* QFNUBackController.m in Sources */,
-				CB89CD8E1F555CCE001DB25D /* TQMultistageTableView.m in Sources */,
 				CB5714081EEBCAE5004EA94A /* MJPropertyType.m in Sources */,
 				26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */,
 				CB1060D21EE909630099E371 /* QFNUCommunityController.m in Sources */,

@@ -1,9 +1,10 @@
 //
-//  ViewController.m
-//  TwotableView
+//  TQMultistageTableView.m
+//  TQMultistageTableView
 //
-//  Created by 赵斌 on 15/5/28.
-//  Copyright (c) 2015年 赵斌. All rights reserved.
+//  Created by fuqiang on 13-8-19.
+//
+//  Copyright (c) 2013 TinyQ (http://tinyq.me )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -52,7 +53,7 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
         
         _atomOrigin = CGPointMake(0, 0);
         
-        _tableView = [[UITableView alloc] initWithFrame:frame];
+        _tableView = [[UITableView alloc] initWithFrame:self.bounds];
         _tableView.delegate         = self;
         _tableView.dataSource       = self;
         _tableView.backgroundColor  = [UIColor clearColor];
@@ -100,6 +101,25 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
 {
     _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
     [self.tableView reloadData];
+}
+
+- (UITableViewHeaderFooterView *)headerViewForSection:(NSInteger)section
+{
+    return [self.tableView headerViewForSection:section];
+}
+
+- (UITableViewHeaderFooterView *)footerViewForSection:(NSInteger)section
+{
+    return [self.tableView footerViewForSection:section];
+}
+
+- (BOOL)isOpenedSection:(NSInteger)section
+{
+    NSIndexPath *indexPath = self.openedIndexPath;
+    if (indexPath) {
+        return indexPath.section == section;
+    }
+    return NO;
 }
 
 #pragma mark - Private Methods
@@ -247,6 +267,12 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
         [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
     }
     [self.tableView endUpdates];
+    if ([insertIndexPaths count] > 0)
+    {
+        //底部 section 展开时，子 cell 可以显示1个出来
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:newSection]
+                              atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    }
 }
 
 #pragma mark - Private Operation For Row Open & Close
@@ -467,7 +493,8 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
         view.frame = frame;
         view.tag = section;
         
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tableViewHeaderTouchUpInside:)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(tableViewHeaderTouchUpInside:)];
         [view addGestureRecognizer:tapGesture];
     }
     
