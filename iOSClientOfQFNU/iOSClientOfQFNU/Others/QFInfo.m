@@ -30,9 +30,10 @@
     return sharedManagerInstance;
 }
 //保存用户名密码
-- (void)save:(NSString *)user password:(NSString *)passWord{
+- (void)save:(NSString *)user password:(NSString *)passWord token:(NSString *)Token{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-
+    
+    [ud setObject:Token forKey:@"token"];
     [ud setObject:user forKey:@"username"];
     [ud setObject:passWord forKey:@"password"];
         [ud synchronize];
@@ -55,7 +56,16 @@
     }
     return ps;
 }
+-(NSString *)getToken{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *tk=@"";
+    if([ud objectForKey:@"token"]){
+        tk=[ud objectForKey:@"token"];
+    }
+    return tk;
+}
 -(void)loginqfnu:(NSString *)username password:(NSString *)password{
+    NSLog(@"登录的账号是：%@",username);
     NSString *Lt=[[NSString alloc]init];
     NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
     NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
@@ -78,26 +88,15 @@
     [manager.requestSerializer setHTTPShouldHandleCookies:YES];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
-    [BaseRequest postLoginWithURL:domainStr lt:Lt user:@"2013412546" password:@"221716" callBack:^(NSData *data, NSError *error) {
+    [BaseRequest postLoginWithURL:domainStr lt:Lt user:username password:password callBack:^(NSData *data, NSError *error) {
         NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"true:%@",str);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
-        [self saveCookies];
+//        [self saveCookies];
 
     }];
 }
 
-- (void)saveCookies{
-    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: cookiesData forKey: @"org.skyfox.cookie"];
-    [defaults synchronize];
-}
-- (void)loadCookies{
-    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData: [[NSUserDefaults standardUserDefaults] objectForKey: @"org.skyfox.cookie"]];
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in cookies){
-        [cookieStorage setCookie: cookie];
-    }
-}
+
+
 @end

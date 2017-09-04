@@ -29,12 +29,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
-    if ([[QFInfo sharedInstance] getUser]!=nil) {
+    if (![[[QFInfo sharedInstance] getUser]isEqualToString:@""]) {
         
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];
 //        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];
-        [[QFInfo sharedInstance] loadCookies];
+        
         MainController *rootViewController = [[MainController alloc]init];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         

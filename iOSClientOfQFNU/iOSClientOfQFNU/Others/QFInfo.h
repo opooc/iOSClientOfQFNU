@@ -14,10 +14,10 @@
 @property (nonatomic, copy) NSString *token;  //每次登陆获取的秘钥
 @property (nonatomic, strong) NSString *Lt;
 + (QFInfo *)sharedInstance;//单例方法
--(void)save:(NSString *)user password:(NSString *)passWord;
+-(void)save:(NSString *)user password:(NSString *)passWord token:(NSString *)Token;
 -(NSString *)getUser;
 -(NSString *)getPassword;
+-(NSString *)getToken;
 -(void)loginqfnu:(NSString *)username password:(NSString *)password;
--(void)saveCookies;
--(void)loadCookies;
+
 @end

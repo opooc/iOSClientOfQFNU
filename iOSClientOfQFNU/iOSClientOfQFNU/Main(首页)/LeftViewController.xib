@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,10 +32,10 @@
                         <constraint firstAttribute="width" secondItem="Cg8-gm-ztR" secondAttribute="height" multiplier="5:9" id="wsd-7p-gcx"/>
                     </constraints>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA4-E0-ecS">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA4-E0-ecS">
                     <rect key="frame" x="52" y="23" width="147" height="196"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-cF-9AG">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-cF-9AG">
                             <rect key="frame" x="0.0" y="0.0" width="147" height="147"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="MWn-eW-oCw"/>
@@ -43,8 +44,8 @@
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="147" id="tnE-lC-9SJ"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDD-9E-dY2">
-                            <rect key="frame" x="-30" y="167" width="35" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDD-9E-dY2">
+                            <rect key="frame" x="22" y="167" width="103" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -52,18 +53,19 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="iDD-9E-dY2" firstAttribute="top" secondItem="NnH-cF-9AG" secondAttribute="bottom" constant="20" id="7AX-fw-da6"/>
                         <constraint firstAttribute="width" constant="147" id="C1C-um-JNr"/>
-                        <constraint firstItem="iDD-9E-dY2" firstAttribute="leading" secondItem="cA4-E0-ecS" secondAttribute="leading" constant="-30" id="C3V-4M-LwY"/>
                         <constraint firstItem="NnH-cF-9AG" firstAttribute="leading" secondItem="cA4-E0-ecS" secondAttribute="leading" id="CzI-Z3-yOQ"/>
+                        <constraint firstItem="iDD-9E-dY2" firstAttribute="leading" secondItem="cA4-E0-ecS" secondAttribute="leading" constant="22" id="M9m-Uy-p3F"/>
                         <constraint firstItem="NnH-cF-9AG" firstAttribute="top" secondItem="cA4-E0-ecS" secondAttribute="top" id="NHd-x2-rR8"/>
                         <constraint firstAttribute="height" constant="196" id="kQB-vg-vdv"/>
+                        <constraint firstItem="iDD-9E-dY2" firstAttribute="bottom" secondItem="cA4-E0-ecS" secondAttribute="bottomMargin" id="mhg-nx-CnD"/>
+                        <constraint firstAttribute="trailing" secondItem="iDD-9E-dY2" secondAttribute="trailing" constant="22" id="pHV-Nt-kX0"/>
                         <constraint firstAttribute="trailing" secondItem="NnH-cF-9AG" secondAttribute="trailing" id="yhj-qF-hi9"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="iDD-9E-dY2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Acw-9W-fE8"/>
                 <constraint firstAttribute="bottom" secondItem="Cg8-gm-ztR" secondAttribute="bottom" id="H5L-bs-tkt"/>
                 <constraint firstItem="cA4-E0-ecS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="UlX-ou-Otr"/>
                 <constraint firstAttribute="trailing" secondItem="cA4-E0-ecS" secondAttribute="trailing" constant="51" id="bJz-C6-8aV"/>
