@@ -64,9 +64,9 @@
     [self.view addSubview:_userNameField];
     _passwordField = [YJJTextField yjj_textField];
     _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (120+ SCREEN_H/12), self.view.frame.size.width, 80);
-    _passwordField.maxLength = 6;
+    _passwordField.maxLength = 16;
     _passwordField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
-    _passwordField.errorStr = @"密码长度不得超过6位，默认为身份证后六位";
+    _passwordField.errorStr = @"密码长度不得超过16位，默认为身份证后六位";
     _passwordField.placeholder = @"请输入密码";
     _passwordField.historyContentKey = @"password";
     _passwordField.leftImageName = @"password_login";
