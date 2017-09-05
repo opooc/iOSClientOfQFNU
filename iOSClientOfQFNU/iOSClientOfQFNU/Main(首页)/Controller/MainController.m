@@ -91,7 +91,7 @@ CGFloat barheight;
 -(void)setbar{
 
     UIView* content = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_scrollView.frame), SCREEN_W, 80)];
-    barheight = content.frame.origin.y-45;
+    barheight = CGRectGetMaxY(content.frame);
 
     UIImageView* qiqiu = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"balloon.png"]];
     qiqiu.frame = CGRectMake(0, 1, 50, 76);
@@ -212,7 +212,7 @@ CGFloat barheight;
 }
 -(void)setlist{
     
-    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, barheight, SCREEN_W    , SCREEN_H)];
+    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, barheight, SCREEN_W    , SCREEN_H-barheight-64)];
 
     self.mTableView.dataSource = self;
     self.mTableView.delegate   = self;
