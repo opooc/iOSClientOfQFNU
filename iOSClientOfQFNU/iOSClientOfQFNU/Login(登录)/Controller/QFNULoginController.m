@@ -36,7 +36,7 @@
     [self createButton];
     [self createTextField];
     UIImageView* logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"qfnulogo.png"]];
-    logo.frame = CGRectMake((SCREEN_W-250.0)*0.5, 100, 250, 200);
+    logo.frame = CGRectMake((SCREEN_W-250.0)*0.5, SCREEN_H/12, 250, 200);
     [self.view addSubview:logo];
     YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     imageView.image = [UIImage imageNamed:@"login_bg6.png"];
@@ -55,7 +55,7 @@
 //    _password.borderStyle=UITextBorderStyleLine;
 //    [self.view addSubview:_password];
      _userNameField = [YJJTextField yjj_textField];
-    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (180 + 170), self.view.frame.size.width, 80);
+    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (200 + SCREEN_H/12), self.view.frame.size.width, 80);
     _userNameField.maxLength = 10;
     _userNameField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _userNameField.errorStr = @"学籍号长度不超过10位";
@@ -63,7 +63,7 @@
     _userNameField.historyContentKey = @"userName";
     [self.view addSubview:_userNameField];
     _passwordField = [YJJTextField yjj_textField];
-    _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (100+ 170), self.view.frame.size.width, 80);
+    _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (120+ SCREEN_H/12), self.view.frame.size.width, 80);
     _passwordField.maxLength = 6;
     _passwordField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _passwordField.errorStr = @"密码长度不得超过6位，默认为身份证后六位";
@@ -75,7 +75,7 @@
     [self.view addSubview:_passwordField];
 }
 - (void)createButton{
-    HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + 130), kSCREEN_WIDTH - 40, 40)];
+    HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + SCREEN_H/12), kSCREEN_WIDTH - 40, 40)];
     [loginButton setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(FirstViewController:) forControlEvents:UIControlEventTouchUpInside];

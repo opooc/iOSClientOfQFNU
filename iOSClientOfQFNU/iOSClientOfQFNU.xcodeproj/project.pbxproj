@@ -2326,6 +2326,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
 				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Debug;
@@ -2367,6 +2368,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
 				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Release;
