@@ -20,13 +20,21 @@
 #import "AppDelegate.h"
 #import "LeftViewController.h"
 #import "LGSideMainViewController.h"
+#import "MLMWaveWaterView.h"
+#import "UIView+MLMBorderPath.h"
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
+{
+    MLMWaveWaterView* waterView;
+    NSTimer *timer;
+    HyLoginButton* Loginbtn;
+}
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
 @property (strong,nonatomic)YJJTextField *passwordField;
 #define kSCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 #define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kSCREEN_SIZE [UIScreen mainScreen].bounds.size
+
 @end
 
 @implementation QFNULoginController
@@ -44,8 +52,23 @@
 
     [self.view addSubview:imageView];
     [self.view sendSubviewToBack:imageView];
-    [imageView startAnimate];
+    
+    BOOL isiPad = getRuntimeClassIsIpad();
+    if (isiPad) {
+        [imageView stopAnimate];
+    } else {
+        [imageView startAnimate];
+    }
+    
     [self addNoticeForKeyboard];
+}
+BOOL getRuntimeClassIsIpad()
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        return TRUE;
+    }
+    return FALSE;
 }
 -(void)createTextField{
 //    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];
@@ -136,6 +159,45 @@
                           };
     NSString *domainStr = @"https://zsqy.illidan.me/login";
     [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+        //添加波纹
+        waterView = [[MLMWaveWaterView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 60)/2, SCREEN_H/12+200, 60,60)];
+        waterView.progress = uploadProgress.fractionCompleted;
+        NSLog(@"%f",uploadProgress.fractionCompleted);
+        
+        if ([NSThread isMainThread])
+        {
+            [self.view addSubview:waterView];
+            [waterView  setNeedsDisplay];
+        }
+        else
+        {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                //Update UI in UI thread here
+             
+                [self.view addSubview:waterView];
+                [waterView  setNeedsDisplay];
+                
+            });
+        }
+        
+        
+        CGRect rect = waterView.frame;
+        CGRect frame = waterView.bounds;
+        frame.size.height = frame.size.width * 9 /10;
+        waterView.changeFrame = frame;
+        
+        waterView.borderPath = [UIView heartPathRect:rect lineWidth:0];
+        waterView.border_fillColor = [UIColor colorWithRed:92.0/255 green:137.0/255 blue:68.0/255 alpha:1.0];
+        
+        
+         //添加定时器
+        Loginbtn = button;
+        // 创建定时器
+        NSTimer *timerr = [NSTimer timerWithTimeInterval:8.0 target:self selector:@selector(timeOver) userInfo:nil repeats:YES];
+        
+        // 将定时器添加到runloop中，否则定时器不会启动
+        [[NSRunLoop mainRunLoop] addTimer:timerr forMode:NSRunLoopCommonModes];
+        timer = timerr;
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
@@ -147,16 +209,53 @@
             [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
             
             [button succeedAnimationWithCompletion:^{
-                    [weak didPresentControllerButtonTouch];
+                    [self didPresentControllerButtonTouch];
             }];
+            //添加定时器
+            [timer invalidate];
+           //关闭波纹
+            if ([NSThread isMainThread])
+            {
+                [waterView removeFromSuperview];
+                [waterView  setNeedsDisplay];
+            }
+            else
+            {
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    //Update UI in UI thread here
+                    
+                    [waterView removeFromSuperview];
+                    [waterView  setNeedsDisplay];
+                    
+                });
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",task);
         [button failedAnimationWithCompletion:^{
-
-                [weak didPresentControllerButtonTouch];
-
+            
+                [self didPresentControllerButtonTouch];
         }];
+        
+        [timer invalidate];
+        if ([NSThread isMainThread])
+        {
+            [waterView removeFromSuperview];
+            [waterView  setNeedsDisplay];
+        }
+        else
+        {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                //Update UI in UI thread here
+                
+                [waterView removeFromSuperview];
+                [waterView  setNeedsDisplay];
+                
+            });
+        }
+        UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名或密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+
     }];
             }
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -172,6 +271,32 @@
 //                        }
 //        }
 //    });
+}
+-(void)timeOver{
+    [timer invalidate];
+    if ([NSThread isMainThread])
+    {
+        [waterView removeFromSuperview];
+        [waterView  setNeedsDisplay];
+    }
+    else
+    {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            //Update UI in UI thread here
+            
+            [waterView removeFromSuperview];
+            [waterView  setNeedsDisplay];
+            
+        });
+    [Loginbtn failedAnimationWithCompletion:^{
+            
+            [self didPresentControllerButtonTouch];
+        }];
+    }
+    UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络连接超时，请重试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+
+
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];

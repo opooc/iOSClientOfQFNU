@@ -19,6 +19,7 @@
 #import "LeftViewController.h"
 #import "QFNULoginController.h"
 #import <UMSocialCore/UMSocialCore.h>
+//#import "CoreLaunchCool.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
+  //  NSString* imaScUrlStr = [[NSBundle mainBundle]pathForResource:@"Screen" ofType:@"png"];
+   // UIImage* imaSc = [UIImage imageNamed:@"Screen.png"];
+    
     if (![[[QFInfo sharedInstance] getUser]isEqualToString:@""]) {
         
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -46,6 +50,7 @@
         [_window makeKeyAndVisible];
         [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
     }else{
+        
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //    MainController *rootViewController = [[MainController alloc]init];
 //    LeftViewController *leftViewController = [LeftViewController new];
@@ -69,33 +74,23 @@
     //隐藏电池
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
-    ///设置启动页
+//    ///设置启动页
 //    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-120) ImageURL:@"http://c.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a6a943c180b3b5bb5c8eab8e7.jpg" advertisingURL:@"http://www.opooc.com" timeSecond:10 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
 //        /// 广告加载结束
 //        NSLog(@"%@ %@",image,imageURL);
 //        
 //    } clickImage:^(UIViewController *WZXlaunchVC){
-//        
-//        /// 点击广告
-//        
-//        //2.在webview中打开
-////        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
-////        VC.urlStr = @"http://www.opooc.com";
-////        VC.AppDelegateSele= -1;
-////        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
-////        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
+//
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
-//        _window.rootViewController = sideMenuController;
+//        _window.rootViewController = loginview;
 //        
 //        
 //    } theAdEnds:^{
-//        
-//        
+//
 //        //广告展示完成回调,设置window根控制器
 //        
-//        _window.rootViewController = sideMenuController;
+//        _window.rootViewController = loginview;
 //
-//        
 //        
 //    }];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
