@@ -84,6 +84,8 @@
 		CB266E391F38894000C17241 /* R.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E351F38894000C17241 /* R.png */; };
 		CB266E3F1F38899C00C17241 /* YCXMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3C1F38899C00C17241 /* YCXMenu.m */; };
 		CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3E1F38899C00C17241 /* YCXMenuItem.m */; };
+		CB34EC3E1F619EEE00B06EE5 /* MLMWaveWaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */; };
+		CB34EC3F1F619EEE00B06EE5 /* UIView+MLMBorderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */; };
 		CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B11EEB9AAD004EA94A /* gengduo.png */; };
 		CB5713D61EEB9AAD004EA94A /* icon-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B21EEB9AAD004EA94A /* icon-calendar.png */; };
 		CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B31EEB9AAD004EA94A /* icon-curriculum.png */; };
@@ -355,6 +357,10 @@
 		CB266E3C1F38899C00C17241 /* YCXMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCXMenu.m; sourceTree = "<group>"; };
 		CB266E3D1F38899C00C17241 /* YCXMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCXMenuItem.h; sourceTree = "<group>"; };
 		CB266E3E1F38899C00C17241 /* YCXMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCXMenuItem.m; sourceTree = "<group>"; };
+		CB34EC3A1F619EEE00B06EE5 /* MLMWaveWaterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMWaveWaterView.h; sourceTree = "<group>"; };
+		CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMWaveWaterView.m; sourceTree = "<group>"; };
+		CB34EC3C1F619EEE00B06EE5 /* UIView+MLMBorderPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MLMBorderPath.h"; sourceTree = "<group>"; };
+		CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MLMBorderPath.m"; sourceTree = "<group>"; };
 		CB5713B11EEB9AAD004EA94A /* gengduo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gengduo.png; sourceTree = "<group>"; };
 		CB5713B21EEB9AAD004EA94A /* icon-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calendar.png"; sourceTree = "<group>"; };
 		CB5713B31EEB9AAD004EA94A /* icon-curriculum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-curriculum.png"; sourceTree = "<group>"; };
@@ -1218,6 +1224,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				CB34EC391F619EEE00B06EE5 /* waterWave */,
 				EB10480E1F5AFDD40001A5A8 /* NHHUDExtend */,
 				CB7BA8311F4D2CD900BBC838 /* STPickerView */,
 				CB266E3A1F38899C00C17241 /* YCXMenu */,
@@ -1356,6 +1363,17 @@
 				CB266E3E1F38899C00C17241 /* YCXMenuItem.m */,
 			);
 			path = YCXMenu;
+			sourceTree = "<group>";
+		};
+		CB34EC391F619EEE00B06EE5 /* waterWave */ = {
+			isa = PBXGroup;
+			children = (
+				CB34EC3A1F619EEE00B06EE5 /* MLMWaveWaterView.h */,
+				CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */,
+				CB34EC3C1F619EEE00B06EE5 /* UIView+MLMBorderPath.h */,
+				CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */,
+			);
+			path = waterWave;
 			sourceTree = "<group>";
 		};
 		CB5713971EEB9AAD004EA94A /* image */ = {
@@ -1893,8 +1911,8 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PAHUVER4VC;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = DTQ7WEE79D;
+						ProvisioningStyle = Automatic;
 					};
 					CB1060241EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2022,6 +2040,7 @@
 			files = (
 				CB7BA8491F4D2CD900BBC838 /* STPickerDate.m in Sources */,
 				CB7BA84C1F4D2CD900BBC838 /* STPickerViewUI.m in Sources */,
+				CB34EC3E1F619EEE00B06EE5 /* MLMWaveWaterView.m in Sources */,
 				EB10480D1F59823E0001A5A8 /* UIColor+FlatColors.m in Sources */,
 				CB01AB731EEEBC3A00E04D64 /* HyLoginButton.m in Sources */,
 				CB1060D31EE909630099E371 /* QFNUCourseController.m in Sources */,
@@ -2115,6 +2134,7 @@
 				CB658C4B1EF2076D00AE5327 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CB57140C1EEBCAE5004EA94A /* NSObject+MJProperty.m in Sources */,
 				CB5713EB1EEBC657004EA94A /* MainButtonView.m in Sources */,
+				CB34EC3F1F619EEE00B06EE5 /* UIView+MLMBorderPath.m in Sources */,
 				CB658C3F1EF2076D00AE5327 /* README.md in Sources */,
 				262D1C271F037F04004A4787 /* QFInfo.m in Sources */,
 				CB658C681EF2AA6E00AE5327 /* KSGuaidViewController.m in Sources */,
@@ -2295,8 +2315,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2322,10 +2342,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -2336,9 +2356,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2364,10 +2384,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};

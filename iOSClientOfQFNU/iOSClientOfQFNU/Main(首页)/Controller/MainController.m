@@ -112,7 +112,7 @@ CGFloat barheight;
     time.font = [UIFont systemFontOfSize:12];
     time.textColor = TEXT_GRAYCOLOR;
     
-    UILabel* mingyan = [[UILabel alloc]initWithFrame:CGRectMake(80, meiriView.frame.size.height, SCREEN_W-170, 60)];
+    UILabel* mingyan = [[UILabel alloc]initWithFrame:CGRectMake(80, meiriView.frame.size.height, SCREEN_W-100, 60)];
     
     mingyan.numberOfLines = 0;
     
