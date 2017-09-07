@@ -86,6 +86,9 @@
 		CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3E1F38899C00C17241 /* YCXMenuItem.m */; };
 		CB34EC3E1F619EEE00B06EE5 /* MLMWaveWaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */; };
 		CB34EC3F1F619EEE00B06EE5 /* UIView+MLMBorderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */; };
+		CB34EC451F61BA5600B06EE5 /* CALayer+Cool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC421F61BA5600B06EE5 /* CALayer+Cool.m */; };
+		CB34EC461F61BA5600B06EE5 /* CoreLaunchCool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC441F61BA5600B06EE5 /* CoreLaunchCool.m */; };
+		CB34EC4C1F61C2E500B06EE5 /* Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = CB34EC4B1F61C2E500B06EE5 /* Screen.png */; };
 		CB5713D51EEB9AAD004EA94A /* gengduo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B11EEB9AAD004EA94A /* gengduo.png */; };
 		CB5713D61EEB9AAD004EA94A /* icon-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B21EEB9AAD004EA94A /* icon-calendar.png */; };
 		CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5713B31EEB9AAD004EA94A /* icon-curriculum.png */; };
@@ -361,6 +364,11 @@
 		CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMWaveWaterView.m; sourceTree = "<group>"; };
 		CB34EC3C1F619EEE00B06EE5 /* UIView+MLMBorderPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MLMBorderPath.h"; sourceTree = "<group>"; };
 		CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MLMBorderPath.m"; sourceTree = "<group>"; };
+		CB34EC411F61BA5600B06EE5 /* CALayer+Cool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Cool.h"; sourceTree = "<group>"; };
+		CB34EC421F61BA5600B06EE5 /* CALayer+Cool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Cool.m"; sourceTree = "<group>"; };
+		CB34EC431F61BA5600B06EE5 /* CoreLaunchCool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLaunchCool.h; sourceTree = "<group>"; };
+		CB34EC441F61BA5600B06EE5 /* CoreLaunchCool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLaunchCool.m; sourceTree = "<group>"; };
+		CB34EC4B1F61C2E500B06EE5 /* Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screen.png; sourceTree = "<group>"; };
 		CB5713B11EEB9AAD004EA94A /* gengduo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gengduo.png; sourceTree = "<group>"; };
 		CB5713B21EEB9AAD004EA94A /* icon-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calendar.png"; sourceTree = "<group>"; };
 		CB5713B31EEB9AAD004EA94A /* icon-curriculum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-curriculum.png"; sourceTree = "<group>"; };
@@ -1224,6 +1232,7 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				CB34EC401F61BA5600B06EE5 /* CoreLaunchCool */,
 				CB34EC391F619EEE00B06EE5 /* waterWave */,
 				EB10480E1F5AFDD40001A5A8 /* NHHUDExtend */,
 				CB7BA8311F4D2CD900BBC838 /* STPickerView */,
@@ -1376,9 +1385,21 @@
 			path = waterWave;
 			sourceTree = "<group>";
 		};
+		CB34EC401F61BA5600B06EE5 /* CoreLaunchCool */ = {
+			isa = PBXGroup;
+			children = (
+				CB34EC411F61BA5600B06EE5 /* CALayer+Cool.h */,
+				CB34EC421F61BA5600B06EE5 /* CALayer+Cool.m */,
+				CB34EC431F61BA5600B06EE5 /* CoreLaunchCool.h */,
+				CB34EC441F61BA5600B06EE5 /* CoreLaunchCool.m */,
+			);
+			path = CoreLaunchCool;
+			sourceTree = "<group>";
+		};
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				CB34EC4B1F61C2E500B06EE5 /* Screen.png */,
 				CB7BA82E1F4D287A00BBC838 /* Tool */,
 				CB266E311F38894000C17241 /* Librarymenu */,
 				26EAD1F81F32C331002B1700 /* menu@2x.png */,
@@ -1961,6 +1982,7 @@
 				CB5713DF1EEB9AAD004EA94A /* icon-score.png in Resources */,
 				EB716C6D1F545F300081509B /* qfnulogo.png in Resources */,
 				CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */,
+				CB34EC4C1F61C2E500B06EE5 /* Screen.png in Resources */,
 				CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */,
 				EB716C6B1F545EDA0081509B /* qfnulogo.png in Resources */,
 				CB7BA8461F4D2CD900BBC838 /* area.plist in Resources */,
@@ -2076,6 +2098,7 @@
 				26D7029B1F330DEC00BBFD82 /* LGSideMainViewController.m in Sources */,
 				CB658C651EF2AA6E00AE5327 /* AppDelegate+Guaid.m in Sources */,
 				CB7BA82A1F4BBD3300BBC838 /* ToolModel.m in Sources */,
+				CB34EC451F61BA5600B06EE5 /* CALayer+Cool.m in Sources */,
 				262D1C361F038E95004A4787 /* AFHTTPSessionManager.m in Sources */,
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
@@ -2125,6 +2148,7 @@
 				26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */,
 				CB1060D21EE909630099E371 /* QFNUCommunityController.m in Sources */,
 				CB7BA8471F4D2CD900BBC838 /* NSCalendar+STPicker.m in Sources */,
+				CB34EC461F61BA5600B06EE5 /* CoreLaunchCool.m in Sources */,
 				CBE08F4C1F517AC20009447C /* xiaoliController.m in Sources */,
 				CB658C401EF2076D00AE5327 /* NSData+ImageContentType.m in Sources */,
 				262D1C381F038E95004A4787 /* AFSecurityPolicy.m in Sources */,
