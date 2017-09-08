@@ -22,6 +22,7 @@
 #import "LGSideMainViewController.h"
 #import "MLMWaveWaterView.h"
 #import "UIView+MLMBorderPath.h"
+
 @interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
 {
     MLMWaveWaterView* waterView;
@@ -34,6 +35,9 @@
 #define kSCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 #define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kSCREEN_SIZE [UIScreen mainScreen].bounds.size
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
+#define IS_PAD (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPad)
 
 @end
 
@@ -41,34 +45,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addbg];
     [self createButton];
     [self createTextField];
+    
     UIImageView* logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"qfnulogo.png"]];
     logo.frame = CGRectMake((SCREEN_W-250.0)*0.5, SCREEN_H/12, 250, 200);
     [self.view addSubview:logo];
-    YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    imageView.image = [UIImage imageNamed:@"login_bg6.png"];
-  
+    
+//    YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, kSCREENH_HEIGHT)];
+//    imageView.image = [UIImage imageNamed:@"login_bg6.png"];
+//    
+//    [self.view addSubview:imageView];
+//    [self.view sendSubviewToBack:imageView];
 
-    [self.view addSubview:imageView];
-    [self.view sendSubviewToBack:imageView];
-    
-    BOOL isiPad = getRuntimeClassIsIpad();
-    if (isiPad) {
-        [imageView stopAnimate];
-    } else {
-        [imageView startAnimate];
-    }
-    
     [self addNoticeForKeyboard];
 }
 BOOL getRuntimeClassIsIpad()
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+{   NSString *model = [[UIDevice currentDevice] model];
+    if ([model isEqualToString:@"iPad"])
+        
     {
         return TRUE;
     }
+    
     return FALSE;
+}
+-(void)addbg{
+    BOOL isiPad = getRuntimeClassIsIpad();
+    if (isiPad) {
+        UIView* imagev = [[UIView alloc]initWithFrame:CGRectMake(-20, 0, kSCREEN_WIDTH+40, kSCREENH_HEIGHT)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH+40, kSCREENH_HEIGHT)];
+        imageView.image = [UIImage imageNamed:@"login_bg6.png"];
+        
+        [imagev addSubview:imageView];
+        [self.view addSubview:imagev];
+        
+        NSLog(@"ipad..++++++++++");
+        
+   
+        
+    } else {
+        YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, kSCREENH_HEIGHT)];
+        imageView.image = [UIImage imageNamed:@"login_bg6.png"];
+        
+        [self.view addSubview:imageView];
+        [self.view sendSubviewToBack:imageView];
+        [imageView startAnimate];
+        NSLog(@"iphone++++++++++");
+    }
+
+
 }
 -(void)createTextField{
 //    _UserName=[[UITextField alloc]initWithFrame:CGRectMake(50, CGRectGetHeight(self.view.bounds) - (170 + 170), kSCREEN_WIDTH - 100, 40)];
