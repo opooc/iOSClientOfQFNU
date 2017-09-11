@@ -55,7 +55,7 @@
     [self createname];
     [self change];
     
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",nil],[NSArray arrayWithObjects:@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -240,17 +240,17 @@
             break;
             case 1:
             switch (indexPath.row) {
+//                case 0:
+//                    [self webviewtext:@"http://m.5read.com/4581"];
+//                    break;
                 case 0:
-                    [self webviewtext:@"http://m.5read.com/4581"];
-                    break;
-                case 1:
                     [self webviewtext:@"http://www.qfnu.edu.cn"];
                     break;
-                case 2:
-                     [self webviewtext:@"http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0"];
+                case 1:
+                     [self webviewtext:@"http://jwc.qfnu.edu.cn/xw.htm "];
                   
                     break;
-                case 3:
+                case 2:
 
                     break;
                     
