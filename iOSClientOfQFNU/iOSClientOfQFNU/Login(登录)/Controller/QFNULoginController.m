@@ -23,7 +23,7 @@
 #import "MLMWaveWaterView.h"
 #import "UIView+MLMBorderPath.h"
 
-@interface QFNULoginController ()<UIViewControllerTransitioningDelegate>
+@interface QFNULoginController ()<UIViewControllerTransitioningDelegate,UITextFieldDelegate>
 {
     MLMWaveWaterView* waterView;
     NSTimer *timer;
@@ -111,6 +111,9 @@ BOOL getRuntimeClassIsIpad()
     _userNameField.errorStr = @"学籍号长度不超过10位";
     _userNameField.placeholder = @"请输入用户名";
     _userNameField.historyContentKey = @"userName";
+        _userNameField.textField.delegate=self;
+        _userNameField.textField.returnKeyType=UIReturnKeyNext;
+    _userNameField.textField.tag=1;
     [self.view addSubview:_userNameField];
     _passwordField = [YJJTextField yjj_textField];
     _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (120+ SCREEN_H/12), self.view.frame.size.width, 80);
@@ -122,6 +125,9 @@ BOOL getRuntimeClassIsIpad()
     _passwordField.leftImageName = @"password_login";
     _passwordField.textField.secureTextEntry=YES;
     _passwordField.showHistoryList = NO;
+    _passwordField.textField.tag=2;
+    _passwordField.textField.delegate=self;
+    _userNameField.textField.returnKeyType=UIReturnKeyDone;
     [self.view addSubview:_passwordField];
 }
 - (void)createButton{
@@ -175,6 +181,7 @@ BOOL getRuntimeClassIsIpad()
         return;
     }
     [_userNameField resignFirstResponder];
+
     [_passwordField resignFirstResponder];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
@@ -220,7 +227,7 @@ BOOL getRuntimeClassIsIpad()
          //添加定时器
         Loginbtn = button;
         // 创建定时器
-        NSTimer *timerr = [NSTimer timerWithTimeInterval:8.0 target:self selector:@selector(timeOver) userInfo:nil repeats:YES];
+        NSTimer *timerr = [NSTimer timerWithTimeInterval:8.0 target:self selector:@selector(timeOver) userInfo:nil repeats:NO];
         
         // 将定时器添加到runloop中，否则定时器不会启动
         [[NSRunLoop mainRunLoop] addTimer:timerr forMode:NSRunLoopCommonModes];
@@ -418,6 +425,19 @@ BOOL getRuntimeClassIsIpad()
     if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {  return YES;
     }
     return NO;
+}
+#pragma mark -UITextFieldDelegate
+- ( void )textFieldDidBeginEditing:( UITextField*)textField{
+    
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.tag==1){
+        [_passwordField becomeFirstResponder];
+    }else{
+     [self.view endEditing:YES];
+    }
+    return YES;
 }
 
 /*

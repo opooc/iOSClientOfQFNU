@@ -1932,7 +1932,7 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PAHUVER4VC;
+						DevelopmentTeam = PYN3J5Y54V;
 						ProvisioningStyle = Manual;
 					};
 					CB1060241EE908E30099E371 = {
@@ -2339,8 +2339,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PYN3J5Y54V;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2368,8 +2368,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
+				PROVISIONING_PROFILE_SPECIFIER = developer_yi;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -2380,9 +2380,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				DEVELOPMENT_TEAM = PYN3J5Y54V;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2410,8 +2410,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "9ff8a1df-118b-46ce-bdab-d7c737816ec5";
+				PROVISIONING_PROFILE_SPECIFIER = developer_yi;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};

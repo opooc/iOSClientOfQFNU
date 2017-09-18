@@ -77,7 +77,7 @@
 }
 -(void)subToServer{
 
-
+    
     UIAlertView* tishi = [[UIAlertView alloc]initWithTitle:@"提示" message:@"提交成功！" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:nil];
     [tishi show];
     

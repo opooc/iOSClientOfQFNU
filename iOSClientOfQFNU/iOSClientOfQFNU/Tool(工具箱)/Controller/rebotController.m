@@ -80,7 +80,7 @@
     }
     UIButton* sub = [[UIButton alloc]initWithFrame:CGRectMake(100, CGRectGetMaxY(_textView.frame)+20, SCREEN_WIDTH-120, 40)];
     [sub setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sub setTitle:@"查一查" forState:UIControlStateNormal];
+    [sub setTitle:@"问一下" forState:UIControlStateNormal];
     [sub setBackgroundColor:[UIColor colorWithRed:153.0/255.0 green:182.0/255.0 blue:134.0/255.0 alpha:1.0]];
     sub.titleLabel.font = [UIFont systemFontOfSize:20];
     sub.layer.cornerRadius = 5;
@@ -89,7 +89,14 @@
     [bgScroll addSubview:sub];
     
 }
+//点击屏幕空白处
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+        [self.view endEditing:YES];
+    [_textView resignFirstResponder];
+    [_anwser resignFirstResponder];
+}
 -(void)subToServer{
+    [_textView resignFirstResponder];
     NSString *appcode = @"da658159a4d9483d8fb26fc7f0ed0d7d";
     NSString *host = @"http://jisuznwd.market.alicloudapi.com";
     NSString *path = @"/iqa/query";
