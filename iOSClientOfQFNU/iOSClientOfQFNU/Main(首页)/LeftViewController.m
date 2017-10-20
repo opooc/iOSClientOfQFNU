@@ -19,6 +19,10 @@
 #import "QFNUToolController.h"
 #import "MainController.h"
 #import "MeController.h"
+#import "QFNUCourseController.h"
+#import "MBProgressHUD+NHAdd.h"
+#import "AFNetworking.h"
+
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *meView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
@@ -55,7 +59,7 @@
     [self createname];
     [self change];
     
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",nil],[NSArray arrayWithObjects:@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -234,6 +238,9 @@
                 case 2:
                  [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx#"];
                     break;
+                case 3:
+                    [self courseVc];
+                    break;
                 default:
                     break;
             }
@@ -368,6 +375,8 @@
 
 }
 
+
+
 //友盟分享
 - (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
 {
@@ -424,5 +433,105 @@
     // Pass the selected object to the new view controller.
 }
 */
+//课程表
+-(void)courseVc{
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    
+    [self ClassFind:navigationController];
+ 
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+    
+    
+}
+- (void)ClassFind:(UINavigationController *)nav{  //课表界面
+    
+    if([[QFInfo sharedInstance]getCourse]==nil){
+        
+       // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
+    
+        /** 请求课表*/
+        [self GET:@"https://zsqy.illidan.me/urp/curriculum" parameters:nil success:^(id responseObject) {
+//            NSData* data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+//
+//            NSString* str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//            NSLog(@"%@",str);
+//            NSData* data2 = [str dataUsingEncoding:NSUTF8StringEncoding];
+//
+//            NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+//            NSLog(@"%@",dic);
+            
+            NSString *msg=[responseObject objectForKey:@"message"];
+            if ([msg isEqualToString:@"获取成功"]) {
+                NSDictionary *dicCourse = [responseObject objectForKey:@"data"];
+//                NSArray* Arr =[dicCourse objectForKey:@"lessons"];
+//                //
+//                NSArray* arr1 = Arr[1];
+//                NSArray* arr2 =[arr1 firstObject];
+//                NSLog(@"%@",arr2);
+//                NSDictionary* dicc = [arr2 firstObject];
+//                NSString* stttt = [dicc objectForKey:@"name"];
+//                NSLog(@"%@",stttt);
+                NSLog(@"%@",dicCourse);
+                [[QFInfo sharedInstance]savaCourse:dicCourse];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+               
+            }else if([msg isEqualToString:@"无权访问"]){
+                [MBProgressHUD showError:@"登录过期,请重新登录" toView:nav.view];
+               // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+            else{
+                   [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:nav.view];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        } failure:^(NSError *error) {
+               // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:nav.view];
+              [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+    }else{
+        QFNUCourseController *course=[[QFNUCourseController alloc]init];
+ 
+        [nav pushViewController:course animated:YES];
+       // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
+    }
+} //课程表
+- (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    [self GET:URLString parameters:parameters timeout:6.f success:^(id responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+- (void)GET:(NSString *)URLString parameters:(id)parameters timeout:(double)time success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    NSLog(@"请求地址:%@",URLString);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    ((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = time;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    //NSString* token = [[QFInfo sharedInstance]getToken];
+
+    [manager.requestSerializer setValue:@"DTByjRftqxpns4NkmRPXK6OHmE_9pjrk" forHTTPHeaderField:@"Authorization"];
+    [manager GET:URLString parameters:parameters progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if (success) {
+                 success(responseObject);
+             }
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 failure(error);
+             }
+         }];
+}
+
 
 @end

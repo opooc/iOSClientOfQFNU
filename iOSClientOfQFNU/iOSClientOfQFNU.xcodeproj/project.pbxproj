@@ -265,6 +265,8 @@
 		26B28B831F1EFC2B00FAF61F /* YGGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravity.m; sourceTree = "<group>"; };
 		26B28B841F1EFC2B00FAF61F /* YGGravityImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGGravityImageView.h; sourceTree = "<group>"; };
 		26B28B851F1EFC2B00FAF61F /* YGGravityImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGGravityImageView.m; sourceTree = "<group>"; };
+		26B7EDB61F99C8730059C422 /* NSData+CRC32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
+		26B7EDB71F99C8740059C422 /* NSData+CRC32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		26D702991F330DEC00BBFD82 /* LGSideMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSideMainViewController.h; sourceTree = "<group>"; };
 		26D7029A1F330DEC00BBFD82 /* LGSideMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSideMainViewController.m; sourceTree = "<group>"; };
 		26EAD1F81F32C331002B1700 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
@@ -1232,6 +1234,8 @@
 		CB1060B01EE909630099E371 /* Vendors(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				26B7EDB61F99C8730059C422 /* NSData+CRC32.h */,
+				26B7EDB71F99C8740059C422 /* NSData+CRC32.m */,
 				CB34EC401F61BA5600B06EE5 /* CoreLaunchCool */,
 				CB34EC391F619EEE00B06EE5 /* waterWave */,
 				EB10480E1F5AFDD40001A5A8 /* NHHUDExtend */,
