@@ -96,7 +96,20 @@
 
     }];
 }
-
-
+-(NSDictionary *)getCourse{
+    NSUserDefaults *gcou = [NSUserDefaults standardUserDefaults];
+    NSDictionary *cou;
+    if([gcou objectForKey:@"course"]){
+        cou=[gcou objectForKey:@"course"];
+    }
+    return cou;
+    
+}
+-(void)savaCourse:(NSDictionary *)course{
+    NSUserDefaults *cou = [NSUserDefaults standardUserDefaults];
+    
+    [cou setObject:course forKey:@"course"];
+    [cou synchronize];
+}
 
 @end

@@ -19,5 +19,7 @@
 -(NSString *)getPassword;
 -(NSString *)getToken;
 -(void)loginqfnu:(NSString *)username password:(NSString *)password;
-
+#pragma mark 课程表
+-(NSDictionary *)getCourse;
+-(void)savaCourse:(NSDictionary *)course;
 @end
