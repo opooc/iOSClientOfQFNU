@@ -191,7 +191,7 @@ BOOL getRuntimeClassIsIpad()
     NSDictionary* dic = @{@"user_id":_userNameField.textField.text,
                           @"password":_passwordField.textField.text
                           };
-    NSString *domainStr = @"https://zsqy.illidan.me/login";
+    NSString *domainStr = @"https://zsqy.illidan.cn/login";
     [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         //添加波纹
         waterView = [[MLMWaveWaterView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 60)/2, SCREEN_H/12+200, 60,60)];
@@ -327,6 +327,10 @@ BOOL getRuntimeClassIsIpad()
             [self didPresentControllerButtonTouch];
         }];
     }
+    [Loginbtn failedAnimationWithCompletion:^{
+        
+        [self didPresentControllerButtonTouch];
+    }];
     UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络连接超时，请重试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
 
