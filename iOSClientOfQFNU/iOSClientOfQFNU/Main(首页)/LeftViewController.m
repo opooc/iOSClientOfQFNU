@@ -23,7 +23,7 @@
 #import "MBProgressHUD+NHAdd.h"
 #import "AFNetworking.h"
 
-@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UITableView *tb;
@@ -59,7 +59,7 @@
     [self createname];
     [self change];
     
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -247,17 +247,17 @@
             break;
             case 1:
             switch (indexPath.row) {
-//                case 0:
-//                    [self webviewtext:@"http://m.5read.com/4581"];
-//                    break;
                 case 0:
-                    [self webviewtext:@"http://www.qfnu.edu.cn"];
+                    [self webviewtext:@"http://m.5read.com/4581"];
                     break;
                 case 1:
+                    [self webviewtext:@"http://www.qfnu.edu.cn"];
+                    break;
+                case 2:
                      [self webviewtext:@"http://jwc.qfnu.edu.cn/xw.htm "];
                   
                     break;
-                case 2:
+                case 3:
 
                     break;
                     
@@ -300,16 +300,21 @@
 -(void)webviewtext:(NSString *)urlstring{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
-
+    
     NSLog(@"你正在打开的网站是：%@",urlstring);
     CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:urlstring]];
+    
     if ([urlstring  isEqual: @"http://m.5read.com/4581"]) {
+        webview.webView.delegate=self;
         [webview loadLibraryMenu];
     }
     [navigationController pushViewController:webview animated:YES];
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
-
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+}
 -(void)logout{
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
