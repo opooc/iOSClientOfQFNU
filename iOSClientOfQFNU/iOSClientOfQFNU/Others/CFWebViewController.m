@@ -310,6 +310,8 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self updateNavigationItems];
     NSString *theTitle=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];
