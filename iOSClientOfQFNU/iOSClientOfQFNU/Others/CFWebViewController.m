@@ -310,8 +310,11 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+    if ([webView.request.URL.absoluteString isEqualToString:@"http://m.5read.com/4581"]||[webView.request.URL.absoluteString isEqualToString:@"http://m.5read.com/157"]) {
+        [webView stringByEvaluatingJavaScriptFromString:@"close()"];
+    }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self updateNavigationItems];
     NSString *theTitle=[webView stringByEvaluatingJavaScriptFromString:@"document.title"];

@@ -27,7 +27,7 @@
 {
     MLMWaveWaterView* waterView;
     NSTimer *timer;
-    HyLoginButton* Loginbtn;
+    HyLoginButton* Loginbtn;//达威定时器
 }
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
@@ -42,6 +42,8 @@
 @end
 
 @implementation QFNULoginController
+{ HyLoginButton* loginButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,6 +116,7 @@ BOOL getRuntimeClassIsIpad()
         _userNameField.textField.delegate=self;
         _userNameField.textField.returnKeyType=UIReturnKeyNext;
     _userNameField.textField.tag=1;
+     _userNameField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:_userNameField];
     _passwordField = [YJJTextField yjj_textField];
     _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (120+ SCREEN_H/12), self.view.frame.size.width, 80);
@@ -131,7 +134,7 @@ BOOL getRuntimeClassIsIpad()
     [self.view addSubview:_passwordField];
 }
 - (void)createButton{
-    HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + SCREEN_H/12), kSCREEN_WIDTH - 40, 40)];
+    loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + SCREEN_H/12), kSCREEN_WIDTH - 40, 40)];
     [loginButton setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(FirstViewController:) forControlEvents:UIControlEventTouchUpInside];
@@ -378,7 +381,7 @@ BOOL getRuntimeClassIsIpad()
     CGFloat kbHeight = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     
     //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)
-    CGFloat offset = (_passwordField.frame.origin.y+_passwordField.frame.size.height+10) - (self.view.frame.size.height - kbHeight);
+    CGFloat offset = (_passwordField.frame.origin.y+_passwordField.frame.size.height+loginButton.frame.size.height+10) - (self.view.frame.size.height - kbHeight);
     
     // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
     double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
