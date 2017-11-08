@@ -456,7 +456,7 @@
        // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
     
         /** 请求课表*/
-        [self GET:@"https://zsqy.illidan.me/urp/curriculum" parameters:nil success:^(id responseObject) {
+        [self GET:@"https://zsqy.illidan.cn/urp/curriculum" parameters:nil success:^(id responseObject) {
 //            NSData* data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
 //
 //            NSString* str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
