@@ -69,7 +69,6 @@
 		CB1060FE1EE909630099E371 /* LGSideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1060C91EE909630099E371 /* LGSideMenuView.m */; };
 		CB1060FF1EE909630099E371 /* UIViewController+LGSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1060CB1EE909630099E371 /* UIViewController+LGSideMenuController.m */; };
 		CB1061051EE909950099E371 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061021EE909950099E371 /* AppDelegate.m */; };
-		CB1061061EE909950099E371 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB1061031EE909950099E371 /* Info.plist */; };
 		CB1061071EE909950099E371 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061041EE909950099E371 /* main.m */; };
 		CB1061091EE90CD30099E371 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1061081EE90CD30099E371 /* Images.xcassets */; };
 		CB10610C1EE90F0F0099E371 /* QFNUCConsultController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB10610B1EE90F0F0099E371 /* QFNUCConsultController.m */; };
@@ -78,6 +77,16 @@
 		CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1061181EEB89300099E371 /* MainHeadScrollView.m */; };
 		CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB10611B1EEB8F570099E371 /* LeftSortsController.m */; };
 		CB1DA8C51F5C67D900DED98B /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DA8C41F5C67D900DED98B /* TQMultistageTableView.m */; };
+		CB1DCF0D1FB224F3006FFB84 /* attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DCF0B1FB224F3006FFB84 /* attendance.png */; };
+		CB1DCF0E1FB224F3006FFB84 /* freeroom.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1DCF0C1FB224F3006FFB84 /* freeroom.png */; };
+		CB1DCF1D1FB228D6006FFB84 /* HMScanerCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF111FB228D6006FFB84 /* HMScanerCardViewController.m */; };
+		CB1DCF1E1FB228D6006FFB84 /* HMScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB1DCF121FB228D6006FFB84 /* HMScanner.bundle */; };
+		CB1DCF1F1FB228D6006FFB84 /* HMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF141FB228D6006FFB84 /* HMScanner.m */; };
+		CB1DCF201FB228D6006FFB84 /* HMScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF161FB228D6006FFB84 /* HMScannerBorder.m */; };
+		CB1DCF211FB228D6006FFB84 /* HMScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF181FB228D6006FFB84 /* HMScannerController.m */; };
+		CB1DCF221FB228D6006FFB84 /* HMScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF1A1FB228D6006FFB84 /* HMScannerMaskView.m */; };
+		CB1DCF231FB228D6006FFB84 /* HMScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF1C1FB228D6006FFB84 /* HMScannerViewController.m */; };
+		CB1DCF271FB22931006FFB84 /* AttendanController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1DCF261FB22931006FFB84 /* AttendanController.m */; };
 		CB266E361F38894000C17241 /* menu22.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E321F38894000C17241 /* menu22.png */; };
 		CB266E371F38894000C17241 /* new_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E331F38894000C17241 /* new_menu.png */; };
 		CB266E381F38894000C17241 /* Q.png in Resources */ = {isa = PBXBuildFile; fileRef = CB266E341F38894000C17241 /* Q.png */; };
@@ -197,7 +206,6 @@
 		EB1048161F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1048131F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m */; };
 		EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB3F4AA21F530A6F0052134E /* logo.jpg */; };
 		EB6031CE1F54487500C26A9A /* rebotController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6031CD1F54487500C26A9A /* rebotController.m */; };
-		EB716C6B1F545EDA0081509B /* qfnulogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB716C6A1F545EDA0081509B /* qfnulogo.png */; };
 		EB716C6D1F545F300081509B /* qfnulogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB716C6C1F545F300081509B /* qfnulogo.png */; };
 /* End PBXBuildFile section */
 
@@ -354,6 +362,23 @@
 		CB10611B1EEB8F570099E371 /* LeftSortsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSortsController.m; sourceTree = "<group>"; };
 		CB1DA8C31F5C67D900DED98B /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
 		CB1DA8C41F5C67D900DED98B /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
+		CB1DCF0B1FB224F3006FFB84 /* attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attendance.png; path = Tool/attendance.png; sourceTree = "<group>"; };
+		CB1DCF0C1FB224F3006FFB84 /* freeroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = freeroom.png; path = Tool/freeroom.png; sourceTree = "<group>"; };
+		CB1DCF101FB228D6006FFB84 /* HMScanerCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScanerCardViewController.h; sourceTree = "<group>"; };
+		CB1DCF111FB228D6006FFB84 /* HMScanerCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScanerCardViewController.m; sourceTree = "<group>"; };
+		CB1DCF121FB228D6006FFB84 /* HMScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMScanner.bundle; sourceTree = "<group>"; };
+		CB1DCF131FB228D6006FFB84 /* HMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScanner.h; sourceTree = "<group>"; };
+		CB1DCF141FB228D6006FFB84 /* HMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScanner.m; sourceTree = "<group>"; };
+		CB1DCF151FB228D6006FFB84 /* HMScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerBorder.h; sourceTree = "<group>"; };
+		CB1DCF161FB228D6006FFB84 /* HMScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerBorder.m; sourceTree = "<group>"; };
+		CB1DCF171FB228D6006FFB84 /* HMScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerController.h; sourceTree = "<group>"; };
+		CB1DCF181FB228D6006FFB84 /* HMScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerController.m; sourceTree = "<group>"; };
+		CB1DCF191FB228D6006FFB84 /* HMScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerMaskView.h; sourceTree = "<group>"; };
+		CB1DCF1A1FB228D6006FFB84 /* HMScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerMaskView.m; sourceTree = "<group>"; };
+		CB1DCF1B1FB228D6006FFB84 /* HMScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerViewController.h; sourceTree = "<group>"; };
+		CB1DCF1C1FB228D6006FFB84 /* HMScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerViewController.m; sourceTree = "<group>"; };
+		CB1DCF251FB22931006FFB84 /* AttendanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanController.h; sourceTree = "<group>"; };
+		CB1DCF261FB22931006FFB84 /* AttendanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanController.m; sourceTree = "<group>"; };
 		CB266E321F38894000C17241 /* menu22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu22.png; sourceTree = "<group>"; };
 		CB266E331F38894000C17241 /* new_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_menu.png; sourceTree = "<group>"; };
 		CB266E341F38894000C17241 /* Q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Q.png; sourceTree = "<group>"; };
@@ -725,6 +750,8 @@
 		CB10600E1EE908E30099E371 /* iOSClientOfQFNU */ = {
 			isa = PBXGroup;
 			children = (
+				CB1DCF0A1FB223EB006FFB84 /* Attendance(考勤） */,
+				CB1DCF091FB21D5C006FFB84 /* FreeRoom(自习室) */,
 				CB658C4E1EF2078D00AE5327 /* StartPage(启动页) */,
 				CB1061101EEB887C0099E371 /* Main(首页) */,
 				CBA8F9671EEE126A00C9F53F /* Me(我) */,
@@ -1203,6 +1230,7 @@
 		CB1060AB1EE909630099E371 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB1DCF241FB228F5006FFB84 /* attendace */,
 				CBE08F581F52BE0C0009447C /* rebot */,
 				CBE08F491F517AA60009447C /* xiaoli */,
 				CB7BA84E1F4D2CF800BBC838 /* weather */,
@@ -1236,6 +1264,7 @@
 			children = (
 				26B7EDB61F99C8730059C422 /* NSData+CRC32.h */,
 				26B7EDB71F99C8740059C422 /* NSData+CRC32.m */,
+				CB1DCF0F1FB228D6006FFB84 /* QRCode */,
 				CB34EC401F61BA5600B06EE5 /* CoreLaunchCool */,
 				CB34EC391F619EEE00B06EE5 /* waterWave */,
 				EB10480E1F5AFDD40001A5A8 /* NHHUDExtend */,
@@ -1355,6 +1384,49 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CB1DCF091FB21D5C006FFB84 /* FreeRoom(自习室) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "FreeRoom(自习室)";
+			sourceTree = "<group>";
+		};
+		CB1DCF0A1FB223EB006FFB84 /* Attendance(考勤） */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Attendance(考勤）";
+			sourceTree = "<group>";
+		};
+		CB1DCF0F1FB228D6006FFB84 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				CB1DCF101FB228D6006FFB84 /* HMScanerCardViewController.h */,
+				CB1DCF111FB228D6006FFB84 /* HMScanerCardViewController.m */,
+				CB1DCF121FB228D6006FFB84 /* HMScanner.bundle */,
+				CB1DCF131FB228D6006FFB84 /* HMScanner.h */,
+				CB1DCF141FB228D6006FFB84 /* HMScanner.m */,
+				CB1DCF151FB228D6006FFB84 /* HMScannerBorder.h */,
+				CB1DCF161FB228D6006FFB84 /* HMScannerBorder.m */,
+				CB1DCF171FB228D6006FFB84 /* HMScannerController.h */,
+				CB1DCF181FB228D6006FFB84 /* HMScannerController.m */,
+				CB1DCF191FB228D6006FFB84 /* HMScannerMaskView.h */,
+				CB1DCF1A1FB228D6006FFB84 /* HMScannerMaskView.m */,
+				CB1DCF1B1FB228D6006FFB84 /* HMScannerViewController.h */,
+				CB1DCF1C1FB228D6006FFB84 /* HMScannerViewController.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		CB1DCF241FB228F5006FFB84 /* attendace */ = {
+			isa = PBXGroup;
+			children = (
+				CB1DCF251FB22931006FFB84 /* AttendanController.h */,
+				CB1DCF261FB22931006FFB84 /* AttendanController.m */,
+			);
+			name = attendace;
+			sourceTree = "<group>";
+		};
 		CB266E311F38894000C17241 /* Librarymenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1403,6 +1475,8 @@
 		CB5713971EEB9AAD004EA94A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				CB1DCF0B1FB224F3006FFB84 /* attendance.png */,
+				CB1DCF0C1FB224F3006FFB84 /* freeroom.png */,
 				CB34EC4B1F61C2E500B06EE5 /* Screen.png */,
 				CB7BA82E1F4D287A00BBC838 /* Tool */,
 				CB266E311F38894000C17241 /* Librarymenu */,
@@ -1931,7 +2005,7 @@
 		CB1060041EE908E30099E371 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = iOSClientOfQFNU;
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
@@ -1988,7 +2062,6 @@
 				CBA8F9811EEE184900C9F53F /* Share@3x.png in Resources */,
 				CB34EC4C1F61C2E500B06EE5 /* Screen.png in Resources */,
 				CB10601F1EE908E30099E371 /* LaunchScreen.storyboard in Resources */,
-				EB716C6B1F545EDA0081509B /* qfnulogo.png in Resources */,
 				CB7BA8461F4D2CD900BBC838 /* area.plist in Resources */,
 				CB89CDB41F559A01001DB25D /* fengche1.jpg in Resources */,
 				26B28B861F1EFC2B00FAF61F /* login_bg6@2x.png in Resources */,
@@ -1998,6 +2071,7 @@
 				CB89CDB71F559A01001DB25D /* fengche2.jpg in Resources */,
 				CB5713D81EEB9AAD004EA94A /* icon-elec.png in Resources */,
 				CB89CDB61F559A01001DB25D /* fengche11.jpg in Resources */,
+				CB1DCF0D1FB224F3006FFB84 /* attendance.png in Resources */,
 				CB5713D71EEB9AAD004EA94A /* icon-curriculum.png in Resources */,
 				CB5713DC1EEB9AAD004EA94A /* icon-lab.png in Resources */,
 				CB5713D91EEB9AAD004EA94A /* icon-exam.png in Resources */,
@@ -2007,7 +2081,7 @@
 				CB266E361F38894000C17241 /* menu22.png in Resources */,
 				CB5713DD1EEB9AAD004EA94A /* icon-library.png in Resources */,
 				CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */,
-				CB1061061EE909950099E371 /* Info.plist in Resources */,
+				CB1DCF0E1FB224F3006FFB84 /* freeroom.png in Resources */,
 				CB5713E01EEB9AAD004EA94A /* icon-second-hand.png in Resources */,
 				CB89CDBD1F559A01001DB25D /* fengche8.jpg in Resources */,
 				CB266E371F38894000C17241 /* new_menu.png in Resources */,
@@ -2026,6 +2100,7 @@
 				CBA8F97E1EEE184900C9F53F /* Clock@3x.png in Resources */,
 				CB89CDBC1F559A01001DB25D /* fengche7.jpg in Resources */,
 				CB1061091EE90CD30099E371 /* Images.xcassets in Resources */,
+				CB1DCF1E1FB228D6006FFB84 /* HMScanner.bundle in Resources */,
 				CB89CDBA1F559A01001DB25D /* fengche5.jpg in Resources */,
 				CB5714031EEBCAE5004EA94A /* Info.plist in Resources */,
 				CB89CDBE1F559A01001DB25D /* fengche9.jpg in Resources */,
@@ -2095,6 +2170,7 @@
 				CB1060F11EE909630099E371 /* QFNUSettingController.m in Sources */,
 				262D1C371F038E95004A4787 /* AFNetworkReachabilityManager.m in Sources */,
 				262D1C3A1F038E95004A4787 /* AFURLResponseSerialization.m in Sources */,
+				CB1DCF221FB228D6006FFB84 /* HMScannerMaskView.m in Sources */,
 				CB1061071EE909950099E371 /* main.m in Sources */,
 				CB658C6D1EF2B0FC00AE5327 /* AboutUsView.m in Sources */,
 				CB658C461EF2076D00AE5327 /* SDWebImageManager.m in Sources */,
@@ -2107,6 +2183,7 @@
 				CB10611C1EEB8F570099E371 /* LeftSortsController.m in Sources */,
 				26B28B871F1EFC2B00FAF61F /* YGGravity.m in Sources */,
 				267938841F0B913B00D960C7 /* TFHppleElement.m in Sources */,
+				CB1DCF211FB228D6006FFB84 /* HMScannerController.m in Sources */,
 				CB658C4A1EF2076D00AE5327 /* UIImage+MultiFormat.m in Sources */,
 				CB658C471EF2076D00AE5327 /* SDWebImagePrefetcher.m in Sources */,
 				CB658C571EF2078D00AE5327 /* WZXLaunchAd.m in Sources */,
@@ -2118,6 +2195,7 @@
 				263A77141F04CC9400D9173B /* LeftViewController.m in Sources */,
 				CB1060F41EE909630099E371 /* GWPCourseListView.m in Sources */,
 				CB089A971EFA575A00624DF6 /* DSYPhotoHelper.m in Sources */,
+				CB1DCF271FB22931006FFB84 /* AttendanController.m in Sources */,
 				CB1060F51EE909630099E371 /* LGPlusButton.m in Sources */,
 				CB10610C1EE90F0F0099E371 /* QFNUCConsultController.m in Sources */,
 				CB658C431EF2076D00AE5327 /* SDWebImageDecoder.m in Sources */,
@@ -2150,6 +2228,7 @@
 				CB1060CE1EE909630099E371 /* QFNUBackController.m in Sources */,
 				CB5714081EEBCAE5004EA94A /* MJPropertyType.m in Sources */,
 				26A3304F1EFB909300783128 /* CFWebViewController.m in Sources */,
+				CB1DCF1D1FB228D6006FFB84 /* HMScanerCardViewController.m in Sources */,
 				CB1060D21EE909630099E371 /* QFNUCommunityController.m in Sources */,
 				CB7BA8471F4D2CD900BBC838 /* NSCalendar+STPicker.m in Sources */,
 				CB34EC461F61BA5600B06EE5 /* CoreLaunchCool.m in Sources */,
@@ -2164,13 +2243,16 @@
 				CB5713EB1EEBC657004EA94A /* MainButtonView.m in Sources */,
 				CB34EC3F1F619EEE00B06EE5 /* UIView+MLMBorderPath.m in Sources */,
 				CB658C3F1EF2076D00AE5327 /* README.md in Sources */,
+				CB1DCF1F1FB228D6006FFB84 /* HMScanner.m in Sources */,
 				262D1C271F037F04004A4787 /* QFInfo.m in Sources */,
 				CB658C681EF2AA6E00AE5327 /* KSGuaidViewController.m in Sources */,
 				CB1060EE1EE909630099E371 /* QFNULoginController.m in Sources */,
+				CB1DCF201FB228D6006FFB84 /* HMScannerBorder.m in Sources */,
 				CB658C561EF2078D00AE5327 /* WZXLaunchViewController.m in Sources */,
 				CB7BA84A1F4D2CD900BBC838 /* STPickerSingle.m in Sources */,
 				26A3304B1EFB903600783128 /* NJKWebViewProgress.m in Sources */,
 				CB658C671EF2AA6E00AE5327 /* KSGuaidViewCell.m in Sources */,
+				CB1DCF231FB228D6006FFB84 /* HMScannerViewController.m in Sources */,
 				CB7BA84B1F4D2CD900BBC838 /* STPickerView.m in Sources */,
 				267938831F0B913B00D960C7 /* TFHpple.m in Sources */,
 				CBA8F9841EEE19BB00C9F53F /* meTableHeadView.m in Sources */,
@@ -2363,6 +2445,8 @@
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/SocialLibraries/SMS",
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/OHMySQL/lib/ios",
+					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/OHMySQL/lib/mac",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -2405,6 +2489,8 @@
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/SocialLibraries/SMS",
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/OHMySQL/lib/ios",
+					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/OHMySQL/lib/mac",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",

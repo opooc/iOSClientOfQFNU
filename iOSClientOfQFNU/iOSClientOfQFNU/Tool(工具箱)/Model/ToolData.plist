@@ -26,5 +26,17 @@
 		<key>name</key>
 		<string>智能回答</string>
 	</dict>
+	<dict>
+		<key>icon</key>
+		<string>attendance.png</string>
+		<key>name</key>
+		<string>考勤系统</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>freeroom.png</string>
+		<key>name</key>
+		<string>自习室查询</string>
+	</dict>
 </array>
 </plist>

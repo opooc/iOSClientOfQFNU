@@ -22,4 +22,9 @@
 #pragma mark 课程表
 -(NSDictionary *)getCourse;
 -(void)savaCourse:(NSDictionary *)course;
+
+#pragma mark 考勤
+-(NSString *)getclassUser;
+-(void)classUser:(NSString *)classUser;
+
 @end

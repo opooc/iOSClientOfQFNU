@@ -14,13 +14,12 @@
     return [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass(self) owner:nil options:nil]firstObject];
 }
 - (void)awakeFromNib{
-    
+    [super awakeFromNib];
     NSString *app_Version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     _version.text=app_Version;
     
     _ico.layer.cornerRadius = 8;
     _ico.layer.masksToBounds =YES;
-
 
 }
 @end

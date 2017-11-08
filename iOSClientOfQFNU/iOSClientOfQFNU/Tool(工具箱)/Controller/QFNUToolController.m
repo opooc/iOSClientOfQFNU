@@ -31,6 +31,7 @@
             [tempArray addObject:model];
         }
         self.dataArr = tempArray;
+        NSLog(@"%lu",(unsigned long)_dataArr.count);
     }
     return _dataArr;
 }
@@ -51,7 +52,7 @@
     //_allMainBtnView.backgroundColor = [UIColor brownColor];
     NSInteger allCols = 4;
     
-    // 2.商品的宽度 和 高度
+    // 2.宽度 和 高度
     CGFloat width = 80;
     CGFloat height = 80;
     // 3.求出水平间距 和 垂直间距
@@ -59,7 +60,7 @@
     CGFloat allMainBtnviewHeight = self.allMainBtnView.frame.size.height;
     CGFloat hMargin = (allMainBtnviewWidth - allCols * width) / (allCols -1);
     CGFloat vMargin = (allMainBtnviewHeight-32 - 4*height) / 1;
-    for (int i=0;i<4;i++) {
+    for (int i=0;i<6;i++) {
         // 4. 设置索引
         NSInteger index = self.allMainBtnView.subviews.count;
         // 5.求出x值
@@ -84,6 +85,13 @@
       else if (index== 3) {
           [btnView.btn addTarget:self action:@selector(rebot) forControlEvents:UIControlEventTouchUpInside];
       }
+      else if (index== 4) {
+          [btnView.btn addTarget:self action:@selector(freeroom) forControlEvents:UIControlEventTouchUpInside];
+      }
+      else if (index== 5) {
+          [btnView.btn addTarget:self action:@selector(attendance) forControlEvents:UIControlEventTouchUpInside];
+      }
+        
         
         btnView.frame = CGRectMake(x, y, width, height);
         // btnView.backgroundColor = [UIColor blueColor];
@@ -93,6 +101,14 @@
     
     [self.view addSubview:_allMainBtnView];
     
+}
+-(void)freeroom{
+
+
+}
+-(void)attendance{
+
+
 }
 -(void)cet{
     CFWebViewController* cet = [[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://cet.neea.edu.cn/cet"]];

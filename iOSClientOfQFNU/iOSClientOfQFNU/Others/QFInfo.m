@@ -96,6 +96,7 @@
 
     }];
 }
+//获取课程
 -(NSDictionary *)getCourse{
     NSUserDefaults *gcou = [NSUserDefaults standardUserDefaults];
     NSDictionary *cou;
@@ -105,11 +106,30 @@
     return cou;
     
 }
+//保存课程
 -(void)savaCourse:(NSDictionary *)course{
     NSUserDefaults *cou = [NSUserDefaults standardUserDefaults];
     
     [cou setObject:course forKey:@"course"];
     [cou synchronize];
 }
+
+//获取考勤人员
+-(NSString *)getclassUser{
+    NSUserDefaults *gcu = [NSUserDefaults standardUserDefaults];
+    NSString *cu;
+    if([gcu objectForKey:@"classUser"]){
+        cu=[gcu objectForKey:@"classUser"];
+    }
+    return cu;
+    
+}
+//保存考勤人员
+-(void)classUser:(NSDictionary *)classUser{
+    NSUserDefaults *cu = [NSUserDefaults standardUserDefaults];
+    [cu setObject:classUser forKey:@"course"];
+    [cu synchronize];
+}
+
 
 @end
