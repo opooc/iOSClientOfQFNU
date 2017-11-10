@@ -64,7 +64,7 @@ CGFloat barheight;
     [self setbar];
     [self setlist];
     [self loadGIF];
-    [MBProgressHUD showLoadToView:self.view title:@"正在与服务器通讯,如果长时间未响应，可点击左侧菜单的登录重试"];
+    //[MBProgressHUD showLoadToView:self.view title:@"正在与服务器通讯,如果长时间未响应，可点击左侧菜单的登录重试"];
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stoploading) name:@"link_success" object:nil];
 }
 -(void)stoploading{

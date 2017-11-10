@@ -869,37 +869,38 @@ int selects[770];
 }
 /** 课程单元背景色自定义 */
 - (UIColor *)courseListView:(GWPCourseListView *)courseListView courseTitleBackgroundColorForCourse:(id<Course>)course{
-    NSLog(@"%@",course.courseName);
-    NSArray *lightColorArr = @[
-                               RGB(39, 201, 155, 1),
-                               RGB(250, 194, 97, 1),
-                               RGB(50, 218,210, 1),
-                               RGB(163, 232,102, 1),
-                               RGB(78, 221, 166, 1),
-                               RGB(247, 125, 138, 1),
-                               RGB(120, 192, 246, 1),
-                               RGB(254, 141, 65, 1),
-                               RGB(2, 179, 237, 1),
-                               RGB(110, 159, 245, 1),
-                               RGB(17, 202, 154, 1),
-                               RGB(228, 119, 195, 1),
-                               RGB(147, 299, 3, 1),
-                               ];
+//    NSLog(@"%@",course.courseName);
+//    NSArray *lightColorArr = @[
+//                               RGB(39, 201, 155, 1),
+//                               RGB(250, 194, 97, 1),
+//                               RGB(50, 218,210, 1),
+//                               RGB(163, 232,102, 1),
+//                               RGB(78, 221, 166, 1),
+//                               RGB(247, 125, 138, 1),
+//                               RGB(120, 192, 246, 1),
+//                               RGB(254, 141, 65, 1),
+//                               RGB(2, 179, 237, 1),
+//                               RGB(110, 159, 245, 1),
+//                               RGB(17, 202, 154, 1),
+//                               RGB(228, 119, 195, 1),
+//                               RGB(147, 299, 3, 1),
+//                               ];
+//
+//    if (course.courseName) {
+//        NSRange range=[course.courseName rangeOfString:@"@"];
+//        NSData *sendData = [[course.courseName substringToIndex:range.location] dataUsingEncoding:NSUTF8StringEncoding];
+//        int checksum = abs([sendData crc32])%256;
     
-    if (course.courseName) {
-        NSRange range=[course.courseName rangeOfString:@"@"];
-        NSData *sendData = [[course.courseName substringToIndex:range.location] dataUsingEncoding:NSUTF8StringEncoding];
-        int checksum = abs([sendData crc32])%256;
-        if (selectss+1>lightColorArr.count) {//超过配色数量，随机颜色
-            return nil;
-        }
-        if (selects[checksum]==0) {//第一次配色，设置颜色
-            selects[checksum]=selectss++;
-            return lightColorArr[selects[checksum]];
-        }else{//第二次配色，取之前颜色
-            return lightColorArr[selects[checksum]];
-        }
-    }
+//        if (selectss+1>lightColorArr.count) {//超过配色数量，随机颜色
+//            return nil;
+//        }
+//        if (selects[checksum]==0) {//第一次配色，设置颜色
+//            selects[checksum]=selectss++;
+//            return lightColorArr[selects[checksum]];
+//        }else{//第二次配色，取之前颜色
+//            return lightColorArr[selects[checksum]];
+//        }
+//    }
     return nil;
 }
 /** 设置选项卡的title的文字属性，如果实现该方法，该方法返回的attribute将会是attributeString的属性 */

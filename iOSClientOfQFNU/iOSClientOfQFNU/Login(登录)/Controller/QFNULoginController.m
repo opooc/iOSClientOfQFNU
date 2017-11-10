@@ -141,7 +141,7 @@ BOOL getRuntimeClassIsIpad()
     [self.view addSubview:loginButton];
     _switchButton=[[UISwitch alloc]initWithFrame:CGRectMake(kSCREEN_WIDTH-50,kSCREENH_HEIGHT-50,50,100)];
     _switchButton.frame=CGRectMake(50, 50, [UIScreen mainScreen].bounds.size.width - 40, kSCREEN_WIDTH-75);
-    [_switchButton setOn:NO];
+    [_switchButton setOn:YES];
     _switchButton.hidden=YES;
     [self.view addSubview:self.switchButton];
     UILabel *lb=[[UILabel alloc]init];

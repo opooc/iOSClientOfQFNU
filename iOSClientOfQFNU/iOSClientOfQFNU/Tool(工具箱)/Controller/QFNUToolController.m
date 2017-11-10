@@ -12,7 +12,7 @@
 #import "ToolButtonView.h"
 #import "xiaoliController.h"
 #import "rebotController.h"
-
+#import "FreeRoomController.h"
 @interface QFNUToolController ()
 @property (nonatomic, strong) NSArray* dataArr;
 
@@ -50,7 +50,7 @@
     
     _allMainBtnView = allMainBtnView;
     //_allMainBtnView.backgroundColor = [UIColor brownColor];
-    NSInteger allCols = 4;
+    NSInteger allCols = 6;
     
     // 2.宽度 和 高度
     CGFloat width = 80;
@@ -58,8 +58,9 @@
     // 3.求出水平间距 和 垂直间距
     CGFloat allMainBtnviewWidth = self.allMainBtnView.frame.size.width;
     CGFloat allMainBtnviewHeight = self.allMainBtnView.frame.size.height;
+    
     CGFloat hMargin = (allMainBtnviewWidth - allCols * width) / (allCols -1);
-    CGFloat vMargin = (allMainBtnviewHeight-32 - 4*height) / 1;
+    CGFloat vMargin = (allMainBtnviewHeight-40 - 3*height) / 1;
     for (int i=0;i<6;i++) {
         // 4. 设置索引
         NSInteger index = self.allMainBtnView.subviews.count;
@@ -86,10 +87,10 @@
           [btnView.btn addTarget:self action:@selector(rebot) forControlEvents:UIControlEventTouchUpInside];
       }
       else if (index== 4) {
-          [btnView.btn addTarget:self action:@selector(freeroom) forControlEvents:UIControlEventTouchUpInside];
+          [btnView.btn addTarget:self action:@selector(attendance) forControlEvents:UIControlEventTouchUpInside];
       }
       else if (index== 5) {
-          [btnView.btn addTarget:self action:@selector(attendance) forControlEvents:UIControlEventTouchUpInside];
+          [btnView.btn addTarget:self action:@selector(freeroom) forControlEvents:UIControlEventTouchUpInside];
       }
         
         
@@ -103,7 +104,8 @@
     
 }
 -(void)freeroom{
-
+    FreeRoomController* freeroom = [[FreeRoomController alloc]init];
+    [self.navigationController pushViewController:freeroom animated:YES];
 
 }
 -(void)attendance{

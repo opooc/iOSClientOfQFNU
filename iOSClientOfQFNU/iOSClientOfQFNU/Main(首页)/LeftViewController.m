@@ -478,6 +478,7 @@
 //                NSString* stttt = [dicc objectForKey:@"name"];
 //                NSLog(@"%@",stttt);
                 NSLog(@"%@",dicCourse);
+                [MBProgressHUD showError:@"请求成功" toView:nav.view];
                 [[QFInfo sharedInstance]savaCourse:dicCourse];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                
@@ -525,11 +526,12 @@
     
     //NSString* token = [[QFInfo sharedInstance]getToken];
 
-    [manager.requestSerializer setValue:@"DTByjRftqxpns4NkmRPXK6OHmE_9pjrk" forHTTPHeaderField:@"Authorization"];
+    [manager.requestSerializer setValue:@"wG63PyJ_Lb9l3ZKXk-5KApObBcXKI_I1" forHTTPHeaderField:@"Authorization"];
     [manager GET:URLString parameters:parameters progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              if (success) {
                  success(responseObject);
+                 
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              if (failure) {
