@@ -22,6 +22,7 @@
 #import "QFNUCourseController.h"
 #import "MBProgressHUD+NHAdd.h"
 #import "AFNetworking.h"
+#import "QFNUBackController.h"
 
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
@@ -273,6 +274,7 @@
                     [self tool];
                     break;
                 case 1:
+                    [self back];
                     break;
                 case 2:
                     [mainViewController hideLeftViewAnimated];
@@ -312,8 +314,18 @@
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+    //[webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
+  //  [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+}
+-(void)back{
+    LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
+    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    QFNUBackController *back=[[QFNUBackController alloc]init];
+    
+    [navigationController pushViewController:back animated:YES];
+    
+    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+    
 }
 -(void)logout{
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
