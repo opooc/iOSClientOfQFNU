@@ -57,7 +57,7 @@
     
 }
 -(void)setId{
-    UIView* idView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+    UIView* idView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 100)];
     labViewh = CGRectGetMaxY(idView.frame);
     idView.backgroundColor = [UIColor cyanColor];
     UILabel* idLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(idView.frame)*0.5, 60, 20)];

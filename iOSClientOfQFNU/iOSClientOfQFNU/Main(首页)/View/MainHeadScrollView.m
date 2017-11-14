@@ -36,13 +36,8 @@
             UITapGestureRecognizer *TapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewTap:)];
             self.imageView.userInteractionEnabled = YES;
             
-          
-            
             self.imageView.tag = 100+i;
             [self.imageView addGestureRecognizer:TapGesture];
-            
-            
-            
             
             CGFloat imageViewX = imageViewW * i;
             self.imageView.frame = CGRectMake(imageViewX, imageViewY, imageViewW, imageViewH);
@@ -54,9 +49,7 @@
             [self.scrollView addSubview:self.imageView];
             
         }
-       
-       
-        
+     
         self.scrollView.contentSize = CGSizeMake(imageViewW * ImageCount, 0);
         self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.showsVerticalScrollIndicator = NO;

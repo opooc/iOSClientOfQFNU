@@ -45,7 +45,7 @@
     _textView.backgroundColor = [UIColor whiteColor];
     _textView.textColor = [UIColor lightGrayColor];
     _textView.delegate = self;
-    _textView.keyboardType = UIKeyboardTypeAlphabet;
+    _textView.keyboardType = UIKeyboardTypeDefault;
     [bgScroll addSubview:_textView];
     
     if (tip == nil) {

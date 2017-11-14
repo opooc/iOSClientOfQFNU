@@ -23,6 +23,7 @@
 #import "MBProgressHUD+NHAdd.h"
 #import "AFNetworking.h"
 #import "QFNUBackController.h"
+#import "AttendanController.h"
 
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
@@ -317,6 +318,8 @@
     //[webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
   //  [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
 }
+
+
 -(void)back{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;

@@ -95,6 +95,8 @@
 		CB266E401F38899C00C17241 /* YCXMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB266E3E1F38899C00C17241 /* YCXMenuItem.m */; };
 		CB26817C1FB544A5003EFC18 /* freeRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB26817A1FB544A5003EFC18 /* freeRoomCell.m */; };
 		CB26817D1FB544A5003EFC18 /* freeRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB26817B1FB544A5003EFC18 /* freeRoomCell.xib */; };
+		CB2682B81FBA8A01003EFC18 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2682B41FBA8A01003EFC18 /* BRAddressPickerView.m */; };
+		CB2682B91FBA8A01003EFC18 /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2682B71FBA8A01003EFC18 /* BRStringPickerView.m */; };
 		CB34EC3E1F619EEE00B06EE5 /* MLMWaveWaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */; };
 		CB34EC3F1F619EEE00B06EE5 /* UIView+MLMBorderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC3D1F619EEE00B06EE5 /* UIView+MLMBorderPath.m */; };
 		CB34EC451F61BA5600B06EE5 /* CALayer+Cool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34EC421F61BA5600B06EE5 /* CALayer+Cool.m */; };
@@ -197,9 +199,7 @@
 		CB89CDC01F559F01001DB25D /* fengche6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB89CDBF1F559F01001DB25D /* fengche6.jpg */; };
 		CB9106691FB3609100502947 /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9106681FB3609100502947 /* BRTextField.m */; };
 		CB9106701FB3620E00502947 /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB91066C1FB3620E00502947 /* BRAddressModel.m */; };
-		CB9106711FB3620E00502947 /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB91066E1FB3620E00502947 /* BRAddressPickerView.m */; };
 		CB9106721FB3620E00502947 /* BRCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB91066F1FB3620E00502947 /* BRCity.plist */; };
-		CB9106761FB3629500502947 /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9106751FB3629500502947 /* BRStringPickerView.m */; };
 		CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F96F1EEE16CF00C9F53F /* MeController.m */; };
 		CBA8F97C1EEE184900C9F53F /* backImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9761EEE184900C9F53F /* backImage.png */; };
 		CBA8F97D1EEE184900C9F53F /* Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBA8F9771EEE184900C9F53F /* Clock@2x.png */; };
@@ -401,6 +401,10 @@
 		CB2681791FB544A5003EFC18 /* freeRoomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freeRoomCell.h; sourceTree = "<group>"; };
 		CB26817A1FB544A5003EFC18 /* freeRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = freeRoomCell.m; sourceTree = "<group>"; };
 		CB26817B1FB544A5003EFC18 /* freeRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = freeRoomCell.xib; sourceTree = "<group>"; };
+		CB2682B31FBA8A01003EFC18 /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		CB2682B41FBA8A01003EFC18 /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		CB2682B61FBA8A01003EFC18 /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		CB2682B71FBA8A01003EFC18 /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
 		CB34EC3A1F619EEE00B06EE5 /* MLMWaveWaterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMWaveWaterView.h; sourceTree = "<group>"; };
 		CB34EC3B1F619EEE00B06EE5 /* MLMWaveWaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMWaveWaterView.m; sourceTree = "<group>"; };
 		CB34EC3C1F619EEE00B06EE5 /* UIView+MLMBorderPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MLMBorderPath.h"; sourceTree = "<group>"; };
@@ -564,11 +568,7 @@
 		CB9106681FB3609100502947 /* BRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTextField.m; sourceTree = "<group>"; };
 		CB91066B1FB3620E00502947 /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		CB91066C1FB3620E00502947 /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
-		CB91066D1FB3620E00502947 /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
-		CB91066E1FB3620E00502947 /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
 		CB91066F1FB3620E00502947 /* BRCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BRCity.plist; sourceTree = "<group>"; };
-		CB9106741FB3629500502947 /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
-		CB9106751FB3629500502947 /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
 		CBA8F96E1EEE16CF00C9F53F /* MeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeController.h; sourceTree = "<group>"; };
 		CBA8F96F1EEE16CF00C9F53F /* MeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeController.m; sourceTree = "<group>"; };
 		CBA8F9761EEE184900C9F53F /* backImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImage.png; sourceTree = "<group>"; };
@@ -1485,6 +1485,24 @@
 			path = YCXMenu;
 			sourceTree = "<group>";
 		};
+		CB2682B21FBA8A01003EFC18 /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CB2682B31FBA8A01003EFC18 /* BRAddressPickerView.h */,
+				CB2682B41FBA8A01003EFC18 /* BRAddressPickerView.m */,
+			);
+			path = AddressPickerView;
+			sourceTree = "<group>";
+		};
+		CB2682B51FBA8A01003EFC18 /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CB2682B61FBA8A01003EFC18 /* BRStringPickerView.h */,
+				CB2682B71FBA8A01003EFC18 /* BRStringPickerView.m */,
+			);
+			path = StringPickerView;
+			sourceTree = "<group>";
+		};
 		CB34EC391F619EEE00B06EE5 /* waterWave */ = {
 			isa = PBXGroup;
 			children = (
@@ -1576,8 +1594,8 @@
 		CB58B76D1FB2CC5800BCB27D /* BRPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				CB9106731FB3629500502947 /* StringPickerView */,
-				CB91066A1FB3620E00502947 /* AddressPickerView */,
+				CB2682B21FBA8A01003EFC18 /* AddressPickerView */,
+				CB2682B51FBA8A01003EFC18 /* StringPickerView */,
 				CB58B76E1FB2CC5800BCB27D /* Base */,
 				CB9106671FB3609100502947 /* BRTextField.h */,
 				CB9106681FB3609100502947 /* BRTextField.m */,
@@ -1929,24 +1947,6 @@
 			path = fengche;
 			sourceTree = "<group>";
 		};
-		CB91066A1FB3620E00502947 /* AddressPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				CB91066D1FB3620E00502947 /* BRAddressPickerView.h */,
-				CB91066E1FB3620E00502947 /* BRAddressPickerView.m */,
-			);
-			path = AddressPickerView;
-			sourceTree = "<group>";
-		};
-		CB9106731FB3629500502947 /* StringPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				CB9106741FB3629500502947 /* BRStringPickerView.h */,
-				CB9106751FB3629500502947 /* BRStringPickerView.m */,
-			);
-			path = StringPickerView;
-			sourceTree = "<group>";
-		};
 		CBA8F9671EEE126A00C9F53F /* Me(我) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2280,6 +2280,7 @@
 				CB7BA8491F4D2CD900BBC838 /* STPickerDate.m in Sources */,
 				CB7BA84C1F4D2CD900BBC838 /* STPickerViewUI.m in Sources */,
 				CB34EC3E1F619EEE00B06EE5 /* MLMWaveWaterView.m in Sources */,
+				CB2682B81FBA8A01003EFC18 /* BRAddressPickerView.m in Sources */,
 				EB10480D1F59823E0001A5A8 /* UIColor+FlatColors.m in Sources */,
 				CB01AB731EEEBC3A00E04D64 /* HyLoginButton.m in Sources */,
 				CB1060D31EE909630099E371 /* QFNUCourseController.m in Sources */,
@@ -2291,6 +2292,7 @@
 				26A330521EFB90C000783128 /* CFNavaigationViewWeb.m in Sources */,
 				CB5714041EEBCAE5004EA94A /* MJExtensionConst.m in Sources */,
 				CB1060FA1EE909630099E371 /* LGSideMenuController.m in Sources */,
+				CB2682B91FBA8A01003EFC18 /* BRStringPickerView.m in Sources */,
 				CB57140B1EEBCAE5004EA94A /* NSObject+MJKeyValue.m in Sources */,
 				CB57140A1EEBCAE5004EA94A /* NSObject+MJCoding.m in Sources */,
 				CB5714071EEBCAE5004EA94A /* MJPropertyKey.m in Sources */,
@@ -2347,7 +2349,6 @@
 				262D1C3B1F038E95004A4787 /* AFURLSessionManager.m in Sources */,
 				CB1061191EEB89300099E371 /* MainHeadScrollView.m in Sources */,
 				CBA8F9701EEE16CF00C9F53F /* MeController.m in Sources */,
-				CB9106761FB3629500502947 /* BRStringPickerView.m in Sources */,
 				CB7BA8511F4D2D2E00BBC838 /* WeatherViewController.m in Sources */,
 				CB658C421EF2076D00AE5327 /* SDWebImageCompat.m in Sources */,
 				CB57140D1EEBCAE5004EA94A /* NSString+MJExtension.m in Sources */,
@@ -2391,7 +2392,6 @@
 				CB658C681EF2AA6E00AE5327 /* KSGuaidViewController.m in Sources */,
 				CB1060EE1EE909630099E371 /* QFNULoginController.m in Sources */,
 				CB1DCF201FB228D6006FFB84 /* HMScannerBorder.m in Sources */,
-				CB9106711FB3620E00502947 /* BRAddressPickerView.m in Sources */,
 				CB658C561EF2078D00AE5327 /* WZXLaunchViewController.m in Sources */,
 				CB58B7831FB2CD0000BCB27D /* FreeRoomController.m in Sources */,
 				CB7BA84A1F4D2CD900BBC838 /* STPickerSingle.m in Sources */,

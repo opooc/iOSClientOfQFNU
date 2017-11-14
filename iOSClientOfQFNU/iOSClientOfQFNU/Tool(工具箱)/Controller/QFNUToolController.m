@@ -13,6 +13,7 @@
 #import "xiaoliController.h"
 #import "rebotController.h"
 #import "FreeRoomController.h"
+#import "AttendanController.h"
 @interface QFNUToolController ()
 @property (nonatomic, strong) NSArray* dataArr;
 
@@ -109,7 +110,8 @@
 
 }
 -(void)attendance{
-
+    AttendanController* attendance = [[AttendanController alloc]init];
+    [self.navigationController pushViewController:attendance animated:YES];
 
 }
 -(void)cet{
