@@ -69,6 +69,7 @@
     
 }
 - (void)clickSaveBtn {
+    _roomtableView =nil;
     NSLog(@"查询");
     
     hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];

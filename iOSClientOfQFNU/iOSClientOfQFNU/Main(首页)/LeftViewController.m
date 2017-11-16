@@ -24,6 +24,7 @@
 #import "AFNetworking.h"
 #import "QFNUBackController.h"
 #import "AttendanController.h"
+#import "CheckbackController.h"
 
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
@@ -61,7 +62,7 @@
     [self createname];
     [self change];
     
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"反馈查看",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -287,6 +288,8 @@
                 case 4:
                     [self logout];
                     break;
+                    case 5:
+                    [self checkback];
                 default:
                     break;
             }
@@ -300,6 +303,16 @@
     //http://jwc.qfnu.edu.cn/gg.htm 公告 /wx新闻 /tz 通知 、wj 文件  教务资讯
     //http://my.qfnu.edu.cn/pnull.portal?.pmn=view&action=informationCenterAjax&.pen=pe261&pageIndex=0 信息门户 get
 }
+
+-(void)checkback{
+    LGSideMainViewController* main = (LGSideMainViewController*)self.sideMenuController;
+    UINavigationController* nav =(UINavigationController*)main.navigationController;
+    CheckbackController* checkback = [[CheckbackController alloc]init];
+    [nav pushViewController:checkback animated:YES];
+    
+}
+
+
 -(void)webviewtext:(NSString *)urlstring{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;

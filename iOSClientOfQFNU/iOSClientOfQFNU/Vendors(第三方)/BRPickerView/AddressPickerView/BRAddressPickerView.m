@@ -52,7 +52,7 @@
         self.resultBlock = resultBlock;
         [self loadData];
         [self initUI];
-        NSLog(@"%@",__func__);
+      
     }
     return self;
 }
