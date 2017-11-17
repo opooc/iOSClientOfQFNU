@@ -306,10 +306,11 @@
 
 -(void)checkback{
     LGSideMainViewController* main = (LGSideMainViewController*)self.sideMenuController;
-    UINavigationController* nav =(UINavigationController*)main.navigationController;
+    UINavigationController* nav =(UINavigationController*)main.rootViewController;
     CheckbackController* checkback = [[CheckbackController alloc]init];
     [nav pushViewController:checkback animated:YES];
     
+     [main hideLeftViewAnimated:YES completionHandler:nil];
 }
 
 
