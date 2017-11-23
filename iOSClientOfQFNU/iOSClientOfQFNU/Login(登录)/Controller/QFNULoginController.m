@@ -141,7 +141,7 @@ BOOL getRuntimeClassIsIpad()
     [self.view addSubview:loginButton];
     _switchButton=[[UISwitch alloc]initWithFrame:CGRectMake(kSCREEN_WIDTH-50,kSCREENH_HEIGHT-50,50,100)];
     _switchButton.frame=CGRectMake(50, 50, [UIScreen mainScreen].bounds.size.width - 40, kSCREEN_WIDTH-75);
-    [_switchButton setOn:YES];
+    [_switchButton setOn:NO];
     _switchButton.hidden=YES;
     [self.view addSubview:self.switchButton];
     UILabel *lb=[[UILabel alloc]init];
@@ -239,7 +239,7 @@ BOOL getRuntimeClassIsIpad()
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"dic %@",dic);
+        NSLog(@"dic： %@",dic);
         if([[dic objectForKey:@"status"]integerValue]==1){
 //            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
             [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text token:[dic objectForKey:@"data"]];

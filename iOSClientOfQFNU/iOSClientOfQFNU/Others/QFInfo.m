@@ -89,10 +89,10 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
     [BaseRequest postLoginWithURL:domainStr lt:Lt user:username password:password callBack:^(NSData *data, NSError *error) {
+        [self SaveCookie];
         NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"true:%@",str);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
-//        [self saveCookies];
 
     }];
 }
@@ -108,6 +108,7 @@
 }
 //保存课程
 -(void)savaCourse:(NSDictionary *)course{
+                NSLog(@"====================保存课程====================");
     NSUserDefaults *cou = [NSUserDefaults standardUserDefaults];
     
     [cou setObject:course forKey:@"course"];
@@ -126,10 +127,45 @@
 }
 //保存考勤人员
 -(void)classUser:(NSDictionary *)classUser{
+            NSLog(@"====================保存考勤人员====================");
     NSUserDefaults *cu = [NSUserDefaults standardUserDefaults];
     [cu setObject:classUser forKey:@"course"];
     [cu synchronize];
 }
-
-
+-(void)SaveCookie
+{
+        NSLog(@"====================保存cookie====================");
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *tempCookie in cookies) {
+        //打印获得的cookie
+        NSLog(@"getCookie: %@", tempCookie);
+    }
+    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+    //存储归档后的cookie
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject: cookiesData forKey: @"cookie"];
+}
+- (void)setCoookie
+{
+    NSLog(@"============再取出保存的cookie重新设置cookie===============");
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:@"cookie"]];
+    if (cookies) {
+        NSLog(@"有cookie");
+        //设置cookie
+        NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (id cookie in cookies) {
+            [cookieStorage setCookie:(NSHTTPCookie *)cookie];
+        }
+    }else{
+        NSLog(@"无cookie");
+    }
+    //打印cookie，检测是否成功设置了cookie
+    NSArray *cookiesA = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *cookie in cookiesA) {
+        NSLog(@"setCookie: %@", cookie);
+    }
+    NSLog(@"\n");
+}
 @end

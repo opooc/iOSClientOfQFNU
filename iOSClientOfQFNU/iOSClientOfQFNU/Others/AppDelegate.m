@@ -32,7 +32,7 @@
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
   //  NSString* imaScUrlStr = [[NSBundle mainBundle]pathForResource:@"Screen" ofType:@"png"];
    // UIImage* imaSc = [UIImage imageNamed:@"Screen.png"];
-    
+    [[QFInfo sharedInstance]setCoookie];
     if (![[[QFInfo sharedInstance] getUser]isEqualToString:@""]) {
         
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -48,7 +48,7 @@
         _window.backgroundColor = [UIColor whiteColor];
         _window.rootViewController = mainViewController;
         [_window makeKeyAndVisible];
-        [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
+//        [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
     }else{
         
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];

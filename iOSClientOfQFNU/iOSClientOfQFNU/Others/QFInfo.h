@@ -26,5 +26,7 @@
 #pragma mark 考勤
 -(NSString *)getclassUser;
 -(void)classUser:(NSString *)classUser;
-
+#pragma mark cookie
+-(void)SaveCookie;
+- (void)setCoookie;
 @end
