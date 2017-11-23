@@ -105,6 +105,7 @@
         }
         
         _checkData = [stmpArr copy];
+        [_checkView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
