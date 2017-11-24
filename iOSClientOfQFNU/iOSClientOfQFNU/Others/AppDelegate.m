@@ -48,29 +48,15 @@
         _window.backgroundColor = [UIColor whiteColor];
         _window.rootViewController = mainViewController;
         [_window makeKeyAndVisible];
-//        [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
     }else{
         
     _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    MainController *rootViewController = [[MainController alloc]init];
-//    LeftViewController *leftViewController = [LeftViewController new];
-//    UITableViewController *rightViewController = [UITableViewController new];
-    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    
-//    LGSideMenuController *sideMenuController = [LGSideMenuController sideMenuControllerWithRootViewController:navigationController
-//                                                                                           leftViewController:leftViewController
-//                                                                                          rightViewController:rightViewController];
-    
-//    sideMenuController.leftViewWidth = 250.0;
-//    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
-//    
-//    sideMenuController.rightViewWidth = 100.0;
-//    sideMenuController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
     QFNULoginController *loginview=[[QFNULoginController alloc]init];
-    
     _window.backgroundColor = [UIColor whiteColor];
-
+        _window.rootViewController = loginview;
+        [_window makeKeyAndVisible];
+        
+        
     //隐藏电池
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
 
@@ -94,18 +80,10 @@
 //        
 //    }];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.opooc.com"]];
-    _window.rootViewController = loginview;
-        [_window makeKeyAndVisible];
+
     }
 
 #pragma maeks Umeng
-    
-    
-    
-    
-    
-    
-    
     
     [[UMSocialManager defaultManager] openLog:YES];
     

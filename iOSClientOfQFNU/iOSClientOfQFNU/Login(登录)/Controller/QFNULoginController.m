@@ -189,6 +189,9 @@ BOOL getRuntimeClassIsIpad()
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 4.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
 
     NSDictionary* dic = @{@"user_id":_userNameField.textField.text,
@@ -217,16 +220,12 @@ BOOL getRuntimeClassIsIpad()
             });
         }
         
-        
         CGRect rect = waterView.frame;
         CGRect frame = waterView.bounds;
         frame.size.height = frame.size.width * 9 /10;
         waterView.changeFrame = frame;
-        
         waterView.borderPath = [UIView heartPathRect:rect lineWidth:0];
         waterView.border_fillColor = [UIColor colorWithRed:92.0/255 green:137.0/255 blue:68.0/255 alpha:1.0];
-        
-        
          //添加定时器
         Loginbtn = button;
         // 创建定时器
