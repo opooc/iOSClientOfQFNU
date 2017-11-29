@@ -507,7 +507,7 @@
 //                NSString* stttt = [dicc objectForKey:@"name"];
 //                NSLog(@"%@",stttt);
                 NSLog(@"%@",dicCourse);
-                [MBProgressHUD showError:@"请求成功" toView:nav.view];
+                [MBProgressHUD showError:@"课程表即将完成，再次点击进入预览版哦" toView:nav.view];
                 [[QFInfo sharedInstance]savaCourse:dicCourse];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                
