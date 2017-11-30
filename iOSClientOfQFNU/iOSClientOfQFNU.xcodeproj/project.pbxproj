@@ -2331,7 +2331,7 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PAHUVER4VC;
+						DevelopmentTeam = 668A3P2772;
 						ProvisioningStyle = Manual;
 					};
 					CB1060241EE908E30099E371 = {
@@ -2780,9 +2780,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2812,8 +2812,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc8251b0-906e-4aaf-bf02-41941b2444e7";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -2824,10 +2824,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = PAHUVER4VC;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2857,8 +2857,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94ec7001-bd65-4b28-8abe-d267121e418e";
-				PROVISIONING_PROFILE_SPECIFIER = "qfnu— Distribution";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
