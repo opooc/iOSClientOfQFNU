@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+    </dependencies>
+    <scenes>
+        <!--Find Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="FindInterfaceController">
+                    <items>
+                        <imageView height="91" alignment="left" image="watchOSMainTabImage" id="sX1-Ot-pl2"/>
+                        <button width="1" height="45" alignment="left" title="查看课程表" id="doJ-hn-usW">
+                            <color key="titleColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="19"/>
+                            <connections>
+                                <action selector="openCourse" destination="AgC-eL-Hgc" id="EIJ-In-df3"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="230" y="222"/>
+        </scene>
+        <!--courseVc-->
+        <scene sceneID="NkU-Dp-NtU">
+            <objects>
+                <controller identifier="courseVc" id="Jjq-q7-ezb" customClass="InterfaceController">
+                    <items>
+                        <slider width="1" alignment="left" continuous="YES" value="1" maximum="7" steps="6" id="1NT-bx-ydV">
+                            <connections>
+                                <action selector="sliderChange:" destination="Jjq-q7-ezb" id="U8X-12-E6c"/>
+                            </connections>
+                        </slider>
+                        <label width="99" height="30" alignment="left" text="上午" id="dSs-eH-RxV">
+                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <button width="1" alignment="left" title="Java设计模式" id="Zkn-v1-Ua8" userLabel="Button1"/>
+                        <button width="1" alignment="left" title="Java设计模式" id="nVf-w0-8A2" userLabel="Button2"/>
+                        <button width="1" alignment="left" title="软件测试基础" id="I0i-YV-aqm" userLabel="Button3"/>
+                        <button width="1" alignment="left" title="软件测试基础" id="fyB-vX-vcY" userLabel="Button4"/>
+                        <label alignment="left" text="下午" id="DWk-Jw-w9g">
+                            <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <button width="1" alignment="left" title="体育-乒乓球" id="pd6-dP-brH" userLabel="Button5"/>
+                        <button width="1" alignment="left" title="体育-乒乓球" id="R7b-HO-QCA" userLabel="Button6"/>
+                        <button width="1" alignment="left" title="体育-乒乓球" id="Cma-30-Ig9" userLabel="Button7"/>
+                        <button width="1" alignment="left" title="无" id="9JE-sm-Jow" userLabel="Button8"/>
+                        <label alignment="left" text="晚上" id="GSP-bS-Bve">
+                            <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <button width="1" alignment="left" title="无" id="7Wd-7h-Woh" userLabel="Button9"/>
+                        <button width="1" alignment="left" title="无" id="jip-YQ-QWC" userLabel="Button10"/>
+                        <button width="1" alignment="left" title="无" id="6qi-AS-1t8" userLabel="Button11"/>
+                    </items>
+                    <connections>
+                        <outlet property="course1" destination="Zkn-v1-Ua8" id="TKR-GO-mMR"/>
+                        <outlet property="course10" destination="jip-YQ-QWC" id="DVl-3X-7ek"/>
+                        <outlet property="course11" destination="6qi-AS-1t8" id="IPP-e2-atz"/>
+                        <outlet property="course2" destination="nVf-w0-8A2" id="ZFD-WO-MJe"/>
+                        <outlet property="course3" destination="I0i-YV-aqm" id="1y0-cx-nho"/>
+                        <outlet property="course4" destination="fyB-vX-vcY" id="NrS-rA-Ddi"/>
+                        <outlet property="course5" destination="pd6-dP-brH" id="4Xq-I6-Lb2"/>
+                        <outlet property="course6" destination="R7b-HO-QCA" id="EQe-eh-lQy"/>
+                        <outlet property="course7" destination="Cma-30-Ig9" id="8wD-7k-Yae"/>
+                        <outlet property="course8" destination="9JE-sm-Jow" id="1zM-qO-XYZ"/>
+                        <outlet property="course9" destination="7Wd-7h-Woh" id="L01-hM-56z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="504" y="162"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

@@ -215,6 +215,16 @@
 		CBA8F98C1EEE5DDB00C9F53F /* meTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA8F98B1EEE5DDB00C9F53F /* meTableViewCell.m */; };
 		CBE08F481F5168620009447C /* cet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBE08F471F5168620009447C /* cet.jpg */; };
 		CBE08F4C1F517AC20009447C /* xiaoliController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE08F4B1F517AC20009447C /* xiaoliController.m */; };
+		CBE4CEC01FD243CD00006C94 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBE4CEBE1FD243CD00006C94 /* Interface.storyboard */; };
+		CBE4CEC21FD243CD00006C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE4CEC11FD243CD00006C94 /* Assets.xcassets */; };
+		CBE4CEC91FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CBE4CEC81FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CBE4CECF1FD243CD00006C94 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE4CECE1FD243CD00006C94 /* InterfaceController.m */; };
+		CBE4CED21FD243CD00006C94 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE4CED11FD243CD00006C94 /* ExtensionDelegate.m */; };
+		CBE4CED51FD243CD00006C94 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE4CED41FD243CD00006C94 /* NotificationController.m */; };
+		CBE4CED81FD243CD00006C94 /* ComplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE4CED71FD243CD00006C94 /* ComplicationController.m */; };
+		CBE4CEDA1FD243CD00006C94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE4CED91FD243CD00006C94 /* Assets.xcassets */; };
+		CBE4CEDF1FD243CD00006C94 /* watchOSClientOfQFNU.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBE4CEBC1FD243CC00006C94 /* watchOSClientOfQFNU.app */; };
+		CBF1788C1FD2921800B11D20 /* FindInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF1788B1FD2921800B11D20 /* FindInterfaceController.m */; };
 		EB10480D1F59823E0001A5A8 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10480C1F59823E0001A5A8 /* UIColor+FlatColors.m */; };
 		EB1048151F5AFDD40001A5A8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1048111F5AFDD40001A5A8 /* MBProgressHUD.m */; };
 		EB1048161F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1048131F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m */; };
@@ -258,7 +268,46 @@
 			remoteGlobalIDString = CB10600B1EE908E30099E371;
 			remoteInfo = iOSClientOfQFNU;
 		};
+		CBE4CECA1FD243CD00006C94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB1060041EE908E30099E371 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBE4CEC71FD243CD00006C94;
+			remoteInfo = "watchOSClientOfQFNU Extension";
+		};
+		CBE4CEDD1FD243CD00006C94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB1060041EE908E30099E371 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBE4CEBB1FD243CC00006C94;
+			remoteInfo = watchOSClientOfQFNU;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CBE4CEE51FD243CD00006C94 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CBE4CEC91FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE4CEE71FD243CD00006C94 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CBE4CEDF1FD243CD00006C94 /* watchOSClientOfQFNU.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		262CEE561F0CC52D000CB505 /* HistoryContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryContentCell.h; sourceTree = "<group>"; };
@@ -615,6 +664,24 @@
 		CBE08F471F5168620009447C /* cet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cet.jpg; sourceTree = "<group>"; };
 		CBE08F4A1F517AC20009447C /* xiaoliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xiaoliController.h; sourceTree = "<group>"; };
 		CBE08F4B1F517AC20009447C /* xiaoliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xiaoliController.m; sourceTree = "<group>"; };
+		CBE4CEBC1FD243CC00006C94 /* watchOSClientOfQFNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchOSClientOfQFNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE4CEBF1FD243CD00006C94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		CBE4CEC11FD243CD00006C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBE4CEC31FD243CD00006C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBE4CEC81FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watchOSClientOfQFNU Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE4CECD1FD243CD00006C94 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		CBE4CECE1FD243CD00006C94 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		CBE4CED01FD243CD00006C94 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		CBE4CED11FD243CD00006C94 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		CBE4CED31FD243CD00006C94 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		CBE4CED41FD243CD00006C94 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		CBE4CED61FD243CD00006C94 /* ComplicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComplicationController.h; sourceTree = "<group>"; };
+		CBE4CED71FD243CD00006C94 /* ComplicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComplicationController.m; sourceTree = "<group>"; };
+		CBE4CED91FD243CD00006C94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBE4CEDB1FD243CD00006C94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBE4CEDC1FD243CD00006C94 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CBF1788A1FD2921800B11D20 /* FindInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindInterfaceController.h; sourceTree = "<group>"; };
+		CBF1788B1FD2921800B11D20 /* FindInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindInterfaceController.m; sourceTree = "<group>"; };
 		EB10480B1F59823E0001A5A8 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
 		EB10480C1F59823E0001A5A8 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		EB1048101F5AFDD40001A5A8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -697,6 +764,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CB10602D1EE908E30099E371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE4CEC51FD243CD00006C94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -833,6 +907,8 @@
 				CB10600E1EE908E30099E371 /* iOSClientOfQFNU */,
 				CB1060281EE908E30099E371 /* iOSClientOfQFNUTests */,
 				CB1060331EE908E30099E371 /* iOSClientOfQFNUUITests */,
+				CBE4CEBD1FD243CD00006C94 /* watchOSClientOfQFNU */,
+				CBE4CECC1FD243CD00006C94 /* watchOSClientOfQFNU Extension */,
 				CB10600D1EE908E30099E371 /* Products */,
 				267938861F0B93FB00D960C7 /* Frameworks */,
 			);
@@ -844,6 +920,8 @@
 				CB10600C1EE908E30099E371 /* iOSClientOfQFNU.app */,
 				CB1060251EE908E30099E371 /* iOSClientOfQFNUTests.xctest */,
 				CB1060301EE908E30099E371 /* iOSClientOfQFNUUITests.xctest */,
+				CBE4CEBC1FD243CC00006C94 /* watchOSClientOfQFNU.app */,
+				CBE4CEC81FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2149,6 +2227,36 @@
 			name = rebot;
 			sourceTree = "<group>";
 		};
+		CBE4CEBD1FD243CD00006C94 /* watchOSClientOfQFNU */ = {
+			isa = PBXGroup;
+			children = (
+				CBE4CEBE1FD243CD00006C94 /* Interface.storyboard */,
+				CBE4CEC11FD243CD00006C94 /* Assets.xcassets */,
+				CBE4CEC31FD243CD00006C94 /* Info.plist */,
+			);
+			path = watchOSClientOfQFNU;
+			sourceTree = "<group>";
+		};
+		CBE4CECC1FD243CD00006C94 /* watchOSClientOfQFNU Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CBE4CECD1FD243CD00006C94 /* InterfaceController.h */,
+				CBE4CECE1FD243CD00006C94 /* InterfaceController.m */,
+				CBE4CED01FD243CD00006C94 /* ExtensionDelegate.h */,
+				CBE4CED11FD243CD00006C94 /* ExtensionDelegate.m */,
+				CBE4CED31FD243CD00006C94 /* NotificationController.h */,
+				CBE4CED41FD243CD00006C94 /* NotificationController.m */,
+				CBE4CED61FD243CD00006C94 /* ComplicationController.h */,
+				CBE4CED71FD243CD00006C94 /* ComplicationController.m */,
+				CBE4CED91FD243CD00006C94 /* Assets.xcassets */,
+				CBE4CEDB1FD243CD00006C94 /* Info.plist */,
+				CBE4CEDC1FD243CD00006C94 /* PushNotificationPayload.apns */,
+				CBF1788A1FD2921800B11D20 /* FindInterfaceController.h */,
+				CBF1788B1FD2921800B11D20 /* FindInterfaceController.m */,
+			);
+			path = "watchOSClientOfQFNU Extension";
+			sourceTree = "<group>";
+		};
 		EB10480E1F5AFDD40001A5A8 /* NHHUDExtend */ = {
 			isa = PBXGroup;
 			children = (
@@ -2274,10 +2382,12 @@
 				CB1060081EE908E30099E371 /* Sources */,
 				CB1060091EE908E30099E371 /* Frameworks */,
 				CB10600A1EE908E30099E371 /* Resources */,
+				CBE4CEE71FD243CD00006C94 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CBE4CEDE1FD243CD00006C94 /* PBXTargetDependency */,
 			);
 			name = iOSClientOfQFNU;
 			productName = iOSClientOfQFNU;
@@ -2320,6 +2430,40 @@
 			productReference = CB1060301EE908E30099E371 /* iOSClientOfQFNUUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CBE4CEBB1FD243CC00006C94 /* watchOSClientOfQFNU */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBE4CEE61FD243CD00006C94 /* Build configuration list for PBXNativeTarget "watchOSClientOfQFNU" */;
+			buildPhases = (
+				CBE4CEBA1FD243CC00006C94 /* Resources */,
+				CBE4CEE51FD243CD00006C94 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBE4CECB1FD243CD00006C94 /* PBXTargetDependency */,
+			);
+			name = watchOSClientOfQFNU;
+			productName = watchOSClientOfQFNU;
+			productReference = CBE4CEBC1FD243CC00006C94 /* watchOSClientOfQFNU.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CBE4CEC71FD243CD00006C94 /* watchOSClientOfQFNU Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBE4CEE41FD243CD00006C94 /* Build configuration list for PBXNativeTarget "watchOSClientOfQFNU Extension" */;
+			buildPhases = (
+				CBE4CEC41FD243CD00006C94 /* Sources */,
+				CBE4CEC51FD243CD00006C94 /* Frameworks */,
+				CBE4CEC61FD243CD00006C94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "watchOSClientOfQFNU Extension";
+			productName = "watchOSClientOfQFNU Extension";
+			productReference = CBE4CEC81FD243CD00006C94 /* watchOSClientOfQFNU Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2331,8 +2475,8 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 668A3P2772;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = DTQ7WEE79D;
+						ProvisioningStyle = Automatic;
 					};
 					CB1060241EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2345,6 +2489,16 @@
 						DevelopmentTeam = DTQ7WEE79D;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CB10600B1EE908E30099E371;
+					};
+					CBE4CEBB1FD243CC00006C94 = {
+						CreatedOnToolsVersion = 9.0.1;
+						DevelopmentTeam = DTQ7WEE79D;
+						ProvisioningStyle = Automatic;
+					};
+					CBE4CEC71FD243CD00006C94 = {
+						CreatedOnToolsVersion = 9.0.1;
+						DevelopmentTeam = DTQ7WEE79D;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2364,6 +2518,8 @@
 				CB10600B1EE908E30099E371 /* iOSClientOfQFNU */,
 				CB1060241EE908E30099E371 /* iOSClientOfQFNUTests */,
 				CB10602F1EE908E30099E371 /* iOSClientOfQFNUUITests */,
+				CBE4CEBB1FD243CC00006C94 /* watchOSClientOfQFNU */,
+				CBE4CEC71FD243CD00006C94 /* watchOSClientOfQFNU Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -2454,6 +2610,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE4CEBA1FD243CC00006C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE4CEC21FD243CD00006C94 /* Assets.xcassets in Resources */,
+				CBE4CEC01FD243CD00006C94 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE4CEC61FD243CD00006C94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE4CEDA1FD243CD00006C94 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2636,6 +2809,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBE4CEC41FD243CD00006C94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF1788C1FD2921800B11D20 /* FindInterfaceController.m in Sources */,
+				CBE4CED21FD243CD00006C94 /* ExtensionDelegate.m in Sources */,
+				CBE4CED81FD243CD00006C94 /* ComplicationController.m in Sources */,
+				CBE4CECF1FD243CD00006C94 /* InterfaceController.m in Sources */,
+				CBE4CED51FD243CD00006C94 /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2648,6 +2833,16 @@
 			isa = PBXTargetDependency;
 			target = CB10600B1EE908E30099E371 /* iOSClientOfQFNU */;
 			targetProxy = CB1060311EE908E30099E371 /* PBXContainerItemProxy */;
+		};
+		CBE4CECB1FD243CD00006C94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBE4CEC71FD243CD00006C94 /* watchOSClientOfQFNU Extension */;
+			targetProxy = CBE4CECA1FD243CD00006C94 /* PBXContainerItemProxy */;
+		};
+		CBE4CEDE1FD243CD00006C94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBE4CEBB1FD243CC00006C94 /* watchOSClientOfQFNU */;
+			targetProxy = CBE4CEDD1FD243CD00006C94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2682,6 +2877,14 @@
 				CB1060551EE909630099E371 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBE4CEBE1FD243CD00006C94 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE4CEBF1FD243CD00006C94 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2781,8 +2984,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 668A3P2772;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2810,10 +3013,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
-				PROVISIONING_PROFILE_SPECIFIER = yiipad;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -2825,9 +3028,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 668A3P2772;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -2855,10 +3058,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
-				PROVISIONING_PROFILE_SPECIFIER = yiipad;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -2914,6 +3117,114 @@
 			};
 			name = Release;
 		};
+		CBE4CEE01FD243CD00006C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = watchOSClientOfQFNU_Extension;
+				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		CBE4CEE11FD243CD00006C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = watchOSClientOfQFNU_Extension;
+				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		CBE4CEE21FD243CD00006C94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "watchOSClientOfQFNU Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		CBE4CEE31FD243CD00006C94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "watchOSClientOfQFNU Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2949,6 +3260,24 @@
 			buildConfigurations = (
 				CB1060401EE908E30099E371 /* Debug */,
 				CB1060411EE908E30099E371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBE4CEE41FD243CD00006C94 /* Build configuration list for PBXNativeTarget "watchOSClientOfQFNU Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE4CEE21FD243CD00006C94 /* Debug */,
+				CBE4CEE31FD243CD00006C94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBE4CEE61FD243CD00006C94 /* Build configuration list for PBXNativeTarget "watchOSClientOfQFNU" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBE4CEE01FD243CD00006C94 /* Debug */,
+				CBE4CEE11FD243CD00006C94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

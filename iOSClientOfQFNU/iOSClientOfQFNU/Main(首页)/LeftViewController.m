@@ -26,7 +26,9 @@
 #import "AttendanController.h"
 #import "CheckbackController.h"
 
-@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
+
+#import <WatchConnectivity/WatchConnectivity.h>
+@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,WCSessionDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UITableView *tb;
@@ -467,6 +469,21 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+#pragma mark --watchOS端课程表。
+-(void)setWatchOS:(NSDictionary*)Coursedic{
+    
+    if ([WCSession isSupported]) {
+        WCSession * session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+        [session updateApplicationContext:@{@"Coursedic":Coursedic } error:nil];
+    }
+    else{
+        return;
+    }
+    
+}
 //课程表
 -(void)courseVc{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
@@ -479,8 +496,9 @@
     
 }
 - (void)ClassFind:(UINavigationController *)nav{  //课表界面
+    NSDictionary*   allcourse =[[QFInfo sharedInstance]getCourse];
     
-    if([[QFInfo sharedInstance]getCourse]==nil){
+    if(allcourse==nil){
         
         // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
         
@@ -531,6 +549,7 @@
         [nav pushViewController:course animated:YES];
         // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
     }
+    [self setWatchOS:allcourse];
 } //课程表
 - (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
