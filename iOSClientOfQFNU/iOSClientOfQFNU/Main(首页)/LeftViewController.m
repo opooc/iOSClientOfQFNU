@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createdata];
-   
+    
     _tb.delegate=self;
     _tb.dataSource=self;
     _tb.showsVerticalScrollIndicator = NO;   //关右侧滑动条
@@ -86,96 +86,96 @@
     [navigationController pushViewController:meVc animated:YES];
     
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
-
     
-
+    
+    
 }
 -(void)createname{
     _namelb.textColor = TEXT_GRAYCOLOR;
     _namelb.textAlignment = NSTextAlignmentCenter;
     _namelb.font = [UIFont systemFontOfSize:21];
-
-
+    
+    
 }
 -(void)createava{
-//     if (![[[QFInfo sharedInstance] getToken]isEqualToString:@""]) {
-//    _userImage.layer.cornerRadius = _userImage.frame.size.height*0.5;
-//    _userImage.layer.borderWidth = 3;
-//    _userImage.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _userImage.layer.masksToBounds = YES;
-//    
-//    NSString *pathWithPhoneNum = @"https://zsqy.illidan.me/urp/info";
-//    NSString *urlPath = [pathWithPhoneNum stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-//    NSURL *phoneURL = [NSURL URLWithString:urlPath];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:phoneURL];
-//
-//    [request setHTTPMethod:@"GET"];
-//    [request setValue:[[QFInfo sharedInstance]getToken] forHTTPHeaderField:@"Authorization"];
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-//    NSURLSessionDataTask *sessionTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//        });
-//        
-//        if (error) {
-//            NSLog(@"请求失败... %@",error);
-//            //提示用户请求失败!
-//            UIAlertController *AV = [UIAlertController alertControllerWithTitle:@"提示" message:@"抱歉,服务器错误,请稍后重试..." preferredStyle:UIAlertControllerStyleActionSheet];
-//            [AV addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//                //点击OK,进行相应操作,可置nil
-//                NSLog(@"您点击了OK..");
-//            }]];
-//            [self presentViewController:AV animated:YES completion:nil];
-//            
-//        }else{
-//            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-//                
-//                NSDictionary* dic1 = [result objectForKey:@"data"];
-//            
-//            NSString*portrait = [dic1 objectForKey:@"portrait"];
-//            NSString* name = [dic1 objectForKey:@"name"];
-//            
-//            NSString* user_id = [dic1 objectForKey:@"user_id"];
-//            NSString* campus =[dic1 objectForKey:@"campus"];
-//            NSString* faculty = [dic1 objectForKey:@"faculty"];
-//            NSString* profession = [dic1 objectForKey:@"profession"];
-//            NSString* clazz = [dic1 objectForKey:@"clazz"];
-//            
-//            _user_id = user_id;
-//            _campus = campus;
-//            _faculty = faculty;
-//            _profession = profession;
-//            _clazz = clazz;
-//            _name = name;
-//            if(portrait!=nil){
-//                NSData* avaData = [[NSData alloc]initWithBase64EncodedString:portrait options:NSDataBase64DecodingIgnoreUnknownCharacters];
-//                _userImage.image = [UIImage imageWithData:avaData];
-//            _image = _userImage.image;
-//            }
-//                NSLog(@"%@",portrait);
-//            if ([NSThread isMainThread])
-//            {
-//                  _userImage.image = [UIImage imageWithData:avaData];
-//                _namelb.text = name;
-//                [_userImage  setNeedsDisplay];
-//            }
-//            else
-//            {
-//                dispatch_sync(dispatch_get_main_queue(), ^{
-//                    //Update UI in UI thread here
-//                    _userImage.image = [UIImage imageWithData:avaData];
-//                    _namelb.text = name;
-//                    [_userImage  setNeedsDisplay];
-// 
-//                });
-//            }
-//        }
-//    }];
-//    
-//    //开始任务
-//    [sessionTask resume];
-//     }
+    //     if (![[[QFInfo sharedInstance] getToken]isEqualToString:@""]) {
+    //    _userImage.layer.cornerRadius = _userImage.frame.size.height*0.5;
+    //    _userImage.layer.borderWidth = 3;
+    //    _userImage.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _userImage.layer.masksToBounds = YES;
+    //
+    //    NSString *pathWithPhoneNum = @"https://zsqy.illidan.me/urp/info";
+    //    NSString *urlPath = [pathWithPhoneNum stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    //    NSURL *phoneURL = [NSURL URLWithString:urlPath];
+    //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:phoneURL];
+    //
+    //    [request setHTTPMethod:@"GET"];
+    //    [request setValue:[[QFInfo sharedInstance]getToken] forHTTPHeaderField:@"Authorization"];
+    //    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    //    NSURLSessionDataTask *sessionTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    //
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //        });
+    //
+    //        if (error) {
+    //            NSLog(@"请求失败... %@",error);
+    //            //提示用户请求失败!
+    //            UIAlertController *AV = [UIAlertController alertControllerWithTitle:@"提示" message:@"抱歉,服务器错误,请稍后重试..." preferredStyle:UIAlertControllerStyleActionSheet];
+    //            [AV addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    //                //点击OK,进行相应操作,可置nil
+    //                NSLog(@"您点击了OK..");
+    //            }]];
+    //            [self presentViewController:AV animated:YES completion:nil];
+    //
+    //        }else{
+    //            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    //
+    //                NSDictionary* dic1 = [result objectForKey:@"data"];
+    //
+    //            NSString*portrait = [dic1 objectForKey:@"portrait"];
+    //            NSString* name = [dic1 objectForKey:@"name"];
+    //
+    //            NSString* user_id = [dic1 objectForKey:@"user_id"];
+    //            NSString* campus =[dic1 objectForKey:@"campus"];
+    //            NSString* faculty = [dic1 objectForKey:@"faculty"];
+    //            NSString* profession = [dic1 objectForKey:@"profession"];
+    //            NSString* clazz = [dic1 objectForKey:@"clazz"];
+    //
+    //            _user_id = user_id;
+    //            _campus = campus;
+    //            _faculty = faculty;
+    //            _profession = profession;
+    //            _clazz = clazz;
+    //            _name = name;
+    //            if(portrait!=nil){
+    //                NSData* avaData = [[NSData alloc]initWithBase64EncodedString:portrait options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    //                _userImage.image = [UIImage imageWithData:avaData];
+    //            _image = _userImage.image;
+    //            }
+    //                NSLog(@"%@",portrait);
+    //            if ([NSThread isMainThread])
+    //            {
+    //                  _userImage.image = [UIImage imageWithData:avaData];
+    //                _namelb.text = name;
+    //                [_userImage  setNeedsDisplay];
+    //            }
+    //            else
+    //            {
+    //                dispatch_sync(dispatch_get_main_queue(), ^{
+    //                    //Update UI in UI thread here
+    //                    _userImage.image = [UIImage imageWithData:avaData];
+    //                    _namelb.text = name;
+    //                    [_userImage  setNeedsDisplay];
+    //
+    //                });
+    //            }
+    //        }
+    //    }];
+    //
+    //    //开始任务
+    //    [sessionTask resume];
+    //     }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -207,7 +207,7 @@
     //取出对应组的数据数组
     NSArray *array = self.dataArray[indexPath.section];
     //取出对应行的食谱模型
-
+    
     
     cell.textLabel.text = array[indexPath.row];
     
@@ -234,12 +234,12 @@
                 case 0:
                     [mainViewController hideLeftViewAnimated];
                     break;
-
+                    
                 case 1:
                     [[QFInfo sharedInstance]loginqfnu:[[QFInfo sharedInstance] getUser] password:[[QFInfo sharedInstance] getPassword]];
                     break;
                 case 2:
-                 [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx#"];
+                    [self webviewtext:@"http://202.194.188.19/xjInfoAction.do?oper=xjxx#"];
                     break;
                 case 3:
                     [self courseVc];
@@ -248,7 +248,7 @@
                     break;
             }
             break;
-            case 1:
+        case 1:
             switch (indexPath.row) {
                 case 0:
                     [self webviewtext:@"http://m.5read.com/4581"];
@@ -257,11 +257,11 @@
                     [self webviewtext:@"http://www.qfnu.edu.cn"];
                     break;
                 case 2:
-                     [self webviewtext:@"http://jwc.qfnu.edu.cn/xw.htm "];
-                  
+                    [self webviewtext:@"http://jwc.qfnu.edu.cn/xw.htm "];
+                    
                     break;
                 case 3:
-
+                    
                     break;
                     
                 default:
@@ -288,7 +288,7 @@
                 case 4:
                     [self logout];
                     break;
-                    case 5:
+                case 5:
                     [self checkback];
                 default:
                     break;
@@ -310,7 +310,7 @@
     CheckbackController* checkback = [[CheckbackController alloc]init];
     [nav pushViewController:checkback animated:YES];
     
-     [main hideLeftViewAnimated:YES completionHandler:nil];
+    [main hideLeftViewAnimated:YES completionHandler:nil];
 }
 
 
@@ -330,7 +330,7 @@
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     //[webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
-  //  [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
+    //  [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
 }
 
 
@@ -364,15 +364,15 @@
     
 }
 -(void)aboutus{
-//    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
-//    MainController *mainViewController=[[MainController alloc]init];
-//    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
-//    [navigationController pushViewController:about animated:YES];
-//                    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
+    //    QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
+    //    MainController *mainViewController=[[MainController alloc]init];
+    //    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+    //    [navigationController pushViewController:about animated:YES];
+    //                    [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     QFNUAboutUsController *about=[[QFNUAboutUsController alloc]init];
-
+    
     [navigationController pushViewController:about animated:YES];
     
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
@@ -397,7 +397,7 @@
     
 }
 -(void)tool{
-
+    
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     QFNUToolController *tool=[[QFNUToolController alloc]init];
@@ -405,8 +405,8 @@
     [navigationController pushViewController:tool animated:YES];
     
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
-
-
+    
+    
 }
 
 
@@ -459,21 +459,21 @@
 //    return UIStatusBarAnimationFade;
 //}
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 //课程表
 -(void)courseVc{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
     
     [self ClassFind:navigationController];
- 
+    
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
     
     
@@ -482,54 +482,54 @@
     
     if([[QFInfo sharedInstance]getCourse]==nil){
         
-       // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
-    
+        // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
+        
         /** 请求课表*/
         [self GET:@"https://zsqy.illidan.cn/urp/curriculum" parameters:nil success:^(id responseObject) {
-//            NSData* data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-//
-//            NSString* str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//            NSLog(@"%@",str);
-//            NSData* data2 = [str dataUsingEncoding:NSUTF8StringEncoding];
-//
-//            NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
-//            NSLog(@"%@",dic);
+            //            NSData* data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+            //
+            //            NSString* str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+            //            NSLog(@"%@",str);
+            //            NSData* data2 = [str dataUsingEncoding:NSUTF8StringEncoding];
+            //
+            //            NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableContainers error:nil];
+            //            NSLog(@"%@",dic);
             
             NSString *msg=[responseObject objectForKey:@"message"];
             if ([msg isEqualToString:@"获取成功"]) {
                 NSDictionary *dicCourse = [responseObject objectForKey:@"data"];
-//                NSArray* Arr =[dicCourse objectForKey:@"lessons"];
-//                //
-//                NSArray* arr1 = Arr[1];
-//                NSArray* arr2 =[arr1 firstObject];
-//                NSLog(@"%@",arr2);
-//                NSDictionary* dicc = [arr2 firstObject];
-//                NSString* stttt = [dicc objectForKey:@"name"];
-//                NSLog(@"%@",stttt);
+                //                NSArray* Arr =[dicCourse objectForKey:@"lessons"];
+                //                //
+                //                NSArray* arr1 = Arr[1];
+                //                NSArray* arr2 =[arr1 firstObject];
+                //                NSLog(@"%@",arr2);
+                //                NSDictionary* dicc = [arr2 firstObject];
+                //                NSString* stttt = [dicc objectForKey:@"name"];
+                //                NSLog(@"%@",stttt);
                 NSLog(@"%@",dicCourse);
                 [MBProgressHUD showError:@"课程表即将完成，再次点击进入预览版哦" toView:nav.view];
                 [[QFInfo sharedInstance]savaCourse:dicCourse];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-               
+                
             }else if([msg isEqualToString:@"无权访问"]){
                 [MBProgressHUD showError:@"登录过期,请重新登录" toView:nav.view];
-               // [MBProgressHUD hideHUDForView:self.view animated:YES];
+                // [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
             else{
-                   [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:nav.view];
+                [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:nav.view];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         } failure:^(NSError *error) {
-               // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            // [MBProgressHUD hideHUDForView:self.view animated:YES];
             [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:nav.view];
-              [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }else{
         QFNUCourseController *course=[[QFNUCourseController alloc]init];
- 
+        
         [nav pushViewController:course animated:YES];
-       // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
+        // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
     }
 } //课程表
 - (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
@@ -553,9 +553,10 @@
     manager.requestSerializer.timeoutInterval = time;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    //NSString* token = [[QFInfo sharedInstance]getToken];
-
-    [manager.requestSerializer setValue:@"wG63PyJ_Lb9l3ZKXk-5KApObBcXKI_I1" forHTTPHeaderField:@"Authorization"];
+    NSDictionary* tokenAll = [[QFInfo sharedInstance]getToken];
+    NSString* token = [tokenAll objectForKey:@"token"];
+    
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     [manager GET:URLString parameters:parameters progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              if (success) {
@@ -571,3 +572,4 @@
 
 
 @end
+

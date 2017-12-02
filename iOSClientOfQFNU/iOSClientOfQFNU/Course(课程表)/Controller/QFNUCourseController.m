@@ -10,12 +10,15 @@
 #import "GWPCourseListView.h"
 #import "CourseModel.h"
 #import "NSData+CRC32.h"
+#import "MBProgressHUD+NHAdd.h"
+#import "AFNetworking.h"
 
 
 
 @interface QFNUCourseController ()<GWPCourseListViewDataSource, GWPCourseListViewDelegate>
 @property (nonatomic, strong) NSMutableArray<CourseModel*> *courseArr;
 @property(nonatomic,strong)GWPCourseListView* courseListView;
+@property(nonatomic,assign)BOOL alive;
 
 
 @end
@@ -24,9 +27,10 @@
 int selectss=1;
 int selects[770];
 
+
 - (NSMutableArray<CourseModel *> *)courseArr{
     if (!_courseArr) {
-      
+        
     }
     return _courseArr;
 }
@@ -37,7 +41,10 @@ int selects[770];
     
     [self setCourse];
     [self addCourse];
-
+    NSLog(@"%@",[[QFInfo sharedInstance]getToken]);
+    [self setRefresh];
+    
+    
 }
 
 -(void)setCourse{
@@ -49,7 +56,7 @@ int selects[770];
     _courseListView.frame =CGRectMake(0, 64, SCREEN_WIDTH,SCREEN_H-64) ;
     
     [self.view addSubview: _courseListView];
-   
+    
 }
 -(void)settitle:(int)nowweek{
     NSString *nowweek_string=@"第";
@@ -67,20 +74,20 @@ int selects[770];
 -(int)endClass :(NSArray*)arr num:(int)j classId:(NSString* )classId{
     int end =1;
     if (j == 0||j==4) {
-    if ([arr[j+1] count] != 0 && [[[arr[j+1] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
-        end++;
-        
-        if ([arr[j+2] count] != 0 && [[[arr[j+2] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
+        if ([arr[j+1] count] != 0 && [[[arr[j+1] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
             end++;
-            if ([arr[j+3] count] != 0 && [[[arr[j+3] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
+            
+            if ([arr[j+2] count] != 0 && [[[arr[j+2] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
                 end++;
+                if ([arr[j+3] count] != 0 && [[[arr[j+3] firstObject]objectForKey:@"class_id"] isEqualToString:classId]) {
+                    end++;
+                    return end;
+                }
                 return end;
             }
             return end;
         }
         return end;
-        }
-    return end;
     }
     
     else if (j == 1|| j ==5){
@@ -93,8 +100,8 @@ int selects[770];
             return end;
         }
         return end;
-        }
-        
+    }
+    
     
     
     else if (j == 2|| j == 6){
@@ -120,11 +127,15 @@ int selects[770];
             end++;
             return end;
         }
-         return end;
+        return end;
     }
     return end;
 }
 - (void)addCourse{
+    
+    
+    
+    
     QFInfo* share= [QFInfo sharedInstance];;
     
     CourseModel *a1  = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
@@ -154,14 +165,14 @@ int selects[770];
     CourseModel *a25 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
     CourseModel *a26 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
     CourseModel *a27 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a28 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a29 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a30 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a31 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a32 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a33 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a34 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
-      CourseModel *a35 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a28 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a29 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a30 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a31 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a32 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a33 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a34 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
+    CourseModel *a35 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
     
     CourseModel *a36 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
     CourseModel *a37 = [CourseModel courseWithName:@"NULL" dayIndex:0 startCourseIndex:3 endCourseIndex:3];
@@ -213,14 +224,14 @@ int selects[770];
     
     if ([share getCourse] != NULL) {
         NSArray* lessonsArr = [[share getCourse] objectForKey:@"lessons"];
-         int  nowweek = [[[share getCourse] objectForKey:@"week"]intValue];
+        int  nowweek = [[[share getCourse] objectForKey:@"week"]intValue];
         
         //设置大标题
         [self settitle:nowweek];
-
+        
         //开始光速循环
         for (int i= 0; i<=(lessonsArr.count-1); i++) {
-           
+            
             NSArray *dayArr      = lessonsArr[i];
             for (int j = 0; j<= dayArr.count-1 ; ) {
                 NSArray* dayCourseInfoArr = dayArr[j];
@@ -229,7 +240,7 @@ int selects[770];
                 }
                 else{
                     NSDictionary* dayCourseInfodic = [dayCourseInfoArr firstObject];
-                
+                    
                     NSString* name1      =[dayCourseInfodic objectForKey:@"name"];//姓名
                     NSLog(@"%@",name1);
                     NSString* teacher   =[dayCourseInfodic objectForKey:@"teacher"];//教师
@@ -261,491 +272,491 @@ int selects[770];
                     
                     
                     
-                //判读课的结束
-               BOOL dqz = [self IfWeeks:nowweek dsz:dsz_num qsz:StartWeek_num jsz:EndWeek_num];
+                    //判读课的结束
+                    BOOL dqz = [self IfWeeks:nowweek dsz:dsz_num qsz:StartWeek_num jsz:EndWeek_num];
                     
-            if (dqz){
-                
-#pragma mark 1
-                    if (i == 0) {
+                    if (dqz){
                         
-                    switch (j) {
+#pragma mark 1
+                        if (i == 0) {
                             
-                        case 0:
-                            a1  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a2  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a3  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a4  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a5  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a6  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a7  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a8  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a9  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a10  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a11  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                    }
+                            switch (j) {
+                                    
+                                case 0:
+                                    a1  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a2  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a3  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a4  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a5  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a6  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a7  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a8  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a9  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a10  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a11  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
 #pragma mark 2
-                if (i == 1) {
-                    
-                    switch (j) {
+                        if (i == 1) {
                             
-                        case 0:
-                            a12  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a13  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a14  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a15  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a16  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a17  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a18  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a19  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a20  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a21  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a22  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                }
+                            switch (j) {
+                                    
+                                case 0:
+                                    a12  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a13  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a14  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a15  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a16  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a17  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a18  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a19  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a20  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a21  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a22  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
 #pragma mark 3
-                if (i == 2) {
-                    
-                    switch (j) {
+                        if (i == 2) {
                             
-                        case 0:
-                            a23  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a24  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a25  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a26  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a27  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a28  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a29  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a30  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a31  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a32  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a33  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                }
+                            switch (j) {
+                                    
+                                case 0:
+                                    a23  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a24  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a25  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a26  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a27  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a28  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a29  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a30  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a31  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a32  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a33  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
 #pragma mark 4
-                if (i == 3) {
-                    
-                    switch (j) {
+                        if (i == 3) {
                             
-                        case 0:
-                            a34  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a35  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a36  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a37  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a38  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a39  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a40  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a41  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a42  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a43  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a44  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                }
+                            switch (j) {
+                                    
+                                case 0:
+                                    a34  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a35  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a36  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a37  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a38  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a39  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a40  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a41  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a42  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a43  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a44  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
 #pragma mark 5
-                if (i == 4) {
-                    
-                    switch (j) {
+                        if (i == 4) {
                             
-                        case 0:
-                            a45  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a46  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a47  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a48 = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a49  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a50  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a51  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a52  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a53  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a54  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a55  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                }
-                
-                
+                            switch (j) {
+                                    
+                                case 0:
+                                    a45  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a46  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a47  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a48 = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a49  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a50  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a51  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a52  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a53  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a54  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a55  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
+                        
+                        
 #pragma mark 6
-                if (i == 5) {
-                    
-                    switch (j) {
+                        if (i == 5) {
                             
-                        case 0:
-                            a56  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a57  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a58  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a59  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a60  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a61  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a62  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a63  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a64  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a65  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a66  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                }
+                            switch (j) {
+                                    
+                                case 0:
+                                    a56  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a57  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a58  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a59  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a60  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a61  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a62  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a63  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a64  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a65  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a66  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                        }
 #pragma mark 7
-                if (i == 6) {
+                        if (i == 6) {
+                            
+                            switch (j) {
+                                    
+                                case 0:
+                                    a67  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 1:
+                                    a68  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    break;
+                                case 2:
+                                    a69  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    
+                                    
+                                    break;
+                                case 3:
+                                    
+                                    a70  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 4:
+                                    
+                                    a71  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 5:
+                                    
+                                    a72  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 6:
+                                    
+                                    a73  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 7:
+                                    
+                                    a74  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 8:
+                                    
+                                    a75  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 9:
+                                    
+                                    a76  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                case 10:
+                                    
+                                    a77  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
+                                    j = j+EndClass_num;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }//switch over
+                            
+                        }//day if over
+                        
+                    }//dsz if end
+                    else{
+                        j = j+1;
+                    }
                     
-                    switch (j) {
-                            
-                        case 0:
-                            a67  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 1:
-                            a68  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            break;
-                        case 2:
-                            a69  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            
-                            
-                            break;
-                        case 3:
-                            
-                            a70  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 4:
-                            
-                            a71  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 5:
-                            
-                            a72  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 6:
-                            
-                            a73  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 7:
-                            
-                            a74  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 8:
-                            
-                            a75  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 9:
-                            
-                            a76  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                        case 10:
-                            
-                            a77  = [CourseModel courseWithName:name dayIndex:(short)(i+1) startCourseIndex:(short)StartClass_num endCourseIndex:(short)EndClass_num];
-                            j = j+EndClass_num;
-                            break;
-                            
-                        default:
-                            break;
-                    }//switch over
-                    
-                }//day if over
-            
-            }//dsz if end
-            else{
-                j = j+1;
-            }
-   
                 }
-        }//大else结束
+            }//大else结束
         }
         
     }
     
-
     _courseArr = [NSMutableArray arrayWithArray:@[a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35,a36,a37,a38,a39,a40,a41,a42,a43,a44,a45,a46,a47,a48,a49,a50,a51,a52,a53,a54,a55,a56,a57,a58,a59,a60,a61,a62,a63,a64,a65,a66,a67,a68,a69,a70,a71,a72,a73,a74,a75,a76,a77]];
     [self.courseListView reloadData];
+    
     
 }
 
@@ -773,8 +784,8 @@ int selects[770];
     return 0;
 }
 
-    
-    
+
+
 
 //判断是否本周上课
 -(BOOL)IfWeeks:(int)nowweek  dsz:(int)dsz  qsz:(int)qsz jsz:(int)jsz {
@@ -855,6 +866,106 @@ int selects[770];
     return (ans + 6) / 7;
 }
 
+-(void)setRefresh{
+    UIBarButtonItem* refreshBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction)];
+    self.navigationItem.rightBarButtonItem= refreshBtn;
+}
+
+- (void)refreshAction{  //课表界面
+    [MBProgressHUD showLoadToView:self.view title:@"正在刷新ing"];
+    if([[QFInfo sharedInstance]getCourse]!=nil){
+        /** 请求课表*/
+        [self GET:@"https://zsqy.illidan.cn/urp/curriculum" parameters:nil success:^(id responseObject) {
+            NSString *msg=[responseObject objectForKey:@"message"];
+            if ([msg isEqualToString:@"获取成功"]) {
+                [[QFInfo sharedInstance]savaCourse:nil];
+                
+                NSDictionary *dicCourse = [responseObject objectForKey:@"data"];
+                
+                NSLog(@"%@",dicCourse);
+                
+                [[QFInfo sharedInstance]savaCourse:dicCourse];
+                [self.courseListView reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD showError:@"刷新成功!" toView:self.view];
+                
+                
+                
+                
+            }else if([msg isEqualToString:@"无权访问"]){
+                [MBProgressHUD showError:@"登录过期,请重新登录" toView:self.view];
+                // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+            else{
+                [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:self.view];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        } failure:^(NSError *error) {
+            // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:self.view];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+        
+        
+    }else{
+        UIAlertView* alt = [[UIAlertView alloc]initWithTitle:@"提醒" message:@"课表无课" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles: nil];
+        [alt show];
+        
+        // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
+    }
+} //课程表
+- (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    [self GET:URLString parameters:parameters timeout:6.f success:^(id responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+- (void)GET:(NSString *)URLString parameters:(id)parameters timeout:(double)time success:(void (^)(id))success failure:(void (^)(NSError *))failure
+{
+    NSLog(@"请求地址:%@",URLString);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    ((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = time;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    NSDictionary* tokenAll = [[QFInfo sharedInstance]getToken];
+    NSString* token = [tokenAll objectForKey:@"token"];
+    
+    
+    
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
+    [manager GET:URLString parameters:parameters progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if (success) {
+                 success(responseObject);
+                 
+             }
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 failure(error);
+             }
+         }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -869,38 +980,38 @@ int selects[770];
 }
 /** 课程单元背景色自定义 */
 - (UIColor *)courseListView:(GWPCourseListView *)courseListView courseTitleBackgroundColorForCourse:(id<Course>)course{
-//    NSLog(@"%@",course.courseName);
-//    NSArray *lightColorArr = @[
-//                               RGB(39, 201, 155, 1),
-//                               RGB(250, 194, 97, 1),
-//                               RGB(50, 218,210, 1),
-//                               RGB(163, 232,102, 1),
-//                               RGB(78, 221, 166, 1),
-//                               RGB(247, 125, 138, 1),
-//                               RGB(120, 192, 246, 1),
-//                               RGB(254, 141, 65, 1),
-//                               RGB(2, 179, 237, 1),
-//                               RGB(110, 159, 245, 1),
-//                               RGB(17, 202, 154, 1),
-//                               RGB(228, 119, 195, 1),
-//                               RGB(147, 299, 3, 1),
-//                               ];
-//
-//    if (course.courseName) {
-//        NSRange range=[course.courseName rangeOfString:@"@"];
-//        NSData *sendData = [[course.courseName substringToIndex:range.location] dataUsingEncoding:NSUTF8StringEncoding];
-//        int checksum = abs([sendData crc32])%256;
+    NSLog(@"%@",course.courseName);
+    NSArray *lightColorArr = @[
+                               RGB(39, 201, 155, 1),
+                               RGB(250, 194, 97, 1),
+                               RGB(50, 218,210, 1),
+                               RGB(163, 232,102, 1),
+                               RGB(78, 221, 166, 1),
+                               RGB(247, 125, 138, 1),
+                               RGB(120, 192, 246, 1),
+                               RGB(254, 141, 65, 1),
+                               RGB(2, 179, 237, 1),
+                               RGB(110, 159, 245, 1),
+                               RGB(17, 202, 154, 1),
+                               RGB(228, 119, 195, 1),
+                               RGB(147, 299, 3, 1),
+                               ];
     
-//        if (selectss+1>lightColorArr.count) {//超过配色数量，随机颜色
-//            return nil;
-//        }
-//        if (selects[checksum]==0) {//第一次配色，设置颜色
-//            selects[checksum]=selectss++;
-//            return lightColorArr[selects[checksum]];
-//        }else{//第二次配色，取之前颜色
-//            return lightColorArr[selects[checksum]];
-//        }
-//    }
+    if (course.courseName) {
+        NSRange range=[course.courseName rangeOfString:@"@"];
+        NSData *sendData = [[course.courseName substringToIndex:range.location] dataUsingEncoding:NSUTF8StringEncoding];
+        int checksum =abs([sendData crc32])%256;
+        
+        if (selectss+1>lightColorArr.count) {//超过配色数量，随机颜色
+            return nil;
+        }
+        if (selects[checksum]==0) {//第一次配色，设置颜色
+            selects[checksum]=selectss++;
+            return lightColorArr[selects[checksum]];
+        }else{//第二次配色，取之前颜色
+            return lightColorArr[selects[checksum]];
+        }
+    }
     return nil;
 }
 /** 设置选项卡的title的文字属性，如果实现该方法，该方法返回的attribute将会是attributeString的属性 */
@@ -935,13 +1046,13 @@ int selects[770];
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

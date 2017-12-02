@@ -30,17 +30,17 @@
     return sharedManagerInstance;
 }
 //保存用户名密码
-- (void)save:(NSString *)user password:(NSString *)passWord token:(NSString *)Token{
+- (void)save:(NSString *)user password:(NSString *)passWord token:(NSDictionary *)Token{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     [ud setObject:Token forKey:@"token"];
     [ud setObject:user forKey:@"username"];
     [ud setObject:passWord forKey:@"password"];
-        [ud synchronize];
+    [ud synchronize];
 }
 //调用用户名，没有就是空
 -(NSString *)getUser{
-       NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *us=@"";
     if([ud objectForKey:@"username"]){
         us=[ud objectForKey:@"username"];
@@ -56,9 +56,9 @@
     }
     return ps;
 }
--(NSString *)getToken{
+-(NSDictionary *)getToken{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *tk=@"";
+    NSDictionary *tk=nil;
     if([ud objectForKey:@"token"]){
         tk=[ud objectForKey:@"token"];
     }
@@ -92,8 +92,8 @@
         [self SaveCookie];
         NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"true:%@",str);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
-
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
+        
     }];
 }
 //获取课程
@@ -108,7 +108,7 @@
 }
 //保存课程
 -(void)savaCourse:(NSDictionary *)course{
-                NSLog(@"====================保存课程====================");
+    NSLog(@"====================保存课程====================");
     NSUserDefaults *cou = [NSUserDefaults standardUserDefaults];
     
     [cou setObject:course forKey:@"course"];
@@ -127,14 +127,14 @@
 }
 //保存考勤人员
 -(void)classUser:(NSDictionary *)classUser{
-            NSLog(@"====================保存考勤人员====================");
+    NSLog(@"====================保存考勤人员====================");
     NSUserDefaults *cu = [NSUserDefaults standardUserDefaults];
     [cu setObject:classUser forKey:@"course"];
     [cu synchronize];
 }
 -(void)SaveCookie
 {
-        NSLog(@"====================保存cookie====================");
+    NSLog(@"====================保存cookie====================");
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     for (NSHTTPCookie *tempCookie in cookies) {
         //打印获得的cookie
