@@ -46,8 +46,9 @@
     //创建请求对象
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = @"POST";
-    [request setTimeoutInterval:20];
+    [request setTimeoutInterval:10];
     NSString *postString = [NSString stringWithFormat:@"username=%@&password=%@&lt=%@&execution=e1s1&_eventId=submit&submit=%%E7%%99%%BB%%E5%%BD%%95",user,password,para];
+    NSLog(@"登录网址：%@",postString);
     NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
     [request setValue:[NSString stringWithFormat:@"%u", [data length]] forHTTPHeaderField:@"Content-Length"];

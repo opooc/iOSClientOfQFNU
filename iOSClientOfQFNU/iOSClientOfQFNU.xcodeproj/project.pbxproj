@@ -2475,8 +2475,8 @@
 				TargetAttributes = {
 					CB10600B1EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DTQ7WEE79D;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 668A3P2772;
+						ProvisioningStyle = Manual;
 					};
 					CB1060241EE908E30099E371 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2492,13 +2492,13 @@
 					};
 					CBE4CEBB1FD243CC00006C94 = {
 						CreatedOnToolsVersion = 9.0.1;
-						DevelopmentTeam = DTQ7WEE79D;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 668A3P2772;
+						ProvisioningStyle = Manual;
 					};
 					CBE4CEC71FD243CD00006C94 = {
 						CreatedOnToolsVersion = 9.0.1;
-						DevelopmentTeam = DTQ7WEE79D;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 668A3P2772;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2984,8 +2984,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -3013,10 +3013,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -3028,9 +3028,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.dylib,
 					"$(PROJECT_DIR)/iOSClientOfQFNU/Vendors(第三方)/UMSocial/UMSocialSDK",
@@ -3058,10 +3058,10 @@
 					"-all_load",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xin.iiOS.iOSClientOfQFNU;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -3130,13 +3130,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = watchOSClientOfQFNU_Extension;
 				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -3157,13 +3159,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = watchOSClientOfQFNU_Extension;
 				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -3184,13 +3188,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "watchOSClientOfQFNU Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -3211,13 +3217,15 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DTQ7WEE79D;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 668A3P2772;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "watchOSClientOfQFNU Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "6fa26ea2-8b63-46b2-a9ee-bf919b3666df";
+				PROVISIONING_PROFILE_SPECIFIER = yiipad;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

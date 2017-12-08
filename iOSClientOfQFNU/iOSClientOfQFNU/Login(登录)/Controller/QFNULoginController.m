@@ -5,7 +5,7 @@
 //  Created by doushuyao on 17/6/5.
 //  Copyright © 2017年 opooc. All rights reserved.
 //
-
+#import "TFHpple.h"
 #import "QFNULoginController.h"
 #import "HyTransitions.h"
 #import "HyLoginButton.h"
@@ -185,129 +185,202 @@ BOOL getRuntimeClassIsIpad()
     }
     [_userNameField resignFirstResponder];
 
-    [_passwordField resignFirstResponder];
+                [_passwordField resignFirstResponder];
+                
+            
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+//    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+//    manager.requestSerializer.timeoutInterval = 7.f;
+//    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
+//
+//    NSDictionary* dic = @{@"user_id":_userNameField.textField.text,
+//                          @"password":_passwordField.textField.text
+//                          };
+//    NSString *domainStr = @"https://zsqy.illidan.cn/login";
+//    [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+//        //添加波纹
+//        waterView = [[MLMWaveWaterView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 60)/2, SCREEN_H/12+200, 60,60)];
+//        waterView.progress = uploadProgress.fractionCompleted;
+//        NSLog(@"%f",uploadProgress.fractionCompleted);
+//
+//        if ([NSThread isMainThread])
+//        {
+//            [self.view addSubview:waterView];
+//            [waterView  setNeedsDisplay];
+//        }
+//        else
+//        {
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                //Update UI in UI thread here
+//
+//                [self.view addSubview:waterView];
+//                [waterView  setNeedsDisplay];
+//
+//            });
+//        }
+//
+//        CGRect rect = waterView.frame;
+//        CGRect frame = waterView.bounds;
+//        frame.size.height = frame.size.width * 9 /10;
+//        waterView.changeFrame = frame;
+//        waterView.borderPath = [UIView heartPathRect:rect lineWidth:0];
+//        waterView.border_fillColor = [UIColor colorWithRed:92.0/255 green:137.0/255 blue:68.0/255 alpha:1.0];
+//         //添加定时器
+//        Loginbtn = button;
+//        // 创建定时器
+//        NSTimer *timerr = [NSTimer timerWithTimeInterval:8.0 target:self selector:@selector(timeOver) userInfo:nil repeats:NO];
+//
+//        // 将定时器添加到runloop中，否则定时器不会启动
+//        [[NSRunLoop mainRunLoop] addTimer:timerr forMode:NSRunLoopCommonModes];
+//        timer = timerr;
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"dic： %@",dic);
+//        if([[dic objectForKey:@"status"]integerValue]==1){
+////            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
+//            [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text token:[dic objectForKey:@"data"]];
+//            [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
+//
+//            [button succeedAnimationWithCompletion:^{
+//                    [self didPresentControllerButtonTouch];
+//            }];
+//            //添加定时器
+//            [timer invalidate];
+//           //关闭波纹
+//            if ([NSThread isMainThread])
+//            {
+//                [waterView removeFromSuperview];
+//                [waterView  setNeedsDisplay];
+//            }
+//            else
+//            {
+//                dispatch_sync(dispatch_get_main_queue(), ^{
+//                    //Update UI in UI thread here
+//
+//                    [waterView removeFromSuperview];
+//                    [waterView  setNeedsDisplay];
+//
+//                });
+//            }
+//        }
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error：%@",error);
+//        [button failedAnimationWithCompletion:^{
+//
+//                [self didPresentControllerButtonTouch];
+//        }];
+//
+//        [timer invalidate];
+//        if ([NSThread isMainThread])
+//        {
+//            [waterView removeFromSuperview];
+//            [waterView  setNeedsDisplay];
+//        }
+//        else
+//        {
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                //Update UI in UI thread here
+//
+//                [waterView removeFromSuperview];
+//                [waterView  setNeedsDisplay];
+//
+//            });
+//        }
+//        if (error.code==-1001) {
+//            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"服务器连接超时，提示：在访问高峰期会导致此情况" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//
+//        }else{
+//            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//
+//    }];
+//            }
+    NSString *Lt=[[NSString alloc]init];
+    NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
+    NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+    TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
+    NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
+    for (TFHppleElement *hppleElement in dataArray){
+        if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
+            NSLog(@"%@",[hppleElement objectForKey:@"value"]);
+            Lt=[[NSString alloc]init];
+            Lt=[hppleElement objectForKey:@"value"];
+            NSLog(@"Lt:%@",Lt);
+        }
+    }
+    NSDictionary* dic = @{@"username":@"2013412546",
+                          @"password":@"221716",
+                          @"lt":Lt,
+                          @"execution":@"e1s1",
+                          @"_eventId":@"submit",
+                          @"submit":@"%%E7%%99%%BB%%E5%%BD%%95"
+                          };
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 4.f;
+    manager.requestSerializer.timeoutInterval = 7.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
-
-    NSDictionary* dic = @{@"user_id":_userNameField.textField.text,
-                          @"password":_passwordField.textField.text
-                          };
-    NSString *domainStr = @"https://zsqy.illidan.cn/login";
-    [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        //添加波纹
-        waterView = [[MLMWaveWaterView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 60)/2, SCREEN_H/12+200, 60,60)];
-        waterView.progress = uploadProgress.fractionCompleted;
-        NSLog(@"%f",uploadProgress.fractionCompleted);
-        
-        if ([NSThread isMainThread])
-        {
-            [self.view addSubview:waterView];
-            [waterView  setNeedsDisplay];
-        }
-        else
-        {
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                //Update UI in UI thread here
-             
-                [self.view addSubview:waterView];
-                [waterView  setNeedsDisplay];
-                
-            });
-        }
-        
-        CGRect rect = waterView.frame;
-        CGRect frame = waterView.bounds;
-        frame.size.height = frame.size.width * 9 /10;
-        waterView.changeFrame = frame;
-        waterView.borderPath = [UIView heartPathRect:rect lineWidth:0];
-        waterView.border_fillColor = [UIColor colorWithRed:92.0/255 green:137.0/255 blue:68.0/255 alpha:1.0];
-         //添加定时器
-        Loginbtn = button;
-        // 创建定时器
-        NSTimer *timerr = [NSTimer timerWithTimeInterval:8.0 target:self selector:@selector(timeOver) userInfo:nil repeats:NO];
-        
-        // 将定时器添加到runloop中，否则定时器不会启动
-        [[NSRunLoop mainRunLoop] addTimer:timerr forMode:NSRunLoopCommonModes];
-        timer = timerr;
+    [manager POST:urlstring parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"dic： %@",dic);
-        if([[dic objectForKey:@"status"]integerValue]==1){
-//            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
-            [[QFInfo sharedInstance]save:_userNameField.textField.text password:_passwordField.textField.text token:[dic objectForKey:@"data"]];
-            [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
+        NSHTTPURLResponse * responses = (NSHTTPURLResponse *)task.response;
+        NSLog(@"str:%@",responses.URL);
+        TFHpple *xpathParser=[[TFHpple alloc]initWithHTMLData:responseObject];
+        NSString *isLogin=[NSString stringWithFormat:@"%@",responses.URL];
+        if ([isLogin isEqualToString:@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp"]) {
+            NSLog(@"登陆失败");
+            [button failedAnimationWithCompletion:^{
+                
+                [self didPresentControllerButtonTouch];
+            }];
+            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
+            NSLog(@"登陆成功");
+            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
+
             
             [button succeedAnimationWithCompletion:^{
-                    [self didPresentControllerButtonTouch];
+                [self didPresentControllerButtonTouch];
             }];
-            //添加定时器
-            [timer invalidate];
-           //关闭波纹
-            if ([NSThread isMainThread])
-            {
-                [waterView removeFromSuperview];
-                [waterView  setNeedsDisplay];
+           
             }
-            else
-            {
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    //Update UI in UI thread here
-                    
-                    [waterView removeFromSuperview];
-                    [waterView  setNeedsDisplay];
-                    
-                });
-            }
+        
+        
+        NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//title"];
+        for (TFHppleElement *hppleElement in dataArray){
+            
+            NSLog(@"title:%@",hppleElement.text);
+            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error：%@",error);
         [button failedAnimationWithCompletion:^{
             
-                [self didPresentControllerButtonTouch];
+            [self didPresentControllerButtonTouch];
         }];
-        
-        [timer invalidate];
-        if ([NSThread isMainThread])
-        {
-            [waterView removeFromSuperview];
-            [waterView  setNeedsDisplay];
+        if (error.code==-1001) {
+            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"校园服务器连接超时，提示：在访问高峰期会导致此情况" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }else{
+            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
         }
-        else
-        {
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                //Update UI in UI thread here
-                
-                [waterView removeFromSuperview];
-                [waterView  setNeedsDisplay];
-                
-            });
-        }
-        UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-
     }];
             }
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        if (_switchButton.on) {
-//            //网络正常 或者是密码账号正确跳转动画,目前用switch来模拟
-//                    if (weak.switchButton.on) {
-//    [weak didPresentControllerButtonTouch];
-//                    }
-//        } else {
-//            //网络错误 或者是密码不正确还原动画
-//                        if (weak.switchButton.on) {
-//            [weak didPresentControllerButtonTouch];
-//                        }
-//        }
-//    });
 }
+
+
 -(void)timeOver{
     [timer invalidate];
     if ([NSThread isMainThread])

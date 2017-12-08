@@ -9,6 +9,8 @@
 #import "QFInfo.h"
 #import "TFHpple.h"
 #import "AFNetworking.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+NHAdd.h"
 #import "BaseRequest.h"
 @implementation QFInfo
 @synthesize Username;
@@ -66,35 +68,91 @@
 }
 -(void)loginqfnu:(NSString *)username password:(NSString *)password{
     NSLog(@"登录的账号是：%@",username);
-    NSString *Lt=[[NSString alloc]init];
-    NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
-    NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
-    TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
-    NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
-    for (TFHppleElement *hppleElement in dataArray){
-        if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
-            NSLog(@"%@",[hppleElement objectForKey:@"value"]);
-            Lt=[[NSString alloc]init];
-            Lt=[hppleElement objectForKey:@"value"];
-        }
-        
-    }
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    NSHTTPCookie *cookie = [[cookieJar cookiesForURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/login"]]firstObject];
-    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@=%@", [cookie name], [cookie value]] forHTTPHeaderField:@"Cookie"];
-    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-    NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
-    [BaseRequest postLoginWithURL:domainStr lt:Lt user:username password:password callBack:^(NSData *data, NSError *error) {
-        [self SaveCookie];
-        NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"true:%@",str);
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
-        
-    }];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 7.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
+    
+        NSDictionary* dic = @{@"user_id":username,
+                              @"password":password
+                              };
+        NSString *domainStr = @"https://zsqy.illidan.cn/login";
+        [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"接口数据： %@",dic);
+            if([[dic objectForKey:@"status"]integerValue]==1){
+ 
+                [[QFInfo sharedInstance]save:username password:password token:[dic objectForKey:@"data"]];
+                [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
+    
+
+
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"error：%@",error);
+    UIWindow *keywind=[[UIApplication sharedApplication]keyWindow];
+
+            if (error.code==-1001) {
+                [MBProgressHUD showError:@"接口服务器连接超时，有些功能可能无法正常使用" toView:keywind.rootViewController.view];
+
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
+
+    
+            }else{
+                [MBProgressHUD showError:@"接口服务器连接失败，有些功能可能无法正常使用" toView:keywind.rootViewController.view];
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
+
+            }
+    
+        }];
+//    NSString *Lt=[[NSString alloc]init];
+//    NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
+//    NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+//    NSString *htmlstr=[[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
+//    TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
+//    NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
+//    for (TFHppleElement *hppleElement in dataArray){
+//        if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
+//            NSLog(@"%@",[hppleElement objectForKey:@"value"]);
+//            Lt=[[NSString alloc]init];
+//            Lt=[hppleElement objectForKey:@"value"];
+//        }
+//
+//    }
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+//    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    NSHTTPCookie *cookie = [[cookieJar cookiesForURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/login"]]firstObject];
+//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@=%@", [cookie name], [cookie value]] forHTTPHeaderField:@"Cookie"];
+//    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+//    NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
+//    [BaseRequest postLoginWithURL:domainStr lt:Lt user:username password:password callBack:^(NSData *data, NSError *error) {
+//        [self SaveCookie];
+//        NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"true:%@",str);
+//        TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
+//        NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
+//        for (TFHppleElement *HppleElement in dataArray) {
+//
+//            NSLog(@"测试1的目的标签内容:-- %@",HppleElement.text);
+//            if([HppleElement.text isEqualToString:@"统一身份认证平台"]){
+//                NSLog(@"统一身份认证平台");
+//            }
+//            if([HppleElement.text isEqualToString:@"欢迎访问信息门户"]){
+//                 NSLog(@"欢迎访问信息门户");
+//            }
+//        }
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
+//
+//    }];
 }
 //获取课程
 -(NSDictionary *)getCourse{
