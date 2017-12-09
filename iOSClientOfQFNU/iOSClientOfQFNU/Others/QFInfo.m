@@ -88,8 +88,8 @@
             NSLog(@"接口数据： %@",dic);
             if([[dic objectForKey:@"status"]integerValue]==1){
  
-                [[QFInfo sharedInstance]save:username password:password token:[dic objectForKey:@"data"]];
-                [QFInfo sharedInstance].token=[dic objectForKey:@"data"];
+                [[QFInfo sharedInstance]save:username password:password token:[[dic objectForKey:@"data"]objectForKey:@"token"]];
+                [QFInfo sharedInstance].token=[[dic objectForKey:@"data"] objectForKey:@"token"];
     
 
 

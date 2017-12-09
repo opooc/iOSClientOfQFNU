@@ -347,12 +347,13 @@ BOOL getRuntimeClassIsIpad()
         }
         if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
             NSLog(@"登陆成功");
-            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
-
-            
             [button succeedAnimationWithCompletion:^{
                 [self didPresentControllerButtonTouch];
             }];
+            [[QFInfo sharedInstance]loginqfnu:_userNameField.textField.text password:_passwordField.textField.text];
+
+            
+
            
             }
         

@@ -497,10 +497,10 @@
 }
 - (void)ClassFind:(UINavigationController *)nav{  //课表界面
     NSDictionary*   allcourse =[[QFInfo sharedInstance]getCourse];
-    
-    if(allcourse==nil){
+    UIWindow *keywind=[[UIApplication sharedApplication]keyWindow];
+    if(!allcourse==nil){
         
-        // [MBProgressHUD showLoadToView:nav.view title:@"正在请求课表"];
+         [MBProgressHUD showLoadToView:keywind.rootViewController.view title:@"正在请求课表"];
         
         /** 请求课表*/
         [self GET:@"https://zsqy.illidan.cn/urp/curriculum" parameters:nil success:^(id responseObject) {
@@ -525,9 +525,15 @@
                 //                NSString* stttt = [dicc objectForKey:@"name"];
                 //                NSLog(@"%@",stttt);
                 NSLog(@"%@",dicCourse);
-                [MBProgressHUD showError:@"课程表即将完成，再次点击进入预览版哦" toView:nav.view];
+                
+//                [MBProgressHUD showError:@"课程表即将完成，再次点击进入预览版哦" toView:nav.view];
+//                [MBProgressHUD hideHUD];
                 [[QFInfo sharedInstance]savaCourse:dicCourse];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                NSDictionary*   allcourse1 =[[QFInfo sharedInstance]getCourse];
+                [self setWatchOS:allcourse1];
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
+                QFNUCourseController *course=[[QFNUCourseController alloc]init];
+                [nav pushViewController:course animated:YES];
                 
             }else if([msg isEqualToString:@"无权访问"]){
                 [MBProgressHUD showError:@"登录过期,请重新登录" toView:nav.view];
@@ -549,31 +555,19 @@
         [nav pushViewController:course animated:YES];
         // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
     }
-    [self setWatchOS:allcourse];
+    
 } //课程表
 - (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
-{
-    [self GET:URLString parameters:parameters timeout:6.f success:^(id responseObject) {
-        if (success) {
-            success(responseObject);
-        }
-    } failure:^(NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
-}
-- (void)GET:(NSString *)URLString parameters:(id)parameters timeout:(double)time success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     NSLog(@"请求地址:%@",URLString);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     ((AFJSONResponseSerializer *)manager.responseSerializer).removesKeysWithNullValues = YES;
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = time;
+    manager.requestSerializer.timeoutInterval = 6.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    NSDictionary* tokenAll = [[QFInfo sharedInstance]getToken];
-    NSString* token = [tokenAll objectForKey:@"token"];
+    NSString* token = [[QFInfo sharedInstance]getToken];
+    
     
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     [manager GET:URLString parameters:parameters progress:nil
@@ -587,6 +581,7 @@
                  failure(error);
              }
          }];
+    
 }
 
 
