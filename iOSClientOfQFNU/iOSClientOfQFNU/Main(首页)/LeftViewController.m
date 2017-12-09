@@ -537,21 +537,24 @@
                 
             }else if([msg isEqualToString:@"无权访问"]){
                 [MBProgressHUD showError:@"登录过期,请重新登录" toView:nav.view];
-                // [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             else{
                 [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:nav.view];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         } failure:^(NSError *error) {
+            NSString *errstr =[[NSString alloc]initWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",errstr);
             // [MBProgressHUD hideHUDForView:self.view animated:YES];
             [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:nav.view];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         }];
     }else{
         QFNUCourseController *course=[[QFNUCourseController alloc]init];
-        
+        [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         [nav pushViewController:course animated:YES];
         // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
     }
@@ -567,7 +570,11 @@
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     NSString* token = [[QFInfo sharedInstance]getToken];
-    
+    NSLog(@"%@",token);
+//    if(token==nil){
+//        [QFInfo sharedInstance]getUser
+//        [QFInfo sharedInstance]save:[QFInfo sharedInstance]ge password:<#(NSString *)#> token:<#(NSString *)#>
+//    }
     
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     [manager GET:URLString parameters:parameters progress:nil
