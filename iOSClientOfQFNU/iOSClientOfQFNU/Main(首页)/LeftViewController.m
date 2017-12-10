@@ -64,7 +64,7 @@
     [self createname];
     [self change];
     
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"登陆重试",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"反馈查看",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"服务器接口重连",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"反馈查看",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -545,7 +545,7 @@
                  [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             else{
-                [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:nav.view];
+                [MBProgressHUD showError:@"网络超时，平时课表查询失败,可点击左侧服务器接口重连尝试" toView:nav.view];
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
             [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
@@ -554,7 +554,7 @@
             
             NSLog(@"%@",errstr);
             // [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:nav.view];
+            [MBProgressHUD showError:@"网络超时，平时课表查询失败,可点击左侧服务器接口重连尝试" toView:nav.view];
             [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         }];
     }else{

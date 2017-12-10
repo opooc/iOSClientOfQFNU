@@ -899,7 +899,7 @@ int selects[770];
                 [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             else{
-                [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:self.view];
+                [MBProgressHUD showError:@"网络超时，平时课表查询失败,可点击左侧服务器接口重连尝试" toView:self.view];
                 [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -908,7 +908,7 @@ int selects[770];
             
             NSLog(@"%@",errstr);
             // [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:self.view];
+            [MBProgressHUD showError:@"网络超时，平时课表查询失败,可点击左侧服务器接口重连尝试" toView:self.view];
             [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         }];
         
