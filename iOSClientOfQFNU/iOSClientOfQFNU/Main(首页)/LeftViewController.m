@@ -347,16 +347,18 @@
     
 }
 -(void)logout{
+   
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
     for (id obj in _tmpArray) {
         [cookieJar deleteCookie:obj];
     }
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *dic = [userDefaults dictionaryRepresentation];  
-        for (id  key in dic) {
-            [userDefaults removeObjectForKey:key];
-        }
+   
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dic = [userDefaults dictionaryRepresentation];
+    for (id  key in dic) {
+        [userDefaults removeObjectForKey:key];
+    }
     [userDefaults synchronize];
     [[NSUserDefaults standardUserDefaults] synchronize];
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;

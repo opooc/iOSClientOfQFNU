@@ -315,8 +315,8 @@ BOOL getRuntimeClassIsIpad()
             NSLog(@"Lt:%@",Lt);
         }
     }
-    NSDictionary* dic = @{@"username":@"2013412546",
-                          @"password":@"221716",
+    NSDictionary* dic = @{@"username":_userNameField.textField.text,
+                          @"password":_passwordField.textField.text,
                           @"lt":Lt,
                           @"execution":@"e1s1",
                           @"_eventId":@"submit",

@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Login(&#x767b;&#x5f55;)/Controller/QFNULoginController.m"
-            timestampString = "534573346.292963"
+            timestampString = "534582758.7949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -148,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Login(&#x767b;&#x5f55;)/Controller/QFNULoginController.m"
-            timestampString = "534573346.293096"
+            timestampString = "534582758.795302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "368"
@@ -160,31 +160,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__43-[QFNULoginController FirstViewController:]_block_invoke.272"
+                  symbolName = "__43-[QFNULoginController FirstViewController:]_block_invoke.268"
                   moduleName = "iOSClientOfQFNU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/iOSClientOfQFNU/iOSClientOfQFNU/iOSClientOfQFNU/Login(%E7%99%BB%E5%BD%95)/Controller/QFNULoginController.m"
-                  timestampString = "534573382.006759"
+                  timestampString = "534582758.949004"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "368"
                   endingLineNumber = "368"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "111">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__43-[QFNULoginController FirstViewController:]_block_invoke_2.273"
+                  symbolName = "__43-[QFNULoginController FirstViewController:]_block_invoke_2.269"
                   moduleName = "iOSClientOfQFNU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/iOSClientOfQFNU/iOSClientOfQFNU/iOSClientOfQFNU/Login(%E7%99%BB%E5%BD%95)/Controller/QFNULoginController.m"
-                  timestampString = "534573382.008307"
+                  timestampString = "534582758.953805"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "368"
                   endingLineNumber = "368"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.293277"
+            timestampString = "534582758.795549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
             landmarkName = "-ClassFind:"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.293884"
+            timestampString = "534582758.795667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
             landmarkName = "-ClassFind:"
             landmarkType = "7">
          </BreakpointContent>
@@ -228,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.294317"
+            timestampString = "534582758.795758"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
             landmarkName = "-ClassFind:"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,28 +244,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.294735"
+            timestampString = "534582758.795867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "520"
+            endingLineNumber = "520"
             landmarkName = "-ClassFind:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSClientOfQFNU/Others/QFInfo.m"
-            timestampString = "534573346.295136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-loginqfnu:password:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -276,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.295246"
+            timestampString = "534582758.795939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "554"
-            endingLineNumber = "554"
-            landmarkName = "-ClassFind:"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
+            landmarkName = "-GET:parameters:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -292,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Login(&#x767b;&#x5f55;)/Controller/QFNULoginController.m"
-            timestampString = "534573346.295602"
+            timestampString = "534582758.796019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "419"
@@ -308,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Course(&#x8bfe;&#x7a0b;&#x8868;)/Controller/QFNUCourseController.m"
-            timestampString = "534573346.295715"
+            timestampString = "534582758.796276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1008"
@@ -324,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.29582"
+            timestampString = "534582758.796346"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-logout"
             landmarkType = "7">
          </BreakpointContent>
@@ -340,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.296158"
+            timestampString = "534582758.796409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "-logout"
             landmarkType = "7">
          </BreakpointContent>
@@ -356,7 +340,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Course(&#x8bfe;&#x7a0b;&#x8868;)/Controller/QFNUCourseController.m"
-            timestampString = "534573346.296502"
+            timestampString = "534582758.796468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "910"
@@ -372,12 +356,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
-            timestampString = "534573346.296606"
+            timestampString = "534582758.796515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
             landmarkName = "-ClassFind:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSClientOfQFNU/Main(&#x9996;&#x9875;)/LeftViewController.m"
+            timestampString = "534582758.796615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "-logout"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
