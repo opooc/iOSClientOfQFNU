@@ -228,6 +228,7 @@
 		EB10480D1F59823E0001A5A8 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10480C1F59823E0001A5A8 /* UIColor+FlatColors.m */; };
 		EB1048151F5AFDD40001A5A8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1048111F5AFDD40001A5A8 /* MBProgressHUD.m */; };
 		EB1048161F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1048131F5AFDD40001A5A8 /* MBProgressHUD+NHAdd.m */; };
+		EB1160BA1FDD3E990040B3BF /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B7EDB71F99C8740059C422 /* NSData+CRC32.m */; };
 		EB3F4AA31F530A6F0052134E /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB3F4AA21F530A6F0052134E /* logo.jpg */; };
 		EB6031CE1F54487500C26A9A /* rebotController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB6031CD1F54487500C26A9A /* rebotController.m */; };
 		EB62D2501FCD7A9100E63F74 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB62D2241FCD7A9100E63F74 /* MJRefreshAutoFooter.m */; };
@@ -2659,6 +2660,7 @@
 				CB57140B1EEBCAE5004EA94A /* NSObject+MJKeyValue.m in Sources */,
 				CB57140A1EEBCAE5004EA94A /* NSObject+MJCoding.m in Sources */,
 				EB62D2541FCD7A9100E63F74 /* MJRefreshHeader.m in Sources */,
+				EB1160BA1FDD3E990040B3BF /* NSData+CRC32.m in Sources */,
 				CB5714071EEBCAE5004EA94A /* MJPropertyKey.m in Sources */,
 				CB1060EF1EE909630099E371 /* QFNULookController.m in Sources */,
 				CB1060F71EE909630099E371 /* LGPlusButtonsView.m in Sources */,

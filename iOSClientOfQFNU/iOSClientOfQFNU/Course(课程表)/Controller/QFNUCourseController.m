@@ -1007,6 +1007,7 @@ int selects[770];
         NSData *sendData = [[course.courseName substringToIndex:range.location] dataUsingEncoding:NSUTF8StringEncoding];
         int checksum =abs([sendData crc32])%256;
         
+        
         if (selectss+1>lightColorArr.count) {//超过配色数量，随机颜色
             return nil;
         }
