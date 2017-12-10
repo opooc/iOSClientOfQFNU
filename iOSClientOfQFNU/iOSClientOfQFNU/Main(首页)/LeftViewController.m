@@ -352,9 +352,12 @@
     for (id obj in _tmpArray) {
         [cookieJar deleteCookie:obj];
     }
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *dic = [userDefaults dictionaryRepresentation];  
+        for (id  key in dic) {
+            [userDefaults removeObjectForKey:key];
+        }
+    [userDefaults synchronize];
     [[NSUserDefaults standardUserDefaults] synchronize];
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
     UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
@@ -498,7 +501,7 @@
 - (void)ClassFind:(UINavigationController *)nav{  //课表界面
     NSDictionary*   allcourse =[[QFInfo sharedInstance]getCourse];
     UIWindow *keywind=[[UIApplication sharedApplication]keyWindow];
-    if(!allcourse==nil){
+    if(allcourse==nil){
         
          [MBProgressHUD showLoadToView:keywind.rootViewController.view title:@"正在请求课表"];
         

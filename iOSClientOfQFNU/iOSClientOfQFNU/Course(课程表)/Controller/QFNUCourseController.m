@@ -872,7 +872,8 @@ int selects[770];
 }
 
 - (void)refreshAction{  //课表界面
-    [MBProgressHUD showLoadToView:self.view title:@"正在刷新ing"];
+    UIWindow *keywind=[[UIApplication sharedApplication]keyWindow];
+    [MBProgressHUD showLoadToView:keywind.rootViewController.view title:@"正在刷新ing"];
     if([[QFInfo sharedInstance]getCourse]!=nil){
         /** 请求课表*/
         [self GET:@"https://zsqy.illidan.cn/urp/curriculum" parameters:nil success:^(id responseObject) {
@@ -886,32 +887,36 @@ int selects[770];
                 
                 [[QFInfo sharedInstance]savaCourse:dicCourse];
                 [self.courseListView reloadData];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
                 [MBProgressHUD showError:@"刷新成功!" toView:self.view];
                 
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
                 
                 
                 
             }else if([msg isEqualToString:@"无权访问"]){
                 [MBProgressHUD showError:@"登录过期,请重新登录" toView:self.view];
-                // [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             else{
                 [MBProgressHUD showError:@"网络超时，平时课表查询失败2132" toView:self.view];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         } failure:^(NSError *error) {
+            NSString *errstr =[[NSString alloc]initWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"%@",errstr);
             // [MBProgressHUD hideHUDForView:self.view animated:YES];
             [MBProgressHUD showError:@"网络超时，平时课表查询失败" toView:self.view];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         }];
         
         
     }else{
         UIAlertView* alt = [[UIAlertView alloc]initWithTitle:@"提醒" message:@"课表无课" delegate:self cancelButtonTitle:@"关闭" otherButtonTitles: nil];
         [alt show];
-        
+        [MBProgressHUD hideHUDForView:keywind.rootViewController.view animated:YES];
         // NSLog(@"%@",[[QFInfo sharedInstance]getCourse]);
     }
 } //课程表
@@ -936,8 +941,8 @@ int selects[770];
     manager.requestSerializer.timeoutInterval = time;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    NSDictionary* tokenAll = [[QFInfo sharedInstance]getToken];
-    NSString* token = [tokenAll objectForKey:@"token"];
+    
+    NSString* token = [[QFInfo sharedInstance]getToken];
     
     
     

@@ -3134,6 +3134,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PAHUVER4VC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				IBSC_MODULE = watchOSClientOfQFNU_Extension;
 				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
@@ -3164,6 +3165,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PAHUVER4VC;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				IBSC_MODULE = watchOSClientOfQFNU_Extension;
 				INFOPLIST_FILE = watchOSClientOfQFNU/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.iOSClientOfQFNU.watchkitapp;
