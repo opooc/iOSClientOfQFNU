@@ -227,7 +227,7 @@ BOOL getRuntimeClassIsIpad()
                 
                 [self didPresentControllerButtonTouch];
             }];
-            [self didPresentControllerButtonTouch];
+            
             UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
