@@ -16,6 +16,8 @@
 #import "QFInfo.h"
 #import "YJJTextField.h"
 #import "CFWebViewController.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+NHAdd.h"
 #import "YGGravityImageView.h"
 #import "AppDelegate.h"
 #import "LeftViewController.h"
@@ -34,6 +36,7 @@
 @property (strong,nonatomic)YJJTextField *userNameField;
 @property (strong,nonatomic)YJJTextField *passwordField;
 @property (strong,nonatomic)YJJTextField *captchaField;
+@property (strong,nonatomic)UIImageView *imageview;
 #define kSCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 #define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kSCREEN_SIZE [UIScreen mainScreen].bounds.size
@@ -138,7 +141,7 @@ BOOL getRuntimeClassIsIpad()
     _captchaField = [YJJTextField yjj_textField];
     _captchaField.textField.returnKeyType=UIReturnKeyDone;
     _captchaField.frame = CGRectMake(0, kSCREENH_HEIGHT - (125 + SCREEN_H/12), self.view.frame.size.width/2, 80);
-    _captchaField.maxLength = 10;
+    _captchaField.maxLength = 4;
     _captchaField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _captchaField.errorStr = @"验证码长度不超过4位";
     _captchaField.placeholder = @"请输入验证码";
@@ -186,10 +189,20 @@ BOOL getRuntimeClassIsIpad()
                             if (weak.switchButton.on) {
                 [weak didPresentControllerButtonTouch];
                             }
-            
+    if([self checkcaptcha]){
+         if ([self isBlankString:_captchaField.textField.text]) {
+            [MBProgressHUD showError:@"请输入验证码" toView:self.view];                    [button failedAnimationWithCompletion:^{
+                        
+                        [weak didPresentControllerButtonTouch];
+                        
+                    }];
+                    return;
+    }
+                
+            }
     if ([self isBlankString:_userNameField.textField.text]) {
-        UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名不能为空!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+
+        [MBProgressHUD showError:@"用户名不能为空" toView:self.view];
         [button failedAnimationWithCompletion:^{
             
             [weak didPresentControllerButtonTouch];
@@ -198,8 +211,7 @@ BOOL getRuntimeClassIsIpad()
         return;
     }
     if ([self isBlankString:_passwordField.textField.text]) {
-        UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"密码不能为空!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        [MBProgressHUD showError:@"密码不能为空" toView:self.view];
         [button failedAnimationWithCompletion:^{
             
             [weak didPresentControllerButtonTouch];
@@ -442,28 +454,37 @@ BOOL getRuntimeClassIsIpad()
 }
 - ( void )textFieldDidEndEditing:( UITextField *)textField{
     if(textField.tag==1){
-        NSString *urlstring=[NSString stringWithFormat:@"http://ids.qfnu.edu.cn/authserver/needCaptcha.html?username=%@",textField.text];
-        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
-        iscaptcha=[[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding];
-    
-        NSLog(@"%@",iscaptcha);
-        CGFloat offset=_captchaField.frame.size.height;
-        // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
-        if([iscaptcha isEqualToString:@"true\n"]){
-            //将视图上移计算好的增加了验证码的偏移
-            if(offset > 0) {
-                [UIView animateWithDuration:0.3 animations:^{
-                    self.userNameField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (205+ SCREEN_H/12)-offset, self.userNameField.frame.size.width, self.userNameField.frame.size.height);
-                    self.passwordField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (125+ SCREEN_H/12)-offset, self.passwordField.frame.size.width, self.passwordField.frame.size.height);
-//                    显示验证码
-                    _captchaField.hidden=NO;
-                }];
-                
-            }
-        }
+        [self checkcaptcha];
 
         
     }
+}
+-(BOOL)checkcaptcha{
+    if (!iscaptcha) {
+        NSString *urlstring=[NSString stringWithFormat:@"http://ids.qfnu.edu.cn/authserver/needCaptcha.html?username=%@",_userNameField.textField.text];
+        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+        iscaptcha=[[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding];
+        
+    }
+
+    NSLog(@"是否需要验证码:%@",iscaptcha);
+    CGFloat offset=_captchaField.frame.size.height;
+    // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
+    if([iscaptcha isEqualToString:@"true\n"]){
+        //将视图上移计算好的增加了验证码的偏移
+        if(offset > 0) {
+            [UIView animateWithDuration:0.3 animations:^{
+                self.userNameField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (205+ SCREEN_H/12)-offset, self.userNameField.frame.size.width, self.userNameField.frame.size.height);
+                self.passwordField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (125+ SCREEN_H/12)-offset, self.passwordField.frame.size.width, self.passwordField.frame.size.height);
+                //                    显示验证码
+                _captchaField.hidden=NO;
+                _imageview.hidden=NO;
+            }];
+            
+        }
+    return YES;
+    }
+    return NO;
 }
 /*
 #pragma mark - Navigation
