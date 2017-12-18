@@ -28,10 +28,12 @@
     MLMWaveWaterView* waterView;
     NSTimer *timer;
     HyLoginButton* Loginbtn;//达威定时器
+    NSString *iscaptcha;
 }
 @property (strong,nonatomic)UISwitch *switchButton;
 @property (strong,nonatomic)YJJTextField *userNameField;
 @property (strong,nonatomic)YJJTextField *passwordField;
+@property (strong,nonatomic)YJJTextField *captchaField;
 #define kSCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
 #define kSCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define kSCREEN_SIZE [UIScreen mainScreen].bounds.size
@@ -107,19 +109,20 @@ BOOL getRuntimeClassIsIpad()
 //    _password.borderStyle=UITextBorderStyleLine;
 //    [self.view addSubview:_password];
      _userNameField = [YJJTextField yjj_textField];
-    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (200 + SCREEN_H/12), self.view.frame.size.width, 80);
+    _userNameField.frame = CGRectMake(0, kSCREENH_HEIGHT - (205 + SCREEN_H/12), self.view.frame.size.width, 80);
     _userNameField.maxLength = 10;
     _userNameField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _userNameField.errorStr = @"学籍号长度不超过10位";
     _userNameField.placeholder = @"请输入用户名";
     _userNameField.historyContentKey = @"userName";
-        _userNameField.textField.delegate=self;
-        _userNameField.textField.returnKeyType=UIReturnKeyNext;
+    _userNameField.textField.delegate=self;
+    _userNameField.textField.returnKeyType=UIReturnKeyNext;
     _userNameField.textField.tag=1;
-     _userNameField.textField.keyboardType = UIKeyboardTypeNumberPad;
+    _userNameField.textField.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:_userNameField];
+    
     _passwordField = [YJJTextField yjj_textField];
-    _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (120+ SCREEN_H/12), self.view.frame.size.width, 80);
+    _passwordField.frame = CGRectMake(0, kSCREENH_HEIGHT - (125+ SCREEN_H/12), self.view.frame.size.width, 80);
     _passwordField.maxLength = 16;
     _passwordField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
     _passwordField.errorStr = @"密码长度不得超过16位，默认为身份证后六位";
@@ -130,8 +133,29 @@ BOOL getRuntimeClassIsIpad()
     _passwordField.showHistoryList = NO;
     _passwordField.textField.tag=2;
     _passwordField.textField.delegate=self;
-    _userNameField.textField.returnKeyType=UIReturnKeyDone;
-    [self.view addSubview:_passwordField];
+        [self.view addSubview:_passwordField];
+
+    _captchaField = [YJJTextField yjj_textField];
+    _captchaField.textField.returnKeyType=UIReturnKeyDone;
+    _captchaField.frame = CGRectMake(0, kSCREENH_HEIGHT - (125 + SCREEN_H/12), self.view.frame.size.width/2, 80);
+    _captchaField.maxLength = 10;
+    _captchaField.backgroundColor=[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.4];
+    _captchaField.errorStr = @"验证码长度不超过4位";
+    _captchaField.placeholder = @"请输入验证码";
+    _captchaField.historyContentKey = @"userName";
+    _captchaField.textField.delegate=self;
+    _captchaField.textField.tag=3;
+    [self.view addSubview:_captchaField];
+    _captchaField.hidden=YES;
+    UIImageView *imageview=[[UIImageView alloc]init];
+    imageview.frame=CGRectMake(self.view.frame.size.width/2+10, kSCREENH_HEIGHT - (125 + SCREEN_H/12)+10, self.view.frame.size.width/2-20, 60);
+    [self.view addSubview:imageview];
+    //首先得拿到照片的路径，也就是下边的string参数，转换为NSData型。
+    NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/captcha.html"]];
+    //然后就是添加照片语句，记得使用imageWithData:方法，不是imageWithName:。
+    UIImage* resultImage = [UIImage imageWithData: imageData];
+    imageview.image=resultImage;
+
 }
 - (void)createButton{
     loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + SCREEN_H/12), kSCREEN_WIDTH - 40, 40)];
@@ -223,6 +247,11 @@ BOOL getRuntimeClassIsIpad()
         NSString *isLogin=[NSString stringWithFormat:@"%@",responses.URL];
         if ([isLogin isEqualToString:@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp"]) {
             NSLog(@"登陆失败");
+//            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//            NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+//            for (id obj in _tmpArray) {
+//                [cookieJar deleteCookie:obj];
+//            }
             [button failedAnimationWithCompletion:^{
                 
                 [self didPresentControllerButtonTouch];
@@ -230,6 +259,7 @@ BOOL getRuntimeClassIsIpad()
             
             UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
+
         }
         if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
             NSLog(@"登陆成功");
@@ -252,6 +282,11 @@ BOOL getRuntimeClassIsIpad()
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+                    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+                    for (id obj in _tmpArray) {
+                        [cookieJar deleteCookie:obj];
+                    }
         [button failedAnimationWithCompletion:^{
             
             [self didPresentControllerButtonTouch];
@@ -341,8 +376,7 @@ BOOL getRuntimeClassIsIpad()
     CGFloat kbHeight = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     
     //计算出键盘顶端到inputTextView panel底端的距离(加上自定义的缓冲距离INTERVAL_KEYBOARD)
-    CGFloat offset = (_passwordField.frame.origin.y+_passwordField.frame.size.height+loginButton.frame.size.height+10) - (self.view.frame.size.height - kbHeight);
-    
+    CGFloat offset = (kSCREENH_HEIGHT - (125+ SCREEN_H/12)+_passwordField.frame.size.height+loginButton.frame.size.height+10) - (self.view.frame.size.height - kbHeight);
     // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
     double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
@@ -406,7 +440,31 @@ BOOL getRuntimeClassIsIpad()
     }
     return YES;
 }
+- ( void )textFieldDidEndEditing:( UITextField *)textField{
+    if(textField.tag==1){
+        NSString *urlstring=[NSString stringWithFormat:@"http://ids.qfnu.edu.cn/authserver/needCaptcha.html?username=%@",textField.text];
+        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+        iscaptcha=[[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding];
+    
+        NSLog(@"%@",iscaptcha);
+        CGFloat offset=_captchaField.frame.size.height;
+        // 取得键盘的动画时间，这样可以在视图上移的时候更连贯
+        if([iscaptcha isEqualToString:@"true\n"]){
+            //将视图上移计算好的增加了验证码的偏移
+            if(offset > 0) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.userNameField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (205+ SCREEN_H/12)-offset, self.userNameField.frame.size.width, self.userNameField.frame.size.height);
+                    self.passwordField.frame = CGRectMake(0.0f, kSCREENH_HEIGHT - (125+ SCREEN_H/12)-offset, self.passwordField.frame.size.width, self.passwordField.frame.size.height);
+//                    显示验证码
+                    _captchaField.hidden=NO;
+                }];
+                
+            }
+        }
 
+        
+    }
+}
 /*
 #pragma mark - Navigation
 
