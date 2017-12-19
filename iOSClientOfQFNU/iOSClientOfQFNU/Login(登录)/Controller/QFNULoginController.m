@@ -93,12 +93,12 @@ BOOL getRuntimeClassIsIpad()
    
         
     } else {
-        YGGravityImageView *imageView = [[YGGravityImageView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, kSCREENH_HEIGHT)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH, kSCREENH_HEIGHT)];
         imageView.image = [UIImage imageNamed:@"login_bg6.png"];
         
         [self.view addSubview:imageView];
         [self.view sendSubviewToBack:imageView];
-        [imageView startAnimate];
+//        [imageView startAnimate];
         NSLog(@"iphone++++++++++");
     }
 
@@ -150,7 +150,9 @@ BOOL getRuntimeClassIsIpad()
     _captchaField.textField.tag=3;
     [self.view addSubview:_captchaField];
     _captchaField.hidden=YES;
-     _imageview=[[UIImageView alloc]init];
+  
+    _imageview=[[UIImageView alloc]init];
+    _imageview.userInteractionEnabled=YES;
     _imageview.frame=CGRectMake(self.view.frame.size.width/2+10, kSCREENH_HEIGHT - (125 + SCREEN_H/12)+10, self.view.frame.size.width/2-20, 60);
     [self.view addSubview:_imageview];
     //首先得拿到照片的路径，也就是下边的string参数，转换为NSData型。
@@ -159,7 +161,18 @@ BOOL getRuntimeClassIsIpad()
     UIImage* resultImage = [UIImage imageWithData: imageData];
     _imageview.image=resultImage;
     _imageview.hidden=YES;
+    //加入了点击验证码修改验证码的功能给你
+    UIGestureRecognizer *touchimage=[[UIGestureRecognizer alloc]initWithTarget:self action:@selector(touchImage:)];
+    [_imageview addGestureRecognizer:touchimage];
     
+
+}
+//想上线,这个点击验证码修改验证码的功能没用
+-(void)touchImage:(UIGestureRecognizer *)gest{
+    NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/captcha.html"]];
+    
+    UIImage* resultImage = [UIImage imageWithData: imageData];
+    _imageview.image=resultImage;
 
 }
 - (void)createButton{
@@ -179,7 +192,6 @@ BOOL getRuntimeClassIsIpad()
 //    [self.view addSubview:lb];
 }
 - (void)FirstViewController:(HyLoginButton *)button {
-    
     typeof(self) __weak weak = self;
             if (_switchButton.on) {
                 //网络正常 或者是密码账号正确跳转动画,目前用switch来模拟
@@ -283,6 +295,14 @@ BOOL getRuntimeClassIsIpad()
             for (id obj in _tmpArray) {
                 [cookieJar deleteCookie:obj];
             }
+            
+            //刷新验证码
+
+                NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/captcha.html"]];
+                UIImage* resultImage = [UIImage imageWithData: imageData];
+                _imageview.image=resultImage;
+
+
             [button failedAnimationWithCompletion:^{
                 
                 [self didPresentControllerButtonTouch];
@@ -313,11 +333,18 @@ BOOL getRuntimeClassIsIpad()
             
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //清cookie
                     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
                     NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
                     for (id obj in _tmpArray) {
                         [cookieJar deleteCookie:obj];
                     }
+        //刷新验证码
+        
+            NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/captcha.html"]];
+            UIImage* resultImage = [UIImage imageWithData: imageData];
+            _imageview.image=resultImage;
+        
         [button failedAnimationWithCompletion:^{
             
             [self didPresentControllerButtonTouch];
