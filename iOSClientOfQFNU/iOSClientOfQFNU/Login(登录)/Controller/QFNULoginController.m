@@ -150,14 +150,16 @@ BOOL getRuntimeClassIsIpad()
     _captchaField.textField.tag=3;
     [self.view addSubview:_captchaField];
     _captchaField.hidden=YES;
-    UIImageView *imageview=[[UIImageView alloc]init];
-    imageview.frame=CGRectMake(self.view.frame.size.width/2+10, kSCREENH_HEIGHT - (125 + SCREEN_H/12)+10, self.view.frame.size.width/2-20, 60);
-    [self.view addSubview:imageview];
+     _imageview=[[UIImageView alloc]init];
+    _imageview.frame=CGRectMake(self.view.frame.size.width/2+10, kSCREENH_HEIGHT - (125 + SCREEN_H/12)+10, self.view.frame.size.width/2-20, 60);
+    [self.view addSubview:_imageview];
     //首先得拿到照片的路径，也就是下边的string参数，转换为NSData型。
     NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/captcha.html"]];
     //然后就是添加照片语句，记得使用imageWithData:方法，不是imageWithName:。
     UIImage* resultImage = [UIImage imageWithData: imageData];
-    imageview.image=resultImage;
+    _imageview.image=resultImage;
+    _imageview.hidden=YES;
+    
 
 }
 - (void)createButton{
@@ -185,13 +187,17 @@ BOOL getRuntimeClassIsIpad()
         [weak didPresentControllerButtonTouch];
                         }
             } else {
-                //网络错误 或者是密码不正确还原动画
                             if (weak.switchButton.on) {
                 [weak didPresentControllerButtonTouch];
                             }
+                
+                BOOL *ischeck=FALSE;
+                NSDictionary* dic=[[NSDictionary alloc]init];
     if([self checkcaptcha]){
+        ischeck=TRUE;
          if ([self isBlankString:_captchaField.textField.text]) {
-            [MBProgressHUD showError:@"请输入验证码" toView:self.view];                    [button failedAnimationWithCompletion:^{
+            [MBProgressHUD showError:@"请输入验证码" toView:self.view];
+             [button failedAnimationWithCompletion:^{
                         
                         [weak didPresentControllerButtonTouch];
                         
@@ -236,13 +242,25 @@ BOOL getRuntimeClassIsIpad()
             NSLog(@"Lt:%@",Lt);
         }
     }
-    NSDictionary* dic = @{@"username":_userNameField.textField.text,
-                          @"password":_passwordField.textField.text,
-                          @"lt":Lt,
-                          @"execution":@"e1s1",
-                          @"_eventId":@"submit",
-                          @"submit":@"%%E7%%99%%BB%%E5%%BD%%95"
-                          };
+                if (ischeck) {
+                    dic = @{@"username":_userNameField.textField.text,
+                            @"password":_passwordField.textField.text,
+                            @"lt":Lt,
+                            @"captchaResponse":_captchaField.textField.text,
+                            @"execution":@"e1s1",
+                            @"_eventId":@"submit",
+                            @"submit":@"%%E7%%99%%BB%%E5%%BD%%95"
+                            };
+                }else{
+                    dic = @{@"username":_userNameField.textField.text,
+                            @"password":_passwordField.textField.text,
+                            @"lt":Lt,
+                            @"execution":@"e1s1",
+                            @"_eventId":@"submit",
+                            @"submit":@"%%E7%%99%%BB%%E5%%BD%%95"
+                            };
+                }
+   
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];//请求
@@ -259,18 +277,19 @@ BOOL getRuntimeClassIsIpad()
         NSString *isLogin=[NSString stringWithFormat:@"%@",responses.URL];
         if ([isLogin isEqualToString:@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp"]) {
             NSLog(@"登陆失败");
-//            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//            NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
-//            for (id obj in _tmpArray) {
-//                [cookieJar deleteCookie:obj];
-//            }
+            //一开始让我清cookie我是拒绝的，但是学校登陆系统里面的Lt，在登陆失败的时候，网页里获取的Lt会更新，但是我查了下，会更新的居然只有我这边！学校那边没更新！只能清cookie让学校认为我是新人了。
+            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+            for (id obj in _tmpArray) {
+                [cookieJar deleteCookie:obj];
+            }
             [button failedAnimationWithCompletion:^{
                 
                 [self didPresentControllerButtonTouch];
             }];
-            
-            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+                    [MBProgressHUD showError:@"1.用户名或密码错误,2.服务器连接失败" toView:self.view];
+//            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
 
         }
         if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
@@ -304,12 +323,14 @@ BOOL getRuntimeClassIsIpad()
             [self didPresentControllerButtonTouch];
         }];
         if (error.code==-1001) {
-            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"校园服务器连接超时，提示：在访问高峰期会导致此情况" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+                                [MBProgressHUD showError:@"校园服务器连接超时，提示：在访问高峰期会导致此情况" toView:self.view];
+//            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"校园服务器连接超时，提示：在访问高峰期会导致此情况" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
             
         }else{
-            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+            [MBProgressHUD showError:@"服务器连接失败" toView:self.view];
+//            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
         }
     }];
             }
@@ -341,8 +362,9 @@ BOOL getRuntimeClassIsIpad()
         
         [self didPresentControllerButtonTouch];
     }];
-    UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络连接超时，请重试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alert show];
+                        [MBProgressHUD showError:@"1.用户名或密码错误,2.服务器连接失败" toView:self.view];
+//    UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络连接超时，请重试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
 
 
 }
@@ -460,12 +482,12 @@ BOOL getRuntimeClassIsIpad()
     }
 }
 -(BOOL)checkcaptcha{
-    if (!iscaptcha) {
+
         NSString *urlstring=[NSString stringWithFormat:@"http://ids.qfnu.edu.cn/authserver/needCaptcha.html?username=%@",_userNameField.textField.text];
         NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
         iscaptcha=[[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding];
         
-    }
+    
 
     NSLog(@"是否需要验证码:%@",iscaptcha);
     CGFloat offset=_captchaField.frame.size.height;
