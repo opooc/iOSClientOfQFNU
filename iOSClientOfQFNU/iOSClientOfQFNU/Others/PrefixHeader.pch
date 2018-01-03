@@ -16,3 +16,51 @@
 #define isnull(key,dict) dict[key] == nil || [dict[key] isKindOfClass:[NSNull class]]  || [dict[key] isEqual:[NSNull null]] ? @"" : [NSString stringWithFormat:@"%@",dict[key]]
 //打印运行的方法
 #define NSLogFunc() NSLog(@"%s",__func__)
+//<><><>自定义高效率的 NSLog<><><><><>
+
+#ifdef DEBUG
+#define kLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define kLog(...)
+
+#endif
+
+//<><><>设置加载提示框（第三方框架：MBProgressHUD）<><><><><>
+
+// 加载
+#define kShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
+// 收起加载
+#define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+// 设置加载
+#define NetworkActivityIndicatorVisible(x)  [UIApplication sharedApplication].networkActivityIndicatorVisible = x
+//window对象
+#define kWindow [UIApplication sharedApplication].keyWindow
+
+#define kBackView         for (UIView *item in kWindow.subviews) { \
+if(item.tag == 10000) \
+{ \
+[item removeFromSuperview]; \
+UIView * aView = [[UIView alloc] init]; \
+aView.frame = [UIScreen mainScreen].bounds; \
+aView.tag = 10000; \
+aView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:1]; \
+[kWindow addSubview:aView]; \
+} \
+} \
+//MB，在window层显示
+#define kShowHUDAndActivity kBackView;[MBProgressHUD showHUDAddedTo:kWindow animated:YES];kShowNetworkActivityIndicator()
+#define kHiddenHUD [MBProgressHUD hideAllHUDsForView:kWindow animated:YES]
+
+#define kRemoveBackView         for (UIView *item in kWindow.subviews) { \
+if(item.tag == 10000) \
+{ \
+[UIView animateWithDuration:0.4 animations:^{ \
+item.alpha = 0.0; \
+} completion:^(BOOL finished) { \
+[item removeFromSuperview]; \
+}]; \
+} \
+} \
+//<><><><><><><><><><>显示加载菊花
+//我自己写的，显示的位置
+#define kShowHUD(view) [MBProgressHUD showHUDAddedTo:view animated:YES]
