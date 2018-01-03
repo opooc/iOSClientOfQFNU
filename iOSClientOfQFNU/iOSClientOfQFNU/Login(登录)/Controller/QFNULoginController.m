@@ -177,7 +177,7 @@ BOOL getRuntimeClassIsIpad()
 }
 - (void)createButton{
     loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + SCREEN_H/12), kSCREEN_WIDTH - 40, 40)];
-    [loginButton setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
+    [loginButton setBackgroundColor:[UIColor colorWithRed:0.3 green:200.f/255.0f blue:128.0f/255.0f alpha:0.6]];
     [loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(FirstViewController:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
@@ -314,6 +314,7 @@ BOOL getRuntimeClassIsIpad()
         }
         if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
             NSLog(@"登陆成功");
+            [[QFInfo sharedInstance] SaveCookie];
             [button succeedAnimationWithCompletion:^{
                 [self didPresentControllerButtonTouch];
             }];
