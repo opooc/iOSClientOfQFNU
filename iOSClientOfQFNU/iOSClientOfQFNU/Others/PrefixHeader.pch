@@ -12,3 +12,7 @@
 #define GRAY_COLOR [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]
 //自定义颜色
 #define RGB(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+//去null
+#define isnull(key,dict) dict[key] == nil || [dict[key] isKindOfClass:[NSNull class]]  || [dict[key] isEqual:[NSNull null]] ? @"" : [NSString stringWithFormat:@"%@",dict[key]]
+//打印运行的方法
+#define NSLogFunc() NSLog(@"%s",__func__)
