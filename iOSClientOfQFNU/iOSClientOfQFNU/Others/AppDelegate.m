@@ -33,7 +33,7 @@
   //  NSString* imaScUrlStr = [[NSBundle mainBundle]pathForResource:@"Screen" ofType:@"png"];
    // UIImage* imaSc = [UIImage imageNamed:@"Screen.png"];
     [[QFInfo sharedInstance]setCoookie];
-    if (![[[QFInfo sharedInstance] getUser]isEqualToString:@""]) {
+    if (![[[QFInfo sharedInstance] getCooke]isEqualToString:@""]) {
         
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];

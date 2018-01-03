@@ -49,6 +49,15 @@
     }
     return us;
 }
+//调用cookie，没有就是空
+-(NSString *)getCooke{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *us=@"";
+    if([ud objectForKey:@"cookie"]){
+        us=[ud objectForKey:@"cookie"];
+    }
+    return us;
+}
 //调用密码，没有就是空
 -(NSString *)getPassword{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
