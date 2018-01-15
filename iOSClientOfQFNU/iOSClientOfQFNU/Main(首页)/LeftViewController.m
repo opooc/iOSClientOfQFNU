@@ -354,7 +354,9 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     for (id  key in dic) {
-        [userDefaults removeObjectForKey:key];
+        if (![key isEqualToString:@"kLastVersionKey"]) {
+            [userDefaults removeObjectForKey:key];
+        }
     }
     [userDefaults synchronize];
     [[NSUserDefaults standardUserDefaults] synchronize];

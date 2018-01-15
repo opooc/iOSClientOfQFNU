@@ -52,11 +52,11 @@
 //调用cookie，没有就是空
 -(NSString *)getCooke{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *us=@"";
+    NSString *iscooke=@"";
     if([ud objectForKey:@"cookie"]){
-        us=[ud objectForKey:@"cookie"];
+        iscooke=@"true";
     }
-    return us;
+    return iscooke;
 }
 //调用密码，没有就是空
 -(NSString *)getPassword{

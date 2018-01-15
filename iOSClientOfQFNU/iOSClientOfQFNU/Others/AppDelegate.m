@@ -23,22 +23,36 @@
 //#import "CoreLaunchCool.h"
 
 @interface AppDelegate ()
-
+{
+    BOOL *isnotice;
+}
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *notstr=[[NSString alloc]init];
         NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"https://zsqy.illidan.cn/notice"]];
+    if(htmlData){
     NSDictionary * htmlnot = [NSJSONSerialization JSONObjectWithData:htmlData options:0 error:nil];
     NSArray *NotArray=htmlnot[@"data"];
     for(NSDictionary *a in NotArray){
         if ([a[@"title"] isEqualToString:@"notswitch"]) {
+            if ([a[@"content"]isEqualToString:@"1"]) {
+             isnotice=YES;
+            }
             
         }
+        if ([a[@"title"] isEqualToString:@"not1"]) {
+            notstr=a[@"content"];
+        }
     }
-//      [self ShowNotice:@""];
+        if (isnotice) {
+      [self ShowNotice:notstr];
+        }
+      
+    }
             [self shareAppVersionAlert];
   
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
@@ -194,7 +208,7 @@
 }
 //判断是否需要提示更新App
 - (void)shareAppVersionAlert {
-    if([self judgeNeedVersionUpdate])  return ;
+    if(![self judgeNeedVersionUpdate])  return ;
     //App内info.plist文件里面版本号
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appVersion = infoDict[@"CFBundleShortVersionString"];
@@ -267,8 +281,7 @@
 }
 
 -(void)ShowNotice:(NSString *)content{
-    UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"标题" message:@"这个是UIAlertView的默认样式" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"好的", nil];
-    
+    UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"公告" message:content delegate:self cancelButtonTitle:nil otherButtonTitles:@"好的", nil];
     [alertview show];
 }
 
