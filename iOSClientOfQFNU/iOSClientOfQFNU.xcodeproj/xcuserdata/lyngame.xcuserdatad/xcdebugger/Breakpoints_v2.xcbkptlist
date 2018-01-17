@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Others/QFInfo.m"
-            timestampString = "536663719.91972"
+            timestampString = "537869437.198554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-getPassword"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-getCooke"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Others/QFInfo.m"
-            timestampString = "536663719.919933"
+            timestampString = "537869437.19872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-getToken"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-getPassword"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -84,60 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSClientOfQFNU/Course(&#x8bfe;&#x7a0b;&#x8868;)/Controller/QFNUCourseController.m"
-            timestampString = "533725855.926358"
+            timestampString = "537868445.420449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "261"
             endingLineNumber = "261"
             landmarkName = "-addCourse"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSClientOfQFNU/Others/AppDelegate.m"
-            timestampString = "536664803.934141"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSClientOfQFNU/Others/QFInfo.m"
-            timestampString = "536663719.920212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "-setCoookie"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSClientOfQFNU/Others/AppDelegate.m"
-            timestampString = "536664803.934735"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

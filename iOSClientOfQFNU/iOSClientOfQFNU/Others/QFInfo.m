@@ -13,6 +13,8 @@
 #import "MBProgressHUD+NHAdd.h"
 #import "BaseRequest.h"
 @implementation QFInfo
+
+
 @synthesize Username;
 @synthesize password;
 @synthesize token;
@@ -120,49 +122,110 @@
             }
     
         }];
-//    NSString *Lt=[[NSString alloc]init];
-//    NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
-//    NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
-//    NSString *htmlstr=[[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-//    TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
-//    NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
-//    for (TFHppleElement *hppleElement in dataArray){
-//        if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
-//            NSLog(@"%@",[hppleElement objectForKey:@"value"]);
-//            Lt=[[NSString alloc]init];
-//            Lt=[hppleElement objectForKey:@"value"];
-//        }
-//
-//    }
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
-//    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//    NSHTTPCookie *cookie = [[cookieJar cookiesForURL:[NSURL URLWithString:@"http://ids.qfnu.edu.cn/authserver/login"]]firstObject];
-//    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@=%@", [cookie name], [cookie value]] forHTTPHeaderField:@"Cookie"];
-//    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-//    NSString *domainStr = @"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2Fmy.qfnu.edu.cn%2Flogin.portal";
-//    [BaseRequest postLoginWithURL:domainStr lt:Lt user:username password:password callBack:^(NSData *data, NSError *error) {
-//        [self SaveCookie];
-//        NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"true:%@",str);
-//        TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
-//        NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
-//        for (TFHppleElement *HppleElement in dataArray) {
-//
-//            NSLog(@"测试1的目的标签内容:-- %@",HppleElement.text);
-//            if([HppleElement.text isEqualToString:@"统一身份认证平台"]){
-//                NSLog(@"统一身份认证平台");
-//            }
-//            if([HppleElement.text isEqualToString:@"欢迎访问信息门户"]){
-//                 NSLog(@"欢迎访问信息门户");
-//            }
-//        }
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"link_success" object:nil];
-//
-//    }];
 }
+
+-(void)ReLogin:(NSInteger)retry{
+
+    if (retry<6) {
+        
+    
+    [MBProgressHUD showLoadToView:kWindow title:[NSString stringWithFormat:@"检测到缓存已失效，正在重新登陆   重试次数%d/5",retry]];
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    for (id obj in _tmpArray) {
+        [cookieJar deleteCookie:obj];
+    }
+        NSDictionary* dic=[[NSDictionary alloc]init];
+        NSString *Lt=[[NSString alloc]init];
+        NSString *urlstring=@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp";
+        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlstring]];
+        TFHpple *xpathParser=[[TFHpple alloc]initWithXMLData:htmlData];
+        NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//input"];
+        for (TFHppleElement *hppleElement in dataArray){
+            if ([[hppleElement objectForKey:@"name"] isEqualToString:@"lt"]) {
+                NSLog(@"%@",[hppleElement objectForKey:@"value"]);
+                Lt=[[NSString alloc]init];
+                Lt=[hppleElement objectForKey:@"value"];
+                NSLog(@"Lt:%@",Lt);
+            }
+        }
+
+            dic = @{@"username":[[QFInfo sharedInstance]getUser],
+                    @"password":[[QFInfo sharedInstance]getPassword],
+                    @"lt":Lt,
+                    @"execution":@"e1s1",
+                    @"_eventId":@"submit",
+                    @"submit":@"%%E7%%99%%BB%%E5%%BD%%95"
+                    };
+    
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];//请求
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 7.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        [manager POST:urlstring parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+//            NSDictionary *dict =[[NSDictionary alloc] initWithObjectsAndKeys:@"小明",@"name",@"111401",@"number", nil];
+            
+            // 2.创建通知
+            
+            NSNotification *notification =[NSNotification notificationWithName:@"relogin" object:@"true"];
+            // 3.通过 通知中心 发送 通知
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            
+        
+            kHiddenHUD;
+            NSHTTPURLResponse * responses = (NSHTTPURLResponse *)task.response;
+            NSLog(@"str:%@",responses.URL);
+            TFHpple *xpathParser=[[TFHpple alloc]initWithHTMLData:responseObject];
+            NSString *isLogin=[NSString stringWithFormat:@"%@",responses.URL];
+            if ([isLogin isEqualToString:@"http://ids.qfnu.edu.cn/authserver/login?service=http%3A%2F%2F202.194.188.19%2Fcaslogin.jsp"]) {
+                NSLog(@"登陆失败");
+                //一开始让我清cookie我是拒绝的，但是学校登陆系统里面的Lt，在登陆失败的时候，网页里获取的Lt会更新，但是我查了下，会更新的居然只有我这边！学校那边没更新！只能清cookie让学校认为我是新人了。
+                NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+                NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+                for (id obj in _tmpArray) {
+                    [cookieJar deleteCookie:obj];
+                }
+                [MBProgressHUD showError:@"1.用户名或密码错误,2.服务器连接失败" toView:kWindow];
+                //            UIAlertView * alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"1.用户名或密码错误,2.服务器连接失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                //            [alert show];
+                
+            }
+            if([isLogin isEqualToString:@"http://202.194.188.19/caslogin.jsp"]){
+                NSLog(@"登陆成功");
+                [[QFInfo sharedInstance] SaveCookie];
+           
+            }
+      
+            NSArray *dataArray=[xpathParser searchWithXPathQuery:@"//title"];
+            for (TFHppleElement *hppleElement in dataArray){
+                NSLog(@"title:%@",hppleElement.text);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            kHiddenHUD;
+            //清cookie
+            NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+            for (id obj in _tmpArray) {
+                [cookieJar deleteCookie:obj];
+            }
+            if (error.code==-1001) {
+                [MBProgressHUD showError:@"校园服务器连接超时，提示：在访问高峰期会导致此情况" toView:kWindow];
+                
+            }else{
+                [MBProgressHUD showError:@"服务器连接失败" toView:kWindow];
+            }
+        }];
+    }else{
+                        [MBProgressHUD showError:@"校园服务器登陆超时，提示：在访问高峰期会导致此情况，请重新登陆" toView:kWindow];
+    }
+    
+    }
+
 //获取课程
 -(NSDictionary *)getCourse{
     NSUserDefaults *gcou = [NSUserDefaults standardUserDefaults];

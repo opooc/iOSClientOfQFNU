@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface QFInfo : NSObject
+
 @property (nonatomic, copy) NSString *Username;  //用户名
 @property (nonatomic, copy) NSString *password;  //密码
 @property (nonatomic, copy) NSString *token;  //每次登陆获取的秘钥
+
 @property (nonatomic, strong) NSString *Lt;
+
 + (QFInfo *)sharedInstance;//单例方法
 -(void)save:(NSString *)user password:(NSString *)passWord token:(NSString *)Token;
 -(NSString *)getCooke;
@@ -28,6 +31,7 @@
 -(NSString *)getclassUser;
 -(void)classUser:(NSString *)classUser;
 #pragma mark cookie
+-(void)ReLogin:(NSInteger)retry;
 -(void)SaveCookie;
 - (void)setCoookie;
 @end

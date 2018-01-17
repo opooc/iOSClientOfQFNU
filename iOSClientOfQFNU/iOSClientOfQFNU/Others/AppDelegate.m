@@ -60,7 +60,6 @@
    // UIImage* imaSc = [UIImage imageNamed:@"Screen.png"];
     [[QFInfo sharedInstance]setCoookie];
     if (![[[QFInfo sharedInstance] getCooke]isEqualToString:@""]) {
-        
             _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //        QFNULoginController *loginview=[[QFNULoginController alloc]init];
 //        CFWebViewController *webview=[[CFWebViewController alloc]initWithUrl:[NSURL URLWithString:@"http://www.opooc.com/"]];

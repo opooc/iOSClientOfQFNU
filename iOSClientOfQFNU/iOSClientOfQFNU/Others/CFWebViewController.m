@@ -308,8 +308,16 @@
     [self updateNavigationItems];
     return YES;
 }
-
+- (void)InfoNotificationAction:(NSNotification *)notification{
+    
+                [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
+    
+}
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(InfoNotificationAction:) name:@"relogin" object:nil];
+    //重试次数
+    static ReCount=0;
+
 //    [webView stringByEvaluatingJavaScriptFromString:@"document.cookie='down_close=down_close'"];
 //    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('close_down').style.display='none';"];
     if ([webView.request.URL.absoluteString isEqualToString:@"http://m.5read.com/4581"]||[webView.request.URL.absoluteString isEqualToString:@"http://m.5read.com/157"]) {
@@ -322,6 +330,18 @@
         theTitle = [[theTitle substringToIndex:9] stringByAppendingString:@"…"];
     }
     self.title = theTitle;
+    if ([theTitle isEqualToString:@"统一身份认证平台"]) {
+        ReCount+=1;
+        [[QFInfo sharedInstance]ReLogin:ReCount];
+//        [QFInfo ReLogin:^(BOOL *IsLoginSucces) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//            });
+        };
+
+         
+        
+    
     if (_isMain) {
         UIImage *menu=[UIImage imageNamed:@"menu"];
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:menu

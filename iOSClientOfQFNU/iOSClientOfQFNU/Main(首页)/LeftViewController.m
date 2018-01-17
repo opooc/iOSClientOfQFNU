@@ -354,6 +354,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *dic = [userDefaults dictionaryRepresentation];
     for (id  key in dic) {
+
         if (![key isEqualToString:@"kLastVersionKey"]) {
             [userDefaults removeObjectForKey:key];
         }
