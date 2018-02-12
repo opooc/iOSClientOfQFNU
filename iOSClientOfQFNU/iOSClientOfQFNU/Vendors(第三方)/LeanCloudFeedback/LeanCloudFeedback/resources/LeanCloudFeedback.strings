@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  LeanCloudFeedback
+
+  Created by lzw on 15/11/6.
+  Copyright © 2015年 LeanCloud. All rights reserved.
+*/
+
+
+"Detail"="详情";
+"Email Or QQ"="Email 或 QQ 号";
+"Please write your feedback"="请填写反馈";
+"Send"="发送";
+"User Feedback"="意见反馈";

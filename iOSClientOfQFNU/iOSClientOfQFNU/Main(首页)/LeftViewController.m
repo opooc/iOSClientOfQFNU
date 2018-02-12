@@ -25,8 +25,8 @@
 #import "QFNUBackController.h"
 #import "AttendanController.h"
 #import "CheckbackController.h"
-
-
+#import "LeanCloudFeedback.h"
+#import "MBProgressHUD+NHAdd.h"
 #import <WatchConnectivity/WatchConnectivity.h>
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,WCSessionDelegate>
 @property (weak, nonatomic) IBOutlet UIView *meView;
@@ -63,8 +63,19 @@
     //名字
     [self createname];
     [self change];
-    
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"反馈查看",nil],nil];
+    [[LCUserFeedbackAgent sharedInstance] countUnreadFeedbackThreadsWithBlock:^(NSInteger number, NSError *error) {
+        if (!error) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+//                [MBProgressHUD showError:@"您有未读的用户反馈哦" toView:kWindow.rootViewController.view];
+                UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您有未读的用户反馈哦，请点击左侧菜单的软件反馈查看。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"好的", nil];
+                [alertview show];
+            });
+        } else {
+            
+        }
+    }];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"用户反馈",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -335,11 +346,14 @@
 
 -(void)back{
     LGSideMainViewController *mainViewController = (LGSideMainViewController *)self.sideMenuController;
-    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
-    QFNUBackController *back=[[QFNUBackController alloc]init];
-    
-    [navigationController pushViewController:back animated:YES];
-    
+//    UINavigationController *navigationController = (UINavigationController *)mainViewController.rootViewController;
+//    QFNUBackController *back=[[QFNUBackController alloc]init];
+//
+//    [navigationController pushViewController:back animated:YES];
+//
+    LCUserFeedbackAgent *agent = [LCUserFeedbackAgent sharedInstance];
+    //    [agent showConversations:self title:nil contact:@"goodman@leancloud.cn"];
+    [agent showConversations:kWindow.rootViewController title:nil contact:nil];
     [mainViewController hideLeftViewAnimated:YES completionHandler:nil];
     
 }

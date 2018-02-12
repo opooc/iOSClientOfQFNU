@@ -19,6 +19,7 @@
 #import "LeftViewController.h"
 #import "QFNULoginController.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "AVOSCloud.h"
 #define appleid @"1277107501"
 //#import "CoreLaunchCool.h"
 
@@ -32,27 +33,46 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString *notstr=[[NSString alloc]init];
-        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"https://zsqy.illidan.cn/notice"]];
-    if(htmlData){
-    NSDictionary * htmlnot = [NSJSONSerialization JSONObjectWithData:htmlData options:0 error:nil];
-    NSArray *NotArray=htmlnot[@"data"];
-    for(NSDictionary *a in NotArray){
-        if ([a[@"title"] isEqualToString:@"notswitch"]) {
-            if ([a[@"content"]isEqualToString:@"1"]) {
-             isnotice=YES;
-            }
+
+    [AVOSCloud setApplicationId:@"omd1ftqwhek2RvKXA0cSuzOL-gzGzoHsz" clientKey:@"4dGjoA81tGcs4J9s96efgW8d"];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [AVOSCloud setAllLogsEnabled:YES];
+    [AVAnalytics updateOnlineConfigWithBlock:^(NSDictionary *dict, NSError *error) {
+        if (error == nil) {
+
+            NSLog(@"dict:%@",dict);
+            NSString *notstr=[[NSString alloc]init];
+            NSDictionary *parameters=dict[@"parameters"];
+            notstr=[parameters objectForKey:@"not"];
+            if ([parameters[@"notswitch"] isEqualToString:@"1"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [self ShowNotice:notstr];
             
-        }
-        if ([a[@"title"] isEqualToString:@"not1"]) {
-            notstr=a[@"content"];
+            });
         }
     }
-        if (isnotice) {
-      [self ShowNotice:notstr];
-        }
-      
-    }
+    }];
+//        NSData *htmlData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"https://zsqy.illidan1.cn/notice"]];
+//    if(htmlData){
+//    NSDictionary * htmlnot = [NSJSONSerialization JSONObjectWithData:htmlData options:0 error:nil];
+//    NSArray *NotArray=htmlnot[@"data"];
+//    for(NSDictionary *a in NotArray){
+//        if ([a[@"title"] isEqualToString:@"notswitch"]) {
+//            if ([a[@"content"]isEqualToString:@"1"]) {
+//             isnotice=YES;
+//            }
+//
+//        }
+//        if ([a[@"title"] isEqualToString:@"not1"]) {
+//            notstr=a[@"content"];
+//        }
+//    }
+//        if (isnotice) {
+//      [self ShowNotice:notstr];
+//        }
+//
+//    }
             [self shareAppVersionAlert];
   
     NSLog(@"user:%@",[[QFInfo sharedInstance] getUser]);
