@@ -126,10 +126,10 @@
 
 -(void)ReLogin:(NSInteger)retry{
 
-    if (retry<6) {
+    if (retry<20) {
         
     
-    [MBProgressHUD showLoadToView:kWindow title:[NSString stringWithFormat:@"检测到缓存已失效，正在重新登陆   重试次数%d/5",retry]];
+    [MBProgressHUD showLoadToView:kWindow title:[NSString stringWithFormat:@"检测到缓存已失效，正在重新登陆   重试次数%d/20",retry]];
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
     for (id obj in _tmpArray) {
@@ -221,7 +221,7 @@
             }
         }];
     }else{
-                        [MBProgressHUD showError:@"校园服务器登陆超时，提示：在访问高峰期会导致此情况，请重新登陆" toView:kWindow];
+                        [MBProgressHUD showError:@"校园服务器登陆超时次数过多，为保证程序稳定，请重新打开软件。提示：在访问高峰期会导致此情况，" toView:kWindow];
     }
     
     }

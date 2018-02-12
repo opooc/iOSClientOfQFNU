@@ -65,17 +65,18 @@
     [self change];
     [[LCUserFeedbackAgent sharedInstance] countUnreadFeedbackThreadsWithBlock:^(NSInteger number, NSError *error) {
         if (!error) {
-            
+            if(number>0){
             dispatch_async(dispatch_get_main_queue(), ^{
 //                [MBProgressHUD showError:@"您有未读的用户反馈哦" toView:kWindow.rootViewController.view];
                 UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您有未读的用户反馈哦，请点击左侧菜单的软件反馈查看。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"好的", nil];
                 [alertview show];
             });
+            }
         } else {
             
         }
     }];
-    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",@"用户反馈",nil],nil];
+    _dataArray=[NSArray arrayWithObjects:[NSArray arrayWithObjects:@"每日一言",@"学籍信息",@"课程表",nil],[NSArray arrayWithObjects:@"图书馆",@"校园资讯",@"教务资讯",nil],[NSArray arrayWithObjects:@"工具箱",@"软件反馈",@"软件分享",@"关于我们",@"用户注销",nil],nil];
 }
 -(void)change{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mechange)];
@@ -298,8 +299,7 @@
                 case 4:
                     [self logout];
                     break;
-                case 5:
-                    [self checkback];
+
                 default:
                     break;
             }
