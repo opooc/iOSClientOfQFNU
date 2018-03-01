@@ -91,6 +91,7 @@
                               @"password":password
                               };
         NSString *domainStr = @"https://zsqy.illidan.cn/login";
+                [[QFInfo sharedInstance]save:username password:password token:@""];
         [manager POST:domainStr parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
 
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
